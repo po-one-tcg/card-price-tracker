@@ -231,29 +231,37 @@
   let sendAfter = true; // 取り込み後にすぐ更新を実行する
   let inboxCount = null; // 取り込み待ち（まだ収集に反映されていない送信）の数
 
-  const expoStore = () => (manual ? manual.stores.find((s) => s.id === 'expo') : null);
-  const activeSections = () => (expoStore() ? expoStore().sections.filter((s) => s.kind !== 'skip') : []);
+  // 手入力の店舗（買取EXPO・買取コレクトなど）。見出し（✅…）は店舗をまたいで一意なので、貼り付けた内容から店舗も自動で判別する
+  const manualStores = () => (manual ? manual.stores : []);
+  const storeOf = (id) => manualStores().find((s) => s.id === id);
+  const allSections = () => manualStores().flatMap((s) => s.sections.map((sec) => ({ ...sec, storeId: s.id, storeName: s.name })));
+  const activeSections = () => allSections().filter((s) => s.kind !== 'skip' && s.kind !== 'update'); // 入力状況・区分選択の対象
   const condName = (id) => (manual.conditions.find((c) => c.id === id) || { label: id }).label;
 
   // 貼り付けた内容を読み取り、「確定したらどうなるか」を今のデータと突き合わせて予測する（収集側と同じ判定）
   function buildPlan() {
-    const store = expoStore();
-    const sections = store.sections.map((s) => ({
+    const sections = allSections().map((s) => ({
       ...s,
       headings: [...(s.headings || []), ...Object.entries(headingMap).filter(([, id]) => id === s.id).map(([hd]) => hd)],
     }));
+    const updateStore = manualStores().find((s) => s.updatePosts) || manualStores()[0]; // 「価格を変更します」形式のお知らせの持ち主
     const parsed = EP.parse(expoText, sections);
     const index = new Map(manual.products.map((p) => [`${p.game}|${EP.canon(p.name)}`, p.id]));
     const threshold = manual.thresholdPct ?? 50;
     const anomalous = (a, b) => !(b > 0) || (Math.abs(b - a) / a) * 100 > threshold;
 
+    // 同じ貼り付けの中の「全商品リスト」は、価格変更より先に取り込まれる。価格変更の照合には、それも含めて見る
+    const pastedEntries = parsed.blocks
+      .filter((b) => b.kind === 'full' && b.section && !b.skipped && !b.unknown)
+      .flatMap((b) => b.items.map((it) => ({ store: b.section.storeId, cond: it.cond, name: it.name, price: it.price, state: it.closed ? 'none' : 'value' })));
+
     const blocks = parsed.blocks.map((b) => {
-      const out = { ...b, appear: [], disappear: [], anomaly: [], unmatched: [], matched: 0, created: 0, absent: [], prevCount: 0, tooFew: false, confirmedDrop: false };
+      const out = { ...b, storeId: b.section ? b.section.storeId : b.unknown ? null : updateStore.id, appear: [], disappear: [], anomaly: [], unmatched: [], matched: 0, created: 0, absent: [], prevCount: 0, tooFew: false, confirmedDrop: false };
       if (b.skipped || b.unknown) return out;
       if (b.kind === 'update') {
         for (const it of b.items) {
           const c = EP.canon(it.name);
-          const cands = manual.entries.filter((e) => e.store === 'expo' && EP.canon(e.name || '') === c && (!it.cond || e.cond === it.cond));
+          const cands = [...pastedEntries, ...manual.entries].filter((e) => e.store === out.storeId && EP.canon(e.name || '') === c && (!it.cond || e.cond === it.cond));
           const pick = cands.find((e) => e.cond === 'shrink') || cands.find((e) => e.cond === 'box') || cands[0];
           if (!pick) { out.unmatched.push(it.name); continue; }
           it.matchedCond = pick.cond;
@@ -264,7 +272,7 @@
         return out;
       }
       const sec = b.section;
-      const prev = manual.entries.filter((e) => e.store === 'expo' && e.src === sec.id);
+      const prev = manual.entries.filter((e) => e.store === sec.storeId && e.src === sec.id);
       const prevMap = new Map(prev.map((e) => [`${e.pid}|${e.cond}`, e]));
       const baseline = Boolean(sec.lastOkAt);
       const touched = new Set();
@@ -304,19 +312,22 @@
   const sendable = () => plan.blocks.filter((b) => b.kind === 'full' && !b.unknown && !b.skipped && b.items.length && !(b.tooFew && !b.confirmedDrop));
   const updatable = () => plan.blocks.filter((b) => b.kind === 'update' && b.items.length);
 
-  const submitExpo = () =>
+  const submitManual = () =>
     run('取り込みデータを送信しています', async () => {
-      const base = { store: 'expo', createdAt: jstStamp(), rawText: expoText };
       const subs = [];
-      const fulls = sendable();
-      const ups = updatable();
-      if (fulls.length) {
-        subs.push({ ...base, id: newId(), type: 'full',
-          blocks: fulls.map((b) => ({ sectionId: b.sectionId, ...(b.tooFew ? { confirmedDrop: true } : {}), items: b.items.map(({ name, cond, price, closed, game }) => ({ name, cond, price, closed, game })) })) });
+      // 店舗ごとに、全商品リスト(full) と 価格変更(update) を別々のファイルにする（fullを先に処理するため）
+      for (const sid of [...new Set([...sendable(), ...updatable()].map((b) => b.storeId))]) {
+        const base = { store: sid, createdAt: jstStamp(), rawText: expoText };
+        const fulls = sendable().filter((b) => b.storeId === sid);
+        const ups = updatable().filter((b) => b.storeId === sid);
+        if (fulls.length) {
+          subs.push({ ...base, id: newId(), type: 'full',
+            blocks: fulls.map((b) => ({ sectionId: b.sectionId, ...(b.tooFew ? { confirmedDrop: true } : {}), items: b.items.map(({ name, cond, price, closed, game }) => ({ name, cond, price, closed, game })) })) });
+        }
+        if (ups.length) subs.push({ ...base, id: newId(), type: 'update', blocks: ups.map((b) => ({ items: b.items.map(({ name, cond, price }) => ({ name, cond, price })) })) });
       }
-      if (ups.length) subs.push({ ...base, id: newId(), type: 'update', blocks: ups.map((b) => ({ items: b.items.map(({ name, cond, price }) => ({ name, cond, price })) })) });
       if (!subs.length) throw new Error('取り込める内容がありません');
-      for (const s of subs) await putNewFile(inboxPath(s.type), s, `管理画面: 買取EXPOの取り込みデータ (${s.type})`);
+      for (const s of subs) await putNewFile(inboxPath(s.type), s, `管理画面: ${storeOf(s.store).name}の取り込みデータ (${s.type})`);
       if (sendAfter) await gh(`/repos/${REPO}/actions/workflows/scrape.yml/dispatches`, { method: 'POST', body: { ref: BRANCH } });
       expoText = '';
       plan = null;
@@ -324,22 +335,27 @@
       say('ok', sendAfter ? '送信しました。更新を開始したので、1〜3分後に公開ページに反映されます。' : '送信しました。次の自動更新（13:00 / 15:00 / 18:00）で反映されます。');
     });
 
-  const pauseExpo = () => {
-    if (!window.confirm('買取EXPOを「本日休止」にします。\n全商品が「休止」表示になります（出現・消滅にはカウントされません）。よろしいですか？')) return;
+  const pauseStore = (sid) => {
+    const name = storeOf(sid).name;
+    if (!window.confirm(`${name}を「本日休止」にします。\n全商品が「休止」表示になります（出現・消滅にはカウントされません）。よろしいですか？`)) return;
     run('休止を送信しています', async () => {
-      await putNewFile(inboxPath('paused'), { id: newId(), store: 'expo', type: 'paused', createdAt: jstStamp() }, '管理画面: 買取EXPO 本日休止');
+      await putNewFile(inboxPath('paused'), { id: newId(), store: sid, type: 'paused', createdAt: jstStamp() }, `管理画面: ${name} 本日休止`);
       if (sendAfter) await gh(`/repos/${REPO}/actions/workflows/scrape.yml/dispatches`, { method: 'POST', body: { ref: BRANCH } });
       await refreshInbox();
       say('ok', '「本日休止」を送信しました。' + (sendAfter ? '1〜3分後に反映されます。' : '次の更新で反映されます。'));
     });
   };
 
-  function expoChecklist() {
-    const secs = activeSections();
-    return h('div', { class: 'chips-row' }, secs.map((s) => {
-      const ok = s.lastOkAt && s.fresh;
-      return h('span', { class: 'badge ' + (ok ? 'new' : 'warn'), title: s.lastOkAt ? `最終更新 ${md(s.lastOkAt)}` : 'まだ一度も入力されていません' }, (ok ? '✅ ' : '⚠ ') + s.label);
-    }));
+  // 店舗ごとに、各区分の入力状況（✅ = 最新 / ⚠ = 未入力・古い）を並べる
+  function inputChecklist() {
+    return manualStores().map((st) => {
+      const secs = activeSections().filter((s) => s.storeId === st.id);
+      return h('div', { class: 'store-row' }, h('span', { class: 'store-name' }, st.name),
+        h('div', { class: 'chips-row' }, secs.map((s) => {
+          const ok = s.lastOkAt && s.fresh;
+          return h('span', { class: 'badge ' + (ok ? 'new' : 'warn'), title: s.lastOkAt ? `最終更新 ${md(s.lastOkAt)}` : 'まだ一度も入力されていません' }, (ok ? '✅ ' : '⚠ ') + s.label);
+        })));
+    });
   }
 
   function eventList(label, cls, items, fmt) {
@@ -350,10 +366,10 @@
 
   function blockView(b, i) {
     const head = h('div', { class: 'item-title' }, '✅ ' + b.heading,
-      b.section ? h('span', { class: 'muted small' }, `　→ ${b.section.label}`) : null);
+      b.section ? h('span', { class: 'muted small' }, `　→ ${b.section.storeName} / ${b.section.label}`) : b.storeId ? h('span', { class: 'muted small' }, `　→ ${storeOf(b.storeId).name}`) : null);
     if (b.unknown) {
       const sel = h('select', { class: 'field short', 'aria-label': '取り込む区分', onchange: (e) => { if (e.target.value) { headingMap[b.heading] = e.target.value; plan = buildPlan(); render(); } } },
-        h('option', { value: '' }, '区分を選ぶ…'), activeSections().map((s) => h('option', { value: s.id }, s.label)));
+        h('option', { value: '' }, '区分を選ぶ…'), activeSections().map((s) => h('option', { value: s.id }, `${s.storeName} / ${s.label}`)));
       return h('div', { class: 'item' }, head, h('div', { class: 'badge warn' }, '見出しを認識できませんでした（この区分は送信されません）'), h('div', { class: 'row-gap' }, h('span', { class: 'small' }, '当てはまる区分:'), sel));
     }
     if (b.skipped) return h('div', { class: 'item' }, head, h('div', { class: 'muted small' }, 'この区分はBOXの価格ではない（レート表など）ため、取り込みません。'));
@@ -383,21 +399,20 @@
       h('h3', { class: 'sub' }, '読み取り結果（確認してから確定します）'),
       plan.blocks.length ? plan.blocks.map(blockView) : h('p', { class: 'empty' }, '「✅」で始まる見出し、または価格変更のお知らせが見つかりませんでした。'),
       h('div', { class: 'row-gap', style: 'margin-top:8px' },
-        h('button', { class: 'btn primary', type: 'button', disabled: busy || !(okFull || okUp), onclick: submitExpo }, `この内容で確定して取り込む（${okFull + okUp}件のポスト分）`),
+        h('button', { class: 'btn primary', type: 'button', disabled: busy || !(okFull || okUp), onclick: submitManual }, `この内容で確定して取り込む（${okFull + okUp}件のポスト分）`),
         h('label', { class: 'chk' }, h('input', { type: 'checkbox', checked: sendAfter ? true : null, onchange: (e) => { sendAfter = e.target.checked; } }), ' 取り込み後すぐ更新を実行する')));
   }
 
-  function expoCard() {
-    const store = expoStore();
-    if (!store) return h('section', { class: 'box' }, h('h2', { style: 'margin-top:0' }, '② 買取EXPOの入力'), h('p', { class: 'muted' }, '取り込みの設定を読み込めませんでした。'));
-    const ta = h('textarea', { class: 'field area', rows: '7', placeholder: 'ここに買取EXPOのXポストを貼り付け（1日ぶんの複数のポストをまとめて貼ってOK）', 'aria-label': '買取EXPOのポスト', spellcheck: 'false' });
+  function manualCard() {
+    if (!manualStores().length) return h('section', { class: 'box' }, h('h2', { style: 'margin-top:0' }, '② 手入力店舗の入力'), h('p', { class: 'muted' }, '取り込みの設定を読み込めませんでした。'));
+    const ta = h('textarea', { class: 'field area', rows: '7', placeholder: 'ここにポスト（買取EXPO）や、書き起こした価格表（買取コレクト）を貼り付け。複数の店舗・複数のポストをまとめて貼ってOK', 'aria-label': '取り込む内容', spellcheck: 'false' });
     ta.value = expoText;
     ta.addEventListener('input', () => { expoText = ta.value; });
     const canWrite = Boolean(token && decisions);
     return h('section', { class: 'box' },
-      h('h2', { style: 'margin-top:0' }, '② 買取EXPOの入力（毎日）'),
-      h('p', { class: 'muted small' }, '各区分の最新の入力状況（⚠ は未入力・古い区分。入力しないと公開ページでは「未確認」になります）'),
-      expoChecklist(),
+      h('h2', { style: 'margin-top:0' }, '② 手入力店舗の入力（買取EXPO・買取コレクト）'),
+      h('p', { class: 'muted small' }, '各区分の最新の入力状況（⚠ は未入力・古い区分。入力しないまま時間がたつと、公開ページでは「未確認」になります）'),
+      inputChecklist(),
       inboxCount ? h('p', { class: 'small' }, `📥 取り込み待ち ${inboxCount}件（次の更新で反映されます）`) : null,
       ta,
       h('div', { class: 'row-gap' },
@@ -406,9 +421,9 @@
         canWrite ? null : h('span', { class: 'muted small' }, '※ 確定するには、先に上の「GitHubトークン」を登録してください')),
       plan ? planView() : null,
       h('hr', { class: 'sep' }),
-      h('div', { class: 'row-between' },
-        h('span', { class: 'small' }, '買取EXPOが休止のとき: '),
-        h('button', { class: 'btn', type: 'button', disabled: busy || !canWrite, onclick: pauseExpo }, '買取EXPO 本日休止')));
+      h('div', { class: 'row-gap' },
+        h('span', { class: 'small' }, '店が休止のとき: '),
+        manualStores().map((st) => h('button', { class: 'btn', type: 'button', disabled: busy || !canWrite, onclick: () => pauseStore(st.id) }, `${st.name} 本日休止`))));
   }
 
   function render() {
@@ -418,7 +433,7 @@
         h('h1', null, '管理画面'),
         statusMsg ? h('div', { class: 'status ' + statusMsg.kind, role: 'status' }, statusMsg.text) : null,
         connectionCard(),
-        manual ? expoCard() : null,
+        manual ? manualCard() : null,
         pendingList(),
         token && decisions ? runCard() : null,
         historyList(),

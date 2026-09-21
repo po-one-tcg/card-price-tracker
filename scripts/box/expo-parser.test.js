@@ -122,3 +122,58 @@ test('同じ商品が2回書かれていたら警告して後の行を採用', (
   assert.equal(r.blocks[0].items[0].price, 2000);
   assert.equal(r.blocks[0].warnings.length, 1);
 });
+
+// ---- 買取コレクト（価格表の画像を、決まった書式の文章に書き起こしたもの）----
+const manualSections = config.stores.filter((s) => s.type === 'manual').flatMap((s) => s.sections.map((x) => ({ ...x, storeId: s.id })));
+const collect = P.parse(read('collect-2026-09-19.txt') + '\n' + read('collect-update.txt'), manualSections);
+const cblock = (id) => collect.blocks.find((b) => b.sectionId === id);
+
+test('コレクト: 区分ごとの商品数（価格あり + 〆切）', () => {
+  const n = (id) => cblock(id).items.length;
+  assert.equal(n('collect-pokemon-box'), 114); // 57商品 × (シュリンク付き / 無し)
+  assert.equal(n('collect-pokemon-other'), 31);
+  assert.equal(n('collect-onepiece'), 46); // 23弾 × (BOX / カートン)
+  assert.equal(n('collect-onepiece-other'), 36);
+  assert.equal(n('collect-dragonball'), 5);
+  assert.equal(n('collect-yugioh'), 4);
+  assert.equal(cblock('collect-rates').skipped, true);
+  assert.equal(collect.blocks.filter((b) => b.unknown).length, 0);
+});
+
+test('コレクト: ワンピースの価格（表の "-" は〆切）', () => {
+  const it = (raw, cond) => cblock('collect-onepiece').items.find((i) => i.raw.includes(raw) && i.cond === cond);
+  assert.equal(it('OP-17', 'carton').price, 145000);
+  assert.equal(it('OP-17', 'box').price, 10500);
+  assert.equal(it('OP-05', 'box').price, 55000);
+  assert.equal(it('OP-05', 'carton').closed, true);
+  assert.equal(cblock('collect-onepiece').items.filter((i) => !i.closed).length, 11);
+});
+
+test('コレクト: 遊戯王は名前の末尾の「ボックス」「カートン」を状態として読む', () => {
+  const y = cblock('collect-yugioh').items;
+  const heroesCarton = y.find((i) => /HEROES/.test(i.name) && i.cond === 'carton');
+  assert.equal(heroesCarton.price, 315000);
+  assert.equal(heroesCarton.name, '遊戯王 LIMIT OVER COLLECTION -THE HEROES-');
+  assert.equal(y.find((i) => /HEROES/.test(i.name) && i.cond === 'box').closed, true);
+});
+
+test('コレクト: 店舗ごとに表記が違う商品を、型番や名前で同じ商品と判定する', () => {
+  assert.equal(P.canon('OP-01 ロマンスドーン'), P.canon('OP-01 Romance Dawn'));
+  assert.equal(P.canon('FB-02'), P.canon('FB02 烈火の闘気'));
+  assert.equal(P.canon('MANGA BOOSTER 01 [SB01]'), P.canon('SB01 MANGA BOOSTER 01'));
+  assert.equal(P.canon('DUAL EVOLUTION [FB09]'), P.canon('FB09 DUAL EVOLUTION'));
+  assert.notEqual(P.canon('OP-13 受け継がれる意志'), P.canon('OP-14 蒼海の七傑')); // 型番が違えば別
+  assert.notEqual(P.canon('ONE PIECE magazine 付録プロモ ST21-014'), P.canon('スタートデッキEX ルフィ&エース ST-30'));
+  assert.equal(P.canon('遊戯王 LIMIT OVER COLLECTION THE HEROES'), P.canon('遊戯王 LIMIT OVER COLLECTION -THE HEROES-'));
+});
+
+test('コレクト: 価格変更の区分は「更新」として読み、状態の印が無いものは取り込み時に決める', () => {
+  const u = cblock('collect-update');
+  assert.equal(u.kind, 'update');
+  assert.deepEqual(u.items.map((i) => [i.name, i.cond, i.price]), [
+    ['30th CELEBRATION', null, 28000],
+    ['30th CELEBRATION', 'noshrink', 22500],
+    ['プレミアムデッキセット エーフィ・ブラッキー', null, 16000],
+    ['30th CELEBRATION FUTURISTIC', null, 60000],
+  ]);
+});

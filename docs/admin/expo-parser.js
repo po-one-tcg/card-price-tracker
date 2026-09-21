@@ -16,8 +16,16 @@
   const nfkc = (s) => s.normalize('NFKC');
   const stripMarks = (s) => s.replace(/[️‍]/g, '').replace(/^[\s🔥✅⭐️★☆♦◆■●]+/u, '');
 
+  // ワンピース・ドラゴンボールなどは、名前の表記が店ごとに違う（"OP-01 ロマンスドーン" と "OP-01 Romance Dawn"）。
+  // 名前が型番（OP-01 / EB-04 / PRB-01 / FB02 / SB01 / ST01）で始まる、または末尾が [SB01] のものは、型番だけで同一判定する。
+  const SET_CODE = /^(op|eb|prb|fb|sb|st)-?(\d{2})(?!\d)/i;
+  const SET_CODE_BRACKET = /\[(op|eb|prb|fb|sb|st)-?(\d{2})\]$/i;
+
   // 商品の同一判定用の名前。全角半角・大文字小文字・空白・記号・"box" の違いを無視する。
   function canon(name) {
+    const head = nfkc(name).trim();
+    const code = head.match(SET_CODE) || head.match(SET_CODE_BRACKET);
+    if (code) return (code[1] + code[2]).toLowerCase();
     return nfkc(name)
       .toLowerCase()
       .replace(/box/g, '')
@@ -39,7 +47,11 @@
       if (m[1]) variant = ' ペリペリ付';
       t = t.replace(m[0], '');
     }
-    t = t.replace(/\s+box$/i, '').replace(/\s+/g, ' ').trim() + variant;
+    if (/\s+カートン$/.test(t)) {
+      cond = cond || 'carton'; // 「… カートン」（遊戯王など、名前の末尾に付く形）
+      t = t.replace(/\s+カートン$/, '');
+    }
+    t = t.replace(/\s+(box|ボックス)$/i, '').replace(/\s+/g, ' ').trim() + variant;
     // 印が無いとき: 区分があればその基本の状態、区分が無ければ null（価格変更ポストでは取り込み時に既存商品から決める）
     return { name: t, cond: cond || (section ? section.baseCondition || 'box' : null) };
   }
@@ -77,7 +89,8 @@
       if (head) {
         const heading = head[1].trim();
         const section = findSection(heading, sections);
-        cur = { kind: 'full', heading, section, sectionId: section ? section.id : null, unknown: !section, skipped: !!(section && section.kind === 'skip'), lines: [] };
+        // kind: 'update' の区分は「価格変更」専用（載っている商品の金額だけを更新する）
+        cur = { kind: section && section.kind === 'update' ? 'update' : 'full', heading, section, sectionId: section ? section.id : null, unknown: !section, skipped: !!(section && section.kind === 'skip'), lines: [] };
         blocks.push(cur);
         continue;
       }
@@ -101,7 +114,19 @@
         seen.set(key, item);
       };
 
-      if (b.kind === 'update') {
+      if (b.kind === 'update' && b.section) {
+        // 「商品名 金額円」の行形式の価格変更（見出し付き）
+        for (const line of b.lines) {
+          const m = line.match(ITEM_LINE);
+          if (!m || !m[1].trim() || !m[2]) {
+            if (!/^#/.test(line)) b.ignored.push(line);
+            continue;
+          }
+          const c = cleanName(m[1], null);
+          push({ name: c.name, cond: c.cond, price: Number(m[2].replace(/,/g, '')), closed: false, game: null, raw: m[1] });
+        }
+      } else if (b.kind === 'update') {
+        // 買取EXPOの価格変更のお知らせ: 商品名の行 → 「22,000円」の行、の繰り返し
         let lastName = null;
         for (const line of b.lines) {
           const pm = line.match(PRICE_ONLY);

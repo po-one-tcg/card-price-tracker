@@ -188,6 +188,87 @@
           "group": "ボックス",
           "baseCondition": "shrink"
         }
+      ],
+      "updatePosts": true
+    },
+    {
+      "id": "collect",
+      "name": "買取コレクト",
+      "type": "manual",
+      "freshHours": 168,
+      "_note": "価格表の画像/ポストを、決まった書式の文章にして管理画面に貼り付けて取り込む。更新が不定期なので、未確認になるまでの時間を長め(7日)にしている。",
+      "sections": [
+        {
+          "id": "collect-pokemon-box",
+          "label": "ポケカ BOX",
+          "headings": [
+            "コレクト ポケカ BOX"
+          ],
+          "game": "pokemon",
+          "group": "ボックス",
+          "baseCondition": "shrink"
+        },
+        {
+          "id": "collect-pokemon-other",
+          "label": "ポケカ その他",
+          "headings": [
+            "コレクト ポケカ その他"
+          ],
+          "game": "pokemon",
+          "group": "その他（セット・プロモ等）"
+        },
+        {
+          "id": "collect-onepiece",
+          "label": "ワンピース BOX・カートン",
+          "headings": [
+            "コレクト ワンピース BOX・カートン"
+          ],
+          "game": "onepiece",
+          "group": "BOX・カートン"
+        },
+        {
+          "id": "collect-onepiece-other",
+          "label": "ワンピース その他",
+          "headings": [
+            "コレクト ワンピース その他"
+          ],
+          "game": "onepiece",
+          "group": "その他（プロモ・セット等）"
+        },
+        {
+          "id": "collect-dragonball",
+          "label": "ドラゴンボール",
+          "headings": [
+            "コレクト ドラゴンボール"
+          ],
+          "game": "dragonball",
+          "group": "ドラゴンボール"
+        },
+        {
+          "id": "collect-yugioh",
+          "label": "遊戯王",
+          "headings": [
+            "コレクト 遊戯王"
+          ],
+          "game": "yugioh",
+          "group": "遊戯王"
+        },
+        {
+          "id": "collect-rates",
+          "label": "ポケカシングルのレート（対象外）",
+          "headings": [
+            "コレクト ポケカシングルレート"
+          ],
+          "kind": "skip"
+        },
+        {
+          "id": "collect-update",
+          "label": "価格変更",
+          "headings": [
+            "コレクト 価格変更"
+          ],
+          "kind": "update"
+        }
       ]
     }
   ]

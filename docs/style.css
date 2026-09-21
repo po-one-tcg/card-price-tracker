@@ -154,3 +154,5 @@ details.ev ul { margin: 4px 0 6px; padding-left: 20px; }
 table.mini { width: 100%; font-size: 13px; }
 table.mini td { padding: 3px 6px; text-align: left; white-space: normal; border-bottom: 1px solid var(--line); }
 .status.err label { display: block; margin-top: 6px; }
+.store-row { margin: 6px 0 2px; }
+.store-name { font-size: 12px; font-weight: 700; color: var(--muted); }
