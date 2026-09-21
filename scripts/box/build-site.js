@@ -10,6 +10,7 @@ const path = require('path');
 const { jstNow } = require('../lib/common');
 const P = require('./paths');
 const S = require('./store');
+const R = require('./release');
 
 const PERIODS = [1, 7, 14, 30, 90, 180];
 const KEEP_DAYS = 190;
@@ -85,6 +86,7 @@ function build() {
 
   // ---- 商品ごとに組み立て ----
   const eventCutoff = todayNum - config.eventDays;
+  const releaseLookup = R.buildLookup();
   const outProducts = [];
   const byProduct = {};
   for (const [key, entry] of Object.entries(state.entries)) (byProduct[entry.ref.pid] ??= []).push([key, entry]);
@@ -153,9 +155,12 @@ function build() {
       stats[cond] = { now: li >= 0 ? avg[li] : null, nowN: li >= 0 ? n[li] : 0, nowDate: li >= 0 ? dates[li] : null, periods };
     }
 
-    outProducts.push({ id: pid, game: p.game, name: p.name, group: p.group, image: p.image, cells, series, stats });
+    outProducts.push({ id: pid, game: p.game, name: p.name, group: p.group, release: R.releaseFor(releaseLookup, p.game, p.name), image: p.image, cells, series, stats });
   }
-  outProducts.sort((a, b) => (a.group + a.name).localeCompare(b.group + b.name, 'ja'));
+  // 並び順: 区分の順（設定の groupOrder）→ 区分の中は発売日が新しい順 → 発売日が不明なものは最後
+  const groupOrder = Object.fromEntries(config.games.filter((g) => g.groupOrder).map((g) => [g.id, g.groupOrder]));
+  outProducts.sort(R.compareProducts(groupOrder));
+  console.log(`発売日つき: ${outProducts.filter((p) => p.release).length} / ${outProducts.length} 商品`);
 
   // ---- 公開する出現・消滅の一覧（直近30日）----
   const feedCutoff = todayNum - 30;

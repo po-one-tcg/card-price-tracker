@@ -90,6 +90,19 @@ node scripts/box/review.js dismiss  <商品名の一部>          # 間違い �
 - ポケカのシングル買取レート（AR/CHR ¥160 など）は取り込みません。
 - ワンピース・ドラゴンボールは、名前が店ごとに違っても、型番（OP-01、FB02 など）で同じ商品として結び付けます。
 
+## BOXの並び順（発売日の新しい順）
+
+ゲームの価格表は、**区分の中で発売日が新しい順**に並びます（商品名の下に発売日を表示）。区分の順番も、新しいシリーズが上です（ポケモンなら MEGA → SV → ソード&シールド → サン&ムーン → …）。発売日が分からない商品（特別セット類など）は、区分の最後に並びます。
+
+- 発売日の表は `config/release-dates.json` です。**ポケモン**は、参考ページ（https://learn-book.com/pokemon-rekidai-pack/）から自動で取り込みます。**ワンピース**は、手で書いてあります（型番 OP-01 などで一致するので、店ごとに名前が違っても大丈夫です）。
+- **新しい弾が出たら**、次を実行して発売日を更新します（または Claude に「発売日を更新して」と頼みます）。
+  ```
+  npm run update:release
+  ```
+  ワンピースなど他のゲームは、`config/release-dates.json` に発売日を書き足します。
+- 店ごとに商品名の表記が違って発売日が引けないものは、同じファイルの `aliases`（別名の対応表）に「店の表記 → 発売日の表の名前」を足します。
+- 区分の並び順は `config/box-targets.json` の `games[].groupOrder` です。
+
 ## 保存されるデータ
 
 ```
@@ -119,6 +132,6 @@ data/cards.json               カードの一覧、data/images/ にカード画�
 npm install
 npm run scrape:dry                     # カード: 保存せず件数だけ確認
 node scripts/box/run.js --dry-run      # BOX: 保存せず判定結果だけ確認
-npm test                               # 判定ロジックと買取EXPO読み取りのテスト（42件）
+npm test                               # 判定ロジックと買取EXPO読み取りのテスト（49件）
 node scripts/serve.js docs             # 公開ページを手元で確認（http://localhost:8123）
 ```

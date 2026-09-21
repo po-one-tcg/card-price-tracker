@@ -173,7 +173,8 @@
         body.append(h('tr', null,
           h('th', { class: 'name', scope: 'row' }, h('div', { class: 'pname' },
             p.image ? h('img', { src: p.image, alt: '', loading: 'lazy' }) : h('span', { class: 'thumb' }),
-            h('a', { href: '#/p/' + p.id }, p.name))),
+            h('div', null, h('a', { href: '#/p/' + p.id }, p.name),
+              p.release ? h('div', { class: 'muted', style: 'font-size:11px' }, '発売 ' + p.release.replace(/-/g, '/')) : null))),
           stores.map((s) => cellNode(summaryCell(p, s.id)))));
       }
     }
@@ -223,7 +224,7 @@
     return h('div', null,
       h('div', { class: 'crumb' }, h('a', { href: '#/' }, 'ホーム'), ' › ', h('a', { href: '#/g/' + p.game }, gameLabel(p.game)), ' › ', p.name),
       h('div', { class: 'hero' }, p.image ? h('img', { src: p.image, alt: '' }) : null,
-        h('div', null, h('h1', null, p.name), h('div', { class: 'muted' }, p.group))),
+        h('div', null, h('h1', null, p.name), h('div', { class: 'muted' }, p.group + (p.release ? '　発売 ' + p.release.replace(/-/g, '/') : '')))),
       table, blocks);
   }
 
