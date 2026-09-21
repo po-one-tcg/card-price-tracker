@@ -2,8 +2,8 @@ name: 買取価格の収集
 
 on:
   schedule:
-    # UTC表記。JST = UTC + 9時間 → JST 11:00 / 15:00 / 18:00
-    - cron: '0 2 * * *'
+    # UTC表記。JST = UTC + 9時間 → JST 13:00 / 15:00 / 18:00
+    - cron: '0 4 * * *'
     - cron: '0 6 * * *'
     - cron: '0 9 * * *'
   workflow_dispatch: # Actionsタブの「Run workflow」ボタンで今すぐ実行
