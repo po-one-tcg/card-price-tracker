@@ -75,7 +75,7 @@
   "stores": [
     {
       "id": "pricebase",
-      "name": "PRICE BASE",
+      "name": "BASE",
       "type": "auto",
       "sources": [
         {
@@ -210,7 +210,7 @@
     },
     {
       "id": "collect",
-      "name": "買取コレクト",
+      "name": "コレクト",
       "type": "manual",
       "freshHours": 168,
       "_note": "価格表の画像/ポストを、決まった書式の文章にして管理画面に貼り付けて取り込む。更新が不定期なので、未確認になるまでの時間を長め(7日)にしている。",
