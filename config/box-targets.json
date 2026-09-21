@@ -1,0 +1,38 @@
+{
+  "_readme": "BOX価格トラッカーの設定。店舗・ゲーム・状態を増やすときはここに書き足す。",
+  "thresholdPct": 50,
+  "freshHours": 30,
+  "eventDays": 7,
+  "games": [
+    { "id": "pokemon", "label": "ポケモンカード" },
+    { "id": "onepiece", "label": "ONE PIECE" },
+    { "id": "yugioh", "label": "遊戯王" },
+    { "id": "weiss", "label": "ヴァイスシュヴァルツ" },
+    { "id": "unionarena", "label": "ユニオンアリーナ" },
+    { "id": "lorcana", "label": "ロルカナ" },
+    { "id": "dragonball", "label": "ドラゴンボール" }
+  ],
+  "conditions": [
+    { "id": "box", "label": "BOX（状態の区別なし）" },
+    { "id": "carton", "label": "カートン" },
+    { "id": "shrink", "label": "シュリンク付き" },
+    { "id": "noshrink", "label": "シュリンク無し" }
+  ],
+  "stores": [
+    {
+      "id": "pricebase",
+      "name": "PRICE BASE",
+      "type": "auto",
+      "sources": [
+        {
+          "game": "pokemon",
+          "url": "https://price-base.com/useful/pokacabox-kaitorilist",
+          "parser": "pricebase",
+          "condition": "box",
+          "minRows": 30,
+          "enabled": true
+        }
+      ]
+    }
+  ]
+}

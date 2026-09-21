@@ -7,7 +7,7 @@
 // 環境変数 DATA_DIR で保存先を変更できる（テスト用）。
 const fs = require('fs');
 const path = require('path');
-const crypto = require('crypto');
+const { sleep, jstNow, fetchWithRetry, norm, shortHash, imageStem, downloadImage } = require('./lib/common');
 
 const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = process.env.DATA_DIR ? path.resolve(process.env.DATA_DIR) : path.join(ROOT, 'data');
@@ -15,7 +15,6 @@ const CARDS_FILE = path.join(DATA_DIR, 'cards.json');
 const HISTORY_DIR = path.join(DATA_DIR, 'history');
 const IMAGES_DIR = path.join(DATA_DIR, 'images');
 
-const USER_AGENT = 'card-price-tracker/1.0 (+https://github.com/PO-1-TCG/card-price-tracker)';
 const MIN_ROWS = 100; // これより少ない場合はサイト構造が変わったとみなして中断
 const IMAGE_DELAY_MS = 300;
 
@@ -28,48 +27,7 @@ const option = (name) => {
 const DRY_RUN = flag('dry-run');
 const NO_IMAGES = flag('no-images');
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
-// ---------- 日時（日本時間） ----------
-function jstNow() {
-  const jst = new Date(Date.now() + 9 * 3600 * 1000);
-  const iso = jst.toISOString(); // 2026-09-21T02:58:00.123Z をJSTにずらしたもの
-  return { date: iso.slice(0, 10), stamp: iso.slice(0, 19) + '+09:00' };
-}
-
-// ---------- 取得 ----------
-async function fetchWithRetry(url, { as = 'text', tries = 3 } = {}) {
-  let lastErr;
-  for (let i = 1; i <= tries; i++) {
-    try {
-      const res = await fetch(url, {
-        headers: { 'User-Agent': USER_AGENT, 'Accept-Language': 'ja' },
-        signal: AbortSignal.timeout(30000),
-      });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      if (as === 'buffer') {
-        return { buf: Buffer.from(await res.arrayBuffer()), type: res.headers.get('content-type') || '' };
-      }
-      return await res.text();
-    } catch (e) {
-      lastErr = e;
-      if (i < tries) await sleep(2000 * i);
-    }
-  }
-  throw new Error(`${url} の取得に失敗: ${lastErr.message}`);
-}
-
 // ---------- カード識別 ----------
-const norm = (s) => s.normalize('NFKC').replace(/\s+/g, '');
-
-function imageStem(url) {
-  if (!url) return '';
-  const file = decodeURIComponent(new URL(url).pathname.split('/').pop());
-  return file.replace(/\.[a-z0-9]+$/i, '').replace(/-\d+x\d+$/, ''); // 拡張子とサイズ接尾辞を除去
-}
-
-// 型番（OP13-118 など）を meta から、無ければ名前から探す。
-// 空白は消さずに判定する（消すと "SEC/SP OP13-118" が "SEC/SPOP13-118" になり抽出できない）。
 function cardNumber(meta, name = '') {
   const re = /(?<![A-Z0-9])[A-Z]{1,6}\d{0,3}-\d{2,4}(?!\d)/;
   const m = meta.normalize('NFKC').match(re) || name.normalize('NFKC').match(re);
@@ -79,7 +37,7 @@ function cardNumber(meta, name = '') {
 // 名前+型番表記+画像名 の3点で識別する（同名異絵柄・未開封/開封済を区別するため）。
 function cardId(siteId, row) {
   const key = [norm(row.name), norm(row.meta), imageStem(row.imageUrl)].join('|');
-  const hash = crypto.createHash('sha1').update(key).digest('hex').slice(0, 8);
+  const hash = shortHash(key);
   return `${siteId}_${cardNumber(row.meta, row.name)}_${hash}`;
 }
 
@@ -98,15 +56,6 @@ function saveCards(cards) {
   fs.writeFileSync(CARDS_FILE, JSON.stringify(sorted, null, 1) + '\n');
 }
 
-function extFromResponse(url, type) {
-  const m = new URL(url).pathname.match(/\.(png|jpe?g|webp|gif)$/i);
-  if (m) return m[1].toLowerCase().replace('jpeg', 'jpg');
-  if (type.includes('png')) return 'png';
-  if (type.includes('webp')) return 'webp';
-  if (type.includes('gif')) return 'gif';
-  return 'jpg';
-}
-
 async function saveMissingImages(cards, ids) {
   const result = { saved: 0, failed: 0, none: 0 };
   fs.mkdirSync(IMAGES_DIR, { recursive: true });
@@ -118,10 +67,7 @@ async function saveMissingImages(cards, ids) {
       continue;
     }
     try {
-      const { buf, type } = await fetchWithRetry(card.imageUrl, { as: 'buffer' });
-      if (!/^image\//.test(type) || buf.length < 100) throw new Error(`画像ではない応答 (${type}, ${buf.length}B)`);
-      const file = `${id}.${extFromResponse(card.imageUrl, type)}`;
-      fs.writeFileSync(path.join(IMAGES_DIR, file), buf);
+      const file = await downloadImage(card.imageUrl, IMAGES_DIR, id);
       card.image = `images/${file}`;
       result.saved++;
     } catch (e) {
