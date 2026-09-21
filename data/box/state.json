@@ -2313,6 +2313,28 @@
     "src": "pokemon-other"
    }
   },
+  "expo|pokemon_0108a5fe|shrink": {
+   "confirmed": {
+    "state": "value",
+    "price": 11500,
+    "since": "2026-09-21T22:19:14+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 11500,
+    "since": "2026-09-21T22:19:14+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "expo",
+    "game": "pokemon",
+    "pid": "pokemon_0108a5fe",
+    "cond": "shrink",
+    "src": "pokemon-box"
+   }
+  },
   "expo|pokemon_01382a28|box": {
    "confirmed": {
     "state": "none",
@@ -3545,28 +3567,6 @@
     "src": "pokemon-other"
    }
   },
-  "expo|pokemon_55016f66|shrink": {
-   "confirmed": {
-    "state": "value",
-    "price": 11500,
-    "since": "2026-09-21T22:19:14+09:00"
-   },
-   "shown": {
-    "state": "value",
-    "price": 11500,
-    "since": "2026-09-21T22:19:14+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "expo",
-    "game": "pokemon",
-    "pid": "pokemon_55016f66",
-    "cond": "shrink",
-    "src": "pokemon-box"
-   }
-  },
   "expo|pokemon_5a0690f5|box": {
    "confirmed": {
     "state": "none",
@@ -3851,28 +3851,6 @@
     "pid": "pokemon_77e3b01c",
     "cond": "box",
     "src": "pokemon-other"
-   }
-  },
-  "expo|pokemon_7804c13e|shrink": {
-   "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-21T22:19:14+09:00"
-   },
-   "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-21T22:19:14+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "expo",
-    "game": "pokemon",
-    "pid": "pokemon_7804c13e",
-    "cond": "shrink",
-    "src": "pokemon-box"
    }
   },
   "expo|pokemon_7896f88d|shrink": {
@@ -5149,6 +5127,28 @@
     "pid": "pokemon_c292a70b",
     "cond": "box",
     "src": "pokemon-other"
+   }
+  },
+  "expo|pokemon_c4d06382|shrink": {
+   "confirmed": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-21T22:19:14+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-21T22:19:14+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "expo",
+    "game": "pokemon",
+    "pid": "pokemon_c4d06382",
+    "cond": "shrink",
+    "src": "pokemon-box"
    }
   },
   "expo|pokemon_c5e41189|box": {

@@ -1045,7 +1045,8 @@
   "name": "スカーレットex",
   "group": "スカーレット&バイオレット(SV)",
   "groups": [
-   "スカーレット&バイオレット(SV)"
+   "スカーレット&バイオレット(SV)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/71YjTMr1FOL.__AC_SX300_SY300_QL70_ML2_.jpg",
   "image": "img/box/pokemon_0108a5fe.jpg",
@@ -1845,19 +1846,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
- "pokemon_55016f66": {
-  "id": "pokemon_55016f66",
-  "game": "pokemon",
-  "name": "スカーレット",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
  "pokemon_5a0690f5": {
   "id": "pokemon_5a0690f5",
   "game": "pokemon",
@@ -2067,19 +2055,6 @@
   "group": "その他（セット・プロモ等）",
   "groups": [
    "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
- "pokemon_7804c13e": {
-  "id": "pokemon_7804c13e",
-  "game": "pokemon",
-  "name": "バイオレット",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
   ],
   "imageUrl": null,
   "image": null,
@@ -2974,7 +2949,8 @@
   "name": "バイオレットex",
   "group": "スカーレット&バイオレット(SV)",
   "groups": [
-   "スカーレット&バイオレット(SV)"
+   "スカーレット&バイオレット(SV)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/71jUGPwIfTL.__AC_SX300_SY300_QL70_ML2_.jpg",
   "image": "img/box/pokemon_c4d06382.jpg",
