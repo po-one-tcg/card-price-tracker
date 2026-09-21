@@ -31,6 +31,11 @@ test('ポケモン: 拡張パックデラックスは、通常版（ブラック
   assert.equal(rel('pokemon', '拡張パックデラックス ブラックボルト'), rel('pokemon', 'ブラックボルト'));
 });
 
+test('ポケモン: DX / デラックス表記（買取EXPO・買取コレクト）も同じ発売日', () => {
+  for (const n of ['ブラックボルトDX', 'ブラックボルト デラックス']) assert.equal(rel('pokemon', n), '2025-06-06');
+  for (const n of ['ホワイトフレアDX', 'ホワイトフレア デラックス']) assert.equal(rel('pokemon', n), '2025-06-06');
+});
+
 test('ワンピース: 型番で発売日が引ける（店ごとに名前が違っても）', () => {
   assert.equal(rel('onepiece', 'OP-17 世界最強の戦士'), '2026-08-22');
   assert.equal(rel('onepiece', 'OP-01 Romance Dawn'), '2022-07-22');
