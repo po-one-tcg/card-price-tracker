@@ -25,6 +25,12 @@ test('ポケモン: 別名の対応表（151 など）', () => {
   assert.equal(rel('pokemon', '仰天のボルテッカー'), '2020-09-18');
 });
 
+test('ポケモン: 拡張パックデラックスは、通常版（ブラックボルト・ホワイトフレア）と同じ発売日', () => {
+  assert.equal(rel('pokemon', '拡張パックデラックス ブラックボルト'), '2025-06-06');
+  assert.equal(rel('pokemon', '拡張パックデラックス ホワイトフレア'), '2025-06-06');
+  assert.equal(rel('pokemon', '拡張パックデラックス ブラックボルト'), rel('pokemon', 'ブラックボルト'));
+});
+
 test('ワンピース: 型番で発売日が引ける（店ごとに名前が違っても）', () => {
   assert.equal(rel('onepiece', 'OP-17 世界最強の戦士'), '2026-08-22');
   assert.equal(rel('onepiece', 'OP-01 Romance Dawn'), '2022-07-22');
