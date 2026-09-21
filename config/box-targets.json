@@ -343,6 +343,93 @@
           "enabled": true
         }
       ]
+    },
+    {
+      "id": "somurie",
+      "name": "ソムリエ",
+      "type": "auto",
+      "_note": "商品数が少ない店。空のカテゴリ(ワンピース等)も見張り、買取を始めたら出現として検知する。1000円未満(バラのレート)は対象外。",
+      "sources": [
+        {
+          "game": "pokemon",
+          "urls": [
+            "https://somurie-kaitori.com/products?category=2&subcategory=7",
+            "https://somurie-kaitori.com/products?category=2&subcategory=13"
+          ],
+          "url": "https://somurie-kaitori.com/products?category=2&subcategory=7",
+          "parser": "somurie",
+          "rowConditions": true,
+          "minRows": 3,
+          "minPrice": 1000,
+          "group": "ボックス",
+          "enabled": true
+        },
+        {
+          "game": "yugioh",
+          "urls": [
+            "https://somurie-kaitori.com/products?category=2&subcategory=27"
+          ],
+          "url": "https://somurie-kaitori.com/products?category=2&subcategory=27",
+          "parser": "somurie",
+          "rowConditions": true,
+          "minRows": 0,
+          "minPrice": 1000,
+          "group": "遊戯王",
+          "enabled": true
+        },
+        {
+          "game": "onepiece",
+          "urls": [
+            "https://somurie-kaitori.com/products?category=2&subcategory=19"
+          ],
+          "url": "https://somurie-kaitori.com/products?category=2&subcategory=19",
+          "parser": "somurie",
+          "rowConditions": true,
+          "minRows": 0,
+          "minPrice": 1000,
+          "group": "BOX・カートン",
+          "enabled": true
+        },
+        {
+          "game": "dragonball",
+          "urls": [
+            "https://somurie-kaitori.com/products?category=2&subcategory=34"
+          ],
+          "url": "https://somurie-kaitori.com/products?category=2&subcategory=34",
+          "parser": "somurie",
+          "rowConditions": true,
+          "minRows": 0,
+          "minPrice": 1000,
+          "group": "ドラゴンボール",
+          "enabled": true
+        },
+        {
+          "game": "weiss",
+          "urls": [
+            "https://somurie-kaitori.com/products?category=2&subcategory=30"
+          ],
+          "url": "https://somurie-kaitori.com/products?category=2&subcategory=30",
+          "parser": "somurie",
+          "rowConditions": true,
+          "minRows": 0,
+          "minPrice": 1000,
+          "group": "ヴァイス・ロルカナ",
+          "enabled": true
+        },
+        {
+          "game": "unionarena",
+          "urls": [
+            "https://somurie-kaitori.com/products?category=2&subcategory=31"
+          ],
+          "url": "https://somurie-kaitori.com/products?category=2&subcategory=31",
+          "parser": "somurie",
+          "rowConditions": true,
+          "minRows": 0,
+          "minPrice": 1000,
+          "group": "ユニオンアリーナ",
+          "enabled": true
+        }
+      ]
     }
   ]
 }

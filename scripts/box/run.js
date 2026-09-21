@@ -48,7 +48,7 @@ async function runSource(store, src, ctx) {
     rows = mod.parse(html, src.url);
   }
   console.log(`ページ全体: ${rows.length} 行${rows.skippedVariations ? `（対象外の状態 ${rows.skippedVariations} 件は除外）` : ''}`);
-  if (rows.length < (src.minRows || 1)) {
+  if (rows.length < (src.minRows ?? 1)) {
     throw new Error(`抽出が ${rows.length} 行しかありません（最低 ${src.minRows}）。サイトの構造が変わった可能性があります`);
   }
 
