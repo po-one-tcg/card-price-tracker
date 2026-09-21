@@ -1026,19 +1026,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
- "pokemon_00f487b3": {
-  "id": "pokemon_00f487b3",
-  "game": "pokemon",
-  "name": "ゴールデンボックス",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
  "pokemon_0108a5fe": {
   "id": "pokemon_0108a5fe",
   "game": "pokemon",
@@ -1249,7 +1236,8 @@
   "name": "ポケモンカード151",
   "group": "スカーレット&バイオレット(SV)",
   "groups": [
-   "スカーレット&バイオレット(SV)"
+   "スカーレット&バイオレット(SV)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/612gtA-X60L.__AC_SX300_SY300_QL70_ML2_.jpg",
   "image": "img/box/pokemon_160b5b10.jpg",
@@ -1450,19 +1438,6 @@
   "group": "その他（セット・プロモ等）",
   "groups": [
    "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
- "pokemon_387a5776": {
-  "id": "pokemon_387a5776",
-  "game": "pokemon",
-  "name": "ポケモン151",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
   ],
   "imageUrl": null,
   "image": null,
@@ -2809,19 +2784,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
- "pokemon_b16a457a": {
-  "id": "pokemon_b16a457a",
-  "game": "pokemon",
-  "name": "151",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
  "pokemon_b1b59733": {
   "id": "pokemon_b1b59733",
   "game": "pokemon",
@@ -2976,7 +2938,8 @@
   "name": "25th ANNIVERSARY GOLDEN BOX",
   "group": "その他ボックス",
   "groups": [
-   "その他ボックス"
+   "その他ボックス",
+   "その他（セット・プロモ等）"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/11/23823-300x198.jpeg",
   "image": "img/box/pokemon_c622182a.jpg",
