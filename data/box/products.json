@@ -321,7 +321,7 @@
   ],
   "imageUrl": "https://runto666.com/wp-content/uploads/af506cdf-98b9-4292-b1d2-b7127741312a-300x286.jpeg",
   "image": "img/box/onepiece_069f48cf.jpg",
-  "firstSeen": "2026-09-22",
+  "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-22"
  },
  "onepiece_0b76a14b": {
@@ -731,19 +731,6 @@
   "id": "onepiece_6f7c4f9f",
   "game": "onepiece",
   "name": "2nd ANNIVERSARY SET(段ボール未開封)",
-  "group": "その他（プロモ・セット等）",
-  "groups": [
-   "その他（プロモ・セット等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
- "onepiece_7071d23f": {
-  "id": "onepiece_7071d23f",
-  "game": "onepiece",
-  "name": "ナツコミ ルフィ メタキラカード",
   "group": "その他（プロモ・セット等）",
   "groups": [
    "その他（プロモ・セット等）"
@@ -1341,20 +1328,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-22"
  },
- "pokemon_02285d8e": {
-  "id": "pokemon_02285d8e",
-  "game": "pokemon",
-  "name": "ポケモンセンタートウホク",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）",
-   "ボックス"
-  ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/新建项目-5-300x300.jpg",
-  "image": "img/box/pokemon_02285d8e.jpg",
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-22"
- },
  "pokemon_0288fd15": {
   "id": "pokemon_0288fd15",
   "game": "pokemon",
@@ -1382,19 +1355,6 @@
   "image": "img/box/pokemon_03395521.webp",
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-22"
- },
- "pokemon_03fed489": {
-  "id": "pokemon_03fed489",
-  "game": "pokemon",
-  "name": "切手Box",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
  },
  "pokemon_04cf41b8": {
   "id": "pokemon_04cf41b8",
@@ -1451,19 +1411,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
- "pokemon_130cd7fe": {
-  "id": "pokemon_130cd7fe",
-  "game": "pokemon",
-  "name": "Classic",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-13-300x300.jpeg",
-  "image": "img/box/pokemon_130cd7fe.jpg",
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-22"
- },
  "pokemon_133fd658": {
   "id": "pokemon_133fd658",
   "game": "pokemon",
@@ -1476,19 +1423,6 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2023-10-26T232052.489-300x300.jpg",
   "image": "img/box/pokemon_133fd658.jpg",
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-22"
- },
- "pokemon_138212f1": {
-  "id": "pokemon_138212f1",
-  "game": "pokemon",
-  "name": "ハイクラスダブルデッキ",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-22"
  },
  "pokemon_13fcc149": {
@@ -1525,7 +1459,9 @@
   "name": "カナザワスペシャルBOX",
   "group": "その他ボックス",
   "groups": [
-   "その他ボックス"
+   "その他ボックス",
+   "ボックス",
+   "その他（セット・プロモ等）"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/11/20251016093740-0-300x219.webp",
   "image": "img/box/pokemon_15ed024b.webp",
@@ -1673,7 +1609,8 @@
   "name": "名探偵ピカチュウ",
   "group": "サン&ムーン(S&M)",
   "groups": [
-   "サン&ムーン(S&M)"
+   "サン&ムーン(S&M)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/718bv3FG9cL._UF8941000_QL80_-300x300.jpg",
   "image": "img/box/pokemon_2c07d47f.jpg",
@@ -1732,19 +1669,6 @@
   "image": null,
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
- },
- "pokemon_31fe2208": {
-  "id": "pokemon_31fe2208",
-  "game": "pokemon",
-  "name": "ポケモン切手BOX~見返り美人・月に雁セット 透明袋付き",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2024-04-30T231430.781-300x300.jpg",
-  "image": "img/box/pokemon_31fe2208.jpg",
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-22"
  },
  "pokemon_3210dd0e": {
   "id": "pokemon_3210dd0e",
@@ -1826,19 +1750,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
- "pokemon_39df687b": {
-  "id": "pokemon_39df687b",
-  "game": "pokemon",
-  "name": "ポケモンワールドチャンピオンシップス2023横浜 記念デッキピカチュウ",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2023-07-29T002029.145-1-300x300.jpg",
-  "image": "img/box/pokemon_39df687b.jpg",
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-22"
- },
  "pokemon_3c980e2a": {
   "id": "pokemon_3c980e2a",
   "game": "pokemon",
@@ -1866,26 +1777,14 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
- "pokemon_3d553b44": {
-  "id": "pokemon_3d553b44",
-  "game": "pokemon",
-  "name": "Yu Nagaba 未開封パック",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-22"
- },
  "pokemon_3ee6b2e5": {
   "id": "pokemon_3ee6b2e5",
   "game": "pokemon",
   "name": "ポケモンカードゲーム Classic",
   "group": "その他ボックス",
   "groups": [
-   "その他ボックス"
+   "その他ボックス",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/11/%E3%83%9D%E3%82%B1%E3%83%A2%E3%83%B3%E3%82%AB%E3%83%BC%E3%83%89%E3%82%B2%E3%83%BC%E3%83%A0-Classic%EF%BC%88%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%83%E3%82%AF%EF%BC%89%E8%B2%B7%E5%8F%96%E3%83%BB%E7%9B%B8%E5%A0%B4%E4%BE%A1%E6%A0%BC%E6%83%85%E5%A0%B1.jpg-300x160.webp",
   "image": "img/box/pokemon_3ee6b2e5.webp",
@@ -1898,7 +1797,8 @@
   "name": "YU NAGABA × ポケモンカードゲーム イーブイズ プロモパック",
   "group": "ボックス",
   "groups": [
-   "ボックス"
+   "ボックス",
+   "その他（セット・プロモ等）"
   ],
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2023-12-19T194837.646-300x300.jpg",
   "image": "img/box/pokemon_3f3685b9.jpg",
@@ -2005,11 +1905,12 @@
   "name": "25th ANNIVERSARY COLLECTION スペシャルセット",
   "group": "ボックス",
   "groups": [
-   "ボックス"
+   "ボックス",
+   "その他（セット・プロモ等）"
   ],
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-26-1-300x300.jpeg",
   "image": "img/box/pokemon_47c035c7.jpg",
-  "firstSeen": "2026-09-22",
+  "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-22"
  },
  "pokemon_49e8bd33": {
@@ -2243,19 +2144,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
- "pokemon_58d90b6a": {
-  "id": "pokemon_58d90b6a",
-  "game": "pokemon",
-  "name": "ムービースペシャルパック 名探偵ピカチュウ",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/Proyecto-nuevo-300x300.jpeg",
-  "image": "img/box/pokemon_58d90b6a.jpg",
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-22"
- },
  "pokemon_5a0690f5": {
   "id": "pokemon_5a0690f5",
   "game": "pokemon",
@@ -2343,7 +2231,8 @@
   "name": "ゲンガーV MAX andインテリオンV MAX ハイクラスデッキダブルBOX",
   "group": "ボックス",
   "groups": [
-   "ボックス"
+   "ボックス",
+   "その他（セット・プロモ等）"
   ],
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2024-01-08T225224.465-300x300.jpg",
   "image": "img/box/pokemon_5e539a25.jpg",
@@ -2411,7 +2300,8 @@
   "groups": [
    "スペシャルBOX・限定セット",
    "スターター・構築済み",
-   "その他（セット・プロモ等）"
+   "その他（セット・プロモ等）",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2026/08/pb-yokohama-official-231x300.jpg",
   "image": "img/box/pokemon_69dde59e.jpg",
@@ -2438,11 +2328,12 @@
   "name": "ポケモン GO カードファイルセット",
   "group": "ボックス",
   "groups": [
-   "ボックス"
+   "ボックス",
+   "その他（セット・プロモ等）"
   ],
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-4-300x300.jpeg",
   "image": "img/box/pokemon_6b6a9293.jpg",
-  "firstSeen": "2026-09-22",
+  "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-22"
  },
  "pokemon_6b9d6fda": {
@@ -2478,7 +2369,8 @@
   "group": "ソード&シールド(S)",
   "groups": [
    "ソード&シールド(S)",
-   "ボックス"
+   "ボックス",
+   "その他（セット・プロモ等）"
   ],
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-95-300x300.jpg",
   "image": "img/box/pokemon_7040f78a.jpg",
@@ -2641,7 +2533,9 @@
   "name": "トウホクスペシャルBOX",
   "group": "その他ボックス",
   "groups": [
-   "その他ボックス"
+   "その他ボックス",
+   "その他（セット・プロモ等）",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/11/20250613055227-0-300x219.webp",
   "image": "img/box/pokemon_7feba245.webp",
@@ -2668,7 +2562,9 @@
   "name": "ポケモン切手BOX",
   "group": "その他ボックス",
   "groups": [
-   "その他ボックス"
+   "その他ボックス",
+   "ボックス",
+   "その他（セット・プロモ等）"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/11/20211102104845-0-300x219.jpeg",
   "image": "img/box/pokemon_85d20b60.jpg",
@@ -2722,7 +2618,9 @@
   "name": "ヒロシマスペシャルBOX",
   "group": "その他ボックス",
   "groups": [
-   "その他ボックス"
+   "その他ボックス",
+   "その他（セット・プロモ等）",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/11/20250613055228-1-300x219.webp",
   "image": "img/box/pokemon_8af6cb72.webp",
@@ -2920,19 +2818,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
- "pokemon_97f1d31d": {
-  "id": "pokemon_97f1d31d",
-  "game": "pokemon",
-  "name": "25thアニバーサリーコレクション スペシャルセット",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
  "pokemon_98449799": {
   "id": "pokemon_98449799",
   "game": "pokemon",
@@ -3013,19 +2898,6 @@
   "image": "img/box/pokemon_9dec423a.jpg",
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-22"
- },
- "pokemon_9e44263b": {
-  "id": "pokemon_9e44263b",
-  "game": "pokemon",
-  "name": "25th アニバーサリーコレクション",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
  },
  "pokemon_9f04ef88": {
   "id": "pokemon_9f04ef88",
@@ -3121,19 +2993,6 @@
   "image": null,
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
- },
- "pokemon_a59f6336": {
-  "id": "pokemon_a59f6336",
-  "game": "pokemon",
-  "name": "ポケモンセンターカナザワオープン記念",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-85-300x300.jpg",
-  "image": "img/box/pokemon_a59f6336.jpg",
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-22"
  },
  "pokemon_a712dbb2": {
   "id": "pokemon_a712dbb2",
@@ -3242,20 +3101,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-22"
  },
- "pokemon_ac556e3f": {
-  "id": "pokemon_ac556e3f",
-  "game": "pokemon",
-  "name": "ポケモンセンターヒロシマ",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）",
-   "ボックス"
-  ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-54-300x300.jpeg",
-  "image": "img/box/pokemon_ac556e3f.jpg",
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-22"
- },
  "pokemon_ae0715f9": {
   "id": "pokemon_ae0715f9",
   "game": "pokemon",
@@ -3268,19 +3113,6 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/VSTARユニバース-300x300.jpeg",
   "image": "img/box/pokemon_ae0715f9.jpg",
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-22"
- },
- "pokemon_af30951d": {
-  "id": "pokemon_af30951d",
-  "game": "pokemon",
-  "name": "カナザワボックス",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-22"
  },
  "pokemon_af657aaa": {
@@ -3357,7 +3189,9 @@
   "name": "フクオカスペシャルBOX",
   "group": "その他ボックス",
   "groups": [
-   "その他ボックス"
+   "その他ボックス",
+   "その他（セット・プロモ等）",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/11/20250613055228-2-300x219.webp",
   "image": "img/box/pokemon_b05e9cbe.webp",
@@ -3497,33 +3331,6 @@
   "image": "img/box/pokemon_bea6ee61.jpg",
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-22"
- },
- "pokemon_bf372c4a": {
-  "id": "pokemon_bf372c4a",
-  "game": "pokemon",
-  "name": "ポケモンセンターフクオカ",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）",
-   "ボックス"
-  ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-66-300x300.jpeg",
-  "image": "img/box/pokemon_bf372c4a.jpg",
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-22"
- },
- "pokemon_bf51715f": {
-  "id": "pokemon_bf51715f",
-  "game": "pokemon",
-  "name": "Pokemon GO ファイルセット",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
  },
  "pokemon_c292a70b": {
   "id": "pokemon_c292a70b",
@@ -3672,19 +3479,6 @@
   ],
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2023-08-31T233343.764-300x300.jpg",
   "image": "img/box/pokemon_cd50f7f6.jpg",
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-22"
- },
- "pokemon_cd63745d": {
-  "id": "pokemon_cd63745d",
-  "game": "pokemon",
-  "name": "切手ボックス",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-22"
  },
@@ -3900,32 +3694,6 @@
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20190912_aae63a-295x300.jpg",
   "image": "img/box/pokemon_e66966a9.jpg",
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-22"
- },
- "pokemon_eb0e87e3": {
-  "id": "pokemon_eb0e87e3",
-  "game": "pokemon",
-  "name": "カナザワオープン記念Box",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
- "pokemon_ebcf6982": {
-  "id": "pokemon_ebcf6982",
-  "game": "pokemon",
-  "name": "TAG TEAM GX タッグオールスターズ",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-93-300x300.jpg",
-  "image": "img/box/pokemon_ebcf6982.jpg",
-  "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-22"
  },
  "pokemon_ebd6fe37": {
@@ -4169,19 +3937,6 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2024-01-22T230841.609-300x300.jpg",
   "image": "img/box/pokemon_f9e1d58b.jpg",
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-22"
- },
- "pokemon_fdb552e0": {
-  "id": "pokemon_fdb552e0",
-  "game": "pokemon",
-  "name": "ポケモン GO",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2023-08-23T004405.736-300x300.jpg",
-  "image": "img/box/pokemon_fdb552e0.jpg",
-  "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-22"
  },
  "pokemon_fe7f632f": {

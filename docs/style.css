@@ -87,7 +87,7 @@ thead th {
 }
 thead th small { display: block; font-weight: 400; font-size: 11px; color: var(--muted); }
 thead th small.bad { color: var(--warn-fg); }
-th.name, td.name { position: sticky; left: 0; z-index: 2; text-align: left; background: var(--card); min-width: 168px; max-width: 58vw; white-space: normal; }
+th.name, td.name { position: sticky; left: 0; z-index: 2; text-align: left; background: var(--card); min-width: 128px; max-width: 46vw; white-space: normal; }
 thead th.name { z-index: 4; background: var(--head); }
 tr.group td { position: sticky; left: 0; background: var(--group); font-weight: 600; font-size: 13px; text-align: left; }
 .pname { display: flex; align-items: center; gap: 8px; }
@@ -156,3 +156,12 @@ table.mini td { padding: 3px 6px; text-align: left; white-space: normal; border-
 .status.err label { display: block; margin-top: 6px; }
 .store-row { margin: 6px 0 2px; }
 .store-name { font-size: 12px; font-weight: 700; color: var(--muted); }
+@media (min-width: 720px) { th.name, td.name { min-width: 200px; max-width: 40vw; } }
+/* スマホ: 店舗の列が4つ並んでも、できるだけ横スクロールしないように余白と文字を詰める */
+@media (max-width: 480px) {
+  th, td { padding: 8px 4px; font-size: 13px; }
+  thead th { font-size: 12px; }
+  thead th small { font-size: 9.5px; }
+  th.name, td.name { min-width: 92px; max-width: 30vw; padding-left: 8px; }
+  tr.group td { font-size: 12px; }
+}

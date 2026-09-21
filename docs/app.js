@@ -164,7 +164,7 @@
       stores.map((s) => {
         const st = DATA.storeGame[`${s.id}|${gameId}`];
         return h('th', null, s.name,
-          h('small', { class: st && st.fresh ? '' : 'bad' }, st && st.lastOkAt ? (st.fresh ? '更新 ' : '⚠ 最終更新 ') + md(st.lastOkAt) + ' ' + hm(st.lastOkAt) : '未取得'));
+          h('small', { class: st && st.fresh ? '' : 'bad' }, st && st.lastOkAt ? (st.fresh ? '' : '⚠ ') + md(st.lastOkAt) + ' ' + hm(st.lastOkAt) : '未取得'));
       })));
     const body = h('tbody');
     for (const g of groups) {
@@ -172,7 +172,7 @@
       for (const p of g.items) {
         body.append(h('tr', null,
           h('th', { class: 'name', scope: 'row' }, h('div', { class: 'pname' },
-            p.image ? h('img', { src: p.image, alt: '', loading: 'lazy' }) : h('span', { class: 'thumb' }),
+            // 一覧には画像を出さない（スマホで幅を取りすぎるため。画像は商品ページに出す）
             h('div', null, h('a', { href: '#/p/' + p.id }, p.name),
               p.release ? h('div', { class: 'muted', style: 'font-size:11px' }, '発売 ' + p.release.replace(/-/g, '/')) : null))),
           stores.map((s) => cellNode(summaryCell(p, s.id)))));
@@ -186,7 +186,7 @@
       h('div', { class: 'legend' },
         h('span', null, h('span', { class: 'badge new' }, '🆕 出現'), ` 直近${DATA.eventDays}日に買取開始（${newCount}件）`),
         h('span', null, h('span', { class: 'badge gone' }, '✕ 取扱終了'), ` 直近${DATA.eventDays}日に買取停止（${goneCount}件）`),
-        h('span', null, '— 取扱なし　未確認 = 取得できていない')),
+        h('span', null, '— 取扱なし　未確認 = 取得できていない　店名の下 = 最終更新')),
       h('div', { class: 'tablewrap' }, h('table', null, thead, body)));
   }
 
@@ -254,7 +254,7 @@
         ? h('div', { class: 'tablewrap' }, h('table', null,
             h('thead', null, h('tr', null, h('th', { class: 'name' }, '商品'), h('th', null, '現在'), h('th', null, '差額'), h('th', null, '変化率'))),
             h('tbody', null, rows.slice(0, 50).map((x) => h('tr', null,
-              h('th', { class: 'name', scope: 'row' }, h('div', { class: 'pname' }, x.p.image ? h('img', { src: x.p.image, alt: '', loading: 'lazy' }) : h('span', { class: 'thumb' }),
+              h('th', { class: 'name', scope: 'row' }, h('div', { class: 'pname' },
                 h('div', null, h('a', { href: '#/p/' + x.p.id }, x.p.name), h('div', { class: 'muted', style: 'font-size:11px' }, gameLabel(x.p.game) + (x.c !== 'box' ? '・' + condLabel(x.c) : ''))))),
               h('td', null, yen(x.now), x.n > 1 ? h('small', null, x.n + '店舗平均') : null),
               h('td', { class: cls(x.r.diff) }, arrow(x.r.diff) + ' ' + signed(x.r.diff)),
