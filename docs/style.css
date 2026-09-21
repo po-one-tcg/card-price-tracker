@@ -140,3 +140,17 @@ code { background: var(--head); padding: 1px 5px; border-radius: 4px; font-size:
 .item-title { font-weight: 600; }
 .item-price { font-variant-numeric: tabular-nums; }
 .actions { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+
+/* ---- 管理画面: 買取EXPOの取り込み ---- */
+.field.area { width: 100%; flex: none; display: block; margin: 8px 0; font-size: 13px; line-height: 1.5; resize: vertical; }
+select.field { padding: 6px 8px; }
+.chips-row { display: flex; gap: 6px; flex-wrap: wrap; margin: 6px 0 10px; }
+.sub { font-size: 15px; margin: 16px 0 6px; }
+.sep { border: 0; border-top: 1px solid var(--line); margin: 14px 0 10px; }
+.chk { font-size: 13px; display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
+details.ev { font-size: 13px; }
+details.ev summary { cursor: pointer; padding: 2px 0; }
+details.ev ul { margin: 4px 0 6px; padding-left: 20px; }
+table.mini { width: 100%; font-size: 13px; }
+table.mini td { padding: 3px 6px; text-align: left; white-space: normal; border-bottom: 1px solid var(--line); }
+.status.err label { display: block; margin-top: 6px; }

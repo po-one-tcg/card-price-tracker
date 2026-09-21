@@ -182,7 +182,7 @@
   function pendingList() {
     const list = pending ? pending.pending : [];
     const waiting = new Map((decisions?.decisions || []).filter((d) => !d.appliedAt).map((d) => [d.key, d]));
-    const head = h('h2', null, '② 要確認リスト', h('span', { class: 'muted small' }, pending ? `　（${md(pending.generatedAt)} 時点）` : ''));
+    const head = h('h2', null, '③ 要確認リスト', h('span', { class: 'muted small' }, pending ? `　（${md(pending.generatedAt)} 時点）` : ''));
     if (!pending) return h('section', null, head, h('p', { class: 'empty' }, '要確認リストを読み込めませんでした。'));
     if (!list.length) return h('section', null, head, h('p', { class: 'empty' }, '確認が必要な項目はありません 🎉'));
     return h('section', null, head,
@@ -206,7 +206,7 @@
 
   function runCard() {
     return h('section', { class: 'box' },
-      h('h2', { style: 'margin-top:0' }, '③ 今すぐ更新'),
+      h('h2', { style: 'margin-top:0' }, '④ 今すぐ更新'),
       h('p', { class: 'muted small' }, '判断を保存したあと、次の自動更新（13:00 / 15:00 / 18:00）を待たずにすぐ反映したいときに押します。'),
       h('button', { class: 'btn primary', type: 'button', disabled: !decisions || busy, onclick: runNow }, '今すぐ更新を実行'));
   }
@@ -222,16 +222,208 @@
           h('span', { class: 'muted small' }, d.key.split('|')[1] || '')))));
   }
 
+  // ---------- 買取EXPOの取り込み ----------
+  const EP = window.ExpoParser;
+  let manual = null; // ../data/manual.json（区分の設定と、いまの内容）
+  let expoText = '';
+  let plan = null; // 読み取り結果 + 確定前の予測
+  let headingMap = {}; // 未対応の見出し → 選んだ区分ID
+  let sendAfter = true; // 取り込み後にすぐ更新を実行する
+  let inboxCount = null; // 取り込み待ち（まだ収集に反映されていない送信）の数
+
+  const expoStore = () => (manual ? manual.stores.find((s) => s.id === 'expo') : null);
+  const activeSections = () => (expoStore() ? expoStore().sections.filter((s) => s.kind !== 'skip') : []);
+  const condName = (id) => (manual.conditions.find((c) => c.id === id) || { label: id }).label;
+
+  // 貼り付けた内容を読み取り、「確定したらどうなるか」を今のデータと突き合わせて予測する（収集側と同じ判定）
+  function buildPlan() {
+    const store = expoStore();
+    const sections = store.sections.map((s) => ({
+      ...s,
+      headings: [...(s.headings || []), ...Object.entries(headingMap).filter(([, id]) => id === s.id).map(([hd]) => hd)],
+    }));
+    const parsed = EP.parse(expoText, sections);
+    const index = new Map(manual.products.map((p) => [`${p.game}|${EP.canon(p.name)}`, p.id]));
+    const threshold = manual.thresholdPct ?? 50;
+    const anomalous = (a, b) => !(b > 0) || (Math.abs(b - a) / a) * 100 > threshold;
+
+    const blocks = parsed.blocks.map((b) => {
+      const out = { ...b, appear: [], disappear: [], anomaly: [], unmatched: [], matched: 0, created: 0, absent: [], prevCount: 0, tooFew: false, confirmedDrop: false };
+      if (b.skipped || b.unknown) return out;
+      if (b.kind === 'update') {
+        for (const it of b.items) {
+          const c = EP.canon(it.name);
+          const cands = manual.entries.filter((e) => e.store === 'expo' && EP.canon(e.name || '') === c && (!it.cond || e.cond === it.cond));
+          const pick = cands.find((e) => e.cond === 'shrink') || cands.find((e) => e.cond === 'box') || cands[0];
+          if (!pick) { out.unmatched.push(it.name); continue; }
+          it.matchedCond = pick.cond;
+          it.from = pick.price;
+          if (pick.state === 'value' && anomalous(pick.price, it.price)) out.anomaly.push({ ...it });
+          out.matched++;
+        }
+        return out;
+      }
+      const sec = b.section;
+      const prev = manual.entries.filter((e) => e.store === 'expo' && e.src === sec.id);
+      const prevMap = new Map(prev.map((e) => [`${e.pid}|${e.cond}`, e]));
+      const baseline = Boolean(sec.lastOkAt);
+      const touched = new Set();
+      for (const it of b.items) {
+        const pid = index.get(`${it.game}|${EP.canon(it.name)}`);
+        if (pid) out.matched++; else out.created++;
+        const pe = pid ? prevMap.get(`${pid}|${it.cond}`) : null;
+        if (pe) touched.add(`${pid}|${it.cond}`);
+        if (!pe) { if (baseline && !it.closed) out.appear.push(it); }
+        else if (it.closed) { if (pe.state === 'value') out.disappear.push({ ...it, from: pe.price }); }
+        else if (pe.state !== 'value') out.appear.push(it);
+        else if (pe.price !== it.price && anomalous(pe.price, it.price)) out.anomaly.push({ ...it, from: pe.price });
+      }
+      out.absent = prev.filter((e) => !touched.has(`${e.pid}|${e.cond}`));
+      for (const e of out.absent) if (e.state === 'value') out.disappear.push({ name: e.name, cond: e.cond, from: e.price, absent: true });
+      out.prevCount = prev.length;
+      out.tooFew = prev.length >= 10 && b.items.length < prev.length * 0.6;
+      return out;
+    });
+    return { blocks, dateGuess: parsed.dateGuess };
+  }
+
+  const newId = () => Math.random().toString(36).slice(2, 8);
+  const inboxPath = (type) => `data/box/manual/inbox/${jstStamp().replace(/[-:T+]/g, '').slice(0, 14)}-${type}-${newId()}.json`;
+  async function putNewFile(path, obj, message) {
+    await gh(`/repos/${REPO}/contents/${path}`, { method: 'PUT', body: { message, content: b64enc(JSON.stringify(obj) + '\n'), branch: BRANCH } });
+  }
+  async function refreshInbox() {
+    try {
+      const list = await gh(`/repos/${REPO}/contents/data/box/manual/inbox?ref=${BRANCH}`);
+      inboxCount = Array.isArray(list) ? list.filter((f) => f.name.endsWith('.json')).length : 0;
+    } catch (e) {
+      inboxCount = e.status === 404 ? 0 : null;
+    }
+  }
+
+  const sendable = () => plan.blocks.filter((b) => b.kind === 'full' && !b.unknown && !b.skipped && b.items.length && !(b.tooFew && !b.confirmedDrop));
+  const updatable = () => plan.blocks.filter((b) => b.kind === 'update' && b.items.length);
+
+  const submitExpo = () =>
+    run('取り込みデータを送信しています', async () => {
+      const base = { store: 'expo', createdAt: jstStamp(), rawText: expoText };
+      const subs = [];
+      const fulls = sendable();
+      const ups = updatable();
+      if (fulls.length) {
+        subs.push({ ...base, id: newId(), type: 'full',
+          blocks: fulls.map((b) => ({ sectionId: b.sectionId, ...(b.tooFew ? { confirmedDrop: true } : {}), items: b.items.map(({ name, cond, price, closed, game }) => ({ name, cond, price, closed, game })) })) });
+      }
+      if (ups.length) subs.push({ ...base, id: newId(), type: 'update', blocks: ups.map((b) => ({ items: b.items.map(({ name, cond, price }) => ({ name, cond, price })) })) });
+      if (!subs.length) throw new Error('取り込める内容がありません');
+      for (const s of subs) await putNewFile(inboxPath(s.type), s, `管理画面: 買取EXPOの取り込みデータ (${s.type})`);
+      if (sendAfter) await gh(`/repos/${REPO}/actions/workflows/scrape.yml/dispatches`, { method: 'POST', body: { ref: BRANCH } });
+      expoText = '';
+      plan = null;
+      await refreshInbox();
+      say('ok', sendAfter ? '送信しました。更新を開始したので、1〜3分後に公開ページに反映されます。' : '送信しました。次の自動更新（13:00 / 15:00 / 18:00）で反映されます。');
+    });
+
+  const pauseExpo = () => {
+    if (!window.confirm('買取EXPOを「本日休止」にします。\n全商品が「休止」表示になります（出現・消滅にはカウントされません）。よろしいですか？')) return;
+    run('休止を送信しています', async () => {
+      await putNewFile(inboxPath('paused'), { id: newId(), store: 'expo', type: 'paused', createdAt: jstStamp() }, '管理画面: 買取EXPO 本日休止');
+      if (sendAfter) await gh(`/repos/${REPO}/actions/workflows/scrape.yml/dispatches`, { method: 'POST', body: { ref: BRANCH } });
+      await refreshInbox();
+      say('ok', '「本日休止」を送信しました。' + (sendAfter ? '1〜3分後に反映されます。' : '次の更新で反映されます。'));
+    });
+  };
+
+  function expoChecklist() {
+    const secs = activeSections();
+    return h('div', { class: 'chips-row' }, secs.map((s) => {
+      const ok = s.lastOkAt && s.fresh;
+      return h('span', { class: 'badge ' + (ok ? 'new' : 'warn'), title: s.lastOkAt ? `最終更新 ${md(s.lastOkAt)}` : 'まだ一度も入力されていません' }, (ok ? '✅ ' : '⚠ ') + s.label);
+    }));
+  }
+
+  function eventList(label, cls, items, fmt) {
+    if (!items.length) return null;
+    return h('details', { class: 'ev' }, h('summary', null, h('span', { class: 'badge ' + cls }, label), ` ${items.length}件`),
+      h('ul', null, items.slice(0, 40).map((it) => h('li', null, fmt(it))), items.length > 40 ? h('li', { class: 'muted' }, `…ほか ${items.length - 40}件`) : null));
+  }
+
+  function blockView(b, i) {
+    const head = h('div', { class: 'item-title' }, '✅ ' + b.heading,
+      b.section ? h('span', { class: 'muted small' }, `　→ ${b.section.label}`) : null);
+    if (b.unknown) {
+      const sel = h('select', { class: 'field short', 'aria-label': '取り込む区分', onchange: (e) => { if (e.target.value) { headingMap[b.heading] = e.target.value; plan = buildPlan(); render(); } } },
+        h('option', { value: '' }, '区分を選ぶ…'), activeSections().map((s) => h('option', { value: s.id }, s.label)));
+      return h('div', { class: 'item' }, head, h('div', { class: 'badge warn' }, '見出しを認識できませんでした（この区分は送信されません）'), h('div', { class: 'row-gap' }, h('span', { class: 'small' }, '当てはまる区分:'), sel));
+    }
+    if (b.skipped) return h('div', { class: 'item' }, head, h('div', { class: 'muted small' }, 'この区分はBOXの価格ではない（レート表など）ため、取り込みません。'));
+    if (b.kind === 'update') {
+      return h('div', { class: 'item' }, head,
+        h('table', { class: 'mini' }, h('tbody', null, b.items.map((it) => h('tr', null,
+          h('td', null, it.name, it.matchedCond ? h('span', { class: 'muted small' }, `（${condName(it.matchedCond)}）`) : null),
+          h('td', null, it.from != null ? `${yen(it.from)} → ` : '', h('b', null, yen(it.price))),
+          h('td', null, b.unmatched.includes(it.name) ? h('span', { class: 'badge warn' }, '該当する商品なし（反映されません）') : null))))),
+        eventList('⚠ 要確認になる', 'warn', b.anomaly, (it) => `${it.name} ${yen(it.from)} → ${yen(it.price)}`));
+    }
+    const priced = b.items.filter((x) => !x.closed).length;
+    return h('div', { class: 'item' }, head,
+      h('div', { class: 'small' }, `${b.items.length}件（価格あり ${priced} / 〆切 ${b.items.length - priced}）　既存の商品と一致 ${b.matched} / 新規 ${b.created}`),
+      b.tooFew ? h('div', { class: 'status err' }, `⚠ 前回は ${b.prevCount}件でしたが、今回は ${b.items.length}件しかありません。貼り忘れの可能性があります（このまま取り込むと、載っていない商品は「消滅」になります）。`,
+        h('label', { class: 'chk' }, h('input', { type: 'checkbox', checked: b.confirmedDrop ? true : null, onchange: (e) => { b.confirmedDrop = e.target.checked; render(); } }), ' 貼り忘れではない。このまま取り込む')) : null,
+      eventList('🆕 出現', 'new', b.appear, (it) => `${it.name}（${condName(it.cond)}）${yen(it.price)}`),
+      eventList('✕ 消滅', 'gone', b.disappear, (it) => `${it.name}（${condName(it.cond)}）直前 ${yen(it.from)}${it.absent ? ' ※今回のポストに載っていない' : ''}`),
+      eventList('⚠ 要確認になる', 'warn', b.anomaly, (it) => `${it.name}（${condName(it.cond)}）${yen(it.from)} → ${yen(it.price)}`),
+      b.ignored.length ? h('details', { class: 'ev' }, h('summary', { class: 'muted small' }, `読み飛ばした行 ${b.ignored.length}件`), h('ul', null, b.ignored.map((l) => h('li', { class: 'muted small' }, l)))) : null,
+      b.warnings.length ? h('div', { class: 'badge warn' }, b.warnings.join(' / ')) : null);
+  }
+
+  function planView() {
+    const okFull = sendable().length, okUp = updatable().length;
+    return h('div', null,
+      h('h3', { class: 'sub' }, '読み取り結果（確認してから確定します）'),
+      plan.blocks.length ? plan.blocks.map(blockView) : h('p', { class: 'empty' }, '「✅」で始まる見出し、または価格変更のお知らせが見つかりませんでした。'),
+      h('div', { class: 'row-gap', style: 'margin-top:8px' },
+        h('button', { class: 'btn primary', type: 'button', disabled: busy || !(okFull || okUp), onclick: submitExpo }, `この内容で確定して取り込む（${okFull + okUp}件のポスト分）`),
+        h('label', { class: 'chk' }, h('input', { type: 'checkbox', checked: sendAfter ? true : null, onchange: (e) => { sendAfter = e.target.checked; } }), ' 取り込み後すぐ更新を実行する')));
+  }
+
+  function expoCard() {
+    const store = expoStore();
+    if (!store) return h('section', { class: 'box' }, h('h2', { style: 'margin-top:0' }, '② 買取EXPOの入力'), h('p', { class: 'muted' }, '取り込みの設定を読み込めませんでした。'));
+    const ta = h('textarea', { class: 'field area', rows: '7', placeholder: 'ここに買取EXPOのXポストを貼り付け（1日ぶんの複数のポストをまとめて貼ってOK）', 'aria-label': '買取EXPOのポスト', spellcheck: 'false' });
+    ta.value = expoText;
+    ta.addEventListener('input', () => { expoText = ta.value; });
+    const canWrite = Boolean(token && decisions);
+    return h('section', { class: 'box' },
+      h('h2', { style: 'margin-top:0' }, '② 買取EXPOの入力（毎日）'),
+      h('p', { class: 'muted small' }, '各区分の最新の入力状況（⚠ は未入力・古い区分。入力しないと公開ページでは「未確認」になります）'),
+      expoChecklist(),
+      inboxCount ? h('p', { class: 'small' }, `📥 取り込み待ち ${inboxCount}件（次の更新で反映されます）`) : null,
+      ta,
+      h('div', { class: 'row-gap' },
+        h('button', { class: 'btn primary', type: 'button', disabled: busy, onclick: () => { expoText = ta.value; plan = buildPlan(); render(); } }, '読み取る'),
+        h('button', { class: 'btn', type: 'button', disabled: busy, onclick: () => { expoText = ''; plan = null; render(); } }, 'クリア'),
+        canWrite ? null : h('span', { class: 'muted small' }, '※ 確定するには、先に上の「GitHubトークン」を登録してください')),
+      plan ? planView() : null,
+      h('hr', { class: 'sep' }),
+      h('div', { class: 'row-between' },
+        h('span', { class: 'small' }, '買取EXPOが休止のとき: '),
+        h('button', { class: 'btn', type: 'button', disabled: busy || !canWrite, onclick: pauseExpo }, '買取EXPO 本日休止')));
+  }
+
   function render() {
+    const y = window.scrollY;
     app.replaceChildren(
       ...[
         h('h1', null, '管理画面'),
         statusMsg ? h('div', { class: 'status ' + statusMsg.kind, role: 'status' }, statusMsg.text) : null,
         connectionCard(),
+        manual ? expoCard() : null,
         pendingList(),
         token && decisions ? runCard() : null,
         historyList(),
       ].filter(Boolean));
+    window.scrollTo(0, y);
   }
 
   async function init() {
@@ -239,10 +431,15 @@
       const res = await fetch('../data/pending.json', { cache: 'no-store' });
       pending = res.ok ? await res.json() : null;
     } catch { pending = null; }
+    try {
+      const res = await fetch('../data/manual.json', { cache: 'no-store' });
+      manual = res.ok ? await res.json() : null;
+    } catch { manual = null; }
     render();
     if (token) {
       try {
         decisions = (await readDecisions()).data;
+        await refreshInbox();
       } catch (e) {
         statusMsg = { kind: 'err', text: explain(e) };
       }

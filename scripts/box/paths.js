@@ -12,6 +12,8 @@ module.exports = {
   STATE: path.join(ROOT, 'data', 'box', 'state.json'),
   PRODUCTS: path.join(ROOT, 'data', 'box', 'products.json'),
   DECISIONS: path.join(ROOT, 'data', 'box', 'decisions.json'),
+  INBOX_DIR: path.join(ROOT, 'data', 'box', 'manual', 'inbox'),
+  DONE_DIR: path.join(ROOT, 'data', 'box', 'manual', 'done'),
   HISTORY_DIR: path.join(ROOT, 'data', 'box', 'history'),
   RUNS: path.join(ROOT, 'data', 'box', 'runs.jsonl'),
   EVENTS: path.join(ROOT, 'data', 'box', 'events.jsonl'),

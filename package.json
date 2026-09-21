@@ -5,9 +5,12 @@
   "private": true,
   "scripts": {
     "scrape": "node scripts/scrape.js",
-    "scrape:dry": "node scripts/scrape.js --dry-run"
+    "scrape:dry": "node scripts/scrape.js --dry-run",
+    "test": "node --test scripts/lib/detect.test.js scripts/box/expo-parser.test.js"
   },
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "cheerio": "^1.2.0"
   }

@@ -1,8 +1,7 @@
 // 出現・消滅・異常検知の判定ロジック（仕様書 5〜7章）。ファイルやネットワークには触れない純粋な関数。
 //
 // 1つの「店舗×商品×状態」ごとに entry を持つ:
-//   confirmed : 最後に確定した状態 { state: 'value'|'none'|'paused', price, since }
-//               （'none' = 掲載なし, 'paused' = 店が休止を明言。どちらも検知上は「取扱なし」）
+//   confirmed : 最後に確定した状態 { state: 'value'|'none', price, since }（'none' = 掲載なし・〆切）
 //   shown     : 公開ページに出す状態 { state: 'value'|'none'|'paused'|'unknown', price, since }
 //   pending   : 異常検知で保留中の価格 { price, prevPrice, since } | null
 //   ignored   : 「間違い」と判断済みのサイト側の価格（同じ値で再び保留しないため） | null
@@ -12,7 +11,10 @@
 //   { kind: 'value', price }  金額あり
 //   { kind: 'unknown' }       掲載はあるが金額が確認できない（「買取中！」「価格更新中」など）。前日の価格は引き継がない
 //   { kind: 'absent' }        サイトに掲載なし
-//   { kind: 'paused' }        休止（手動入力店舗が「本日休止」を押した）
+//   { kind: 'paused' }        休止（手動入力店舗が「本日休止」を押した）。一時的なお休みなので出現・消滅には
+//                             カウントしない（未確認と同様、確定済みの状態はそのまま。表示だけ「休止」）。
+//                             ※仕様書6章は休止を「取扱なし」と同列に書いているが、1日休むだけで全商品が
+//                               「消滅」→翌日「出現」になり通知が埋まるため、この扱いにしている
 //
 // 取得自体が失敗した回は step を呼ばない（＝何も観測しなかった扱い。消滅にしない）。
 
@@ -53,8 +55,13 @@ function step(prevEntry, obs, ctx) {
     return { entry: e, events, rows };
   }
 
-  if (obs.kind === 'absent' || obs.kind === 'paused') {
-    const state = obs.kind === 'paused' ? 'paused' : 'none';
+  if (obs.kind === 'paused') {
+    setShown('paused', null); // confirmed / pending はそのまま。休止が明けて同じ金額に戻れば何も起きない
+    return { entry: e, events, rows };
+  }
+
+  if (obs.kind === 'absent') {
+    const state = 'none';
     const c = e.confirmed;
     if (c && c.state === 'value') {
       emit('disappear', { from: c.price });

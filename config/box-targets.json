@@ -4,19 +4,56 @@
   "freshHours": 30,
   "eventDays": 7,
   "games": [
-    { "id": "pokemon", "label": "ポケモンカード" },
-    { "id": "onepiece", "label": "ONE PIECE" },
-    { "id": "yugioh", "label": "遊戯王" },
-    { "id": "weiss", "label": "ヴァイスシュヴァルツ" },
-    { "id": "unionarena", "label": "ユニオンアリーナ" },
-    { "id": "lorcana", "label": "ロルカナ" },
-    { "id": "dragonball", "label": "ドラゴンボール" }
+    {
+      "id": "pokemon",
+      "label": "ポケモンカード"
+    },
+    {
+      "id": "onepiece",
+      "label": "ONE PIECE"
+    },
+    {
+      "id": "yugioh",
+      "label": "遊戯王"
+    },
+    {
+      "id": "weiss",
+      "label": "ヴァイスシュヴァルツ"
+    },
+    {
+      "id": "unionarena",
+      "label": "ユニオンアリーナ"
+    },
+    {
+      "id": "lorcana",
+      "label": "ロルカナ"
+    },
+    {
+      "id": "dragonball",
+      "label": "ドラゴンボール"
+    },
+    {
+      "id": "mtg",
+      "label": "MTG"
+    }
   ],
   "conditions": [
-    { "id": "box", "label": "BOX（状態の区別なし）" },
-    { "id": "carton", "label": "カートン" },
-    { "id": "shrink", "label": "シュリンク付き" },
-    { "id": "noshrink", "label": "シュリンク無し" }
+    {
+      "id": "box",
+      "label": "BOX（状態の区別なし）"
+    },
+    {
+      "id": "carton",
+      "label": "カートン"
+    },
+    {
+      "id": "shrink",
+      "label": "シュリンク付き"
+    },
+    {
+      "id": "noshrink",
+      "label": "シュリンク無し"
+    }
   ],
   "stores": [
     {
@@ -31,6 +68,125 @@
           "condition": "box",
           "minRows": 30,
           "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "expo",
+      "name": "買取EXPO",
+      "type": "manual",
+      "freshHours": 36,
+      "_note": "Xのポストを管理画面に貼り付けて取り込む。sections は「✅見出し」ごとの取り込み設定。",
+      "sections": [
+        {
+          "id": "yugioh",
+          "label": "遊戯王",
+          "headings": [
+            "遊戯王 買取価格"
+          ],
+          "game": "yugioh",
+          "group": "遊戯王"
+        },
+        {
+          "id": "mtg",
+          "label": "MTG",
+          "headings": [
+            "MTG 買取価格"
+          ],
+          "game": "mtg",
+          "group": "MTG"
+        },
+        {
+          "id": "unionarena",
+          "label": "ユニオンアリーナ&その他",
+          "headings": [
+            "ユニオンアリーナ&その他"
+          ],
+          "game": "unionarena",
+          "group": "ユニオンアリーナ"
+        },
+        {
+          "id": "weiss-lorcana",
+          "label": "ヴァイスシュヴァルツ&ロルカナ",
+          "headings": [
+            "ヴァイスシュバルツ&ロルカナ 買取価格",
+            "ヴァイスシュヴァルツ&ロルカナ 買取価格"
+          ],
+          "game": "weiss",
+          "gameRules": [
+            {
+              "contains": "ロルカナ",
+              "game": "lorcana"
+            }
+          ],
+          "group": "ヴァイス・ロルカナ"
+        },
+        {
+          "id": "dragonball",
+          "label": "ドラゴンボール",
+          "headings": [
+            "ドラゴンボール 買取価格"
+          ],
+          "game": "dragonball",
+          "group": "ドラゴンボール"
+        },
+        {
+          "id": "onepiece-other",
+          "label": "ワンピース その他",
+          "headings": [
+            "ワンピース One piece その他買取価格"
+          ],
+          "game": "onepiece",
+          "group": "その他（プロモ・セット等）",
+          "excludeContains": [
+            "バラパック",
+            "パラレル(キャラクターカード"
+          ]
+        },
+        {
+          "id": "onepiece",
+          "label": "ワンピース BOX・カートン",
+          "headings": [
+            "ワンピース One piece 買取価格"
+          ],
+          "game": "onepiece",
+          "group": "BOX・カートン"
+        },
+        {
+          "id": "pokemon-old-box",
+          "label": "ポケモン その他BOX",
+          "headings": [
+            "ポケモンその他BOX"
+          ],
+          "game": "pokemon",
+          "group": "その他BOX（旧弾）"
+        },
+        {
+          "id": "pokemon-other",
+          "label": "ポケモン その他",
+          "headings": [
+            "ポケモンその他"
+          ],
+          "game": "pokemon",
+          "group": "その他（セット・プロモ等）"
+        },
+        {
+          "id": "pokemon-single",
+          "label": "ポケカシングル全種",
+          "headings": [
+            "ポケカシングル全種"
+          ],
+          "kind": "skip"
+        },
+        {
+          "id": "pokemon-box",
+          "label": "ポケカ BOX",
+          "headings": [
+            "ポケカ Box"
+          ],
+          "game": "pokemon",
+          "group": "ボックス",
+          "baseCondition": "shrink"
         }
       ]
     }

@@ -10,6 +10,7 @@ const { jstNow, fetchWithRetry, norm, shortHash, sleep, downloadImage } = requir
 const { step, applyDecision } = require('../lib/detect');
 const P = require('./paths');
 const S = require('./store');
+const { processInbox } = require('./manual');
 
 const args = process.argv.slice(2);
 const flag = (n) => args.includes(`--${n}`);
@@ -166,7 +167,7 @@ async function main() {
   if (applied) console.log(`管理者の判断を ${applied} 件反映しました`);
 
   for (const store of config.stores) {
-    for (const src of store.sources) {
+    for (const src of store.sources || []) {
       if (src.enabled === false) continue;
       if (option('game') && src.game !== option('game')) continue;
       console.log(`\n=== ${store.name} / ${src.game} (${src.url}) ===`);
@@ -192,6 +193,29 @@ async function main() {
     }
   }
 
+  // 手動入力店舗（買取EXPOなど）: 管理画面から届いた取り込みデータを反映
+  const manual = processInbox({ config, state, products, now, dryRun: DRY_RUN });
+  allHistory.push(...manual.historyRows);
+  allEvents.push(...manual.events);
+  runLines.push(...manual.runLines);
+  if (manual.reports.length) console.log('\n=== 手動入力の取り込み ===');
+  for (const r of manual.reports) {
+    if (!r.ok) {
+      console.error(`ERROR ${r.file}: ${r.error}`);
+      continue;
+    }
+    if (r.type === 'full') {
+      for (const b of r.blocks) {
+        if (b.rejected) console.log(`  ✕ ${b.sectionId}: ${b.reason}`);
+        else if (b.skipped) console.log(`  - ${b.sectionId}: 対象外`);
+        else console.log(`  ✓ ${b.sectionId}: ${b.items}件（〆切${b.closed} / 新規商品${b.newProducts} / 掲載なし${b.absent}）${b.baseline ? '' : ' ※初回のため基準データ'}`);
+      }
+    }
+    if (r.type === 'update') for (const b of r.blocks) console.log(`  ✓ 価格変更 ${b.updated}件${b.unmatched.length ? ' / 該当なし: ' + b.unmatched.join(', ') : ''}`);
+    if (r.type === 'paused') console.log(`  ✓ 本日休止 ${r.paused}件`);
+  }
+  for (const m of manual.errors) errors.push(new Error(m));
+
   // 結果の表示
   console.log('\n--- 今回の検知 ---');
   const byType = {};
@@ -207,7 +231,7 @@ async function main() {
   if (DRY_RUN) {
     console.log('(dry-run: 保存はしません)');
   } else {
-    if (runLines.some((r) => r.ok)) {
+    if (runLines.some((r) => r.ok) || manual.reports.some((r) => r.ok)) {
       S.saveState(state);
       S.saveProducts(products);
     }

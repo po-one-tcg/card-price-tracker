@@ -140,7 +140,7 @@
       h('div', { class: 'grid' },
         DATA.games.map((g) => {
           const n = counts[g.id] || 0;
-          const st = Object.entries(DATA.sourceStatus).filter(([k]) => k.endsWith('|' + g.id)).map(([, v]) => v);
+          const st = Object.entries(DATA.storeGame).filter(([k]) => k.endsWith('|' + g.id)).map(([, v]) => v);
           const last = st.map((s) => s.lastOkAt).filter(Boolean).sort().pop();
           return n
             ? h('a', { class: 'card', href: '#/g/' + g.id }, h('div', { class: 't' }, g.label), h('div', { class: 's' }, `${n}商品・最終更新 ${last ? md(last) + ' ' + hm(last) : '—'}`))
@@ -162,7 +162,7 @@
     const thead = h('thead', null, h('tr', null,
       h('th', { class: 'name' }, '商品'),
       stores.map((s) => {
-        const st = DATA.sourceStatus[`${s.id}|${gameId}`];
+        const st = DATA.storeGame[`${s.id}|${gameId}`];
         return h('th', null, s.name,
           h('small', { class: st && st.fresh ? '' : 'bad' }, st && st.lastOkAt ? (st.fresh ? '更新 ' : '⚠ 最終更新 ') + md(st.lastOkAt) + ' ' + hm(st.lastOkAt) : '未取得'));
       })));

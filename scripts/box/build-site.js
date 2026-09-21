@@ -30,11 +30,14 @@ function build() {
   const today = now.date;
   const todayNum = dayNum(today);
 
-  // ---- 店舗×ゲームの巡回状況 ----
+  // ---- 取得元ごとの巡回状況 ----
+  // 取得元 = 自動取得の店舗はゲーム、手動入力の店舗は区分（✅見出し）。巡回ログの src（古い行は game）で見分ける
+  const srcOf = (ref) => ref.src ?? ref.game;
+  const storeCfg = Object.fromEntries(config.stores.map((s) => [s.id, s]));
   const okRuns = runs.filter((r) => r.ok);
   const sourceStatus = {};
   for (const r of runs) {
-    const k = `${r.store}|${r.game}`;
+    const k = `${r.store}|${r.src ?? r.game}`;
     const s = (sourceStatus[k] ??= { lastRunAt: null, lastRunOk: null, lastOkAt: null });
     if (!s.lastRunAt || r.t > s.lastRunAt) {
       s.lastRunAt = r.t;
@@ -44,15 +47,16 @@ function build() {
     }
     if (r.ok && (!s.lastOkAt || r.t > s.lastOkAt)) s.lastOkAt = r.t;
   }
-  for (const s of Object.values(sourceStatus)) {
-    s.fresh = s.lastOkAt ? ms(now.stamp) - ms(s.lastOkAt) <= config.freshHours * 3600 * 1000 : false;
+  for (const [k, s] of Object.entries(sourceStatus)) {
+    const freshHours = storeCfg[k.split('|')[0]]?.freshHours ?? config.freshHours; // 手動入力の店舗は長めにできる
+    s.fresh = s.lastOkAt ? ms(now.stamp) - ms(s.lastOkAt) <= freshHours * 3600 * 1000 : false;
     s.staleDays = s.lastOkAt ? Math.max(0, todayNum - dayNum(s.lastOkAt)) : null;
   }
 
   // ---- 日ごとの「最後の成功した巡回」----
-  const lastRunOfDay = {}; // "store|game" -> { date: stamp }
+  const lastRunOfDay = {}; // "store|取得元" -> { date: stamp }
   for (const r of okRuns) {
-    const m = (lastRunOfDay[`${r.store}|${r.game}`] ??= {});
+    const m = (lastRunOfDay[`${r.store}|${r.src ?? r.game}`] ??= {});
     const d = r.t.slice(0, 10);
     if (!m[d] || r.t > m[d]) m[d] = r.t;
   }
@@ -64,8 +68,7 @@ function build() {
   // key -> { date: {st, v} }（その日の最後の成功巡回の時点の公開状態）
   const dailyByKey = {};
   for (const [key, entry] of Object.entries(state.entries)) {
-    const { store, game } = entry.ref;
-    const days = lastRunOfDay[`${store}|${game}`] || {};
+    const days = lastRunOfDay[`${entry.ref.store}|${srcOf(entry.ref)}`] || {};
     const rows = rowsByKey[key] || [];
     const out = {};
     for (const [date, stamp] of Object.entries(days)) {
@@ -91,8 +94,8 @@ function build() {
     if (!p) continue;
     const cells = [];
     for (const [key, entry] of list) {
-      const { store, game, cond } = entry.ref;
-      const status = sourceStatus[`${store}|${game}`];
+      const { store, cond } = entry.ref;
+      const status = sourceStatus[`${store}|${srcOf(entry.ref)}`];
       const fresh = status?.fresh ?? false;
       const ev = entry.lastEvent && dayNum(entry.lastEvent.at) >= eventCutoff ? entry.lastEvent : null;
       const sh = entry.shown || { state: 'unknown', price: null };
@@ -162,6 +165,17 @@ function build() {
     .sort((a, b) => (a.t < b.t ? 1 : -1))
     .slice(0, 100);
 
+  // ---- 店舗×ゲームごとの更新状況（表の見出しに出す）。手動入力店舗は、そのゲームの区分のうち一番古いもの ----
+  const storeGame = {};
+  for (const entry of Object.values(state.entries)) {
+    const st = sourceStatus[`${entry.ref.store}|${srcOf(entry.ref)}`];
+    const g = (storeGame[`${entry.ref.store}|${entry.ref.game}`] ??= { lastOkAt: undefined, fresh: true, staleDays: 0 });
+    const at = st?.lastOkAt ?? null;
+    if (g.lastOkAt === undefined || at === null || (g.lastOkAt !== null && at < g.lastOkAt)) g.lastOkAt = at;
+    g.fresh = g.fresh && Boolean(st?.fresh);
+    g.staleDays = st?.staleDays == null ? g.staleDays : Math.max(g.staleDays ?? 0, st.staleDays);
+  }
+
   const out = {
     generatedAt: now.stamp,
     today,
@@ -172,11 +186,37 @@ function build() {
     conditions: config.conditions,
     stores: config.stores.map((s) => ({ id: s.id, name: s.name, type: s.type })),
     sourceStatus,
+    storeGame,
     products: outProducts,
     feed,
   };
   fs.mkdirSync(path.join(P.DOCS_DIR, 'data'), { recursive: true });
   fs.writeFileSync(path.join(P.DOCS_DIR, 'data', 'box.json'), JSON.stringify(out));
+
+  // 管理者画面用: 手動入力店舗の区分設定と現在の内容（貼り付けた内容のプレビュー・照合に使う）
+  const manualIds = new Set(config.stores.filter((s) => s.type === 'manual').map((s) => s.id));
+  const manual = {
+    generatedAt: now.stamp,
+    thresholdPct: config.thresholdPct,
+    games: config.games,
+    conditions: config.conditions,
+    stores: config.stores
+      .filter((s) => s.type === 'manual')
+      .map((s) => ({
+        id: s.id,
+        name: s.name,
+        sections: s.sections.map((sec) => {
+          const st = sourceStatus[`${s.id}|${sec.id}`];
+          const count = Object.values(state.entries).filter((e) => e.ref.store === s.id && e.ref.src === sec.id).length;
+          return { ...sec, count, lastOkAt: st?.lastOkAt ?? null, fresh: st?.fresh ?? false };
+        }),
+      })),
+    entries: Object.values(state.entries)
+      .filter((e) => manualIds.has(e.ref.store))
+      .map((e) => ({ store: e.ref.store, src: e.ref.src, pid: e.ref.pid, cond: e.ref.cond, game: e.ref.game, name: products[e.ref.pid]?.name, state: e.confirmed?.state ?? null, price: e.confirmed?.price ?? null })),
+    products: Object.values(products).map((p) => ({ id: p.id, game: p.game, name: p.name })),
+  };
+  fs.writeFileSync(path.join(P.DOCS_DIR, 'data', 'manual.json'), JSON.stringify(manual));
 
   // 管理者画面用: 要確認リスト
   const pending = Object.entries(state.entries)

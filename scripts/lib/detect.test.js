@@ -28,10 +28,26 @@ test('取扱なし → 数値あり = 出現。大きな値でも保留にせず
   assert.equal(r.entry.shown.price, 500000);
 });
 
-test('休止 → 数値あり も出現', () => {
-  let e = run(run(null, value(5000), 1, false).entry, { kind: 'paused' }, 2).entry;
-  assert.equal(e.shown.state, 'paused');
-  assert.deepEqual(run(e, value(5000), 3).events.map((x) => x.type), ['appear']);
+test('休止は出現・消滅にカウントしない: 金額あり → 休止 → 同じ金額 でイベントなし', () => {
+  let r = run(run(null, value(5000), 1, false).entry, { kind: 'paused' }, 2);
+  assert.equal(r.events.length, 0);
+  assert.equal(r.entry.shown.state, 'paused');
+  assert.equal(r.entry.shown.price, null); // 休止中は価格を出さない
+  r = run(r.entry, value(5000), 3);
+  assert.equal(r.events.length, 0);
+  assert.equal(r.entry.shown.state, 'value');
+  assert.equal(r.entry.shown.price, 5000);
+});
+
+test('休止のあとに大きく違う金額で再開したら、確定済みの金額と比べて異常検知する', () => {
+  const e = run(run(null, value(5000), 1, false).entry, { kind: 'paused' }, 2).entry;
+  assert.deepEqual(run(e, value(50000), 3).events.map((x) => x.type), ['anomaly']);
+});
+
+test('〆切（none）のあとの休止 → 再開は、通常どおり出現', () => {
+  let e = run(run(null, value(5000), 1, false).entry, { kind: 'absent' }, 2).entry;
+  e = run(e, { kind: 'paused' }, 3).entry;
+  assert.deepEqual(run(e, value(5000), 4).events.map((x) => x.type), ['appear']);
 });
 
 test('数値あり → 掲載なし = 消滅。公開に即反映', () => {
