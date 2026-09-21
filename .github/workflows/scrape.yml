@@ -1,0 +1,51 @@
+name: 買取価格の収集
+
+on:
+  schedule:
+    # UTC表記。JST = UTC + 9時間 → JST 11:00 / 15:00 / 18:00
+    - cron: '0 2 * * *'
+    - cron: '0 6 * * *'
+    - cron: '0 9 * * *'
+  workflow_dispatch: # Actionsタブの「Run workflow」ボタンで今すぐ実行
+
+permissions:
+  contents: write # data/ を自動コミットするために必要
+
+# 同時に2つ走ってコミットが衝突しないようにする
+concurrency:
+  group: scrape
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: 価格と画像を収集
+        run: node scripts/scrape.js
+
+      - name: data/ の変更をコミット
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "変更なし"
+            exit 0
+          fi
+          git commit -m "data: $(TZ=Asia/Tokyo date '+%Y-%m-%d %H:%M') JST"
+          # 誰かが同時に push していても取り込んでから push する
+          for i in 1 2 3; do
+            git pull --rebase --autostash && git push && exit 0
+            sleep 5
+          done
+          exit 1

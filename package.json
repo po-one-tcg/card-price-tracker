@@ -1,12 +1,14 @@
 {
   "name": "card-price-tracker",
   "version": "1.0.0",
+  "description": "トレカ買取価格の自動収集ツール",
   "private": true,
-  "description": "トレカ価格の自動収集・記録ツール",
   "scripts": {
-    "scrape:pricebase": "node scripts/scrape-pricebase.js"
+    "scrape": "node scripts/scrape.js",
+    "scrape:dry": "node scripts/scrape.js --dry-run"
   },
+  "engines": { "node": ">=20" },
   "dependencies": {
-    "cheerio": "^1.0.0"
+    "cheerio": "^1.2.0"
   }
 }

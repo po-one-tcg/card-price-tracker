@@ -1,0 +1,19 @@
+{
+  "_readme": "収集対象の設定。サイトやキャラを増やすときはこのファイルに書き足すだけ。",
+  "sites": [
+    {
+      "id": "pricebase",
+      "name": "PRICE BASE",
+      "game": "onepiece",
+      "url": "https://price-base.com/useful/onepiece-kaitorilist",
+      "parser": "pricebase",
+      "enabled": true,
+      "characters": [
+        { "id": "luffy", "label": "ルフィ", "keywords": ["ルフィ"], "exclude": [] },
+        { "id": "zoro", "label": "ゾロ", "keywords": ["ゾロ"], "exclude": [] },
+        { "id": "nami", "label": "ナミ", "keywords": ["ナミ"], "exclude": [] },
+        { "id": "hancock", "label": "ハンコック", "keywords": ["ハンコック"], "exclude": [] }
+      ]
+    }
+  ]
+}
