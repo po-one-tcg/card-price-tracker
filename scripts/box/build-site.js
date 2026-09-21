@@ -203,6 +203,7 @@ function build() {
   const manual = {
     generatedAt: now.stamp,
     thresholdPct: config.thresholdPct,
+    aliases: S.readJson(P.ALIASES, {}), // 同じ商品の別表記（管理画面のプレビューでも同じ照合をする）
     games: config.games,
     conditions: config.conditions,
     stores: config.stores

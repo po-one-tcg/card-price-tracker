@@ -161,11 +161,29 @@
     return { blocks: blocks.map(({ lines, ...rest }) => rest), dateGuess };
   }
 
-  // 既存の商品（{id, game, name}）から、同じ商品を探す。見つからなければ null。
-  function matchProduct(game, name, products) {
-    const c = canon(name);
-    return products.find((p) => p.game === game && canon(p.name) === c) || null;
+  // 「別の表記 → 正とする表記」の対応表（config/product-aliases.json）を使って、同じ商品の判定キーを返す関数を作る。
+  // aliases: { ゲームID: { "別の表記": "正とする表記" } }（"_" で始まるキーはメモなので無視）
+  function makeResolver(aliases) {
+    const map = {};
+    for (const [game, pairs] of Object.entries(aliases || {})) {
+      if (game.startsWith('_') || typeof pairs !== 'object') continue;
+      map[game] = {};
+      for (const [from, to] of Object.entries(pairs)) map[game][canon(from)] = canon(to);
+    }
+    return (game, name) => {
+      let c = canon(name);
+      const m = map[game];
+      for (let i = 0; m && m[c] && i < 5; i++) c = m[c]; // 連鎖（A→B→C）も辿る
+      return c;
+    };
   }
 
-  return { parse, canon, cleanName, matchProduct, findSection };
+  // 既存の商品（{id, game, name}）から、同じ商品を探す。見つからなければ null。
+  function matchProduct(game, name, products, resolve) {
+    const r = resolve || ((g, n) => canon(n));
+    const c = r(game, name);
+    return products.find((p) => p.game === game && r(game, p.name) === c) || null;
+  }
+
+  return { parse, canon, cleanName, matchProduct, findSection, makeResolver };
 });

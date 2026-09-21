@@ -246,22 +246,23 @@
     }));
     const updateStore = manualStores().find((s) => s.updatePosts) || manualStores()[0]; // 「価格を変更します」形式のお知らせの持ち主
     const parsed = EP.parse(expoText, sections);
-    const index = new Map(manual.products.map((p) => [`${p.game}|${EP.canon(p.name)}`, p.id]));
+    const resolve = EP.makeResolver(manual.aliases); // 同じ商品の別表記（テラスタルフェス = テラスタルフェスex など）
+    const index = new Map();
+    for (const p of manual.products) if (!index.has(`${p.game}|${resolve(p.game, p.name)}`)) index.set(`${p.game}|${resolve(p.game, p.name)}`, p.id);
     const threshold = manual.thresholdPct ?? 50;
     const anomalous = (a, b) => !(b > 0) || (Math.abs(b - a) / a) * 100 > threshold;
 
     // 同じ貼り付けの中の「全商品リスト」は、価格変更より先に取り込まれる。価格変更の照合には、それも含めて見る
     const pastedEntries = parsed.blocks
       .filter((b) => b.kind === 'full' && b.section && !b.skipped && !b.unknown)
-      .flatMap((b) => b.items.map((it) => ({ store: b.section.storeId, cond: it.cond, name: it.name, price: it.price, state: it.closed ? 'none' : 'value' })));
+      .flatMap((b) => b.items.map((it) => ({ store: b.section.storeId, game: it.game, cond: it.cond, name: it.name, price: it.price, state: it.closed ? 'none' : 'value' })));
 
     const blocks = parsed.blocks.map((b) => {
       const out = { ...b, storeId: b.section ? b.section.storeId : b.unknown ? null : updateStore.id, appear: [], disappear: [], anomaly: [], unmatched: [], matched: 0, created: 0, absent: [], prevCount: 0, tooFew: false, confirmedDrop: false };
       if (b.skipped || b.unknown) return out;
       if (b.kind === 'update') {
         for (const it of b.items) {
-          const c = EP.canon(it.name);
-          const cands = [...pastedEntries, ...manual.entries].filter((e) => e.store === out.storeId && EP.canon(e.name || '') === c && (!it.cond || e.cond === it.cond));
+          const cands = [...pastedEntries, ...manual.entries].filter((e) => e.store === out.storeId && resolve(e.game, e.name || '') === resolve(e.game, it.name) && (!it.cond || e.cond === it.cond));
           const pick = cands.find((e) => e.cond === 'shrink') || cands.find((e) => e.cond === 'box') || cands[0];
           if (!pick) { out.unmatched.push(it.name); continue; }
           it.matchedCond = pick.cond;
@@ -277,7 +278,7 @@
       const baseline = Boolean(sec.lastOkAt);
       const touched = new Set();
       for (const it of b.items) {
-        const pid = index.get(`${it.game}|${EP.canon(it.name)}`);
+        const pid = index.get(`${it.game}|${resolve(it.game, it.name)}`);
         if (pid) out.matched++; else out.created++;
         const pe = pid ? prevMap.get(`${pid}|${it.cond}`) : null;
         if (pe) touched.add(`${pid}|${it.cond}`);

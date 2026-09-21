@@ -11,6 +11,7 @@ const { step, applyDecision } = require('../lib/detect');
 const P = require('./paths');
 const S = require('./store');
 const { processInbox } = require('./manual');
+const { reconcile } = require('./merge');
 
 const args = process.argv.slice(2);
 const flag = (n) => args.includes(`--${n}`);
@@ -163,6 +164,11 @@ async function main() {
   const errors = [];
   const summaries = [];
 
+  // 同じ商品の別表記（config/product-aliases.json）が別商品として入っていたら、1つに統合する
+  const merged = reconcile(config, state, products, { dryRun: DRY_RUN });
+  for (const p of merged.plans) console.log(`商品を統合${DRY_RUN ? '(予定)' : ''}: 「${p.name}」に ${p.drop.length} 件をまとめました`);
+  for (const s of merged.skipped) console.warn(`  ! 商品を統合できません: ${s.names.join(' / ')}（${s.reason}）`);
+
   const applied = applyPendingDecisions(state, products, now, allHistory, allEvents);
   if (applied) console.log(`管理者の判断を ${applied} 件反映しました`);
 
@@ -231,7 +237,7 @@ async function main() {
   if (DRY_RUN) {
     console.log('(dry-run: 保存はしません)');
   } else {
-    if (runLines.some((r) => r.ok) || manual.reports.some((r) => r.ok)) {
+    if (runLines.some((r) => r.ok) || manual.reports.some((r) => r.ok) || merged.moved) {
       S.saveState(state);
       S.saveProducts(products);
     }

@@ -15,6 +15,7 @@
 const fs = require('fs');
 const path = require('path');
 const P = require('./paths');
+const S = require('./store');
 const { step } = require('../lib/detect');
 const { shortHash, norm } = require('../lib/common');
 const Expo = require('../../docs/admin/expo-parser.js');
@@ -79,7 +80,8 @@ function applySubmission(sub, ctx, out) {
 
   // 商品の同一判定用の索引（ゲーム + 正規化した名前 → 商品ID）
   const index = new Map();
-  for (const p of Object.values(products)) index.set(`${p.game}|${Expo.canon(p.name)}`, p.id);
+  const resolve = Expo.makeResolver(S.readJson(P.ALIASES, {})); // config/product-aliases.json（同じ商品の別表記）
+  for (const p of Object.values(products)) if (!index.has(`${p.game}|${resolve(p.game, p.name)}`)) index.set(`${p.game}|${resolve(p.game, p.name)}`, p.id);
 
   const record = (key, ref, result) => {
     state.entries[key] = { ...result.entry, ref };
@@ -90,7 +92,7 @@ function applySubmission(sub, ctx, out) {
   const entriesOf = (predicate) => Object.entries(state.entries).filter(([, e]) => e.ref.store === store.id && predicate(e.ref));
 
   function findOrCreateProduct(game, name, section) {
-    const k = `${game}|${Expo.canon(name)}`;
+    const k = `${game}|${resolve(game, name)}`;
     let pid = index.get(k);
     let created = false;
     if (!pid) {
@@ -147,8 +149,7 @@ function applySubmission(sub, ctx, out) {
     const counts = { updated: 0, unmatched: [] };
     for (const it of block.items) {
       if (!it.name || !(Number.isInteger(it.price) && it.price > 0)) throw new Error(`価格変更に不正な項目があります: ${JSON.stringify(it)}`);
-      const c = Expo.canon(it.name);
-      const cands = entriesOf((r) => Expo.canon(products[r.pid]?.name || '') === c && (!it.cond || r.cond === it.cond));
+      const cands = entriesOf((r) => resolve(r.game, products[r.pid]?.name || '') === resolve(r.game, it.name) && (!it.cond || r.cond === it.cond));
       const pick = cands.find(([, e]) => e.ref.cond === 'shrink') || cands.find(([, e]) => e.ref.cond === 'box') || cands[0];
       if (!pick) {
         counts.unmatched.push(it.name);
