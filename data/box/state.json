@@ -3567,50 +3567,6 @@
     "src": "pokemon-box"
    }
   },
-  "expo|pokemon_560bd8cd|noshrink": {
-   "confirmed": {
-    "state": "value",
-    "price": 9500,
-    "since": "2026-09-21T22:19:14+09:00"
-   },
-   "shown": {
-    "state": "value",
-    "price": 9500,
-    "since": "2026-09-21T22:19:14+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "expo",
-    "game": "pokemon",
-    "pid": "pokemon_560bd8cd",
-    "cond": "noshrink",
-    "src": "pokemon-box"
-   }
-  },
-  "expo|pokemon_560bd8cd|shrink": {
-   "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-21T22:19:14+09:00"
-   },
-   "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-21T22:19:14+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "expo",
-    "game": "pokemon",
-    "pid": "pokemon_560bd8cd",
-    "cond": "shrink",
-    "src": "pokemon-box"
-   }
-  },
   "expo|pokemon_5a0690f5|box": {
    "confirmed": {
     "state": "none",
@@ -5699,6 +5655,50 @@
     "pid": "pokemon_f3db024f",
     "cond": "box",
     "src": "pokemon-other"
+   }
+  },
+  "expo|pokemon_f64bdf9a|noshrink": {
+   "confirmed": {
+    "state": "value",
+    "price": 9500,
+    "since": "2026-09-21T22:19:14+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 9500,
+    "since": "2026-09-21T22:19:14+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "expo",
+    "game": "pokemon",
+    "pid": "pokemon_f64bdf9a",
+    "cond": "noshrink",
+    "src": "pokemon-box"
+   }
+  },
+  "expo|pokemon_f64bdf9a|shrink": {
+   "confirmed": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-21T22:19:14+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-21T22:19:14+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "expo",
+    "game": "pokemon",
+    "pid": "pokemon_f64bdf9a",
+    "cond": "shrink",
+    "src": "pokemon-box"
    }
   },
   "expo|pokemon_f8746beb|box": {

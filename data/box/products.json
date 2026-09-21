@@ -1858,19 +1858,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
- "pokemon_560bd8cd": {
-  "id": "pokemon_560bd8cd",
-  "game": "pokemon",
-  "name": "テラスタルフェス",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
  "pokemon_5a0690f5": {
   "id": "pokemon_5a0690f5",
   "game": "pokemon",
@@ -3468,7 +3455,8 @@
   "name": "テラスタルフェスex",
   "group": "スカーレット&バイオレット(SV)",
   "groups": [
-   "スカーレット&バイオレット(SV)"
+   "スカーレット&バイオレット(SV)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/61uwFxjLNDL._AC_SY879_-117x300.jpg",
   "image": "img/box/pokemon_f64bdf9a.jpg",
