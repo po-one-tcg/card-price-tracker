@@ -70,6 +70,18 @@
     {
       "id": "noshrink",
       "label": "シュリンク無し"
+    },
+    {
+      "id": "tapecut",
+      "label": "テープカット"
+    },
+    {
+      "id": "pack",
+      "label": "パック"
+    },
+    {
+      "id": "whitebox",
+      "label": "白箱"
     }
   ],
   "stores": [
@@ -285,6 +297,50 @@
             "コレクト 価格変更"
           ],
           "kind": "update"
+        }
+      ]
+    },
+    {
+      "id": "runto",
+      "name": "RUNTO",
+      "type": "auto",
+      "_note": "WooCommerce の公開API(Store API)から取得。状態(シュリンク有/無・カートン等)ごとの価格と、在庫なし(=買取停止)を見る。",
+      "sources": [
+        {
+          "game": "pokemon",
+          "category": "card",
+          "url": "https://runto666.com/",
+          "parser": "runto",
+          "rowConditions": true,
+          "minRows": 40,
+          "enabled": true
+        },
+        {
+          "game": "onepiece",
+          "category": "onepiece",
+          "url": "https://runto666.com/",
+          "parser": "runto",
+          "rowConditions": true,
+          "minRows": 10,
+          "enabled": true
+        },
+        {
+          "game": "yugioh",
+          "category": "yugioh",
+          "url": "https://runto666.com/",
+          "parser": "runto",
+          "rowConditions": true,
+          "minRows": 15,
+          "enabled": true
+        },
+        {
+          "game": "dragonball",
+          "category": "dg",
+          "url": "https://runto666.com/",
+          "parser": "runto",
+          "rowConditions": true,
+          "minRows": 3,
+          "enabled": true
         }
       ]
     }

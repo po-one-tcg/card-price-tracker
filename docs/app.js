@@ -29,7 +29,7 @@
   const md = (stamp) => `${+stamp.slice(5, 7)}/${+stamp.slice(8, 10)}`;
   const hm = (stamp) => stamp.slice(11, 16);
   const PERIOD_LABEL = { 1: '前日', 7: '1週間', 14: '2週間', 30: '1ヶ月', 90: '3ヶ月', 180: '半年' };
-  const COND_ORDER = ['carton', 'shrink', 'noshrink', 'box'];
+  const COND_ORDER = ['carton', 'shrink', 'noshrink', 'tapecut', 'pack', 'whitebox', 'box'];
   const condLabel = (id) => (DATA.conditions.find((c) => c.id === id) || { label: id }).label;
   const gameLabel = (id) => (DATA.games.find((g) => g.id === id) || { label: id }).label;
   const storeName = (id) => (DATA.stores.find((s) => s.id === id) || { name: id }).name;
@@ -62,7 +62,7 @@
   }
 
   // 一覧で使う「代表の状態」: シュリンク付き → BOX(区別なし) → カートン → シュリンク無し の順で最初にあるもの
-  const SUMMARY_ORDER = ['shrink', 'box', 'carton', 'noshrink'];
+  const SUMMARY_ORDER = ['shrink', 'box', 'carton', 'noshrink', 'tapecut', 'whitebox', 'pack'];
   function summaryCell(p, storeId) {
     for (const c of SUMMARY_ORDER) {
       const cell = p.cells.find((x) => x.store === storeId && x.cond === c);

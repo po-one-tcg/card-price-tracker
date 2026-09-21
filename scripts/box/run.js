@@ -12,6 +12,7 @@ const P = require('./paths');
 const S = require('./store');
 const { processInbox } = require('./manual');
 const { reconcile } = require('./merge');
+const Expo = require('../../docs/admin/expo-parser.js');
 
 const args = process.argv.slice(2);
 const flag = (n) => args.includes(`--${n}`);
@@ -28,24 +29,52 @@ const EVENT_LABEL = { appear: '🆕 出現', disappear: '✕ 消滅', anomaly: '
 
 // 観測（ページの1行）→ detect.js に渡す観測へ
 function toObservation(row) {
-  return row.status === 'price' ? { kind: 'value', price: row.price } : { kind: 'unknown' };
+  if (row.status === 'price') return { kind: 'value', price: row.price };
+  if (row.status === 'closed') return { kind: 'absent' }; // 買取停止（在庫なし）。掲載なしと同じ扱い
+  return { kind: 'unknown' };
 }
 
 async function runSource(store, src, ctx) {
   const { now, state, products, config } = ctx;
   const metaKey = `${store.id}|${src.game}`;
   const localFile = option('file');
-  const html = localFile ? fs.readFileSync(localFile, 'utf8') : await fetchWithRetry(src.url);
-  const rows = require(`../sites/${src.parser}.js`).parse(html, src.url);
-  console.log(`ページ全体: ${rows.length} 行`);
+  const mod = require(`../sites/${src.parser}.js`);
+  let rows;
+  if (mod.load) {
+    // API から取得するタイプ（RUNTO など）。--file には取得済みの JSON（{ parents, variations }）を渡せる
+    rows = await mod.load(src, { fetchWithRetry, data: localFile ? JSON.parse(fs.readFileSync(localFile, 'utf8')) : undefined });
+  } else {
+    const html = localFile ? fs.readFileSync(localFile, 'utf8') : await fetchWithRetry(src.url);
+    rows = mod.parse(html, src.url);
+  }
+  console.log(`ページ全体: ${rows.length} 行${rows.skippedVariations ? `（対象外の状態 ${rows.skippedVariations} 件は除外）` : ''}`);
   if (rows.length < (src.minRows || 1)) {
     throw new Error(`抽出が ${rows.length} 行しかありません（最低 ${src.minRows}）。サイトの構造が変わった可能性があります`);
   }
 
-  // 同じ商品が複数の区分に載っている場合は最初の区分に寄せる
-  const seen = new Map();
+  // 商品の照合: 名前の表記ゆれ（全角半角・空白・BOX の有無など）と、対応表（config/product-aliases.json）を見て、
+  // すでに登録済みの同じ商品があればその商品IDを使う
+  const resolve = Expo.makeResolver(S.readJson(P.ALIASES, {}));
+  const index = ctx.productIndex || (ctx.productIndex = new Map());
+  if (!ctx.productIndexBuilt) {
+    for (const p of Object.values(products)) if (!index.has(`${p.game}|${resolve(p.game, p.name)}`)) index.set(`${p.game}|${resolve(p.game, p.name)}`, p.id);
+    ctx.productIndexBuilt = true;
+  }
+  const pidFor = (row) => {
+    const k = `${src.game}|${resolve(src.game, row.name)}`;
+    if (!index.has(k)) index.set(k, `${src.game}_${shortHash(norm(row.name))}`);
+    return index.get(k);
+  };
+
+  // 同じ商品が複数の区分に載っている場合は最初の区分に寄せる。1商品に複数の状態（シュリンク有/無など）があってもよい
+  const seen = new Map(); // 商品ID → { pid, row, groups }
+  const rowsByKey = new Map(); // "商品ID|状態" → row
   for (const row of rows) {
-    const pid = `${src.game}_${shortHash(norm(row.name))}`;
+    const pid = pidFor(row);
+    const cond = row.cond || src.condition;
+    const rk = `${pid}|${cond}`;
+    if (rowsByKey.has(rk)) continue; // 同じ商品・同じ状態が重複していたら最初の行を採用
+    rowsByKey.set(rk, { ...row, cond, pid });
     const prev = seen.get(pid);
     if (prev) {
       if (row.pack && !prev.groups.includes(row.pack)) prev.groups.push(row.pack);
@@ -55,8 +84,8 @@ async function runSource(store, src, ctx) {
   }
 
   const prevCount = state.meta[metaKey]?.lastCount;
-  if (prevCount && seen.size < prevCount * MIN_KEEP_RATIO) {
-    throw new Error(`商品数が前回 ${prevCount} → 今回 ${seen.size} に急減しました。誤って「消滅」と判定しないよう、この回は無効にします`);
+  if (prevCount && rowsByKey.size < prevCount * MIN_KEEP_RATIO) {
+    throw new Error(`商品数が前回 ${prevCount} → 今回 ${rowsByKey.size} に急減しました。誤って「消滅」と判定しないよう、この回は無効にします`);
   }
 
   const baseline = Boolean(state.meta[metaKey]?.lastOkAt);
@@ -89,21 +118,23 @@ async function runSource(store, src, ctx) {
 
   // 今回ページにある商品
   const presentKeys = new Set();
-  for (const { pid, row } of seen.values()) {
-    const key = `${store.id}|${pid}|${src.condition}`;
+  for (const row of rowsByKey.values()) {
+    const key = `${store.id}|${row.pid}|${row.cond}`;
     presentKeys.add(key);
-    const ref = { store: store.id, game: src.game, pid, cond: src.condition };
+    const ref = { store: store.id, game: src.game, pid: row.pid, cond: row.cond };
     record(key, ref, step(state.entries[key], toObservation(row), t));
   }
   // 以前は載っていたのに今回ページに無い商品 = 掲載なし（取得に成功した回だけここに来る）
+  // 1つの取得元に状態が複数ある店舗(rowConditions)は、状態を問わず同じ店舗・ゲームのものを対象にする
   for (const [key, entry] of Object.entries(state.entries)) {
     const r = entry.ref;
-    if (r.store !== store.id || r.game !== src.game || r.cond !== src.condition || presentKeys.has(key)) continue;
+    if (r.store !== store.id || r.game !== src.game || presentKeys.has(key)) continue;
+    if (!src.rowConditions && r.cond !== src.condition) continue;
     record(key, r, step(entry, { kind: 'absent' }, t));
   }
 
-  state.meta[metaKey] = { lastOkAt: now.stamp, lastCount: seen.size };
-  const counts = { present: seen.size, unknown: [...seen.values()].filter((s) => s.row.status !== 'price').length };
+  state.meta[metaKey] = { lastOkAt: now.stamp, lastCount: rowsByKey.size };
+  const counts = { present: rowsByKey.size, unknown: [...rowsByKey.values()].filter((r) => r.status === 'unknown').length, closed: [...rowsByKey.values()].filter((r) => r.status === 'closed').length };
   return { metaKey, historyRows, events, counts, baseline, pids: [...seen.keys()] };
 }
 
