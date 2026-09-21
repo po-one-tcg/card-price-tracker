@@ -27,6 +27,7 @@
 
 ```
 git pull --rebase origin main
+npm ci
 node scripts/box/import-text.js /tmp/collect.txt
 node scripts/box/run.js --game none --no-images
 node scripts/box/build-site.js
