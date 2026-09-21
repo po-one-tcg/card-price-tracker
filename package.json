@@ -1,0 +1,12 @@
+{
+  "name": "card-price-tracker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "トレカ価格の自動収集・記録ツール",
+  "scripts": {
+    "scrape:pricebase": "node scripts/scrape-pricebase.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}
