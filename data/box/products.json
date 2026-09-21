@@ -1525,19 +1525,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
- "pokemon_41527d3c": {
-  "id": "pokemon_41527d3c",
-  "game": "pokemon",
-  "name": "ブラックボルトDX",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
  "pokemon_41533e67": {
   "id": "pokemon_41533e67",
   "game": "pokemon",
@@ -2056,7 +2043,8 @@
   "name": "シャイニートレジャーex",
   "group": "スカーレット&バイオレット(SV)",
   "groups": [
-   "スカーレット&バイオレット(SV)"
+   "スカーレット&バイオレット(SV)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/61gL2PWEihL.__AC_SX300_SY300_QL70_ML2_.jpg",
   "image": "img/box/pokemon_7bc3bb7b.jpg",
@@ -2074,19 +2062,6 @@
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20200604_dd480d-266x300.jpg",
   "image": "img/box/pokemon_7bffd558.jpg",
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
- "pokemon_7cbeff84": {
-  "id": "pokemon_7cbeff84",
-  "game": "pokemon",
-  "name": "シャイニートレジャー",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
@@ -2167,19 +2142,6 @@
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/61kySSg0MyL.__AC_SX300_SY300_QL70_ML2_.jpg",
   "image": "img/box/pokemon_820ec735.jpg",
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
- "pokemon_8514832b": {
-  "id": "pokemon_8514832b",
-  "game": "pokemon",
-  "name": "ホワイトフレアDX",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
@@ -2323,7 +2285,8 @@
   "name": "30th CELEBRATION FUTURISTIC BOX",
   "group": "スペシャルBOX・限定セット",
   "groups": [
-   "スペシャルBOX・限定セット"
+   "スペシャルBOX・限定セット",
+   "その他（セット・プロモ等）"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2026/08/thumb_31c64744-300x200.webp",
   "image": "img/box/pokemon_8f4f6d84.webp",
@@ -2657,7 +2620,8 @@
   "name": "拡張パックデラックス ホワイトフレア",
   "group": "スカーレット&バイオレット(SV)",
   "groups": [
-   "スカーレット&バイオレット(SV)"
+   "スカーレット&バイオレット(SV)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/61HARRR8ZL._AC_SL1500_-107x300.jpg",
   "image": "img/box/pokemon_a831b82f.jpg",
@@ -2737,7 +2701,8 @@
   "name": "拡張パックデラックス ブラックボルト",
   "group": "スカーレット&バイオレット(SV)",
   "groups": [
-   "スカーレット&バイオレット(SV)"
+   "スカーレット&バイオレット(SV)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/d7da07b39660bbcb246cf9b3a9c87a2a21cb84c6357f70b5c0da58a12ea15309-300x300.jpg",
   "image": "img/box/pokemon_afc75c89.jpg",
@@ -2791,19 +2756,6 @@
   "group": "その他（セット・プロモ等）",
   "groups": [
    "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
- "pokemon_b6245a90": {
-  "id": "pokemon_b6245a90",
-  "game": "pokemon",
-  "name": "ポケモン Pokemon GO",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
   ],
   "imageUrl": null,
   "image": null,
@@ -3341,7 +3293,8 @@
   "name": "Pokemon GO",
   "group": "ソード&シールド(S)",
   "groups": [
-   "ソード&シールド(S)"
+   "ソード&シールド(S)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/61Ce4hVjriL.__AC_SX300_SY300_QL70_ML2_.jpg",
   "image": "img/box/pokemon_f30b109c.jpg",
@@ -3426,19 +3379,6 @@
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/71qhaGen76L.__AC_SX300_SY300_QL70_ML2_.jpg",
   "image": "img/box/pokemon_f9e1d58b.jpg",
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-21"
- },
- "pokemon_fe6ed3e9": {
-  "id": "pokemon_fe6ed3e9",
-  "game": "pokemon",
-  "name": "30th CELEBRATION FUTURISTIC BOX(シール未開封)",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-21"
  },
