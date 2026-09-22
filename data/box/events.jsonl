@@ -6,3 +6,8 @@
 {"t":"2026-09-22T13:14:52+09:00","type":"appear","to":19000,"k":"somurie|pokemon_71d4061e|shrink","store":"somurie","game":"pokemon","pid":"pokemon_71d4061e","name":"ホワイトフレア"}
 {"t":"2026-09-22T13:14:52+09:00","type":"appear","to":24500,"k":"somurie|pokemon_ae0715f9|shrink","store":"somurie","game":"pokemon","pid":"pokemon_ae0715f9","name":"VSTARユニバース"}
 {"t":"2026-09-22T13:14:52+09:00","type":"appear","to":38000,"k":"somurie|pokemon_160b5b10|shrink","store":"somurie","game":"pokemon","pid":"pokemon_160b5b10","name":"151"}
+{"t":"2026-09-22T13:54:28+09:00","type":"disappear","from":7000,"k":"expo|unionarena_087b693a|box","store":"expo","game":"unionarena","pid":"unionarena_087b693a","name":"チェンソーマン"}
+{"t":"2026-09-22T13:54:28+09:00","type":"appear","from":"none","to":11000,"k":"expo|dragonball_57db379c|box","store":"expo","game":"dragonball","pid":"dragonball_57db379c","name":"ST01 STORY BOOSTER 01"}
+{"t":"2026-09-22T13:54:28+09:00","type":"appear","from":"none","to":800,"k":"expo|onepiece_719b43be|box","store":"expo","game":"onepiece","pid":"onepiece_719b43be","name":"ワンピースラウンドワンプロモ"}
+{"t":"2026-09-22T13:54:28+09:00","type":"appear","from":"none","to":8000,"k":"expo|onepiece_721917c9|box","store":"expo","game":"onepiece","pid":"onepiece_721917c9","name":"プレミアムカードコレクション25周年エディション"}
+{"t":"2026-09-22T13:54:28+09:00","type":"appear","from":"none","to":900,"k":"expo|onepiece_f20400d6|box","store":"expo","game":"onepiece","pid":"onepiece_f20400d6","name":"ONE PIECE CHOPPER’s 1"}
