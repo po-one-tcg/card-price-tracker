@@ -350,6 +350,19 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-22"
  },
+ "onepiece_11ef368c": {
+  "id": "onepiece_11ef368c",
+  "game": "onepiece",
+  "name": "オフィシャルプレイマット リミテッドエディション vol.2",
+  "group": "その他（プロモ・セット等）",
+  "groups": [
+   "その他（プロモ・セット等）"
+  ],
+  "imageUrl": "https://runto666.com/wp-content/uploads/New-Project-5-300x300.jpg",
+  "image": "img/box/onepiece_11ef368c.jpg",
+  "firstSeen": "2026-09-22",
+  "lastSeen": "2026-09-22"
+ },
  "onepiece_1601f632": {
   "id": "onepiece_1601f632",
   "game": "onepiece",
@@ -504,6 +517,19 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2024-07-26T225029.192-300x300.jpg",
   "image": "img/box/onepiece_479a9c42.jpg",
   "firstSeen": "2026-09-21",
+  "lastSeen": "2026-09-22"
+ },
+ "onepiece_4954f97c": {
+  "id": "onepiece_4954f97c",
+  "game": "onepiece",
+  "name": "ONE PIECE プレミアムカードコレクション25周年エディション",
+  "group": "その他（プロモ・セット等）",
+  "groups": [
+   "その他（プロモ・セット等）"
+  ],
+  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2-2-300x300.jpeg",
+  "image": "img/box/onepiece_4954f97c.jpg",
+  "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-22"
  },
  "onepiece_4f567bf0": {
@@ -1477,7 +1503,7 @@
    "スカーレット&バイオレット(SV)",
    "ボックス"
   ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/ポケモン-151-300x300.jpeg",
+  "imageUrl": "https://cdn.somurie-kaitori.com/products/1761111429488.jpg",
   "image": "img/box/pokemon_160b5b10.jpg",
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-22"
@@ -2399,7 +2425,7 @@
    "スカーレット&バイオレット(SV)",
    "ボックス"
   ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-26-3-300x300.jpg",
+  "imageUrl": "https://cdn.somurie-kaitori.com/products/1761111458843.jpg",
   "image": "img/box/pokemon_71d4061e.jpg",
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-22"
@@ -2697,7 +2723,7 @@
  "pokemon_8f4f6d84": {
   "id": "pokemon_8f4f6d84",
   "game": "pokemon",
-  "name": "30th CELEBRATION FUTURISTIC",
+  "name": "30th CELEBRATION FUTURISTIC BOX",
   "group": "スペシャルBOX・限定セット",
   "groups": [
    "スペシャルBOX・限定セット",
@@ -3110,7 +3136,7 @@
    "ソード&シールド(S)",
    "ボックス"
   ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/VSTARユニバース-300x300.jpeg",
+  "imageUrl": "https://cdn.somurie-kaitori.com/products/1761109660024.jpg",
   "image": "img/box/pokemon_ae0715f9.jpg",
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-22"
