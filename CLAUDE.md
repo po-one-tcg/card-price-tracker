@@ -40,13 +40,29 @@ npm test
 - 「今回の検知」の内容（🆕出現 / ✕消滅 / ⚠要確認）を、ユーザーに日本語で報告する。⚠要確認が出たら、管理画面（https://po-one-tcg.github.io/card-price-tracker/admin/）で判断してもらう。
 
 ### 3. 保存する
+**作業用ブランチ（`claude/...` など）にいることがある。その場合、そこにcommit/pushしただけでは公開ページに反映されない（公開ページは常に `main` から作られる）。必ず `main` に反映するところまで行う。**
+
 ```
 git add -A
 git commit -m "コレクトを更新（画像の日付: ○月○日）"
-git pull --rebase origin main
-git push origin main
+git branch --show-current
 ```
-公開ページへの反映は、push の1〜2分後。
+- 出力が `main` なら、そのまま:
+  ```
+  git pull --rebase origin main
+  git push origin main
+  ```
+- 出力が `main` 以外（例: `claude/...`）なら、そのブランチをpushしたうえで、さらに `main` に反映する:
+  ```
+  git push -u origin <今のブランチ名>
+  git checkout main
+  git pull --rebase origin main
+  git merge --ff-only <今のブランチ名>
+  git push origin main
+  ```
+- 最後に `git log origin/main -1` で、今回のコミットが `main` の先頭に入っていることを確認してから、ユーザーに報告する。
+
+公開ページへの反映は、`main` へのpushの1〜2分後。
 
 ## 守ること
 - **トークン（`github_pat_…` など）は、受け取らない・入力しない・コミットしない。** ユーザーがチャットに貼ってきたら、使わずに、削除して作り直すよう伝える。
