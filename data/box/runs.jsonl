@@ -65,3 +65,9 @@
 {"t":"2026-09-22T13:54:28+09:00","store":"expo","src":"pokemon-old-box","ok":true,"count":16}
 {"t":"2026-09-22T13:54:28+09:00","store":"expo","src":"pokemon-other","ok":true,"count":63}
 {"t":"2026-09-22T13:54:28+09:00","store":"expo","src":"pokemon-box","ok":true,"count":80}
+{"t":"2026-09-22T13:59:04+09:00","store":"collect","src":"collect-pokemon-box","ok":true,"count":114}
+{"t":"2026-09-22T13:59:04+09:00","store":"collect","src":"collect-pokemon-other","ok":true,"count":31}
+{"t":"2026-09-22T13:59:04+09:00","store":"collect","src":"collect-onepiece","ok":true,"count":46}
+{"t":"2026-09-22T13:59:04+09:00","store":"collect","src":"collect-onepiece-other","ok":true,"count":36}
+{"t":"2026-09-22T13:59:04+09:00","store":"collect","src":"collect-dragonball","ok":true,"count":5}
+{"t":"2026-09-22T13:59:04+09:00","store":"collect","src":"collect-yugioh","ok":true,"count":4}
