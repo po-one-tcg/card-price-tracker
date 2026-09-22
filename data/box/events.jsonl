@@ -13,3 +13,7 @@
 {"t":"2026-09-22T13:54:28+09:00","type":"appear","from":"none","to":900,"k":"expo|onepiece_f20400d6|box","store":"expo","game":"onepiece","pid":"onepiece_f20400d6","name":"ONE PIECE CHOPPER’s 1"}
 {"t":"2026-09-22T13:59:04+09:00","type":"appear","from":"none","to":1900,"k":"collect|onepiece_b09a5f17|box","store":"collect","game":"onepiece","pid":"onepiece_b09a5f17","name":"頂上の強者パック"}
 {"t":"2026-09-22T15:18:40+09:00","type":"disappear","from":900,"k":"runto|pokemon_dd7c7925|box","store":"runto","game":"pokemon","pid":"pokemon_dd7c7925","name":"スタートデッキ100 バトルコレクション"}
+{"t":"2026-09-22T18:01:15+09:00","type":"disappear","from":850,"k":"runto|pokemon_13fcc149|pack","store":"runto","game":"pokemon","pid":"pokemon_13fcc149","name":"30th CELEBRATION"}
+{"t":"2026-09-22T18:01:15+09:00","type":"disappear","from":60000,"k":"runto|pokemon_3230521d|box","store":"runto","game":"pokemon","pid":"pokemon_3230521d","name":"スペシャルジャンボカードパック 名探偵ピカチュウ ミュウツーGX Ver."}
+{"t":"2026-09-22T18:01:15+09:00","type":"disappear","from":250000,"k":"runto|pokemon_ebe36b82|box","store":"runto","game":"pokemon","pid":"pokemon_ebe36b82","name":"蒼空ストリーム"}
+{"t":"2026-09-22T18:01:15+09:00","type":"disappear","from":430000,"k":"runto|pokemon_14b076f2|box","store":"runto","game":"pokemon","pid":"pokemon_14b076f2","name":"タッグボルト"}
