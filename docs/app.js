@@ -45,7 +45,7 @@
       case 'value': {
         const isNew = cell.event && cell.event.type === 'appear';
         return h('td', { class: (isNew ? 'is-new ' : '') + (isMax ? 'is-max' : '') },
-          h('span', { class: 'price' + (isMax ? ' max' : '') }, yen(cell.price)),
+          h('span', { class: 'price' }, yen(cell.price)),
           isNew ? h('small', null, h('span', { class: 'badge new' }, '🆕 出現 ' + agoText(cell.event.at))) : null);
       }
       case 'none':
