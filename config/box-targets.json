@@ -90,17 +90,159 @@
   ],
   "stores": [
     {
-      "id": "pricebase",
-      "name": "BASE",
+      "id": "runto",
+      "name": "Runto",
       "type": "auto",
+      "_note": "WooCommerce の公開API(Store API)から取得。状態(シュリンク有/無・カートン等)ごとの価格と、在庫なし(=買取停止)を見る。",
       "sources": [
         {
           "game": "pokemon",
-          "url": "https://price-base.com/useful/pokacabox-kaitorilist",
-          "parser": "pricebase",
-          "condition": "box",
-          "minRows": 30,
+          "category": "card",
+          "url": "https://runto666.com/",
+          "parser": "runto",
+          "rowConditions": true,
+          "minRows": 40,
           "enabled": true
+        },
+        {
+          "game": "onepiece",
+          "category": "onepiece",
+          "url": "https://runto666.com/",
+          "parser": "runto",
+          "rowConditions": true,
+          "minRows": 10,
+          "enabled": true
+        },
+        {
+          "game": "yugioh",
+          "category": "yugioh",
+          "url": "https://runto666.com/",
+          "parser": "runto",
+          "rowConditions": true,
+          "minRows": 15,
+          "enabled": true
+        },
+        {
+          "game": "dragonball",
+          "category": "dg",
+          "url": "https://runto666.com/",
+          "parser": "runto",
+          "rowConditions": true,
+          "minRows": 3,
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "homura",
+      "name": "ホムラ",
+      "type": "auto",
+      "_note": "Node の fetch だとボット判定される。scripts/lib/common.js の fetchWithCurl(curlをサブプロセス実行)で取得する。状態(シュリンク有/無・カートン・白箱)ごとに別URL。商品名の【…】の印を状態として優先し、無ければURLの状態を使う。",
+      "sources": [
+        {
+          "game": "pokemon",
+          "group": "ボックス",
+          "subcategories": [
+            {
+              "id": 128,
+              "cond": "shrink"
+            },
+            {
+              "id": 129,
+              "cond": "noshrink"
+            },
+            {
+              "id": 131,
+              "cond": "carton"
+            },
+            {
+              "id": 130,
+              "cond": "box",
+              "group": "その他（セット・プロモ等）"
+            }
+          ],
+          "rowConditions": true,
+          "minRows": 100,
+          "url": "https://kaitori-homura.com/products",
+          "enabled": true,
+          "parser": "homura"
+        },
+        {
+          "game": "onepiece",
+          "group": "BOX・カートン",
+          "subcategories": [
+            {
+              "id": 132,
+              "cond": "tape"
+            },
+            {
+              "id": 133,
+              "cond": "carton"
+            },
+            {
+              "id": 160,
+              "cond": "box",
+              "group": "その他（プロモ・セット等）"
+            }
+          ],
+          "rowConditions": true,
+          "minRows": 0,
+          "url": "https://kaitori-homura.com/products",
+          "enabled": true,
+          "parser": "homura"
+        },
+        {
+          "game": "yugioh",
+          "group": "遊戯王",
+          "subcategories": [
+            {
+              "id": 159,
+              "cond": "shrink"
+            },
+            {
+              "id": 172,
+              "cond": "carton"
+            }
+          ],
+          "rowConditions": true,
+          "minRows": 0,
+          "url": "https://kaitori-homura.com/products",
+          "enabled": true,
+          "parser": "homura"
+        },
+        {
+          "game": "dragonball",
+          "group": "ドラゴンボール",
+          "subcategories": [
+            {
+              "id": 171,
+              "cond": "tape"
+            }
+          ],
+          "rowConditions": true,
+          "minRows": 0,
+          "url": "https://kaitori-homura.com/products",
+          "enabled": true,
+          "parser": "homura"
+        },
+        {
+          "game": "lorcana",
+          "group": "ヴァイス・ロルカナ",
+          "subcategories": [
+            {
+              "id": 189,
+              "cond": "tape"
+            },
+            {
+              "id": 190,
+              "cond": "carton"
+            }
+          ],
+          "rowConditions": true,
+          "minRows": 0,
+          "url": "https://kaitori-homura.com/products",
+          "enabled": true,
+          "parser": "homura"
         }
       ]
     },
@@ -230,133 +372,6 @@
       "updatePosts": true
     },
     {
-      "id": "collect",
-      "name": "コレクト",
-      "type": "manual",
-      "freshHours": 168,
-      "_note": "価格表の画像/ポストを、決まった書式の文章にして管理画面に貼り付けて取り込む。更新が不定期なので、未確認になるまでの時間を長め(7日)にしている。",
-      "sections": [
-        {
-          "id": "collect-pokemon-box",
-          "label": "ポケカ BOX",
-          "headings": [
-            "コレクト ポケカ BOX"
-          ],
-          "game": "pokemon",
-          "group": "ボックス",
-          "baseCondition": "shrink"
-        },
-        {
-          "id": "collect-pokemon-other",
-          "label": "ポケカ その他",
-          "headings": [
-            "コレクト ポケカ その他"
-          ],
-          "game": "pokemon",
-          "group": "その他（セット・プロモ等）"
-        },
-        {
-          "id": "collect-onepiece",
-          "label": "ワンピース BOX・カートン",
-          "headings": [
-            "コレクト ワンピース BOX・カートン"
-          ],
-          "game": "onepiece",
-          "group": "BOX・カートン",
-          "baseCondition": "tape"
-        },
-        {
-          "id": "collect-onepiece-other",
-          "label": "ワンピース その他",
-          "headings": [
-            "コレクト ワンピース その他"
-          ],
-          "game": "onepiece",
-          "group": "その他（プロモ・セット等）"
-        },
-        {
-          "id": "collect-dragonball",
-          "label": "ドラゴンボール",
-          "headings": [
-            "コレクト ドラゴンボール"
-          ],
-          "game": "dragonball",
-          "group": "ドラゴンボール",
-          "baseCondition": "tape"
-        },
-        {
-          "id": "collect-yugioh",
-          "label": "遊戯王",
-          "headings": [
-            "コレクト 遊戯王"
-          ],
-          "game": "yugioh",
-          "group": "遊戯王",
-          "baseCondition": "shrink"
-        },
-        {
-          "id": "collect-rates",
-          "label": "ポケカシングルのレート（対象外）",
-          "headings": [
-            "コレクト ポケカシングルレート"
-          ],
-          "kind": "skip"
-        },
-        {
-          "id": "collect-update",
-          "label": "価格変更",
-          "headings": [
-            "コレクト 価格変更"
-          ],
-          "kind": "update"
-        }
-      ]
-    },
-    {
-      "id": "runto",
-      "name": "Runto",
-      "type": "auto",
-      "_note": "WooCommerce の公開API(Store API)から取得。状態(シュリンク有/無・カートン等)ごとの価格と、在庫なし(=買取停止)を見る。",
-      "sources": [
-        {
-          "game": "pokemon",
-          "category": "card",
-          "url": "https://runto666.com/",
-          "parser": "runto",
-          "rowConditions": true,
-          "minRows": 40,
-          "enabled": true
-        },
-        {
-          "game": "onepiece",
-          "category": "onepiece",
-          "url": "https://runto666.com/",
-          "parser": "runto",
-          "rowConditions": true,
-          "minRows": 10,
-          "enabled": true
-        },
-        {
-          "game": "yugioh",
-          "category": "yugioh",
-          "url": "https://runto666.com/",
-          "parser": "runto",
-          "rowConditions": true,
-          "minRows": 15,
-          "enabled": true
-        },
-        {
-          "game": "dragonball",
-          "category": "dg",
-          "url": "https://runto666.com/",
-          "parser": "runto",
-          "rowConditions": true,
-          "minRows": 3,
-          "enabled": true
-        }
-      ]
-    },
-    {
       "id": "somurie",
       "name": "ソムリエ",
       "type": "auto",
@@ -444,115 +459,100 @@
       ]
     },
     {
-      "id": "homura",
-      "name": "ホムラ",
+      "id": "collect",
+      "name": "コレクト",
+      "type": "manual",
+      "freshHours": 168,
+      "_note": "価格表の画像/ポストを、決まった書式の文章にして管理画面に貼り付けて取り込む。更新が不定期なので、未確認になるまでの時間を長め(7日)にしている。",
+      "sections": [
+        {
+          "id": "collect-pokemon-box",
+          "label": "ポケカ BOX",
+          "headings": [
+            "コレクト ポケカ BOX"
+          ],
+          "game": "pokemon",
+          "group": "ボックス",
+          "baseCondition": "shrink"
+        },
+        {
+          "id": "collect-pokemon-other",
+          "label": "ポケカ その他",
+          "headings": [
+            "コレクト ポケカ その他"
+          ],
+          "game": "pokemon",
+          "group": "その他（セット・プロモ等）"
+        },
+        {
+          "id": "collect-onepiece",
+          "label": "ワンピース BOX・カートン",
+          "headings": [
+            "コレクト ワンピース BOX・カートン"
+          ],
+          "game": "onepiece",
+          "group": "BOX・カートン",
+          "baseCondition": "tape"
+        },
+        {
+          "id": "collect-onepiece-other",
+          "label": "ワンピース その他",
+          "headings": [
+            "コレクト ワンピース その他"
+          ],
+          "game": "onepiece",
+          "group": "その他（プロモ・セット等）"
+        },
+        {
+          "id": "collect-dragonball",
+          "label": "ドラゴンボール",
+          "headings": [
+            "コレクト ドラゴンボール"
+          ],
+          "game": "dragonball",
+          "group": "ドラゴンボール",
+          "baseCondition": "tape"
+        },
+        {
+          "id": "collect-yugioh",
+          "label": "遊戯王",
+          "headings": [
+            "コレクト 遊戯王"
+          ],
+          "game": "yugioh",
+          "group": "遊戯王",
+          "baseCondition": "shrink"
+        },
+        {
+          "id": "collect-rates",
+          "label": "ポケカシングルのレート（対象外）",
+          "headings": [
+            "コレクト ポケカシングルレート"
+          ],
+          "kind": "skip"
+        },
+        {
+          "id": "collect-update",
+          "label": "価格変更",
+          "headings": [
+            "コレクト 価格変更"
+          ],
+          "kind": "update"
+        }
+      ]
+    },
+    {
+      "id": "pricebase",
+      "name": "BASE",
       "type": "auto",
-      "_note": "Node の fetch だとボット判定される。scripts/lib/common.js の fetchWithCurl(curlをサブプロセス実行)で取得する。状態(シュリンク有/無・カートン・白箱)ごとに別URL。商品名の【…】の印を状態として優先し、無ければURLの状態を使う。",
       "sources": [
         {
           "game": "pokemon",
-          "group": "ボックス",
-          "subcategories": [
-            {
-              "id": 128,
-              "cond": "shrink"
-            },
-            {
-              "id": 129,
-              "cond": "noshrink"
-            },
-            {
-              "id": 131,
-              "cond": "carton"
-            },
-            {
-              "id": 130,
-              "cond": "box",
-              "group": "その他（セット・プロモ等）"
-            }
-          ],
-          "rowConditions": true,
-          "minRows": 100,
-          "url": "https://kaitori-homura.com/products",
-          "enabled": true,
-          "parser": "homura"
-        },
-        {
-          "game": "onepiece",
-          "group": "BOX・カートン",
-          "subcategories": [
-            {
-              "id": 132,
-              "cond": "tape"
-            },
-            {
-              "id": 133,
-              "cond": "carton"
-            },
-            {
-              "id": 160,
-              "cond": "box",
-              "group": "その他（プロモ・セット等）"
-            }
-          ],
-          "rowConditions": true,
-          "minRows": 0,
-          "url": "https://kaitori-homura.com/products",
-          "enabled": true,
-          "parser": "homura"
-        },
-        {
-          "game": "yugioh",
-          "group": "遊戯王",
-          "subcategories": [
-            {
-              "id": 159,
-              "cond": "shrink"
-            },
-            {
-              "id": 172,
-              "cond": "carton"
-            }
-          ],
-          "rowConditions": true,
-          "minRows": 0,
-          "url": "https://kaitori-homura.com/products",
-          "enabled": true,
-          "parser": "homura"
-        },
-        {
-          "game": "dragonball",
-          "group": "ドラゴンボール",
-          "subcategories": [
-            {
-              "id": 171,
-              "cond": "tape"
-            }
-          ],
-          "rowConditions": true,
-          "minRows": 0,
-          "url": "https://kaitori-homura.com/products",
-          "enabled": true,
-          "parser": "homura"
-        },
-        {
-          "game": "lorcana",
-          "group": "ヴァイス・ロルカナ",
-          "subcategories": [
-            {
-              "id": 189,
-              "cond": "tape"
-            },
-            {
-              "id": 190,
-              "cond": "carton"
-            }
-          ],
-          "rowConditions": true,
-          "minRows": 0,
-          "url": "https://kaitori-homura.com/products",
-          "enabled": true,
-          "parser": "homura"
+          "url": "https://price-base.com/useful/pokacabox-kaitorilist",
+          "parser": "pricebase",
+          "condition": "box",
+          "minRows": 30,
+          "enabled": true
         }
       ]
     },

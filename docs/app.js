@@ -29,7 +29,7 @@
   const md = (stamp) => `${+stamp.slice(5, 7)}/${+stamp.slice(8, 10)}`;
   const hm = (stamp) => stamp.slice(11, 16);
   const PERIOD_LABEL = { 1: '前日', 7: '1週間', 14: '2週間', 30: '1ヶ月', 90: '3ヶ月', 180: '半年' };
-  const COND_ORDER = ['carton', 'shrink', 'noshrink', 'tape', 'tapecut', 'pack', 'whitebox', 'box'];
+  const COND_ORDER = ['shrink', 'tape', 'noshrink', 'tapecut', 'pack', 'carton', 'whitebox', 'box'];
   const condLabel = (id) => (DATA.conditions.find((c) => c.id === id) || { label: id }).label;
   const gameLabel = (id) => (DATA.games.find((g) => g.id === id) || { label: id }).label;
   const storeName = (id) => (DATA.stores.find((s) => s.id === id) || { name: id }).name;
@@ -62,10 +62,16 @@
   }
 
   // 一覧で使う「代表の状態」: シュリンク付き → BOX(区別なし) → カートン → シュリンク無し の順で最初にあるもの。
-  // exactCond を指定すると（状態のフィルタ）、その状態だけを見る（無ければダッシュ表示）
+  // 状態のフィルタが無いゲーム（例: MTG）で使う。状態が分かれているゲームでは、状態のフィルタ（exactCond）を常に指定する。
   const SUMMARY_ORDER = ['shrink', 'box', 'carton', 'noshrink', 'tape', 'tapecut', 'whitebox', 'pack'];
+  // BOX（状態の区別なし）は、シュリンク付き／テープ付きと同じ扱いにする（別の状態としては出さない）
   function summaryCell(p, storeId, exactCond) {
-    if (exactCond) return p.cells.find((x) => x.store === storeId && x.cond === exactCond) || null;
+    if (exactCond) {
+      const cell = p.cells.find((x) => x.store === storeId && x.cond === exactCond);
+      if (cell) return cell;
+      if (exactCond === 'shrink' || exactCond === 'tape') return p.cells.find((x) => x.store === storeId && x.cond === 'box') || null;
+      return null;
+    }
     for (const c of SUMMARY_ORDER) {
       const cell = p.cells.find((x) => x.store === storeId && x.cond === c);
       if (cell) return cell;
@@ -105,16 +111,12 @@
   }
 
   // 状態・店舗のフィルタ欄（商品が複数状態を持つゲーム／店舗が2つ以上あるときだけ出す）
-  function filterBar(gameId, allStores, condsHere) {
+  function filterBar(gameId, allStores, condsHere, condSel) {
     const hidden = new Set(filters.hiddenStores || []);
-    const condSel = (filters.cond || {})[gameId] || 'all';
     const rows = [];
     if (condsHere.length > 1) {
       rows.push(h('div', { class: 'filter-row' },
         h('span', { class: 'small muted' }, '状態:'),
-        // 「主な状態」は実際には店舗ごとに条件を自動選択（シュリンク有り／テープ付き→BOX→カートン→…の優先順）した値で、
-        // 特定の状態を指す言葉ではないため、個別の状態名（シュリンク無し等）とは呼ばない
-        h('button', { class: 'chip', type: 'button', 'aria-pressed': condSel === 'all' ? 'true' : 'false', onclick: () => setCondFilter(gameId, 'all') }, '主な状態'),
         condsHere.map((c) => h('button', { class: 'chip', type: 'button', 'aria-pressed': condSel === c ? 'true' : 'false', onclick: () => setCondFilter(gameId, c) }, condLabel(c)))));
     }
     if (allStores.length > 1) {
@@ -211,9 +213,11 @@
     const allStores = DATA.stores.filter((s) => list.some((p) => p.cells.some((c) => c.store === s.id)));
     const hidden = new Set(filters.hiddenStores || []);
     const stores = allStores.filter((s) => !hidden.has(s.id));
-    const condsHere = COND_ORDER.filter((c) => list.some((p) => p.cells.some((x) => x.cond === c)));
-    const condSel = (filters.cond || {})[gameId] || 'all';
-    const exactCond = condSel === 'all' ? null : condSel;
+    // BOX（状態の区別なし）はシュリンク付き／テープ付きと同じ扱いなので、状態フィルタには別枠で出さない
+    const condsHere = COND_ORDER.filter((c) => c !== 'box' && list.some((p) => p.cells.some((x) => x.cond === c)));
+    const saved = (filters.cond || {})[gameId];
+    const condSel = condsHere.length ? (condsHere.includes(saved) ? saved : condsHere[0]) : null;
+    const exactCond = condSel;
     const groups = [];
     for (const p of list) {
       let g = groups.find((x) => x.name === p.group);
@@ -248,7 +252,7 @@
         h('span', null, h('span', { class: 'badge new' }, '🆕 出現'), ` 直近${DATA.eventDays}日に買取開始（${newCount}件）`),
         h('span', null, h('span', { class: 'badge gone' }, '✕ 取扱終了'), ` 直近${DATA.eventDays}日に買取停止（${goneCount}件）`),
         h('span', null, '— 取扱なし　未確認 = 取得できていない　店名の下 = 最終更新')),
-      filterBar(gameId, allStores, condsHere),
+      filterBar(gameId, allStores, condsHere, condSel),
       stores.length ? h('div', { class: 'tablewrap' }, h('table', null, thead, body)) : h('p', { class: 'empty' }, '表示する店舗がありません。上の「店舗」フィルタで選んでください。'));
   }
 
