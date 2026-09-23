@@ -33,6 +33,34 @@ async function fetchWithRetry(url, { as = 'text', tries = 3 } = {}) {
   throw new Error(`${url} の取得に失敗: ${lastErr.message}`);
 }
 
+// curl経由での取得。一部のサイト（買取ホムラ）は、Node の fetch（TLSの接続方式の違いとみられる）だと
+// ボット判定されて空のページが返るが、curl では正常に取得できるため、そのサイト専用に使う。
+// GitHub Actions（ubuntu-latest）・通常のパソコンには、curl が標準で入っている。
+async function fetchWithCurl(url, { tries = 3 } = {}) {
+  const { execFile } = require('child_process');
+  const run = () =>
+    new Promise((resolve, reject) => {
+      execFile(
+        'curl',
+        ['-sS', '-m', '30', '-H', `User-Agent: ${USER_AGENT}`, '-H', 'Accept-Language: ja,en-US;q=0.9', url],
+        { maxBuffer: 20 * 1024 * 1024 },
+        (err, stdout) => (err ? reject(err) : resolve(stdout))
+      );
+    });
+  let lastErr;
+  for (let i = 1; i <= tries; i++) {
+    try {
+      const text = await run();
+      if (!text) throw new Error('空の応答');
+      return text;
+    } catch (e) {
+      lastErr = e;
+      if (i < tries) await sleep(2000 * i);
+    }
+  }
+  throw new Error(`${url} の取得に失敗(curl): ${lastErr.message}`);
+}
+
 // 全角半角・空白の揺れを吸収した比較用文字列
 const norm = (s) => s.normalize('NFKC').replace(/\s+/g, '');
 
@@ -66,4 +94,4 @@ async function downloadImage(url, dir, baseName) {
   return file;
 }
 
-module.exports = { USER_AGENT, sleep, jstNow, fetchWithRetry, norm, shortHash, imageStem, extFromResponse, downloadImage };
+module.exports = { USER_AGENT, sleep, jstNow, fetchWithRetry, fetchWithCurl, norm, shortHash, imageStem, extFromResponse, downloadImage };

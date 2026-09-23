@@ -430,6 +430,119 @@
           "enabled": true
         }
       ]
+    },
+    {
+      "id": "homura",
+      "name": "ホムラ",
+      "type": "auto",
+      "_note": "Node の fetch だとボット判定される。scripts/lib/common.js の fetchWithCurl(curlをサブプロセス実行)で取得する。状態(シュリンク有/無・カートン・白箱)ごとに別URL。商品名の【…】の印を状態として優先し、無ければURLの状態を使う。",
+      "sources": [
+        {
+          "game": "pokemon",
+          "group": "ボックス",
+          "subcategories": [
+            {
+              "id": 128,
+              "cond": "shrink"
+            },
+            {
+              "id": 129,
+              "cond": "noshrink"
+            },
+            {
+              "id": 131,
+              "cond": "carton"
+            },
+            {
+              "id": 130,
+              "cond": "box",
+              "group": "その他（セット・プロモ等）"
+            }
+          ],
+          "rowConditions": true,
+          "minRows": 100,
+          "url": "https://kaitori-homura.com/products",
+          "enabled": true,
+          "parser": "homura"
+        },
+        {
+          "game": "onepiece",
+          "group": "BOX・カートン",
+          "subcategories": [
+            {
+              "id": 132,
+              "cond": "box"
+            },
+            {
+              "id": 133,
+              "cond": "carton"
+            },
+            {
+              "id": 160,
+              "cond": "box",
+              "group": "その他（プロモ・セット等）"
+            }
+          ],
+          "rowConditions": true,
+          "minRows": 0,
+          "url": "https://kaitori-homura.com/products",
+          "enabled": true,
+          "parser": "homura"
+        },
+        {
+          "game": "yugioh",
+          "group": "遊戯王",
+          "subcategories": [
+            {
+              "id": 159,
+              "cond": "box"
+            },
+            {
+              "id": 172,
+              "cond": "carton"
+            }
+          ],
+          "rowConditions": true,
+          "minRows": 0,
+          "url": "https://kaitori-homura.com/products",
+          "enabled": true,
+          "parser": "homura"
+        },
+        {
+          "game": "dragonball",
+          "group": "ドラゴンボール",
+          "subcategories": [
+            {
+              "id": 171,
+              "cond": "box"
+            }
+          ],
+          "rowConditions": true,
+          "minRows": 0,
+          "url": "https://kaitori-homura.com/products",
+          "enabled": true,
+          "parser": "homura"
+        },
+        {
+          "game": "lorcana",
+          "group": "ヴァイス・ロルカナ",
+          "subcategories": [
+            {
+              "id": 189,
+              "cond": "box"
+            },
+            {
+              "id": 190,
+              "cond": "carton"
+            }
+          ],
+          "rowConditions": true,
+          "minRows": 0,
+          "url": "https://kaitori-homura.com/products",
+          "enabled": true,
+          "parser": "homura"
+        }
+      ]
     }
   ]
 }

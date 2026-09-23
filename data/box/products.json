@@ -67,7 +67,7 @@
  "dragonball_414deeec": {
   "id": "dragonball_414deeec",
   "game": "dragonball",
-  "name": "SB01 MANGA BOOSTER 01",
+  "name": "SB-01 MANGA BOOSTER 01",
   "group": "ドラゴンボール",
   "groups": [
    "ドラゴンボール"
@@ -158,7 +158,7 @@
  "dragonball_a1f72f61": {
   "id": "dragonball_a1f72f61",
   "game": "dragonball",
-  "name": "FB07 神龍への願い",
+  "name": "FB-07 神龍への願い",
   "group": "ドラゴンボール",
   "groups": [
    "ドラゴンボール"
@@ -184,7 +184,7 @@
  "dragonball_e1e45c04": {
   "id": "dragonball_e1e45c04",
   "game": "dragonball",
-  "name": "SB02 MANGA BOOSTER 02",
+  "name": "SB-02 フュージョンワールド MANGA BOOSTER 02",
   "group": "ドラゴンボール",
   "groups": [
    "ドラゴンボール"
@@ -457,7 +457,7 @@
  "onepiece_36c70714": {
   "id": "onepiece_36c70714",
   "game": "onepiece",
-  "name": "OP-01 ROMANCE DAWN",
+  "name": "OP-01 ロマンスドーン",
   "group": "BOX・カートン",
   "groups": [
    "BOX・カートン"
@@ -509,7 +509,7 @@
  "onepiece_479a9c42": {
   "id": "onepiece_479a9c42",
   "game": "onepiece",
-  "name": "PRB-01 THE BEST",
+  "name": "PRB-01 ONE PIECE CARD THE BEST",
   "group": "BOX・カートン",
   "groups": [
    "BOX・カートン"
@@ -561,7 +561,7 @@
  "onepiece_52c0d6a0": {
   "id": "onepiece_52c0d6a0",
   "game": "onepiece",
-  "name": "PRB-02 THE BEST Vol.2",
+  "name": "PRB-02 ONE PIECE CARD THE BEST vol.2",
   "group": "BOX・カートン",
   "groups": [
    "BOX・カートン"
@@ -626,7 +626,7 @@
  "onepiece_56ed4c82": {
   "id": "onepiece_56ed4c82",
   "game": "onepiece",
-  "name": "EB-03 ONE PIECE Heroines Edition",
+  "name": "EB-03 Heroines Edition",
   "group": "BOX・カートン",
   "groups": [
    "BOX・カートン"
@@ -938,7 +938,7 @@
  "onepiece_a7d6506f": {
   "id": "onepiece_a7d6506f",
   "game": "onepiece",
-  "name": "EB-02 Anime25th collection",
+  "name": "EB-02 Anime 25th collection",
   "group": "BOX・カートン",
   "groups": [
    "BOX・カートン"
@@ -1497,7 +1497,7 @@
  "pokemon_160b5b10": {
   "id": "pokemon_160b5b10",
   "game": "pokemon",
-  "name": "151",
+  "name": "ポケモンカード151",
   "group": "スカーレット&バイオレット(SV)",
   "groups": [
    "スカーレット&バイオレット(SV)",
@@ -1506,6 +1506,19 @@
   "imageUrl": "https://cdn.somurie-kaitori.com/products/1761111429488.jpg",
   "image": "img/box/pokemon_160b5b10.jpg",
   "firstSeen": "2026-09-21",
+  "lastSeen": "2026-09-23"
+ },
+ "pokemon_1d04f2eb": {
+  "id": "pokemon_1d04f2eb",
+  "game": "pokemon",
+  "name": "シールドV",
+  "group": "ボックス",
+  "groups": [
+   "ボックス"
+  ],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-23",
   "lastSeen": "2026-09-23"
  },
  "pokemon_1daaa6ee": {
@@ -1743,7 +1756,8 @@
   "group": "サン&ムーン(S&M)",
   "groups": [
    "サン&ムーン(S&M)",
-   "その他BOX（旧弾）"
+   "その他BOX（旧弾）",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20190725_a52444-300x300.jpg",
   "image": "img/box/pokemon_34a6f8fe.jpg",
@@ -1865,7 +1879,8 @@
   "name": "超爆インパクト",
   "group": "サン&ムーン(S&M)",
   "groups": [
-   "サン&ムーン(S&M)"
+   "サン&ムーン(S&M)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20190912_c3684c-300x300.jpg",
   "image": "img/box/pokemon_41533e67.jpg",
@@ -2055,7 +2070,8 @@
   "group": "ソード&シールド(S)",
   "groups": [
    "ソード&シールド(S)",
-   "その他BOX（旧弾）"
+   "その他BOX（旧弾）",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20200423_b6706c-265x300.jpg",
   "image": "img/box/pokemon_4ca4f866.jpg",
@@ -2065,7 +2081,7 @@
  "pokemon_4cb103ac": {
   "id": "pokemon_4cb103ac",
   "game": "pokemon",
-  "name": "VMAXクライマックス",
+  "name": "vmaxクライマックス",
   "group": "ソード&シールド(S)",
   "groups": [
    "ソード&シールド(S)",
@@ -2190,7 +2206,8 @@
   "group": "サン&ムーン(S&M)",
   "groups": [
    "サン&ムーン(S&M)",
-   "その他BOX（旧弾）"
+   "その他BOX（旧弾）",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20190711_02e2d8-300x282.jpg",
   "image": "img/box/pokemon_5a509c84.jpg",
@@ -2230,7 +2247,8 @@
   "name": "迅雷スパーク",
   "group": "サン&ムーン(S&M)",
   "groups": [
-   "サン&ムーン(S&M)"
+   "サン&ムーン(S&M)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20190808_80999c-300x300.jpg",
   "image": "img/box/pokemon_5ceb22ec.jpg",
@@ -2388,6 +2406,19 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-23"
  },
+ "pokemon_6f14f644": {
+  "id": "pokemon_6f14f644",
+  "game": "pokemon",
+  "name": "MEGA プレミアムトレーナーBOX",
+  "group": "その他（セット・プロモ等）",
+  "groups": [
+   "その他（セット・プロモ等）"
+  ],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-23",
+  "lastSeen": "2026-09-23"
+ },
  "pokemon_7040f78a": {
   "id": "pokemon_7040f78a",
   "game": "pokemon",
@@ -2491,7 +2522,8 @@
   "group": "ソード&シールド(S)",
   "groups": [
    "ソード&シールド(S)",
-   "その他BOX（旧弾）"
+   "その他BOX（旧弾）",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20200604_dd480d-266x300.jpg",
   "image": "img/box/pokemon_7bffd558.jpg",
@@ -2571,7 +2603,7 @@
  "pokemon_820ec735": {
   "id": "pokemon_820ec735",
   "game": "pokemon",
-  "name": "GX ウルトラシャイニー",
+  "name": "GXウルトラシャイニー",
   "group": "サン&ムーン(S&M)",
   "groups": [
    "サン&ムーン(S&M)",
@@ -2617,7 +2649,8 @@
   "name": "フェアリーライズ",
   "group": "サン&ムーン(S&M)",
   "groups": [
-   "サン&ムーン(S&M)"
+   "サン&ムーン(S&M)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20191018_eaee7e-300x300.jpg",
   "image": "img/box/pokemon_87e56da1.jpg",
@@ -2723,7 +2756,7 @@
  "pokemon_8f4f6d84": {
   "id": "pokemon_8f4f6d84",
   "game": "pokemon",
-  "name": "30th CELEBRATION FUTURISTIC BOX",
+  "name": "30th CELEBRATION FUTURISTIC",
   "group": "スペシャルBOX・限定セット",
   "groups": [
    "スペシャルBOX・限定セット",
@@ -2806,7 +2839,7 @@
  "pokemon_958fd86b": {
   "id": "pokemon_958fd86b",
   "game": "pokemon",
-  "name": "TAG TEAM GX タッグオールスターズ",
+  "name": "タッグオールスターズ",
   "group": "サン&ムーン(S&M)",
   "groups": [
    "サン&ムーン(S&M)",
@@ -2982,11 +3015,12 @@
  "pokemon_a2be71e1": {
   "id": "pokemon_a2be71e1",
   "game": "pokemon",
-  "name": "VMAXライジング",
+  "name": "vmaxライジング",
   "group": "ソード&シールド(S)",
   "groups": [
    "ソード&シールド(S)",
-   "その他BOX（旧弾）"
+   "その他BOX（旧弾）",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20200207_649cc4-264x300.jpg",
   "image": "img/box/pokemon_a2be71e1.jpg",
@@ -3040,7 +3074,8 @@
   "name": "チャンピオンロード",
   "group": "サン&ムーン(S&M)",
   "groups": [
-   "サン&ムーン(S&M)"
+   "サン&ムーン(S&M)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20190912_26236e-300x300.jpg",
   "image": "img/box/pokemon_a7a5a7dd.jpg",
@@ -3050,7 +3085,7 @@
  "pokemon_a831b82f": {
   "id": "pokemon_a831b82f",
   "game": "pokemon",
-  "name": "拡張パックデラックス ホワイトフレア",
+  "name": "ホワイトフレアDX",
   "group": "スカーレット&バイオレット(SV)",
   "groups": [
    "スカーレット&バイオレット(SV)",
@@ -3157,7 +3192,7 @@
  "pokemon_afc75c89": {
   "id": "pokemon_afc75c89",
   "game": "pokemon",
-  "name": "拡張パックデラックス ブラックボルト",
+  "name": "ブラックボルトDX",
   "group": "スカーレット&バイオレット(SV)",
   "groups": [
    "スカーレット&バイオレット(SV)",
@@ -3469,6 +3504,19 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-23"
  },
+ "pokemon_caec1628": {
+  "id": "pokemon_caec1628",
+  "game": "pokemon",
+  "name": "スペシャルBOX ヒロシマ",
+  "group": "その他（セット・プロモ等）",
+  "groups": [
+   "その他（セット・プロモ等）"
+  ],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-23",
+  "lastSeen": "2026-09-23"
+ },
  "pokemon_cb1ff708": {
   "id": "pokemon_cb1ff708",
   "game": "pokemon",
@@ -3480,6 +3528,19 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
+  "lastSeen": "2026-09-23"
+ },
+ "pokemon_cbf14719": {
+  "id": "pokemon_cbf14719",
+  "game": "pokemon",
+  "name": "スペシャルBOX トウホク",
+  "group": "その他（セット・プロモ等）",
+  "groups": [
+   "その他（セット・プロモ等）"
+  ],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-23",
   "lastSeen": "2026-09-23"
  },
  "pokemon_ccc94b0f": {
@@ -3534,6 +3595,19 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-23"
  },
+ "pokemon_cff36e31": {
+  "id": "pokemon_cff36e31",
+  "game": "pokemon",
+  "name": "ソードV",
+  "group": "ボックス",
+  "groups": [
+   "ボックス"
+  ],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-23",
+  "lastSeen": "2026-09-23"
+ },
  "pokemon_d2ffe6aa": {
   "id": "pokemon_d2ffe6aa",
   "game": "pokemon",
@@ -3541,7 +3615,8 @@
   "group": "サン&ムーン(S&M)",
   "groups": [
    "サン&ムーン(S&M)",
-   "その他BOX（旧弾）"
+   "その他BOX（旧弾）",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20190624_6df250-300x300.jpg",
   "image": "img/box/pokemon_d2ffe6aa.jpg",
@@ -3554,7 +3629,8 @@
   "name": "ダークオーダー",
   "group": "サン&ムーン(S&M)",
   "groups": [
-   "サン&ムーン(S&M)"
+   "サン&ムーン(S&M)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20190808_7cc851-300x300.jpg",
   "image": "img/box/pokemon_d646d81f.jpg",
@@ -3580,11 +3656,25 @@
   "name": "禁断の光",
   "group": "サン&ムーン(S&M)",
   "groups": [
-   "サン&ムーン(S&M)"
+   "サン&ムーン(S&M)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20190912_2eace0-300x300.jpg",
   "image": "img/box/pokemon_d92520a0.jpg",
   "firstSeen": "2026-09-21",
+  "lastSeen": "2026-09-23"
+ },
+ "pokemon_d97069d7": {
+  "id": "pokemon_d97069d7",
+  "game": "pokemon",
+  "name": "スペシャルBOX フクオカ",
+  "group": "その他（セット・プロモ等）",
+  "groups": [
+   "その他（セット・プロモ等）"
+  ],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-23",
   "lastSeen": "2026-09-23"
  },
  "pokemon_dd527af6": {
@@ -3622,7 +3712,8 @@
   "name": "伝説の鼓動",
   "group": "ソード&シールド(S)",
   "groups": [
-   "ソード&シールド(S)"
+   "ソード&シールド(S)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20200709_7740a9-263x300.jpg",
   "image": "img/box/pokemon_de6c0c31.jpg",
@@ -3649,7 +3740,8 @@
   "group": "ソード&シールド(S)",
   "groups": [
    "ソード&シールド(S)",
-   "その他BOX（旧弾）"
+   "その他BOX（旧弾）",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20200305_0eb4f4-264x300.jpg",
   "image": "img/box/pokemon_e2b98028.jpg",
@@ -3860,7 +3952,7 @@
  "pokemon_f30b109c": {
   "id": "pokemon_f30b109c",
   "game": "pokemon",
-  "name": "ポケモン GO",
+  "name": "ポケモンGO",
   "group": "ソード&シールド(S)",
   "groups": [
    "ソード&シールド(S)",
@@ -3877,7 +3969,8 @@
   "name": "ドラゴンストーム",
   "group": "サン&ムーン(S&M)",
   "groups": [
-   "サン&ムーン(S&M)"
+   "サン&ムーン(S&M)",
+   "ボックス"
   ],
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20190808_9217be-300x300.jpg",
   "image": "img/box/pokemon_f337e1f5.jpg",
@@ -3924,6 +4017,19 @@
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-23"
  },
+ "pokemon_f5f53bea": {
+  "id": "pokemon_f5f53bea",
+  "game": "pokemon",
+  "name": "25thアニバーサリー",
+  "group": "ボックス",
+  "groups": [
+   "ボックス"
+  ],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-23",
+  "lastSeen": "2026-09-23"
+ },
  "pokemon_f64bdf9a": {
   "id": "pokemon_f64bdf9a",
   "game": "pokemon",
@@ -3963,6 +4069,19 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2024-01-22T230841.609-300x300.jpg",
   "image": "img/box/pokemon_f9e1d58b.jpg",
   "firstSeen": "2026-09-21",
+  "lastSeen": "2026-09-23"
+ },
+ "pokemon_fa527511": {
+  "id": "pokemon_fa527511",
+  "game": "pokemon",
+  "name": "メガドリームex",
+  "group": "ボックス",
+  "groups": [
+   "ボックス"
+  ],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-23",
   "lastSeen": "2026-09-23"
  },
  "pokemon_fe7f632f": {

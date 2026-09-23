@@ -2,6 +2,7 @@
 //   node scripts/box/run.js                     全店舗を収集して保存
 //   node scripts/box/run.js --dry-run           保存せず判定結果だけ表示
 //   node scripts/box/run.js --file p.html --game pokemon   保存済みHTMLで動作確認（テスト用）
+//   node scripts/box/run.js --store homura --game pokemon --file d.json  店舗を1つに絞る（他店を巻き込まない）
 //   node scripts/box/run.js --no-images         画像を保存しない
 // 環境変数 OUT_ROOT で保存先を、NOW_ISO で現在時刻を差し替えられる（テスト用）。
 const fs = require('fs');
@@ -204,6 +205,7 @@ async function main() {
   if (applied) console.log(`管理者の判断を ${applied} 件反映しました`);
 
   for (const store of config.stores) {
+    if (option('store') && store.id !== option('store')) continue;
     for (const src of store.sources || []) {
       if (src.enabled === false) continue;
       if (option('game') && src.game !== option('game')) continue;

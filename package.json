@@ -6,7 +6,7 @@
   "scripts": {
     "scrape": "node scripts/scrape.js",
     "scrape:dry": "node scripts/scrape.js --dry-run",
-    "test": "node --test scripts/lib/detect.test.js scripts/box/expo-parser.test.js scripts/box/release.test.js scripts/box/merge.test.js scripts/box/runto.test.js scripts/box/somurie.test.js",
+    "test": "node --test scripts/lib/detect.test.js scripts/box/expo-parser.test.js scripts/box/release.test.js scripts/box/merge.test.js scripts/box/runto.test.js scripts/box/somurie.test.js scripts/box/homura.test.js",
     "update:release": "node scripts/box/update-release-dates.js"
   },
   "engines": {
