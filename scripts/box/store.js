@@ -42,6 +42,8 @@ const loadProducts = () => readJson(P.PRODUCTS, {});
 const saveProducts = (p) => writeJson(P.PRODUCTS, sortKeys(p));
 const loadDecisions = () => readJson(P.DECISIONS, { decisions: [] });
 const saveDecisions = (d) => writeJson(P.DECISIONS, d);
+const loadRestocks = () => readJson(P.RESTOCKS, { restocks: [] });
+const saveRestocks = (d) => writeJson(P.RESTOCKS, d);
 
 function loadHistory() {
   let files = [];
@@ -89,6 +91,6 @@ function pruneBackups(today) {
 
 module.exports = {
   readJson, writeJson, appendLines, readLines,
-  loadState, saveState, loadProducts, saveProducts, loadDecisions, saveDecisions, loadHistory,
+  loadState, saveState, loadProducts, saveProducts, loadDecisions, saveDecisions, loadRestocks, saveRestocks, loadHistory,
   makeBackup, pruneBackups,
 };

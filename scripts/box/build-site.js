@@ -31,6 +31,11 @@ function build() {
   const today = now.date;
   const todayNum = dayNum(today);
 
+  // ---- 再販情報（管理画面で入力した「いつ・どれくらい再販されたか」の記録）----
+  const restocksByPid = {};
+  for (const r of S.loadRestocks().restocks) (restocksByPid[r.pid] ??= []).push({ date: r.date, note: r.note });
+  for (const list of Object.values(restocksByPid)) list.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0)); // 新しい順
+
   // ---- 取得元ごとの巡回状況 ----
   // 取得元 = 自動取得の店舗はゲーム、手動入力の店舗は区分（✅見出し）。巡回ログの src（古い行は game）で見分ける
   const srcOf = (ref) => ref.src ?? ref.game;
@@ -155,7 +160,7 @@ function build() {
       stats[cond] = { now: li >= 0 ? avg[li] : null, nowN: li >= 0 ? n[li] : 0, nowDate: li >= 0 ? dates[li] : null, periods };
     }
 
-    outProducts.push({ id: pid, game: p.game, name: p.name, group: p.group, release: R.releaseFor(releaseLookup, p.game, p.name), image: p.image, cells, series, stats });
+    outProducts.push({ id: pid, game: p.game, name: p.name, group: p.group, release: R.releaseFor(releaseLookup, p.game, p.name), image: p.image, cells, series, stats, restocks: restocksByPid[pid] || [] });
   }
   // 並び順: 区分の順（設定の groupOrder）→ 区分の中は発売日が新しい順 → 発売日が不明なものは最後
   const groupOrder = Object.fromEntries(config.games.filter((g) => g.groupOrder).map((g) => [g.id, g.groupOrder]));

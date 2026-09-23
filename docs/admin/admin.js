@@ -20,10 +20,12 @@
   const REPO = kv.get('admin.repo') || guessRepo();
   const BRANCH = 'main';
   const DECISIONS_PATH = 'data/box/decisions.json';
+  const RESTOCKS_PATH = 'data/box/restocks.json';
 
   let token = kv.get('admin.token') || '';
   let pending = null; // { generatedAt, pending: [...] }
   let decisions = null; // { decisions: [...] } | null（未接続）
+  let restocks = null; // { restocks: [...] } | null（未接続）
   let statusMsg = null; // { kind: 'ok'|'err'|'info', text }
   let busy = false;
 
@@ -79,31 +81,37 @@
     return e.message;
   }
 
-  async function readDecisions() {
+  // JSONファイル（{ decisions: [...] } / { restocks: [...] } など）を読む。無ければ空の既定値
+  async function readJsonFile(filePath, fallback) {
     try {
-      const f = await gh(`/repos/${REPO}/contents/${DECISIONS_PATH}?ref=${BRANCH}`);
+      const f = await gh(`/repos/${REPO}/contents/${filePath}?ref=${BRANCH}`);
       return { data: JSON.parse(b64dec(f.content)), sha: f.sha };
     } catch (e) {
-      if (e.status === 404) return { data: { decisions: [] }, sha: null };
+      if (e.status === 404) return { data: fallback, sha: null };
       throw e;
     }
   }
-  async function addDecision(decision) {
+  // 配列（listKey）に1件追加して保存する。自動更新と同時になったときは読み直して再試行する
+  async function appendToJsonFile(filePath, fallback, listKey, item, message) {
     for (let attempt = 1; attempt <= 3; attempt++) {
-      const { data, sha } = await readDecisions();
-      data.decisions.push(decision);
+      const { data, sha } = await readJsonFile(filePath, fallback);
+      data[listKey].push(item);
       try {
-        await gh(`/repos/${REPO}/contents/${DECISIONS_PATH}`, {
+        await gh(`/repos/${REPO}/contents/${filePath}`, {
           method: 'PUT',
-          body: { message: `管理画面: 判断を記録 (${decision.action})`, content: b64enc(JSON.stringify(data, null, 1) + '\n'), sha: sha || undefined, branch: BRANCH },
+          body: { message, content: b64enc(JSON.stringify(data, null, 1) + '\n'), sha: sha || undefined, branch: BRANCH },
         });
         return data;
       } catch (e) {
-        if ((e.status === 409 || e.status === 422) && attempt < 3) continue; // 自動更新と同時になったので読み直す
+        if ((e.status === 409 || e.status === 422) && attempt < 3) continue;
         throw e;
       }
     }
   }
+  const readDecisions = () => readJsonFile(DECISIONS_PATH, { decisions: [] });
+  const addDecision = (decision) => appendToJsonFile(DECISIONS_PATH, { decisions: [] }, 'decisions', decision, `管理画面: 判断を記録 (${decision.action})`);
+  const readRestocks = () => readJsonFile(RESTOCKS_PATH, { restocks: [] });
+  const addRestock = (restock) => appendToJsonFile(RESTOCKS_PATH, { restocks: [] }, 'restocks', restock, `管理画面: 再販情報を記録 (${restock.name})`);
 
   // ---------- 動作 ----------
   function say(kind, text) {
@@ -129,14 +137,17 @@
       if (!token) throw new Error('トークンを貼り付けてください');
       await gh(`/repos/${REPO}`);
       const r = await readDecisions();
+      const rr = await readRestocks();
       kv.set('admin.token', token);
       decisions = r.data;
+      restocks = rr.data;
       say('ok', `接続できました（${REPO}）`);
     });
   const disconnect = () => {
     kv.del('admin.token');
     token = '';
     decisions = null;
+    restocks = null;
     say('info', 'このブラウザからトークンを削除しました');
   };
   const decide = (item, action, price) =>
@@ -182,7 +193,7 @@
   function pendingList() {
     const list = pending ? pending.pending : [];
     const waiting = new Map((decisions?.decisions || []).filter((d) => !d.appliedAt).map((d) => [d.key, d]));
-    const head = h('h2', null, '④ 要確認リスト', h('span', { class: 'muted small' }, pending ? `　（${md(pending.generatedAt)} 時点）` : ''));
+    const head = h('h2', null, '⑤ 要確認リスト', h('span', { class: 'muted small' }, pending ? `　（${md(pending.generatedAt)} 時点）` : ''));
     if (!pending) return h('section', null, head, h('p', { class: 'empty' }, '要確認リストを読み込めませんでした。'));
     if (!list.length) return h('section', null, head, h('p', { class: 'empty' }, '確認が必要な項目はありません 🎉'));
     return h('section', null, head,
@@ -206,7 +217,7 @@
 
   function runCard() {
     return h('section', { class: 'box' },
-      h('h2', { style: 'margin-top:0' }, '⑤ 今すぐ更新'),
+      h('h2', { style: 'margin-top:0' }, '⑥ 今すぐ更新'),
       h('p', { class: 'muted small' }, '判断を保存したあと、次の自動更新（13:00 / 15:00 / 18:00）を待たずにすぐ反映したいときに押します。'),
       h('button', { class: 'btn primary', type: 'button', disabled: !decisions || busy, onclick: runNow }, '今すぐ更新を実行'));
   }
@@ -365,6 +376,47 @@
         h('button', { class: 'btn', type: 'button', disabled: busy || !canWrite, onclick: () => pauseStore(st.id) }, `${st.name} 本日休止`))));
   }
 
+  // ---------- 再販情報 ----------
+  const jstDate = () => jstStamp().slice(0, 10);
+  const productLabel = (p) => `${gameName(p.game)}｜${p.name}`;
+  const findProductByLabel = (label) => (manual?.products || []).find((p) => productLabel(p) === label);
+
+  const submitRestock = (nameInput, dateInput, noteInput) =>
+    run('再販情報を送信しています', async () => {
+      const match = findProductByLabel(nameInput.value.trim());
+      if (!match) throw new Error('商品の候補から選んでください（入力すると一致する商品名の候補が出ます）');
+      if (!dateInput.value) throw new Error('日付を選んでください');
+      const note = noteInput.value.trim();
+      if (!note) throw new Error('内容を入力してください（例: 推定 初回出荷の20%）');
+      const restock = { id: newId(), pid: match.id, name: match.name, game: match.game, date: dateInput.value, note, createdAt: jstStamp() };
+      restocks = await addRestock(restock);
+      nameInput.value = '';
+      noteInput.value = '';
+      say('ok', `保存しました: ${match.name}（${restock.date.replace(/-/g, '/')}）。次の更新で商品ページに反映されます（すぐ反映するには下の「今すぐ更新」）。`);
+    });
+
+  function restockCard() {
+    if (!manual?.products?.length) return null;
+    const canWrite = Boolean(token && decisions);
+    const nameInput = h('input', { type: 'text', class: 'field', list: 'restock-products', placeholder: '商品名（入力すると候補が出ます）', autocomplete: 'off', 'aria-label': '商品名' });
+    const dateInput = h('input', { type: 'date', class: 'field short', value: jstDate(), 'aria-label': '日付' });
+    const noteInput = h('input', { type: 'text', class: 'field', placeholder: '例: 推定 初回出荷の20%', 'aria-label': '内容' });
+    const list = h('datalist', { id: 'restock-products' }, manual.products.map((p) => h('option', { value: productLabel(p) })));
+    const recent = (restocks?.restocks || []).slice(-8).reverse();
+    return h('section', { class: 'box' },
+      h('h2', { style: 'margin-top:0' }, '④ 再販情報を記録'),
+      h('p', { class: 'muted small' }, '再販（重版）があったら、日付と内容（分かる範囲でOK。推定でも可）を記録します。商品ページに表で表示されます。'),
+      list,
+      h('div', { class: 'row-gap' }, nameInput, dateInput, noteInput,
+        h('button', { class: 'btn primary', type: 'button', disabled: busy || !canWrite, onclick: () => submitRestock(nameInput, dateInput, noteInput) }, '記録する')),
+      canWrite ? null : h('p', { class: 'muted small' }, '※ 記録するには、先に上の「GitHubトークン」を登録してください'),
+      recent.length
+        ? h('div', { class: 'feed', style: 'margin-top:10px' }, recent.map((r) => h('div', { class: 'row' },
+            h('span', { class: 'when' }, r.date.replace(/-/g, '/')),
+            h('span', null, r.name), h('span', { class: 'muted small' }, r.note))))
+        : null);
+  }
+
   // 店舗ごとに、各区分の入力状況（✅ = 最新 / ⚠ = 未入力・古い）を並べる
   function inputChecklist() {
     return manualStores().map((st) => {
@@ -454,6 +506,7 @@
         connectionCard(),
         manual ? manualCard() : null,
         manual ? autoStoresCard() : null,
+        manual ? restockCard() : null,
         pendingList(),
         token && decisions ? runCard() : null,
         historyList(),
@@ -474,6 +527,7 @@
     if (token) {
       try {
         decisions = (await readDecisions()).data;
+        restocks = (await readRestocks()).data;
         await refreshInbox();
       } catch (e) {
         statusMsg = { kind: 'err', text: explain(e) };
