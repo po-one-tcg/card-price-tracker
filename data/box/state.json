@@ -2,7 +2,7 @@
  "version": 1,
  "meta": {
   "pricebase|pokemon": {
-   "lastOkAt": "2026-09-23T13:40:41+09:00",
+   "lastOkAt": "2026-09-23T13:42:30+09:00",
    "lastCount": 116
   },
   "expo|yugioh": {
@@ -70,43 +70,43 @@
    "lastCount": 4
   },
   "runto|pokemon": {
-   "lastOkAt": "2026-09-23T13:40:41+09:00",
+   "lastOkAt": "2026-09-23T13:42:30+09:00",
    "lastCount": 117
   },
   "runto|onepiece": {
-   "lastOkAt": "2026-09-23T13:40:41+09:00",
+   "lastOkAt": "2026-09-23T13:42:30+09:00",
    "lastCount": 32
   },
   "runto|yugioh": {
-   "lastOkAt": "2026-09-23T13:40:41+09:00",
+   "lastOkAt": "2026-09-23T13:42:30+09:00",
    "lastCount": 55
   },
   "runto|dragonball": {
-   "lastOkAt": "2026-09-23T13:40:41+09:00",
+   "lastOkAt": "2026-09-23T13:42:30+09:00",
    "lastCount": 9
   },
   "somurie|pokemon": {
-   "lastOkAt": "2026-09-23T13:40:41+09:00",
+   "lastOkAt": "2026-09-23T13:42:30+09:00",
    "lastCount": 13
   },
   "somurie|yugioh": {
-   "lastOkAt": "2026-09-23T13:40:41+09:00",
+   "lastOkAt": "2026-09-23T13:42:30+09:00",
    "lastCount": 1
   },
   "somurie|onepiece": {
-   "lastOkAt": "2026-09-23T13:40:41+09:00",
+   "lastOkAt": "2026-09-23T13:42:30+09:00",
    "lastCount": 0
   },
   "somurie|dragonball": {
-   "lastOkAt": "2026-09-23T13:40:41+09:00",
+   "lastOkAt": "2026-09-23T13:42:30+09:00",
    "lastCount": 0
   },
   "somurie|weiss": {
-   "lastOkAt": "2026-09-23T13:40:41+09:00",
+   "lastOkAt": "2026-09-23T13:42:30+09:00",
    "lastCount": 0
   },
   "somurie|unionarena": {
-   "lastOkAt": "2026-09-23T13:40:41+09:00",
+   "lastOkAt": "2026-09-23T13:42:30+09:00",
    "lastCount": 0
   }
  },
