@@ -118,7 +118,8 @@
             "遊戯王 買取価格"
           ],
           "game": "yugioh",
-          "group": "遊戯王"
+          "group": "遊戯王",
+          "baseCondition": "shrink"
         },
         {
           "id": "mtg",
@@ -136,7 +137,8 @@
             "ユニオンアリーナ&その他"
           ],
           "game": "unionarena",
-          "group": "ユニオンアリーナ"
+          "group": "ユニオンアリーナ",
+          "baseCondition": "tape"
         },
         {
           "id": "weiss-lorcana",
@@ -152,7 +154,8 @@
               "game": "lorcana"
             }
           ],
-          "group": "ヴァイス・ロルカナ"
+          "group": "ヴァイス・ロルカナ",
+          "baseCondition": "tape"
         },
         {
           "id": "dragonball",
@@ -161,7 +164,8 @@
             "ドラゴンボール 買取価格"
           ],
           "game": "dragonball",
-          "group": "ドラゴンボール"
+          "group": "ドラゴンボール",
+          "baseCondition": "tape"
         },
         {
           "id": "onepiece-other",
@@ -183,7 +187,8 @@
             "ワンピース One piece 買取価格"
           ],
           "game": "onepiece",
-          "group": "BOX・カートン"
+          "group": "BOX・カートン",
+          "baseCondition": "tape"
         },
         {
           "id": "pokemon-old-box",
@@ -257,7 +262,8 @@
             "コレクト ワンピース BOX・カートン"
           ],
           "game": "onepiece",
-          "group": "BOX・カートン"
+          "group": "BOX・カートン",
+          "baseCondition": "tape"
         },
         {
           "id": "collect-onepiece-other",
@@ -275,7 +281,8 @@
             "コレクト ドラゴンボール"
           ],
           "game": "dragonball",
-          "group": "ドラゴンボール"
+          "group": "ドラゴンボール",
+          "baseCondition": "tape"
         },
         {
           "id": "collect-yugioh",
@@ -284,7 +291,8 @@
             "コレクト 遊戯王"
           ],
           "game": "yugioh",
-          "group": "遊戯王"
+          "group": "遊戯王",
+          "baseCondition": "shrink"
         },
         {
           "id": "collect-rates",
@@ -475,7 +483,7 @@
           "subcategories": [
             {
               "id": 132,
-              "cond": "box"
+              "cond": "tape"
             },
             {
               "id": 133,
@@ -499,7 +507,7 @@
           "subcategories": [
             {
               "id": 159,
-              "cond": "box"
+              "cond": "shrink"
             },
             {
               "id": 172,
@@ -518,7 +526,7 @@
           "subcategories": [
             {
               "id": 171,
-              "cond": "box"
+              "cond": "tape"
             }
           ],
           "rowConditions": true,
@@ -533,7 +541,7 @@
           "subcategories": [
             {
               "id": 189,
-              "cond": "box"
+              "cond": "tape"
             },
             {
               "id": 190,

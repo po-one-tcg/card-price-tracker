@@ -11,6 +11,10 @@ const PREFIX = {
   dragonball: /^(?:ドラゴンボール\s*スーパーカードゲーム\s*(?:フュージョンワールド)?\s*)+/,
 };
 
+// ポケモン・遊戯王は「シュリンク有無」、それ以外（ワンピース・ドラゴンボール・ヴァイス・ユニオンアリーナ等）は「テープ付き/カット」表記。
+// 名前に状態語が無いときの既定値をゲームで変える（EXPO・コレクトに合わせる）。
+const TAPE_GAMES = new Set(['onepiece', 'dragonball', 'weiss', 'unionarena', 'lorcana']);
+
 // 状態を名前から取り出し、名前を整える
 function parseName(raw, game) {
   let n = raw.normalize('NFKC').replace(/\s+/g, ' ').trim();
@@ -22,7 +26,7 @@ function parseName(raw, game) {
   if (game === 'pokemon') n = n.replace(/^MEGA\s+/, '');
   n = n.replace(/\s*\((?:M\d+[A-Z]?|SV\d+[a-z]?|S\d+[a-z]?)\)\s*/gi, ' '); // 「（M6）」などの略称
   n = n.replace(/\s+/g, ' ').trim();
-  const c = Expo.cleanName(n, { baseCondition: cond || 'box' }); // 名前の末尾の「カートン」を状態にする
+  const c = Expo.cleanName(n, { baseCondition: cond || (TAPE_GAMES.has(game) ? 'tape' : 'box') }); // 名前の末尾の「カートン」を状態にする
   const suffix = n.match(/\s+(box)$/i); // cleanName は末尾の BOX を外すが、表示名では残す（照合は BOX を無視する）
   if (suffix && !/\sbox$/i.test(c.name)) c.name = `${c.name} ${suffix[1]}`;
   if (game === 'yugioh') c.name = '遊戯王 ' + c.name;

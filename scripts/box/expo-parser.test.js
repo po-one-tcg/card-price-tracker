@@ -61,12 +61,12 @@ test('シュリ無ペリペリ付 は別の名前（ペリペリ付）として�
   assert.deepEqual([v.cond, v.price], ['noshrink', 22000]);
 });
 
-test('(カートン) は状態 carton、付いていなければ box。名前の末尾の "box" は取り除く', () => {
+test('(カートン) は状態 carton、付いていなければ tape（ワンピース）。名前の末尾の "box" は取り除く', () => {
   assert.equal(item('onepiece', 'OP-01', 'carton').price, 450000);
-  assert.equal(item('onepiece', 'OP-01', 'box').price, 36500);
-  assert.equal(item('onepiece', 'OP-01', 'box').name, 'OP-01 Romance Dawn');
+  assert.equal(item('onepiece', 'OP-01', 'tape').price, 36500);
+  assert.equal(item('onepiece', 'OP-01', 'tape').name, 'OP-01 Romance Dawn');
   assert.equal(item('onepiece', 'OP-03', 'carton').closed, true);
-  assert.equal(item('onepiece', 'OP-03', 'box').closed, false);
+  assert.equal(item('onepiece', 'OP-03', 'tape').closed, false);
 });
 
 test('二重スペースがあっても同じ商品として扱える', () => {
@@ -143,18 +143,18 @@ test('コレクト: 区分ごとの商品数（価格あり + 〆切）', () => 
 test('コレクト: ワンピースの価格（表の "-" は〆切）', () => {
   const it = (raw, cond) => cblock('collect-onepiece').items.find((i) => i.raw.includes(raw) && i.cond === cond);
   assert.equal(it('OP-17', 'carton').price, 145000);
-  assert.equal(it('OP-17', 'box').price, 10500);
-  assert.equal(it('OP-05', 'box').price, 55000);
+  assert.equal(it('OP-17', 'tape').price, 10500);
+  assert.equal(it('OP-05', 'tape').price, 55000);
   assert.equal(it('OP-05', 'carton').closed, true);
   assert.equal(cblock('collect-onepiece').items.filter((i) => !i.closed).length, 11);
 });
 
-test('コレクト: 遊戯王は名前の末尾の「ボックス」「カートン」を状態として読む', () => {
+test('コレクト: 遊戯王は名前の末尾の「ボックス」「カートン」を状態として読む（シュリンク有無）', () => {
   const y = cblock('collect-yugioh').items;
   const heroesCarton = y.find((i) => /HEROES/.test(i.name) && i.cond === 'carton');
   assert.equal(heroesCarton.price, 315000);
   assert.equal(heroesCarton.name, '遊戯王 LIMIT OVER COLLECTION -THE HEROES-');
-  assert.equal(y.find((i) => /HEROES/.test(i.name) && i.cond === 'box').closed, true);
+  assert.equal(y.find((i) => /HEROES/.test(i.name) && i.cond === 'shrink').closed, true);
 });
 
 test('コレクト: 店舗ごとに表記が違う商品を、型番や名前で同じ商品と判定する', () => {

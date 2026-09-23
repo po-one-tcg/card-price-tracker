@@ -112,10 +112,9 @@
     if (condsHere.length > 1) {
       rows.push(h('div', { class: 'filter-row' },
         h('span', { class: 'small muted' }, '状態:'),
-        // 「すべて」は実際には店舗ごとに条件を自動選択（シュリンク有り→BOX→カートン→…の優先順）した値。
-        // ポケモンの「シュリンク有り」もワンピースの「テープ付き」も、どちらも「未開封」なので、
-        // ゲームをまたいで正しい言葉として「未開封」と表示する（厳密には稀にシュリンク無し等が混ざることもある）
-        h('button', { class: 'chip', type: 'button', 'aria-pressed': condSel === 'all' ? 'true' : 'false', onclick: () => setCondFilter(gameId, 'all') }, '未開封'),
+        // 「主な状態」は実際には店舗ごとに条件を自動選択（シュリンク有り／テープ付き→BOX→カートン→…の優先順）した値で、
+        // 特定の状態を指す言葉ではないため、個別の状態名（シュリンク無し等）とは呼ばない
+        h('button', { class: 'chip', type: 'button', 'aria-pressed': condSel === 'all' ? 'true' : 'false', onclick: () => setCondFilter(gameId, 'all') }, '主な状態'),
         condsHere.map((c) => h('button', { class: 'chip', type: 'button', 'aria-pressed': condSel === c ? 'true' : 'false', onclick: () => setCondFilter(gameId, c) }, condLabel(c)))));
     }
     if (allStores.length > 1) {

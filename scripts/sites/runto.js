@@ -26,11 +26,11 @@ const COND = {
 };
 // 主な状態（同じ状態が重複したときは、こちらを優先）
 const PRIMARY = new Set(['シュリンク:ari', 'シュリンク:nashi', 'シュリンク:case', 'デッキ:3']);
-// ゲームごとの上書き: ポケモン以外は「シュリンク有」が通常の未開封BOXなので box にする（EXPO・コレクトの表記に合わせる）
+// ゲームごとの上書き: ワンピース・ドラゴンボールは「シュリンク」ではなく「テープ」表記（EXPO・コレクトに合わせる）。
+// 遊戯王はポケモンと同じくシュリンク表記のため、上書きなし（COND のシュリンク有/無をそのまま使う）。
 const GAME_COND_OVERRIDE = {
-  onepiece: { 'シュリンク:ari': 'box', 'シュリンク:peripri': 'box' },
-  yugioh: { 'シュリンク:ari': 'box', 'シュリンク:peripri': 'box' },
-  dragonball: { 'シュリンク:ari': 'box', 'シュリンク:peripri': 'box' },
+  onepiece: { 'シュリンク:ari': 'tape', 'シュリンク:peripri': 'tape', 'シュリンク:nashi': 'tapecut', 'シュリンク:peripri-2': 'tapecut' },
+  dragonball: { 'シュリンク:ari': 'tape', 'シュリンク:peripri': 'tape', 'シュリンク:nashi': 'tapecut', 'シュリンク:peripri-2': 'tapecut' },
 };
 
 // ---- 商品名の整理: 他の店の表記に揃える ----

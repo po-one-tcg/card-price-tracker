@@ -39,10 +39,17 @@ test('状態ごとに1行: シュリンク有=shrink / 無=noshrink / カート�
   assert.ok(st.find((r) => r.cond === 'shrink').price > st.find((r) => r.cond === 'noshrink').price);
 });
 
-test('ポケモン以外は、シュリンク有を box にする（EXPO・コレクトの表記に合わせる）', async () => {
+test('ワンピース・ドラゴンボールは、シュリンク有無をテープ付き/テープカットにする（EXPO・コレクトの表記に合わせる）', async () => {
   const rows = (await load('onepiece', 'onepiece')).filter((r) => r.name === 'OP-17 世界最強の戦士');
-  assert.ok(rows.some((r) => r.cond === 'box' && r.status === 'price'));
-  assert.equal(rows.some((r) => r.cond === 'shrink'), false);
+  assert.ok(rows.some((r) => r.cond === 'tape' && r.status === 'price'));
+  assert.equal(rows.some((r) => r.cond === 'shrink' || r.cond === 'box'), false);
+});
+
+test('遊戯王はポケモンと同じくシュリンク有無のまま（上書きしない）', async () => {
+  const rows = await load('yugioh', 'yugioh');
+  const heroes = rows.filter((r) => /HEROES/.test(r.name));
+  assert.ok(heroes.some((r) => r.cond === 'shrink' || r.cond === 'noshrink'), heroes.map((r) => r.cond).join(','));
+  assert.equal(heroes.some((r) => r.cond === 'tape' || r.cond === 'box'), false);
 });
 
 test('単品の商品は box、在庫なしは closed（買取停止）', async () => {
