@@ -106,7 +106,7 @@
     },
     {
       "id": "expo",
-      "name": "買取EXPO",
+      "name": "EXPO",
       "type": "manual",
       "freshHours": 36,
       "_note": "Xのポストを管理画面に貼り付けて取り込む。sections は「✅見出し」ごとの取り込み設定。",
@@ -306,7 +306,7 @@
     },
     {
       "id": "runto",
-      "name": "RUNTO",
+      "name": "Runto",
       "type": "auto",
       "_note": "WooCommerce の公開API(Store API)から取得。状態(シュリンク有/無・カートン等)ごとの価格と、在庫なし(=買取停止)を見る。",
       "sources": [

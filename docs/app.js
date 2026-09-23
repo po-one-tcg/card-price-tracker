@@ -61,14 +61,68 @@
     }
   }
 
-  // 一覧で使う「代表の状態」: シュリンク付き → BOX(区別なし) → カートン → シュリンク無し の順で最初にあるもの
+  // 一覧で使う「代表の状態」: シュリンク付き → BOX(区別なし) → カートン → シュリンク無し の順で最初にあるもの。
+  // exactCond を指定すると（状態のフィルタ）、その状態だけを見る（無ければダッシュ表示）
   const SUMMARY_ORDER = ['shrink', 'box', 'carton', 'noshrink', 'tape', 'tapecut', 'whitebox', 'pack'];
-  function summaryCell(p, storeId) {
+  function summaryCell(p, storeId, exactCond) {
+    if (exactCond) return p.cells.find((x) => x.store === storeId && x.cond === exactCond) || null;
     for (const c of SUMMARY_ORDER) {
       const cell = p.cells.find((x) => x.store === storeId && x.cond === c);
       if (cell) return cell;
     }
     return null;
+  }
+
+  // ---------- 表示の好み（状態・店舗のフィルタ）。ブラウザだけに覚えさせる（他の人には影響しない）----------
+  const FILTER_KEY = 'boxtracker.filters.v1';
+  function loadFilters() {
+    try {
+      const v = JSON.parse(localStorage.getItem(FILTER_KEY));
+      return v && typeof v === 'object' ? v : {};
+    } catch {
+      return {};
+    }
+  }
+  function saveFilters() {
+    try { localStorage.setItem(FILTER_KEY, JSON.stringify(filters)); } catch {}
+  }
+  let filters = loadFilters(); // { cond: { ゲームID: 状態ID }, hiddenStores: [店舗ID, ...] }
+  function setCondFilter(gameId, condId) {
+    filters = { ...filters, cond: { ...(filters.cond || {}), [gameId]: condId } };
+    saveFilters();
+    render();
+  }
+  function toggleStore(storeId, visibleCount) {
+    const hidden = new Set(filters.hiddenStores || []);
+    if (hidden.has(storeId)) hidden.delete(storeId);
+    else {
+      if (visibleCount <= 1) return; // 店舗を1つも表示しない状態にはしない
+      hidden.add(storeId);
+    }
+    filters = { ...filters, hiddenStores: [...hidden] };
+    saveFilters();
+    render();
+  }
+
+  // 状態・店舗のフィルタ欄（商品が複数状態を持つゲーム／店舗が2つ以上あるときだけ出す）
+  function filterBar(gameId, allStores, condsHere) {
+    const hidden = new Set(filters.hiddenStores || []);
+    const condSel = (filters.cond || {})[gameId] || 'all';
+    const rows = [];
+    if (condsHere.length > 1) {
+      rows.push(h('div', { class: 'filter-row' },
+        h('span', { class: 'small muted' }, '状態:'),
+        h('button', { class: 'chip', type: 'button', 'aria-pressed': condSel === 'all' ? 'true' : 'false', onclick: () => setCondFilter(gameId, 'all') }, 'すべて'),
+        condsHere.map((c) => h('button', { class: 'chip', type: 'button', 'aria-pressed': condSel === c ? 'true' : 'false', onclick: () => setCondFilter(gameId, c) }, condLabel(c)))));
+    }
+    if (allStores.length > 1) {
+      const visibleCount = allStores.filter((s) => !hidden.has(s.id)).length;
+      rows.push(h('div', { class: 'filter-row' },
+        h('span', { class: 'small muted' }, '店舗:'),
+        allStores.map((s) => h('button', { class: 'chip' + (hidden.has(s.id) ? ' off' : ''), type: 'button', 'aria-pressed': hidden.has(s.id) ? 'false' : 'true', onclick: () => toggleStore(s.id, visibleCount) }, s.name)),
+        hidden.size ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: [] }; saveFilters(); render(); } }, 'すべて表示') : null));
+    }
+    return rows.length ? h('div', { class: 'filters' }, rows) : null;
   }
 
   // ---------- グラフ（SVG）----------
@@ -152,7 +206,12 @@
   function viewGame(gameId) {
     const list = DATA.products.filter((p) => p.game === gameId);
     if (!list.length) return h('p', { class: 'empty' }, 'このゲームのデータはまだありません。');
-    const stores = DATA.stores.filter((s) => list.some((p) => p.cells.some((c) => c.store === s.id)));
+    const allStores = DATA.stores.filter((s) => list.some((p) => p.cells.some((c) => c.store === s.id)));
+    const hidden = new Set(filters.hiddenStores || []);
+    const stores = allStores.filter((s) => !hidden.has(s.id));
+    const condsHere = COND_ORDER.filter((c) => list.some((p) => p.cells.some((x) => x.cond === c)));
+    const condSel = (filters.cond || {})[gameId] || 'all';
+    const exactCond = condSel === 'all' ? null : condSel;
     const groups = [];
     for (const p of list) {
       let g = groups.find((x) => x.name === p.group);
@@ -175,7 +234,7 @@
             // 一覧には画像を出さない（スマホで幅を取りすぎるため。画像は商品ページに出す）
             h('div', null, h('a', { href: '#/p/' + p.id }, p.name),
               p.release ? h('div', { class: 'muted', style: 'font-size:11px' }, '発売 ' + p.release.replace(/-/g, '/')) : null))),
-          stores.map((s) => cellNode(summaryCell(p, s.id)))));
+          stores.map((s) => cellNode(summaryCell(p, s.id, exactCond)))));
       }
     }
     const newCount = list.filter((p) => p.cells.some((c) => c.event && c.event.type === 'appear')).length;
@@ -187,7 +246,8 @@
         h('span', null, h('span', { class: 'badge new' }, '🆕 出現'), ` 直近${DATA.eventDays}日に買取開始（${newCount}件）`),
         h('span', null, h('span', { class: 'badge gone' }, '✕ 取扱終了'), ` 直近${DATA.eventDays}日に買取停止（${goneCount}件）`),
         h('span', null, '— 取扱なし　未確認 = 取得できていない　店名の下 = 最終更新')),
-      h('div', { class: 'tablewrap' }, h('table', null, thead, body)));
+      filterBar(gameId, allStores, condsHere),
+      stores.length ? h('div', { class: 'tablewrap' }, h('table', null, thead, body)) : h('p', { class: 'empty' }, '表示する店舗がありません。上の「店舗」フィルタで選んでください。'));
   }
 
   // ---------- 画面: 商品 ----------

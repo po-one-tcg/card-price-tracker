@@ -165,3 +165,10 @@ table.mini td { padding: 3px 6px; text-align: left; white-space: normal; border-
   th.name, td.name { min-width: 92px; max-width: 30vw; padding-left: 8px; }
   tr.group td { font-size: 12px; }
 }
+
+/* ---- ゲーム価格表のフィルタ（状態・店舗）---- */
+.filters { margin: 4px 0 12px; display: flex; flex-direction: column; gap: 6px; }
+.filter-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.filter-row .chip { padding: 3px 11px; font-size: 12px; }
+.chip.off { opacity: .45; text-decoration: line-through; }
+.chip.ghost { border-style: dashed; color: var(--muted); }
