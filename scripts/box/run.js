@@ -89,7 +89,11 @@ async function runSource(store, src, ctx) {
     throw new Error(`商品数が前回 ${prevCount} → 今回 ${rowsByKey.size} に急減しました。誤って「消滅」と判定しないよう、この回は無効にします`);
   }
 
-  const baseline = Boolean(state.meta[metaKey]?.lastOkAt);
+  // 「基準づくり中」かどうかは、成功した実行があるかではなく、この店舗×ゲームで一度でも
+  // 価格が確定した(confirmed)ことがあるかで決める。買取マッチョのように、初回の巡回がたまたま
+  // 「調整中」（未確認）ばかりだった場合、その次に本物の価格が初めて付いたときも、まだ基準づくり
+  // 扱いにする（そうしないと、全商品が一斉に「🆕出現」として誤検知されてしまう）。
+  const baseline = Object.values(state.entries).some((e) => e.ref.store === store.id && e.ref.game === src.game && e.confirmed !== null);
   const t = { now: now.stamp, baseline, thresholdPct: config.thresholdPct };
   const historyRows = [];
   const events = [];

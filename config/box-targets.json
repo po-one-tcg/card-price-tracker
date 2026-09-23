@@ -82,6 +82,10 @@
     {
       "id": "whitebox",
       "label": "白箱"
+    },
+    {
+      "id": "tape",
+      "label": "テープ付き"
     }
   ],
   "stores": [
@@ -541,6 +545,42 @@
           "url": "https://kaitori-homura.com/products",
           "enabled": true,
           "parser": "homura"
+        }
+      ]
+    },
+    {
+      "id": "macho",
+      "name": "マッチョ",
+      "type": "auto",
+      "_note": "商品ごとに page.html の中にJSONが直接埋め込まれている（scripts/sites/macho.js 参照）。夜間は全商品が「調整中」（未確認）になる。現在は pokemon/onepiece のみ商品あり。yugioh/dragonball は0件だが、今後の出現を見張る。",
+      "sources": [
+        {
+          "game": "pokemon",
+          "parser": "macho",
+          "minRows": 100,
+          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=pokemon",
+          "enabled": true
+        },
+        {
+          "game": "onepiece",
+          "parser": "macho",
+          "minRows": 30,
+          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=onepiece",
+          "enabled": true
+        },
+        {
+          "game": "yugioh",
+          "parser": "macho",
+          "minRows": 0,
+          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=yugioh",
+          "enabled": true
+        },
+        {
+          "game": "dragonball",
+          "parser": "macho",
+          "minRows": 0,
+          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=dragonball",
+          "enabled": true
         }
       ]
     }
