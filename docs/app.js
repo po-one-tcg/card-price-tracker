@@ -305,11 +305,7 @@
     const restockBlock = p.restocks.length
       ? h('div', { class: 'panel', style: 'margin:10px 0' },
           h('h2', { style: 'margin-top:0' }, '再販情報'),
-          h('table', null,
-            h('thead', null, h('tr', null, h('th', { style: 'text-align:left' }, '日付'), h('th', { style: 'text-align:left' }, '内容'))),
-            h('tbody', null, p.restocks.map((r) => h('tr', null,
-              h('td', { style: 'text-align:left; white-space:nowrap' }, r.date.replace(/-/g, '/')),
-              h('td', { style: 'text-align:left; white-space:normal' }, r.note))))))
+          h('p', { style: 'margin:0' }, p.restocks.map((d) => d.replace(/-/g, '/')).join('、')))
       : null;
     return h('div', null,
       h('div', { class: 'crumb' }, h('a', { href: '#/' }, 'ホーム'), ' › ', h('a', { href: '#/g/' + p.game }, gameLabel(p.game)), ' › ', p.name),

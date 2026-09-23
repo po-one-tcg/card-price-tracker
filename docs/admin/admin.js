@@ -381,17 +381,14 @@
   const productLabel = (p) => `${gameName(p.game)}｜${p.name}`;
   const findProductByLabel = (label) => (manual?.products || []).find((p) => productLabel(p) === label);
 
-  const submitRestock = (nameInput, dateInput, noteInput) =>
+  const submitRestock = (nameInput, dateInput) =>
     run('再販情報を送信しています', async () => {
       const match = findProductByLabel(nameInput.value.trim());
       if (!match) throw new Error('商品の候補から選んでください（入力すると一致する商品名の候補が出ます）');
       if (!dateInput.value) throw new Error('日付を選んでください');
-      const note = noteInput.value.trim();
-      if (!note) throw new Error('内容を入力してください（例: 推定 初回出荷の20%）');
-      const restock = { id: newId(), pid: match.id, name: match.name, game: match.game, date: dateInput.value, note, createdAt: jstStamp() };
+      const restock = { id: newId(), pid: match.id, name: match.name, game: match.game, date: dateInput.value, createdAt: jstStamp() };
       restocks = await addRestock(restock);
       nameInput.value = '';
-      noteInput.value = '';
       say('ok', `保存しました: ${match.name}（${restock.date.replace(/-/g, '/')}）。次の更新で商品ページに反映されます（すぐ反映するには下の「今すぐ更新」）。`);
     });
 
@@ -400,20 +397,19 @@
     const canWrite = Boolean(token && decisions);
     const nameInput = h('input', { type: 'text', class: 'field', list: 'restock-products', placeholder: '商品名（入力すると候補が出ます）', autocomplete: 'off', 'aria-label': '商品名' });
     const dateInput = h('input', { type: 'date', class: 'field short', value: jstDate(), 'aria-label': '日付' });
-    const noteInput = h('input', { type: 'text', class: 'field', placeholder: '例: 推定 初回出荷の20%', 'aria-label': '内容' });
     const list = h('datalist', { id: 'restock-products' }, manual.products.map((p) => h('option', { value: productLabel(p) })));
     const recent = (restocks?.restocks || []).slice(-8).reverse();
     return h('section', { class: 'box' },
       h('h2', { style: 'margin-top:0' }, '④ 再販情報を記録'),
-      h('p', { class: 'muted small' }, '再販（重版）があったら、日付と内容（分かる範囲でOK。推定でも可）を記録します。商品ページに表で表示されます。'),
+      h('p', { class: 'muted small' }, '再販（重版）があった日付を記録します。商品ページに表で表示されます。'),
       list,
-      h('div', { class: 'row-gap' }, nameInput, dateInput, noteInput,
-        h('button', { class: 'btn primary', type: 'button', disabled: busy || !canWrite, onclick: () => submitRestock(nameInput, dateInput, noteInput) }, '記録する')),
+      h('div', { class: 'row-gap' }, nameInput, dateInput,
+        h('button', { class: 'btn primary', type: 'button', disabled: busy || !canWrite, onclick: () => submitRestock(nameInput, dateInput) }, '記録する')),
       canWrite ? null : h('p', { class: 'muted small' }, '※ 記録するには、先に上の「GitHubトークン」を登録してください'),
       recent.length
         ? h('div', { class: 'feed', style: 'margin-top:10px' }, recent.map((r) => h('div', { class: 'row' },
             h('span', { class: 'when' }, r.date.replace(/-/g, '/')),
-            h('span', null, r.name), h('span', { class: 'muted small' }, r.note))))
+            h('span', null, r.name))))
         : null);
   }
 

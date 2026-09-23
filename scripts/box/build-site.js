@@ -31,10 +31,10 @@ function build() {
   const today = now.date;
   const todayNum = dayNum(today);
 
-  // ---- 再販情報（管理画面で入力した「いつ・どれくらい再販されたか」の記録）----
+  // ---- 再販情報（管理画面で入力した「いつ再販されたか」の記録）----
   const restocksByPid = {};
-  for (const r of S.loadRestocks().restocks) (restocksByPid[r.pid] ??= []).push({ date: r.date, note: r.note });
-  for (const list of Object.values(restocksByPid)) list.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0)); // 新しい順
+  for (const r of S.loadRestocks().restocks) (restocksByPid[r.pid] ??= []).push(r.date);
+  for (const list of Object.values(restocksByPid)) list.sort().reverse(); // 新しい順
 
   // ---- 取得元ごとの巡回状況 ----
   // 取得元 = 自動取得の店舗はゲーム、手動入力の店舗は区分（✅見出し）。巡回ログの src（古い行は game）で見分ける
