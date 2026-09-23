@@ -31,3 +31,12 @@
 {"t":"2026-09-23T13:40:41+09:00","type":"appear","from":"none","to":600,"k":"expo|onepiece_c8f49fff|box","store":"expo","game":"onepiece","pid":"onepiece_c8f49fff","name":"ジャンプ33号 肉ルフィ29th プロモ P-159 (袋とじ未開封・雑誌切り離し)"}
 {"t":"2026-09-23T13:40:41+09:00","type":"appear","from":"none","to":365000,"k":"expo|onepiece_88dfe58e|carton","store":"expo","game":"onepiece","pid":"onepiece_88dfe58e","name":"OP-11 神速の拳"}
 {"t":"2026-09-23T13:40:41+09:00","type":"appear","from":"none","to":1700,"k":"expo|pokemon_a0351009|box","store":"expo","game":"pokemon","pid":"pokemon_a0351009","name":"スターターセットex イーブイex"}
+{"t":"2026-09-23T15:19:19+09:00","type":"anomaly","from":1200,"to":10000,"k":"runto|pokemon_03395521|noshrink","store":"runto","game":"pokemon","pid":"pokemon_03395521","name":"楽園ドラゴーナ"}
+{"t":"2026-09-23T15:19:19+09:00","type":"appear","from":"none","to":13000,"k":"runto|pokemon_7bc3bb7b|shrink","store":"runto","game":"pokemon","pid":"pokemon_7bc3bb7b","name":"シャイニートレジャーex"}
+{"t":"2026-09-23T15:19:19+09:00","type":"appear","from":"none","to":13000,"k":"runto|pokemon_8f5f5740|box","store":"runto","game":"pokemon","pid":"pokemon_8f5f5740","name":"レイジングサーフ"}
+{"t":"2026-09-23T15:19:19+09:00","type":"appear","from":"none","to":9500,"k":"runto|pokemon_b8805956|shrink","store":"runto","game":"pokemon","pid":"pokemon_b8805956","name":"クレイバースト"}
+{"t":"2026-09-23T15:19:19+09:00","type":"appear","from":"none","to":40000,"k":"runto|pokemon_5d253bf8|shrink","store":"runto","game":"pokemon","pid":"pokemon_5d253bf8","name":"ロストアビス"}
+{"t":"2026-09-23T15:19:19+09:00","type":"appear","from":"none","to":9000,"k":"runto|pokemon_40c47c80|box","store":"runto","game":"pokemon","pid":"pokemon_40c47c80","name":"白熱のアルカナ"}
+{"t":"2026-09-23T15:19:19+09:00","type":"appear","from":"none","to":24000,"k":"runto|pokemon_4cb103ac|box","store":"runto","game":"pokemon","pid":"pokemon_4cb103ac","name":"VMAXクライマックス"}
+{"t":"2026-09-23T15:19:19+09:00","type":"disappear","from":800000,"k":"runto|pokemon_a89bf0be|box","store":"runto","game":"pokemon","pid":"pokemon_a89bf0be","name":"幻・伝説ドリームキラコレクション"}
+{"t":"2026-09-23T15:19:19+09:00","type":"disappear","from":14000,"k":"runto|onepiece_783c1401|box","store":"runto","game":"onepiece","pid":"onepiece_783c1401","name":"OP-03 強大な敵"}
