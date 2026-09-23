@@ -221,6 +221,17 @@ function build() {
       .filter((e) => manualIds.has(e.ref.store))
       .map((e) => ({ store: e.ref.store, src: e.ref.src, pid: e.ref.pid, cond: e.ref.cond, game: e.ref.game, name: products[e.ref.pid]?.name, state: e.confirmed?.state ?? null, price: e.confirmed?.price ?? null })),
     products: Object.values(products).map((p) => ({ id: p.id, game: p.game, name: p.name })),
+    // 自動取得の店舗（休業日で更新が無いときに「本日休止」を記録できるようにするため）
+    autoStores: config.stores
+      .filter((s) => s.type !== 'manual')
+      .map((s) => ({
+        id: s.id,
+        name: s.name,
+        games: [...new Set((s.sources || []).map((src) => src.game))].map((game) => {
+          const st = sourceStatus[`${s.id}|${game}`];
+          return { game, lastOkAt: st?.lastOkAt ?? null, fresh: st?.fresh ?? false };
+        }),
+      })),
   };
   fs.writeFileSync(path.join(P.DOCS_DIR, 'data', 'manual.json'), JSON.stringify(manual));
 

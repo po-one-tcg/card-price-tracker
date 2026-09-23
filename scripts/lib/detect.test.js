@@ -39,6 +39,14 @@ test('休止は出現・消滅にカウントしない: 金額あり → 休止 
   assert.equal(r.entry.shown.price, 5000);
 });
 
+test('何日も続けて休止のときは、since が最新の休止日に更新される（いつの休みか取り違えないため）', () => {
+  let e = run(run(null, value(5000), 1, false).entry, { kind: 'paused' }, 2).entry;
+  assert.equal(e.shown.since, T(2));
+  const r = run(e, { kind: 'paused' }, 3);
+  assert.equal(r.entry.shown.since, T(3));
+  assert.deepEqual(r.rows, [{ t: T(3), st: 'paused', v: null }]);
+});
+
 test('休止のあとに大きく違う金額で再開したら、確定済みの金額と比べて異常検知する', () => {
   const e = run(run(null, value(5000), 1, false).entry, { kind: 'paused' }, 2).entry;
   assert.deepEqual(run(e, value(50000), 3).events.map((x) => x.type), ['anomaly']);

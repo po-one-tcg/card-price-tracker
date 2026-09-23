@@ -56,7 +56,10 @@ function step(prevEntry, obs, ctx) {
   }
 
   if (obs.kind === 'paused') {
-    setShown('paused', null); // confirmed / pending はそのまま。休止が明けて同じ金額に戻れば何も起きない
+    // confirmed / pending はそのまま。休止が明けて同じ金額に戻れば何も起きない。
+    // 何日も続けて休止のときも「いつが休みか」を取り違えないよう、since は毎回この回の日時に更新する
+    e.shown = { state: 'paused', price: null, since: now };
+    rows.push({ t: now, st: 'paused', v: null });
     return { entry: e, events, rows };
   }
 

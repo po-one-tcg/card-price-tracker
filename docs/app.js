@@ -38,13 +38,14 @@
   const cls = (v) => (v > 0 ? 'up' : v < 0 ? 'down' : '');
 
   // ---------- セル（店舗×商品×状態）----------
-  function cellNode(cell) {
+  // isMax: その行（同じ商品・同じ状態）の中で一番高い価格なら目立たせる（安い方は目立たせなくてよい）
+  function cellNode(cell, isMax) {
     if (!cell) return h('td', { class: 'dash' }, '—');
     switch (cell.state) {
       case 'value': {
         const isNew = cell.event && cell.event.type === 'appear';
-        return h('td', { class: isNew ? 'is-new' : '' },
-          h('span', { class: 'price' }, yen(cell.price)),
+        return h('td', { class: (isNew ? 'is-new ' : '') + (isMax ? 'is-max' : '') },
+          h('span', { class: 'price' + (isMax ? ' max' : '') }, yen(cell.price)),
           isNew ? h('small', null, h('span', { class: 'badge new' }, '🆕 出現 ' + agoText(cell.event.at))) : null);
       }
       case 'none':
@@ -53,12 +54,18 @@
         }
         return h('td', { class: 'dash' }, '—');
       case 'paused':
-        return h('td', { class: 'dash' }, '休止');
+        // 「休み」だけだと、いつ休みだったのか分からず機会損失につながるため、必ず日付を添える
+        return h('td', { class: 'dash' }, '休み', h('small', null, md(cell.since)));
       case 'stale':
         return h('td', { class: 'unk' }, '未確認', h('small', null, cell.staleDays == null ? '未取得' : '最終更新 ' + cell.staleDays + '日前'));
       default:
         return h('td', { class: 'unk' }, '未確認');
     }
+  }
+  // 価格のセルが並んだ行の中で、一番高い価格のセルを true にした配列を返す
+  function markMax(cells) {
+    const max = Math.max(-1, ...cells.filter((c) => c && c.state === 'value').map((c) => c.price));
+    return cells.map((c) => c && c.state === 'value' && c.price === max);
   }
 
   // 一覧で使う「代表の状態」: シュリンク付き → BOX(区別なし) → カートン → シュリンク無し の順で最初にあるもの。
@@ -228,19 +235,25 @@
       h('th', { class: 'name' }, '商品'),
       stores.map((s) => {
         const st = DATA.storeGame[`${s.id}|${gameId}`];
+        // 壊れている（⚠）のとは別に、まだ「今日」の更新が来ていないだけの店を一目で分かるようにする（🕗）
+        const isToday = st && st.lastOkAt && st.lastOkAt.slice(0, 10) === DATA.today;
+        const cls = !st || !st.lastOkAt ? '' : !st.fresh ? 'bad' : isToday ? '' : 'notice';
+        const prefix = st && st.lastOkAt ? (!st.fresh ? '⚠ ' : isToday ? '' : '🕗 ') : '';
         return h('th', null, s.name,
-          h('small', { class: st && st.fresh ? '' : 'bad' }, st && st.lastOkAt ? (st.fresh ? '' : '⚠ ') + md(st.lastOkAt) + ' ' + hm(st.lastOkAt) : '未取得'));
+          h('small', { class: cls }, st && st.lastOkAt ? prefix + md(st.lastOkAt) + ' ' + hm(st.lastOkAt) : '未取得'));
       })));
     const body = h('tbody');
     for (const g of groups) {
       body.append(h('tr', { class: 'group' }, h('td', { colspan: stores.length + 1 }, g.name)));
       for (const p of g.items) {
+        const rowCells = stores.map((s) => summaryCell(p, s.id, exactCond));
+        const isMax = markMax(rowCells);
         body.append(h('tr', null,
           h('th', { class: 'name', scope: 'row' }, h('div', { class: 'pname' },
             // 一覧には画像を出さない（スマホで幅を取りすぎるため。画像は商品ページに出す）
             h('div', null, h('a', { href: '#/p/' + p.id }, p.name),
               p.release ? h('div', { class: 'muted', style: 'font-size:11px' }, '発売 ' + p.release.replace(/-/g, '/')) : null))),
-          stores.map((s) => cellNode(summaryCell(p, s.id, exactCond)))));
+          rowCells.map((c, i) => cellNode(c, isMax[i]))));
       }
     }
     const newCount = list.filter((p) => p.cells.some((c) => c.event && c.event.type === 'appear')).length;
@@ -264,9 +277,11 @@
     const stores = DATA.stores.filter((s) => p.cells.some((c) => c.store === s.id));
     const table = h('div', { class: 'tablewrap', style: 'max-height:none' }, h('table', null,
       h('thead', null, h('tr', null, h('th', { class: 'name' }, '状態'), stores.map((s) => h('th', null, s.name)))),
-      h('tbody', null, conds.map((c) => h('tr', null,
-        h('th', { class: 'name', scope: 'row' }, condLabel(c)),
-        stores.map((s) => cellNode(p.cells.find((x) => x.store === s.id && x.cond === c))))))));
+      h('tbody', null, conds.map((c) => {
+        const rowCells = stores.map((s) => p.cells.find((x) => x.store === s.id && x.cond === c));
+        const isMax = markMax(rowCells);
+        return h('tr', null, h('th', { class: 'name', scope: 'row' }, condLabel(c)), rowCells.map((cell, i) => cellNode(cell, isMax[i])));
+      }))));
     const blocks = conds.map((c) => {
       const st = p.stats[c];
       const multi = st.nowN > 1;

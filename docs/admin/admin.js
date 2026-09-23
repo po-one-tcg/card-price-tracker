@@ -182,7 +182,7 @@
   function pendingList() {
     const list = pending ? pending.pending : [];
     const waiting = new Map((decisions?.decisions || []).filter((d) => !d.appliedAt).map((d) => [d.key, d]));
-    const head = h('h2', null, '③ 要確認リスト', h('span', { class: 'muted small' }, pending ? `　（${md(pending.generatedAt)} 時点）` : ''));
+    const head = h('h2', null, '④ 要確認リスト', h('span', { class: 'muted small' }, pending ? `　（${md(pending.generatedAt)} 時点）` : ''));
     if (!pending) return h('section', null, head, h('p', { class: 'empty' }, '要確認リストを読み込めませんでした。'));
     if (!list.length) return h('section', null, head, h('p', { class: 'empty' }, '確認が必要な項目はありません 🎉'));
     return h('section', null, head,
@@ -206,7 +206,7 @@
 
   function runCard() {
     return h('section', { class: 'box' },
-      h('h2', { style: 'margin-top:0' }, '④ 今すぐ更新'),
+      h('h2', { style: 'margin-top:0' }, '⑤ 今すぐ更新'),
       h('p', { class: 'muted small' }, '判断を保存したあと、次の自動更新（13:00 / 15:00 / 18:00）を待たずにすぐ反映したいときに押します。'),
       h('button', { class: 'btn primary', type: 'button', disabled: !decisions || busy, onclick: runNow }, '今すぐ更新を実行'));
   }
@@ -233,10 +233,12 @@
 
   // 手入力の店舗（買取EXPO・買取コレクトなど）。見出し（✅…）は店舗をまたいで一意なので、貼り付けた内容から店舗も自動で判別する
   const manualStores = () => (manual ? manual.stores : []);
-  const storeOf = (id) => manualStores().find((s) => s.id === id);
+  const autoStores = () => (manual ? manual.autoStores || [] : []);
+  const storeOf = (id) => manualStores().find((s) => s.id === id) || autoStores().find((s) => s.id === id);
   const allSections = () => manualStores().flatMap((s) => s.sections.map((sec) => ({ ...sec, storeId: s.id, storeName: s.name })));
   const activeSections = () => allSections().filter((s) => s.kind !== 'skip' && s.kind !== 'update'); // 入力状況・区分選択の対象
   const condName = (id) => (manual.conditions.find((c) => c.id === id) || { label: id }).label;
+  const gameName = (id) => (manual.games.find((g) => g.id === id) || { label: id }).label;
 
   // 貼り付けた内容を読み取り、「確定したらどうなるか」を今のデータと突き合わせて予測する（収集側と同じ判定）
   function buildPlan() {
@@ -347,6 +349,22 @@
     });
   };
 
+  // 自動取得の店舗: サイトが休業日で更新が無いとき、「取得できていない」のか「店が休み」なのかを区別して記録する
+  function autoStoresCard() {
+    if (!autoStores().length) return null;
+    const canWrite = Boolean(token && decisions);
+    return h('section', { class: 'box' },
+      h('h2', { style: 'margin-top:0' }, '③ 自動取得の店舗が休業日のとき'),
+      h('p', { class: 'muted small' }, '更新が無いのが、取得できていないからか、店が休みだからかを区別するための記録です（休みの実績は「いつが休み」かを日付つきで公開ページに表示します）。'),
+      autoStores().map((st) => h('div', { class: 'store-row' },
+        h('span', { class: 'store-name' }, st.name),
+        h('div', { class: 'chips-row' }, st.games.map((g) => {
+          const ok = g.lastOkAt && g.fresh;
+          return h('span', { class: 'badge ' + (ok ? 'new' : 'warn'), title: g.lastOkAt ? `最終更新 ${md(g.lastOkAt)}` : 'まだ取得できていません' }, (ok ? '✅ ' : '⚠ ') + gameName(g.game));
+        })),
+        h('button', { class: 'btn', type: 'button', disabled: busy || !canWrite, onclick: () => pauseStore(st.id) }, `${st.name} 本日休止`))));
+  }
+
   // 店舗ごとに、各区分の入力状況（✅ = 最新 / ⚠ = 未入力・古い）を並べる
   function inputChecklist() {
     return manualStores().map((st) => {
@@ -435,6 +453,7 @@
         statusMsg ? h('div', { class: 'status ' + statusMsg.kind, role: 'status' }, statusMsg.text) : null,
         connectionCard(),
         manual ? manualCard() : null,
+        manual ? autoStoresCard() : null,
         pendingList(),
         token && decisions ? runCard() : null,
         historyList(),

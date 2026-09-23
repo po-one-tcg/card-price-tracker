@@ -14,6 +14,9 @@
   --gone-fg: #8a8f98;
   --warn-bg: #fff4d6;
   --warn-fg: #8a5a00;
+  --max-bg: #e6f6ea;
+  --max-fg: #16793a;
+  --notice-fg: #2456d6;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -32,6 +35,9 @@
     --gone-fg: #7c828c;
     --warn-bg: #3a2f10;
     --warn-fg: #f0c060;
+    --max-bg: #17311f;
+    --max-fg: #6fdc95;
+    --notice-fg: #7ea6ff;
   }
 }
 * { box-sizing: border-box; }
@@ -87,6 +93,7 @@ thead th {
 }
 thead th small { display: block; font-weight: 400; font-size: 11px; color: var(--muted); }
 thead th small.bad { color: var(--warn-fg); }
+thead th small.notice { color: var(--notice-fg); }
 th.name, td.name { position: sticky; left: 0; z-index: 2; text-align: left; background: var(--card); min-width: 128px; max-width: 46vw; white-space: normal; }
 thead th.name { z-index: 4; background: var(--head); }
 tr.group td { position: sticky; left: 0; background: var(--group); font-weight: 600; font-size: 13px; text-align: left; }
@@ -94,6 +101,7 @@ tr.group td { position: sticky; left: 0; background: var(--group); font-weight: 
 .pname img, .thumb { width: 30px; height: 42px; object-fit: contain; flex: none; background: var(--head); border-radius: 3px; }
 .pname a { color: var(--text); }
 td.is-new { background: var(--new-bg); }
+td.is-max .price.max { color: var(--max-fg); font-weight: 700; }
 td.gone { color: var(--gone-fg); }
 td.gone .price { text-decoration: line-through; }
 td.dash { color: var(--muted); }

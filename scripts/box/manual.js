@@ -73,8 +73,10 @@ function processInbox(ctx) {
 
 function applySubmission(sub, ctx, out) {
   const { config, state, products, now } = ctx;
-  const store = config.stores.find((s) => s.id === sub.store && s.type === 'manual');
-  if (!store) throw new Error(`手動入力の店舗ではありません: ${sub.store}`);
+  const store = config.stores.find((s) => s.id === sub.store);
+  if (!store) throw new Error(`設定にない店舗です: ${sub.store}`);
+  // 「本日休止」は自動取得の店舗でも使う（サイトが休業日で更新が無いときの記録）。全商品リスト・価格変更は手入力店舗だけ
+  if (sub.type !== 'paused' && store.type !== 'manual') throw new Error(`手動入力の店舗ではありません: ${sub.store}`);
   const condIds = new Set(config.conditions.map((c) => c.id));
   const gameIds = new Set(config.games.map((g) => g.id));
 
@@ -161,20 +163,24 @@ function applySubmission(sub, ctx, out) {
     return counts;
   }
 
-  // ---- 本日休止 ----
+  // ---- 本日休止（手入力店舗: 区分ごと／自動取得の店舗: ゲームごと）----
   function applyPaused() {
-    const ids = sub.sections?.length ? sub.sections : store.sections.filter((s) => s.kind !== 'skip').map((s) => s.id);
+    const isManual = store.type === 'manual';
+    const ids = isManual
+      ? (sub.sections?.length ? sub.sections : store.sections.filter((s) => s.kind !== 'skip').map((s) => s.id))
+      : [...new Set((store.sources || []).map((s) => s.game))];
+    const metaField = isManual ? 'src' : 'game';
     let paused = 0;
-    for (const sid of ids) {
-      const entries = entriesOf((r) => r.src === sid);
+    for (const id of ids) {
+      const entries = entriesOf((r) => r[metaField] === id);
       if (!entries.length) continue;
       for (const [key, e] of entries) {
         record(key, e.ref, step(e, { kind: 'paused' }, stepCtx(true)));
         paused++;
       }
-      // 「本日は休止」と確認できたので、この区分は最新（未確認ではない）扱いにする
-      state.meta[`${store.id}|${sid}`] = { ...(state.meta[`${store.id}|${sid}`] || {}), lastOkAt: now.stamp };
-      out.runLines.push({ t: now.stamp, store: store.id, src: sid, ok: true, count: entries.length, paused: true });
+      // 「本日は休止」と確認できたので、この区分・ゲームは最新（未確認ではない）扱いにする
+      state.meta[`${store.id}|${id}`] = { ...(state.meta[`${store.id}|${id}`] || {}), lastOkAt: now.stamp };
+      out.runLines.push({ t: now.stamp, store: store.id, [metaField]: id, ok: true, count: entries.length, paused: true });
     }
     return { paused };
   }
@@ -185,4 +191,4 @@ function applySubmission(sub, ctx, out) {
   throw new Error(`不明な種類: ${sub.type}`);
 }
 
-module.exports = { processInbox };
+module.exports = { processInbox, applySubmission };
