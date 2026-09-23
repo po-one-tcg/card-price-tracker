@@ -93,4 +93,4 @@ git branch --show-current
 ## 参考
 - 店舗は5つ: BASE / 買取EXPO / コレクト / RUNTO / ソムリエ。BASE・RUNTO・ソムリエは自動取得、買取EXPOは管理画面にポストを貼る、コレクトはこの手順。
 - 同じ商品の別表記は `config/product-aliases.json`（対応表）で1組ずつ統合する。
-- テスト: `npm test`（79件）。
+- テスト: `npm test`（100件）。
