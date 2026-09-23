@@ -40,3 +40,6 @@
 {"t":"2026-09-23T15:19:19+09:00","type":"appear","from":"none","to":24000,"k":"runto|pokemon_4cb103ac|box","store":"runto","game":"pokemon","pid":"pokemon_4cb103ac","name":"VMAXクライマックス"}
 {"t":"2026-09-23T15:19:19+09:00","type":"disappear","from":800000,"k":"runto|pokemon_a89bf0be|box","store":"runto","game":"pokemon","pid":"pokemon_a89bf0be","name":"幻・伝説ドリームキラコレクション"}
 {"t":"2026-09-23T15:19:19+09:00","type":"disappear","from":14000,"k":"runto|onepiece_783c1401|box","store":"runto","game":"onepiece","pid":"onepiece_783c1401","name":"OP-03 強大な敵"}
+{"t":"2026-09-23T18:01:21+09:00","type":"disappear","from":26000,"k":"runto|pokemon_13fcc149|shrink","store":"runto","game":"pokemon","pid":"pokemon_13fcc149","name":"30th CELEBRATION"}
+{"t":"2026-09-23T18:01:21+09:00","type":"appear","from":"none","to":5000,"k":"runto|onepiece_11ef368c|box","store":"runto","game":"onepiece","pid":"onepiece_11ef368c","name":"オフィシャルプレイマット リミテッドエディション vol.2"}
+{"t":"2026-09-23T18:01:21+09:00","type":"appear","from":"none","to":7000,"k":"runto|dragonball_1ab2c151|box","store":"runto","game":"dragonball","pid":"dragonball_1ab2c151","name":"FB11 BRIGHTNESS OF HOPE"}
