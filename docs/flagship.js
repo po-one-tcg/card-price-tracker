@@ -45,19 +45,22 @@
 
   function prizeCard(p) {
     const rules = Object.entries(p.rules).sort((a, b) => a[0] - b[0]).map(([cap, n]) => `${cap}人開催 → ${n}枚`).join('　/　');
-    return h('div', { class: 'card', style: 'display:flex; gap:12px; align-items:flex-start' },
-      p.image ? h('img', { src: p.image, alt: p.cardName, style: 'width:100px; height:auto; border-radius:6px; flex:none' }) : null,
-      h('div', null,
-        h('div', { class: 't' }, `${p.label}記念品「${p.cardName}」${p.cardCode ? `（${p.cardCode}）` : ''}`),
-        h('div', { style: 'font-size:28px; font-weight:700; margin:6px 0' }, `推定 ${num(p.estimate)} 枚`),
-        h('div', { class: 's' }, `配布条件: ${rules}`)));
+    return h('div', { class: 'card' },
+      h('div', { class: 't' }, `${p.label}記念品「${p.cardName}」${p.cardCode ? `（${p.cardCode}）` : ''}`),
+      h('div', { style: 'font-size:28px; font-weight:700; margin:6px 0' }, `推定 ${num(p.estimate)} 枚`),
+      h('div', { class: 's' }, `配布条件: ${rules}`));
+  }
+
+  // 数字のカードの隣（デスクトップでは空くスペース）に、カード画像を大きめに出す。スマホでも小さすぎないサイズにする
+  function prizeImage(p) {
+    return p.image ? h('img', { src: p.image, alt: p.cardName, style: 'width:100%; max-width:220px; height:auto; border-radius:8px; display:block; margin:0 auto' }) : null;
   }
 
   function roundView(round) {
     return h('div', { class: 'box', style: 'margin-bottom:16px' },
       h('h2', { style: 'margin-top:0' }, round.label),
       h('p', { class: 'muted small' }, round.period),
-      h('div', { class: 'grid', style: 'margin-bottom:14px' }, round.prizes.map(prizeCard)),
+      h('div', { class: 'grid', style: 'margin-bottom:14px' }, round.prizes.map(prizeCard), round.prizes.map(prizeImage)),
       seriesTable(round));
   }
 
