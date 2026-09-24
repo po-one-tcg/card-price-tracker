@@ -2,6 +2,18 @@
   "_readme": "フラッグシップバトルの記念品カード、配布枚数の推定。3ヶ月に1回、新しい回のデータが出たら rounds に追記する（過去の回は残す）。series はOPTCG Portのシリーズ（開催月ごと）、prizes は記念品カードと、定員(人数)ごとの配布枚数のルール。データ本体は data/flagship/<seriesId>.json（scripts/flagship/import.js で作る）。",
   "rounds": [
     {
+      "id": "16",
+      "label": "第16回フラッグシップバトル",
+      "period": "2026年10月開催",
+      "series": [
+        { "label": "10月開催", "seriesId": "8210", "url": "https://optcg-port.com/series/8210" }
+      ],
+      "prizes": [
+        { "key": "winner", "label": "優勝", "cardName": "ジュラキュール・ミホーク", "cardCode": "ST32-003", "rules": { "32": 1, "64": 2 } },
+        { "key": "best8", "label": "ベスト8", "cardName": "ベン・ベックマン", "cardCode": "OP17-027", "rules": { "32": 8, "64": 16 } }
+      ]
+    },
+    {
       "id": "15",
       "label": "第15回フラッグシップバトル",
       "period": "2026年7月〜9月開催",
@@ -16,23 +28,23 @@
       ]
     }
   ],
-  "_history_readme": "歴代の記念品カード一覧（出典: https://tier-one-onepiece.jp/blog/flagship-battle-promo-card-list/）。配布枚数の推定が無い回は空欄でよい（rounds に同じ id があれば、build.js が自動でそこから推定枚数を埋める）。画像は docs/img/flagship/round<id>-winner.webp / round<id>-best8.webp。",
+  "_history_readme": "歴代の記念品カード一覧（出典: https://tier-one-onepiece.jp/blog/flagship-battle-promo-card-list/）。配布枚数の推定が無い回は空欄でよい（rounds に同じ id があれば、build.js が自動でそこから推定枚数を埋める）。シリアルナンバー入りの記念品は、大会実績から計算するのではなく knownCount（相場サイト等でわかっている固定の配布数）を書く。画像は docs/img/flagship/round<id>-winner.webp / round<id>-best8.webp。",
   "history": [
     { "id": "16", "period": null, "winner": { "cardName": "ジュラキュール・ミホーク", "cardCode": "ST32-003" }, "best8": { "cardName": "ベン・ベックマン", "cardCode": "OP17-027" } },
     { "id": "15", "period": "2026年7月〜9月開催", "winner": { "cardName": "ボア・ハンコック", "cardCode": "OP16-032" }, "best8": { "cardName": "ロロノア・ゾロ", "cardCode": "OP15-113" } },
-    { "id": "14", "period": null, "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "EB04-061" }, "best8": { "cardName": "エネル", "cardCode": "OP15-060" } },
-    { "id": "13", "period": null, "winner": { "cardName": "ロロノア・ゾロ", "cardCode": "OP12-020" }, "best8": { "cardName": "ジュエリー・ボニー", "cardCode": "OP13-108" } },
+    { "id": "14", "period": "2026年4月〜6月開催（推定。OPTCG Portは6月開催分しか記録が無い）", "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "EB04-061", "note": "シリアルナンバー入り", "knownCount": 2500 }, "best8": { "cardName": "エネル", "cardCode": "OP15-060" } },
+    { "id": "13", "period": null, "winner": { "cardName": "ロロノア・ゾロ", "cardCode": "OP12-020", "note": "シリアルナンバー入り", "knownCount": 2700 }, "best8": { "cardName": "ジュエリー・ボニー", "cardCode": "OP13-108" } },
     { "id": "12", "period": null, "winner": { "cardName": "サンジ", "cardCode": "OP10-005" }, "best8": { "cardName": "たしぎ", "cardCode": "OP12-031" } },
     { "id": "11", "period": null, "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "ST21-014" }, "best8": { "cardName": "ロロノア・ゾロ", "cardCode": "ST21-015" } },
     { "id": "10", "period": null, "winner": { "cardName": "コビー", "cardCode": "OP11-119" }, "best8": { "cardName": "ひばり", "cardCode": "OP11-010" } },
     { "id": "9", "period": null, "winner": { "cardName": "トラファルガー・ロー", "cardCode": "OP09-069" }, "best8": { "cardName": "シャーロット・プリン", "cardCode": "OP08-067" } },
     { "id": "8", "period": null, "winner": { "cardName": "ウタ", "cardCode": "OP09-002" }, "best8": { "cardName": "ジャック", "cardCode": "OP08-084" } },
-    { "id": "7", "period": "2024年7月〜9月開催", "winner": { "cardName": "ポートガス・D・エース", "cardCode": "OP07-119", "note": "シリアルナンバー入り" }, "best8": { "cardName": "ヤマト", "cardCode": "OP04-112" } },
+    { "id": "7", "period": "2024年7月〜9月開催", "winner": { "cardName": "ポートガス・D・エース", "cardCode": "OP07-119", "note": "シリアルナンバー入り", "knownCount": 2500 }, "best8": { "cardName": "ヤマト", "cardCode": "OP04-112" } },
     { "id": "6", "period": null, "winner": { "cardName": "ヴィンスモーク・レイジュ", "cardCode": "OP06-069" }, "best8": { "cardName": "キャベンディッシュ", "cardCode": "EB01-012" } },
     { "id": "5", "period": null, "winner": { "cardName": "ジュラキュール・ミホーク", "cardCode": "OP01-070" }, "best8": { "cardName": "ペローナ", "cardCode": "OP06-093" } },
     { "id": "4", "period": null, "winner": { "cardName": "カイドウ", "cardCode": "OP01-094" }, "best8": { "cardName": "シャーロット・リンリン", "cardCode": "ST07-010" } },
-    { "id": "3", "period": null, "winner": { "cardName": "シャンクス", "cardCode": "OP01-120", "note": "シリアルナンバー入り" }, "best8": { "cardName": "コビー", "cardCode": "OP02-098" } },
+    { "id": "3", "period": null, "winner": { "cardName": "シャンクス", "cardCode": "OP01-120", "note": "シリアルナンバー入り", "knownCount": 1600 }, "best8": { "cardName": "コビー", "cardCode": "OP02-098" } },
     { "id": "2", "period": null, "winner": { "cardName": "ロロノア・ゾロ", "cardCode": "OP01-025" }, "best8": { "cardName": "クイーン", "cardCode": "ST04-005" } },
-    { "id": "1", "period": null, "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "ST01-001", "note": "シリアルナンバー入り" }, "best8": { "cardName": "トニートニー・チョッパー", "cardCode": "ST01-006" } }
+    { "id": "1", "period": null, "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "ST01-001", "note": "シリアルナンバー入り", "knownCount": 500 }, "best8": { "cardName": "トニートニー・チョッパー", "cardCode": "ST01-006" } }
   ]
 }

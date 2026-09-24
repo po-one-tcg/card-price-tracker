@@ -71,7 +71,10 @@
       h('div', { class: 's' }, `第${round.id}回・${label}`),
       h('div', { class: 't' }, p.cardName, p.cardCode ? h('span', { class: 'muted' }, `（${p.cardCode}）`) : null),
       p.note ? h('div', { class: 'muted small' }, p.note) : null,
-      h('div', { class: 'small', style: 'margin-top:4px' }, p.estimate != null ? `推定 ${num(p.estimate)} 枚` : h('span', { class: 'muted' }, '推定枚数 未算出')));
+      h('div', { class: 'small', style: 'margin-top:4px' },
+        p.estimate != null
+          ? (p.known ? `配布数 ${num(p.estimate)} 枚（確定）` : `推定 ${num(p.estimate)} 枚`)
+          : h('span', { class: 'muted' }, '推定枚数 未算出')));
   }
 
   function historyView(history) {

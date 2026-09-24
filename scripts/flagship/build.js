@@ -65,7 +65,13 @@ function build() {
   const estimateByCode = new Map();
   for (const r of rounds) for (const p of r.prizes) estimateByCode.set(p.cardCode, p.estimate);
   const history = (config.history || []).map((h) => {
-    const fill = (key, side) => ({ ...side, image: findImage(h.id, key), estimate: estimateByCode.has(side.cardCode) ? estimateByCode.get(side.cardCode) : null });
+    // knownCount（シリアルナンバー等で分かっている固定の配布数）があれば、大会実績からの推定より優先する
+    const fill = (key, side) => ({
+      ...side,
+      image: findImage(h.id, key),
+      estimate: side.knownCount ?? (estimateByCode.has(side.cardCode) ? estimateByCode.get(side.cardCode) : null),
+      known: side.knownCount != null,
+    });
     return { id: h.id, period: h.period, winner: fill('winner', h.winner), best8: fill('best8', h.best8) };
   });
 
