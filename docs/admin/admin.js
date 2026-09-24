@@ -193,7 +193,7 @@
   function pendingList() {
     const list = pending ? pending.pending : [];
     const waiting = new Map((decisions?.decisions || []).filter((d) => !d.appliedAt).map((d) => [d.key, d]));
-    const head = h('h2', null, '⑤ 要確認リスト', h('span', { class: 'muted small' }, pending ? `　（${md(pending.generatedAt)} 時点）` : ''));
+    const head = h('h2', null, '⑥ 要確認リスト', h('span', { class: 'muted small' }, pending ? `　（${md(pending.generatedAt)} 時点）` : ''));
     if (!pending) return h('section', null, head, h('p', { class: 'empty' }, '要確認リストを読み込めませんでした。'));
     if (!list.length) return h('section', null, head, h('p', { class: 'empty' }, '確認が必要な項目はありません 🎉'));
     return h('section', null, head,
@@ -217,7 +217,7 @@
 
   function runCard() {
     return h('section', { class: 'box' },
-      h('h2', { style: 'margin-top:0' }, '⑥ 今すぐ更新'),
+      h('h2', { style: 'margin-top:0' }, '⑦ 今すぐ更新'),
       h('p', { class: 'muted small' }, '判断を保存したあと、次の自動更新（13:00 / 15:00 / 18:00）を待たずにすぐ反映したいときに押します。'),
       h('button', { class: 'btn primary', type: 'button', disabled: !decisions || busy, onclick: runNow }, '今すぐ更新を実行'));
   }
@@ -236,10 +236,6 @@
   // ---------- 買取EXPOの取り込み ----------
   const EP = window.ExpoParser;
   let manual = null; // ../data/manual.json（区分の設定と、いまの内容）
-  let expoText = '';
-  let plan = null; // 読み取り結果 + 確定前の予測
-  let headingMap = {}; // 未対応の見出し → 選んだ区分ID
-  let sendAfter = true; // 取り込み後にすぐ更新を実行する
   let inboxCount = null; // 取り込み待ち（まだ収集に反映されていない送信）の数
 
   // 手入力の店舗（買取EXPO・買取コレクトなど）。見出し（✅…）は店舗をまたいで一意なので、貼り付けた内容から店舗も自動で判別する
@@ -247,67 +243,11 @@
   const autoStores = () => (manual ? manual.autoStores || [] : []);
   const storeOf = (id) => manualStores().find((s) => s.id === id) || autoStores().find((s) => s.id === id);
   const allSections = () => manualStores().flatMap((s) => s.sections.map((sec) => ({ ...sec, storeId: s.id, storeName: s.name })));
-  const activeSections = () => allSections().filter((s) => s.kind !== 'skip' && s.kind !== 'update'); // 入力状況・区分選択の対象
+  const activeSections = (filterStores) => allSections()
+    .filter((s) => s.kind !== 'skip' && s.kind !== 'update')
+    .filter((s) => !filterStores || filterStores(s.storeId)); // 入力状況・区分選択の対象
   const condName = (id) => (manual.conditions.find((c) => c.id === id) || { label: id }).label;
   const gameName = (id) => (manual.games.find((g) => g.id === id) || { label: id }).label;
-
-  // 貼り付けた内容を読み取り、「確定したらどうなるか」を今のデータと突き合わせて予測する（収集側と同じ判定）
-  function buildPlan() {
-    const sections = allSections().map((s) => ({
-      ...s,
-      headings: [...(s.headings || []), ...Object.entries(headingMap).filter(([, id]) => id === s.id).map(([hd]) => hd)],
-    }));
-    const updateStore = manualStores().find((s) => s.updatePosts) || manualStores()[0]; // 「価格を変更します」形式のお知らせの持ち主
-    const parsed = EP.parse(expoText, sections);
-    const resolve = EP.makeResolver(manual.aliases); // 同じ商品の別表記（テラスタルフェス = テラスタルフェスex など）
-    const index = new Map();
-    for (const p of manual.products) if (!index.has(`${p.game}|${resolve(p.game, p.name)}`)) index.set(`${p.game}|${resolve(p.game, p.name)}`, p.id);
-    const threshold = manual.thresholdPct ?? 50;
-    const anomalous = (a, b) => !(b > 0) || (Math.abs(b - a) / a) * 100 > threshold;
-
-    // 同じ貼り付けの中の「全商品リスト」は、価格変更より先に取り込まれる。価格変更の照合には、それも含めて見る
-    const pastedEntries = parsed.blocks
-      .filter((b) => b.kind === 'full' && b.section && !b.skipped && !b.unknown)
-      .flatMap((b) => b.items.map((it) => ({ store: b.section.storeId, game: it.game, cond: it.cond, name: it.name, price: it.price, state: it.closed ? 'none' : 'value' })));
-
-    const blocks = parsed.blocks.map((b) => {
-      const out = { ...b, storeId: b.section ? b.section.storeId : b.unknown ? null : updateStore.id, appear: [], disappear: [], anomaly: [], unmatched: [], matched: 0, created: 0, absent: [], prevCount: 0, tooFew: false, confirmedDrop: false };
-      if (b.skipped || b.unknown) return out;
-      if (b.kind === 'update') {
-        for (const it of b.items) {
-          const cands = [...pastedEntries, ...manual.entries].filter((e) => e.store === out.storeId && resolve(e.game, e.name || '') === resolve(e.game, it.name) && (!it.cond || e.cond === it.cond));
-          const pick = cands.find((e) => e.cond === 'shrink') || cands.find((e) => e.cond === 'box') || cands[0];
-          if (!pick) { out.unmatched.push(it.name); continue; }
-          it.matchedCond = pick.cond;
-          it.from = pick.price;
-          if (pick.state === 'value' && anomalous(pick.price, it.price)) out.anomaly.push({ ...it });
-          out.matched++;
-        }
-        return out;
-      }
-      const sec = b.section;
-      const prev = manual.entries.filter((e) => e.store === sec.storeId && e.src === sec.id);
-      const prevMap = new Map(prev.map((e) => [`${e.pid}|${e.cond}`, e]));
-      const baseline = Boolean(sec.lastOkAt);
-      const touched = new Set();
-      for (const it of b.items) {
-        const pid = index.get(`${it.game}|${resolve(it.game, it.name)}`);
-        if (pid) out.matched++; else out.created++;
-        const pe = pid ? prevMap.get(`${pid}|${it.cond}`) : null;
-        if (pe) touched.add(`${pid}|${it.cond}`);
-        if (!pe) { if (baseline && !it.closed) out.appear.push(it); }
-        else if (it.closed) { if (pe.state === 'value') out.disappear.push({ ...it, from: pe.price }); }
-        else if (pe.state !== 'value') out.appear.push(it);
-        else if (pe.price !== it.price && anomalous(pe.price, it.price)) out.anomaly.push({ ...it, from: pe.price });
-      }
-      out.absent = prev.filter((e) => !touched.has(`${e.pid}|${e.cond}`));
-      for (const e of out.absent) if (e.state === 'value') out.disappear.push({ name: e.name, cond: e.cond, from: e.price, absent: true });
-      out.prevCount = prev.length;
-      out.tooFew = prev.length >= 10 && b.items.length < prev.length * 0.6;
-      return out;
-    });
-    return { blocks, dateGuess: parsed.dateGuess };
-  }
 
   const newId = () => Math.random().toString(36).slice(2, 8);
   const inboxPath = (type) => `data/box/manual/inbox/${jstStamp().replace(/[-:T+]/g, '').slice(0, 14)}-${type}-${newId()}.json`;
@@ -323,31 +263,105 @@
     }
   }
 
-  const sendable = () => plan.blocks.filter((b) => b.kind === 'full' && !b.unknown && !b.skipped && b.items.length && !(b.tooFew && !b.confirmedDrop));
-  const updatable = () => plan.blocks.filter((b) => b.kind === 'update' && b.items.length);
+  let sendAfter = true; // 「本日休止」など、貼り付け欄と関係ない操作で使う共通の設定
 
-  const submitManual = () =>
-    run('取り込みデータを送信しています', async () => {
-      const subs = [];
-      // 店舗ごとに、全商品リスト(full) と 価格変更(update) を別々のファイルにする（fullを先に処理するため）
-      for (const sid of [...new Set([...sendable(), ...updatable()].map((b) => b.storeId))]) {
-        const base = { store: sid, createdAt: jstStamp(), rawText: expoText };
-        const fulls = sendable().filter((b) => b.storeId === sid);
-        const ups = updatable().filter((b) => b.storeId === sid);
-        if (fulls.length) {
-          subs.push({ ...base, id: newId(), type: 'full',
-            blocks: fulls.map((b) => ({ sectionId: b.sectionId, ...(b.tooFew ? { confirmedDrop: true } : {}), items: b.items.map(({ name, cond, price, closed, game }) => ({ name, cond, price, closed, game })) })) });
+  // 貼り付け→読み取り→確定、の一連の処理。EXPO・コレクト用とにこにこ買取用で、区分の範囲（getSections）だけ変えて2つ使う
+  // （分けている理由: 同じ画面に区分の選択肢が全部混ざっていると、店を間違えて選んでしまう操作ミスが起きるため）
+  function createManualSession(getSections) {
+    const s = { text: '', plan: null, headingMap: {}, sendAfter: true };
+
+    // headingMap（「見出しを選ぶ」で決めた区分）を、見出し名として区分に追加した状態の区分一覧
+    const sectionsWithPicks = () => getSections().map((sec) => ({
+      ...sec,
+      headings: [...(sec.headings || []), ...Object.entries(s.headingMap).filter(([, id]) => id === sec.id).map(([hd]) => hd)],
+    }));
+
+    // 貼り付けた内容を読み取り、「確定したらどうなるか」を今のデータと突き合わせて予測する（収集側と同じ判定）
+    function build() {
+      const sections = sectionsWithPicks();
+      const updateStore = manualStores().find((st) => st.updatePosts) || manualStores()[0]; // 「価格を変更します」形式のお知らせの持ち主
+      const parsed = EP.parse(s.text, sections);
+      const resolve = EP.makeResolver(manual.aliases); // 同じ商品の別表記（テラスタルフェス = テラスタルフェスex など）
+      const index = new Map();
+      for (const p of manual.products) if (!index.has(`${p.game}|${resolve(p.game, p.name)}`)) index.set(`${p.game}|${resolve(p.game, p.name)}`, p.id);
+      const threshold = manual.thresholdPct ?? 50;
+      const anomalous = (a, b) => !(b > 0) || (Math.abs(b - a) / a) * 100 > threshold;
+
+      // 同じ貼り付けの中の「全商品リスト」は、価格変更より先に取り込まれる。価格変更の照合には、それも含めて見る
+      const pastedEntries = parsed.blocks
+        .filter((b) => b.kind === 'full' && b.section && !b.skipped && !b.unknown)
+        .flatMap((b) => b.items.map((it) => ({ store: b.section.storeId, game: it.game, cond: it.cond, name: it.name, price: it.price, state: it.closed ? 'none' : 'value' })));
+
+      const blocks = parsed.blocks.map((b) => {
+        const out = { ...b, storeId: b.section ? b.section.storeId : b.unknown ? null : updateStore.id, appear: [], disappear: [], anomaly: [], unmatched: [], matched: 0, created: 0, absent: [], prevCount: 0, tooFew: false, confirmedDrop: false };
+        if (b.skipped || b.unknown) return out;
+        if (b.kind === 'update') {
+          for (const it of b.items) {
+            const cands = [...pastedEntries, ...manual.entries].filter((e) => e.store === out.storeId && resolve(e.game, e.name || '') === resolve(e.game, it.name) && (!it.cond || e.cond === it.cond));
+            const pick = cands.find((e) => e.cond === 'shrink') || cands.find((e) => e.cond === 'box') || cands[0];
+            if (!pick) { out.unmatched.push(it.name); continue; }
+            it.matchedCond = pick.cond;
+            it.from = pick.price;
+            if (pick.state === 'value' && anomalous(pick.price, it.price)) out.anomaly.push({ ...it });
+            out.matched++;
+          }
+          return out;
         }
-        if (ups.length) subs.push({ ...base, id: newId(), type: 'update', blocks: ups.map((b) => ({ items: b.items.map(({ name, cond, price }) => ({ name, cond, price })) })) });
-      }
-      if (!subs.length) throw new Error('取り込める内容がありません');
-      for (const s of subs) await putNewFile(inboxPath(s.type), s, `管理画面: ${storeOf(s.store).name}の取り込みデータ (${s.type})`);
-      if (sendAfter) await gh(`/repos/${REPO}/actions/workflows/scrape.yml/dispatches`, { method: 'POST', body: { ref: BRANCH } });
-      expoText = '';
-      plan = null;
-      await refreshInbox();
-      say('ok', sendAfter ? '送信しました。更新を開始したので、1〜3分後に公開ページに反映されます。' : '送信しました。次の自動更新（13:00 / 15:00 / 18:00）で反映されます。');
-    });
+        const sec = b.section;
+        const prev = manual.entries.filter((e) => e.store === sec.storeId && e.src === sec.id);
+        const prevMap = new Map(prev.map((e) => [`${e.pid}|${e.cond}`, e]));
+        const baseline = Boolean(sec.lastOkAt);
+        const touched = new Set();
+        for (const it of b.items) {
+          const pid = index.get(`${it.game}|${resolve(it.game, it.name)}`);
+          if (pid) out.matched++; else out.created++;
+          const pe = pid ? prevMap.get(`${pid}|${it.cond}`) : null;
+          if (pe) touched.add(`${pid}|${it.cond}`);
+          if (!pe) { if (baseline && !it.closed) out.appear.push(it); }
+          else if (it.closed) { if (pe.state === 'value') out.disappear.push({ ...it, from: pe.price }); }
+          else if (pe.state !== 'value') out.appear.push(it);
+          else if (pe.price !== it.price && anomalous(pe.price, it.price)) out.anomaly.push({ ...it, from: pe.price });
+        }
+        out.absent = prev.filter((e) => !touched.has(`${e.pid}|${e.cond}`));
+        for (const e of out.absent) if (e.state === 'value') out.disappear.push({ name: e.name, cond: e.cond, from: e.price, absent: true });
+        out.prevCount = prev.length;
+        out.tooFew = prev.length >= 10 && b.items.length < prev.length * 0.6;
+        return out;
+      });
+      s.plan = { blocks, dateGuess: parsed.dateGuess };
+    }
+
+    const sendable = () => (s.plan ? s.plan.blocks.filter((b) => b.kind === 'full' && !b.unknown && !b.skipped && b.items.length && !(b.tooFew && !b.confirmedDrop)) : []);
+    const updatable = () => (s.plan ? s.plan.blocks.filter((b) => b.kind === 'update' && b.items.length) : []);
+
+    const submit = () =>
+      run('取り込みデータを送信しています', async () => {
+        const subs = [];
+        // 店舗ごとに、全商品リスト(full) と 価格変更(update) を別々のファイルにする（fullを先に処理するため）
+        for (const sid of [...new Set([...sendable(), ...updatable()].map((b) => b.storeId))]) {
+          const base = { store: sid, createdAt: jstStamp(), rawText: s.text };
+          const fulls = sendable().filter((b) => b.storeId === sid);
+          const ups = updatable().filter((b) => b.storeId === sid);
+          if (fulls.length) {
+            subs.push({ ...base, id: newId(), type: 'full',
+              blocks: fulls.map((b) => ({ sectionId: b.sectionId, ...(b.tooFew ? { confirmedDrop: true } : {}), items: b.items.map(({ name, cond, price, closed, game }) => ({ name, cond, price, closed, game })) })) });
+          }
+          if (ups.length) subs.push({ ...base, id: newId(), type: 'update', blocks: ups.map((b) => ({ items: b.items.map(({ name, cond, price }) => ({ name, cond, price })) })) });
+        }
+        if (!subs.length) throw new Error('取り込める内容がありません');
+        for (const sub of subs) await putNewFile(inboxPath(sub.type), sub, `管理画面: ${storeOf(sub.store).name}の取り込みデータ (${sub.type})`);
+        if (s.sendAfter) await gh(`/repos/${REPO}/actions/workflows/scrape.yml/dispatches`, { method: 'POST', body: { ref: BRANCH } });
+        s.text = '';
+        s.plan = null;
+        await refreshInbox();
+        say('ok', s.sendAfter ? '送信しました。更新を開始したので、1〜3分後に公開ページに反映されます。' : '送信しました。次の自動更新（13:00 / 15:00 / 18:00）で反映されます。');
+      });
+
+    return { s, sectionsWithPicks, build, submit, sendable, updatable };
+  }
+
+  const expoSession = createManualSession(() => allSections().filter((sec) => sec.storeId !== 'nikoniko'));
+  const nikonikoSession = createManualSession(() => allSections().filter((sec) => sec.storeId === 'nikoniko'));
 
   const pauseStore = (sid) => {
     const name = storeOf(sid).name;
@@ -365,7 +379,7 @@
     if (!autoStores().length) return null;
     const canWrite = Boolean(token && decisions);
     return h('section', { class: 'box' },
-      h('h2', { style: 'margin-top:0' }, '③ 自動取得の店舗が休業日のとき'),
+      h('h2', { style: 'margin-top:0' }, '④ 自動取得の店舗が休業日のとき'),
       h('p', { class: 'muted small' }, '更新が無いのが、取得できていないからか、店が休みだからかを区別するための記録です（休みの実績は「いつが休み」かを日付つきで公開ページに表示します）。'),
       autoStores().map((st) => h('div', { class: 'store-row' },
         h('span', { class: 'store-name' }, st.name),
@@ -400,7 +414,7 @@
     const list = h('datalist', { id: 'restock-products' }, manual.products.map((p) => h('option', { value: productLabel(p) })));
     const recent = (restocks?.restocks || []).slice(-8).reverse();
     return h('section', { class: 'box' },
-      h('h2', { style: 'margin-top:0' }, '④ 再販情報を記録'),
+      h('h2', { style: 'margin-top:0' }, '⑤ 再販情報を記録'),
       h('p', { class: 'muted small' }, '再販（重版）があった日付を記録します。商品ページに表で表示されます。'),
       list,
       h('div', { class: 'row-gap' }, nameInput, dateInput,
@@ -414,9 +428,9 @@
   }
 
   // 店舗ごとに、各区分の入力状況（✅ = 最新 / ⚠ = 未入力・古い）を並べる
-  function inputChecklist() {
-    return manualStores().map((st) => {
-      const secs = activeSections().filter((s) => s.storeId === st.id);
+  function inputChecklist(filterStoreId) {
+    return manualStores().filter((st) => !filterStoreId || filterStoreId(st.id)).map((st) => {
+      const secs = activeSections((sid) => sid === st.id);
       return h('div', { class: 'store-row' }, h('span', { class: 'store-name' }, st.name),
         h('div', { class: 'chips-row' }, secs.map((s) => {
           const ok = s.lastOkAt && s.fresh;
@@ -431,12 +445,13 @@
       h('ul', null, items.slice(0, 40).map((it) => h('li', null, fmt(it))), items.length > 40 ? h('li', { class: 'muted' }, `…ほか ${items.length - 40}件`) : null));
   }
 
-  function blockView(b, i) {
+  function blockView(session, b) {
     const head = h('div', { class: 'item-title' }, '✅ ' + b.heading,
       b.section ? h('span', { class: 'muted small' }, `　→ ${b.section.storeName} / ${b.section.label}`) : b.storeId ? h('span', { class: 'muted small' }, `　→ ${storeOf(b.storeId).name}`) : null);
     if (b.unknown) {
-      const sel = h('select', { class: 'field short', 'aria-label': '取り込む区分', onchange: (e) => { if (e.target.value) { headingMap[b.heading] = e.target.value; plan = buildPlan(); render(); } } },
-        h('option', { value: '' }, '区分を選ぶ…'), activeSections().map((s) => h('option', { value: s.id }, `${s.storeName} / ${s.label}`)));
+      const options = session.sectionsWithPicks().filter((s) => s.kind !== 'skip' && s.kind !== 'update');
+      const sel = h('select', { class: 'field short', 'aria-label': '取り込む区分', onchange: (e) => { if (e.target.value) { session.s.headingMap[b.heading] = e.target.value; session.build(); render(); } } },
+        h('option', { value: '' }, '区分を選ぶ…'), options.map((s) => h('option', { value: s.id }, `${s.storeName} / ${s.label}`)));
       return h('div', { class: 'item' }, head, h('div', { class: 'badge warn' }, '見出しを認識できませんでした（この区分は送信されません）'), h('div', { class: 'row-gap' }, h('span', { class: 'small' }, '当てはまる区分:'), sel));
     }
     if (b.skipped) return h('div', { class: 'item' }, head, h('div', { class: 'muted small' }, 'この区分はBOXの価格ではない（レート表など）ため、取り込みません。'));
@@ -460,37 +475,63 @@
       b.warnings.length ? h('div', { class: 'badge warn' }, b.warnings.join(' / ')) : null);
   }
 
-  function planView() {
-    const okFull = sendable().length, okUp = updatable().length;
+  function planView(session) {
+    const okFull = session.sendable().length, okUp = session.updatable().length;
     return h('div', null,
       h('h3', { class: 'sub' }, '読み取り結果（確認してから確定します）'),
-      plan.blocks.length ? plan.blocks.map(blockView) : h('p', { class: 'empty' }, '「✅」で始まる見出し、または価格変更のお知らせが見つかりませんでした。'),
+      session.s.plan.blocks.length ? session.s.plan.blocks.map((b) => blockView(session, b)) : h('p', { class: 'empty' }, '「✅」で始まる見出し、または価格変更のお知らせが見つかりませんでした。'),
       h('div', { class: 'row-gap', style: 'margin-top:8px' },
-        h('button', { class: 'btn primary', type: 'button', disabled: busy || !(okFull || okUp), onclick: submitManual }, `この内容で確定して取り込む（${okFull + okUp}件のポスト分）`),
-        h('label', { class: 'chk' }, h('input', { type: 'checkbox', checked: sendAfter ? true : null, onchange: (e) => { sendAfter = e.target.checked; } }), ' 取り込み後すぐ更新を実行する')));
+        h('button', { class: 'btn primary', type: 'button', disabled: busy || !(okFull || okUp), onclick: () => session.submit() }, `この内容で確定して取り込む（${okFull + okUp}件のポスト分）`),
+        h('label', { class: 'chk' }, h('input', { type: 'checkbox', checked: session.s.sendAfter ? true : null, onchange: (e) => { session.s.sendAfter = e.target.checked; } }), ' 取り込み後すぐ更新を実行する')));
   }
 
   function manualCard() {
-    if (!manualStores().length) return h('section', { class: 'box' }, h('h2', { style: 'margin-top:0' }, '② 手入力店舗の入力'), h('p', { class: 'muted' }, '取り込みの設定を読み込めませんでした。'));
+    if (!manualStores().some((st) => st.id !== 'nikoniko')) return h('section', { class: 'box' }, h('h2', { style: 'margin-top:0' }, '② 手入力店舗の入力'), h('p', { class: 'muted' }, '取り込みの設定を読み込めませんでした。'));
+    const session = expoSession;
     const ta = h('textarea', { class: 'field area', rows: '7', placeholder: 'ここにポスト（買取EXPO）や、書き起こした価格表（買取コレクト）を貼り付け。複数の店舗・複数のポストをまとめて貼ってOK', 'aria-label': '取り込む内容', spellcheck: 'false' });
-    ta.value = expoText;
-    ta.addEventListener('input', () => { expoText = ta.value; });
+    ta.value = session.s.text;
+    ta.addEventListener('input', () => { session.s.text = ta.value; });
     const canWrite = Boolean(token && decisions);
     return h('section', { class: 'box' },
       h('h2', { style: 'margin-top:0' }, '② 手入力店舗の入力（買取EXPO・買取コレクト）'),
       h('p', { class: 'muted small' }, '各区分の最新の入力状況（⚠ は未入力・古い区分。入力しないまま時間がたつと、公開ページでは「未確認」になります）'),
-      inputChecklist(),
+      inputChecklist((id) => id !== 'nikoniko'),
       inboxCount ? h('p', { class: 'small' }, `📥 取り込み待ち ${inboxCount}件（次の更新で反映されます）`) : null,
       ta,
       h('div', { class: 'row-gap' },
-        h('button', { class: 'btn primary', type: 'button', disabled: busy, onclick: () => { expoText = ta.value; plan = buildPlan(); render(); } }, '読み取る'),
-        h('button', { class: 'btn', type: 'button', disabled: busy, onclick: () => { expoText = ''; plan = null; render(); } }, 'クリア'),
+        h('button', { class: 'btn primary', type: 'button', disabled: busy, onclick: () => { session.s.text = ta.value; session.build(); render(); } }, '読み取る'),
+        h('button', { class: 'btn', type: 'button', disabled: busy, onclick: () => { session.s.text = ''; session.s.plan = null; render(); } }, 'クリア'),
         canWrite ? null : h('span', { class: 'muted small' }, '※ 確定するには、先に上の「GitHubトークン」を登録してください')),
-      plan ? planView() : null,
+      session.s.plan ? planView(session) : null,
       h('hr', { class: 'sep' }),
       h('div', { class: 'row-gap' },
         h('span', { class: 'small' }, '店が休止のとき: '),
-        manualStores().map((st) => h('button', { class: 'btn', type: 'button', disabled: busy || !canWrite, onclick: () => pauseStore(st.id) }, `${st.name} 本日休止`))));
+        manualStores().filter((st) => st.id !== 'nikoniko').map((st) => h('button', { class: 'btn', type: 'button', disabled: busy || !canWrite, onclick: () => pauseStore(st.id) }, `${st.name} 本日休止`))));
+  }
+
+  // にこにこ買取だけの入力欄（EXPO・コレクトとは別。区分の選択肢も、にこにこ買取のものしか出さない）
+  function nikonikoCard() {
+    const st = storeOf('nikoniko');
+    if (!st) return null;
+    const session = nikonikoSession;
+    const ta = h('textarea', { class: 'field area', rows: '7', placeholder: 'ここに、にこにこ買取のポストをそのまま貼り付け。見出しが無いので、読み取ったあとに区分を選びます', 'aria-label': 'にこにこ買取の取り込む内容', spellcheck: 'false' });
+    ta.value = session.s.text;
+    ta.addEventListener('input', () => { session.s.text = ta.value; });
+    const canWrite = Boolean(token && decisions);
+    return h('section', { class: 'box' },
+      h('h2', { style: 'margin-top:0' }, '③ にこにこ買取の入力'),
+      h('p', { class: 'muted small' }, 'EXPO・コレクトとは別の入力欄です。見出しが無いポストなので、読み取ったあとに区分（ポケモン／ワンピース）を手動で選んでください。'),
+      inputChecklist((id) => id === 'nikoniko'),
+      ta,
+      h('div', { class: 'row-gap' },
+        h('button', { class: 'btn primary', type: 'button', disabled: busy, onclick: () => { session.s.text = ta.value; session.build(); render(); } }, '読み取る'),
+        h('button', { class: 'btn', type: 'button', disabled: busy, onclick: () => { session.s.text = ''; session.s.plan = null; render(); } }, 'クリア'),
+        canWrite ? null : h('span', { class: 'muted small' }, '※ 確定するには、先に上の「GitHubトークン」を登録してください')),
+      session.s.plan ? planView(session) : null,
+      h('hr', { class: 'sep' }),
+      h('div', { class: 'row-gap' },
+        h('span', { class: 'small' }, '店が休止のとき: '),
+        h('button', { class: 'btn', type: 'button', disabled: busy || !canWrite, onclick: () => pauseStore('nikoniko') }, `${st.name} 本日休止`)));
   }
 
   function render() {
@@ -501,6 +542,7 @@
         statusMsg ? h('div', { class: 'status ' + statusMsg.kind, role: 'status' }, statusMsg.text) : null,
         connectionCard(),
         manual ? manualCard() : null,
+        manual ? nikonikoCard() : null,
         manual ? autoStoresCard() : null,
         manual ? restockCard() : null,
         pendingList(),
