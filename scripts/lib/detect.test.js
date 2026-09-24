@@ -115,16 +115,24 @@ test('閾値ちょうど(50%)は通常、超えると保留', () => {
   assert.equal(isAnomalous(10000, 4999), true);
 });
 
-test('未確認: 前日の価格を引き継がない / 検知にも使わない', () => {
+test('未確認: 前回までに確認できていた表示（価格など）は、そのまま残す（急に消えない）', () => {
   let e = run(null, value(14000), 1, false).entry;
   let r = run(e, { kind: 'unknown' }, 2);
-  assert.equal(r.entry.shown.state, 'unknown');
-  assert.equal(r.entry.shown.price, null);
+  assert.equal(r.entry.shown.state, 'value');
+  assert.equal(r.entry.shown.price, 14000);
+  assert.equal(r.entry.shown.since, T(1)); // 表示は変わっていないので since も更新しない
+  assert.equal(r.rows.length, 0); // 履歴にも書かない（変化していないため）
   assert.equal(r.events.length, 0);
   // 未確認から同じ金額に戻っても出現/消滅にならない
   r = run(r.entry, value(14000), 3);
   assert.equal(r.events.length, 0);
   assert.equal(r.entry.shown.state, 'value');
+});
+
+test('未確認: まだ一度も確認できていない商品（確定済みの表示が無い）は「未確認」にする', () => {
+  const r = run(null, { kind: 'unknown' }, 1, false);
+  assert.equal(r.entry.shown.state, 'unknown');
+  assert.equal(r.entry.shown.price, null);
 });
 
 test('未確認を挟んだ後の変化も、確定済みの価格と比較して異常検知する', () => {

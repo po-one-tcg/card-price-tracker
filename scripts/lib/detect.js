@@ -51,7 +51,11 @@ function step(prevEntry, obs, ctx) {
   const emit = (type, extra) => events.push({ t: now, type, ...extra });
 
   if (obs.kind === 'unknown') {
-    setShown('unknown', null); // confirmed / pending はそのまま。次に金額が出たら confirmed と比較する
+    // confirmed / pending はそのまま。次に金額が出たら confirmed と比較する。
+    // 前回までに表示していたもの（価格・〆切・休止など）があれば、そのまま残す。「調整中」で
+    // 急に価格が消えるのは分かりにくく、売る気は無くても相場を知りたいだけの人にも不便なため。
+    // まだ一度も観測できていない商品（confirmed が無い）だけ「未確認」にする
+    if (!e.shown) setShown('unknown', null);
     return { entry: e, events, rows };
   }
 
