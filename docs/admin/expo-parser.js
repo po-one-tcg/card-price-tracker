@@ -1,4 +1,4 @@
-// 買取EXPOのXポスト（テキスト）を読み取る。ブラウザ（管理画面）とNode（収集・テスト）の両方で使う。
+// 買取EXPO・にこにこ買取のXポスト（テキスト）を読み取る。ブラウザ（管理画面）とNode（収集・テスト）の両方で使う。
 //
 // 想定しているポストの書式（実物のポストから確認したもの）:
 //   ✅ポケカ Box                          ← 区分の見出し（1日に複数本ポストされる）
@@ -8,6 +8,10 @@
 //   (カートン)OP-01 Romance Dawn 450000円 ← カートン
 //   OP-17 世界最強の戦士テープカット 9000円 ← テープカット（ワンピース・ドラゴンボール等。付いていなければテープ付き）
 //   下記商品の買取価格を只今より変更…      ← 価格変更のお知らせ（商品名の行 → 「22,000円」の行、の繰り返し）
+//
+// にこにこ買取は見出し（✅）が無いポスト。区分は「見出しを選ぶ」で毎回手動で選ぶ（低頻度のため自動判定はしない）:
+//   ・30th CELEBRATION Box　BOX ¥23,200 ／ NS ¥16,700  ← 1行に状態が2つ（区分の condLabels で略号→状態を対応づけ）
+//   【エクストラブースター】                            ← 見出し内の小分類。取り込みには使わない（無視される）
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) module.exports = factory();
   else root.ExpoParser = factory();
@@ -65,6 +69,8 @@
   const ITEM_LINE = /^(.*?)\s*(?:([0-9][0-9,]*)円|(〆切))\s*$/;
   const PRICE_ONLY = /^([0-9][0-9,]*)円$/;
   const UPDATE_MARK = /買取価格を.*変更/;
+  // にこにこ買取の書式（見出しなし、"・商品名 BOX ¥12,000／NS ¥9,000" のように1行に状態が2つ入る）
+  const BULLET_LINE = /^[・･]\s*(.+?)\s+([A-Za-z]+)\s*¥\s*([0-9][0-9,]*)(?:\s*[／/]\s*([A-Za-z]+)\s*¥\s*([0-9][0-9,]*))?\s*$/;
 
   const normHeading = (s) => nfkc(s).toLowerCase().replace(/\s+/g, '');
   function findSection(heading, sections) {
@@ -83,6 +89,9 @@
     const lines = text.replace(/\r/g, '').split('\n');
     const blocks = [];
     let cur = null;
+    // ✅見出し・価格変更マークが1つも無いテキスト（にこにこ買取など）のための保険。行だけ拾っておき、
+    // 最後まで見出しが1つも無ければ、これで仮の区分を1つ作る（見出しがあるEXPO等では使わず、今までどおり捨てる）
+    const preLines = [];
     let dateGuess = null;
     const ignoredAll = [];
 
@@ -106,6 +115,14 @@
         continue;
       }
       if (cur && line) cur.lines.push(line);
+      else if (line) preLines.push(line);
+    }
+
+    // 見出しが1つも無かった（にこにこ買取など）: 拾っておいた行で仮の区分を1つ作る。
+    // 「見出しを選ぶ」で区分が決まったときも、他の区分と同じ仕組み（headingMap→headingsに追加）で拾えるよう findSection を通す
+    if (!blocks.length && preLines.length) {
+      const noHeadingSection = findSection('(見出しなし)', sections);
+      blocks.push({ kind: 'full', heading: '(見出しなし)', section: noHeadingSection, sectionId: noHeadingSection ? noHeadingSection.id : null, unknown: !noHeadingSection, skipped: !!(noHeadingSection && noHeadingSection.kind === 'skip'), lines: preLines });
     }
 
     for (const b of blocks) {
@@ -144,6 +161,25 @@
             lastName = line;
           }
         }
+      } else if (b.section && b.section.condLabels) {
+        // にこにこ買取など: 見出しが無く、1行に「BOX ¥12,000／NS ¥9,000」のように状態が2つ入る書式
+        const sec = b.section;
+        for (const line of b.lines) {
+          const m = line.match(BULLET_LINE);
+          if (!m) {
+            if (!/^#/.test(line)) b.ignored.push(line);
+            continue;
+          }
+          const name = nfkc(m[1]).replace(/\s+/g, ' ').trim();
+          if (!name) continue;
+          const pairs = [[m[2], m[3]]];
+          if (m[4]) pairs.push([m[4], m[5]]);
+          for (const [label, priceStr] of pairs) {
+            const cond = sec.condLabels[label.toUpperCase()];
+            if (!cond) { b.warnings.push(`未知の状態の略号「${label}」: ${line}`); continue; }
+            push({ name, cond, price: Number(priceStr.replace(/,/g, '')), closed: false, game: sec.game, raw: m[1] });
+          }
+        }
       } else {
         const sec = b.section || { baseCondition: 'box', game: null };
         const exclude = (sec.excludeContains || []).map(nfkc);
@@ -164,7 +200,8 @@
       }
       b.items = [...seen.values()];
     }
-    return { blocks: blocks.map(({ lines, ...rest }) => rest), dateGuess };
+    // 見出しなしの仮区分は、中身（行）が無ければ結果に出さない
+    return { blocks: blocks.filter((b) => b.lines.length).map(({ lines, ...rest }) => rest), dateGuess };
   }
 
   // 「別の表記 → 正とする表記」の対応表（config/product-aliases.json）を使って、同じ商品の判定キーを返す関数を作る。

@@ -591,6 +591,37 @@
           "enabled": true
         }
       ]
+    },
+    {
+      "id": "nikoniko",
+      "name": "にこにこ買取",
+      "type": "manual",
+      "freshHours": 168,
+      "_note": "Xのポストを管理画面に貼り付けて取り込む。見出し(✅)が無いので、毎回「見出しを選ぶ」で区分を手動で選ぶ。1行に状態が2つ入る書式（BOX/NSなど）は condLabels で対応づける。",
+      "sections": [
+        {
+          "id": "nikoniko-pokemon",
+          "label": "ポケモン BOX",
+          "headings": [],
+          "game": "pokemon",
+          "group": "ボックス",
+          "condLabels": {
+            "BOX": "shrink",
+            "NS": "noshrink"
+          }
+        },
+        {
+          "id": "nikoniko-onepiece",
+          "label": "ワンピース BOX・カートン",
+          "headings": [],
+          "game": "onepiece",
+          "group": "BOX・カートン",
+          "condLabels": {
+            "BOX": "tape",
+            "CTN": "carton"
+          }
+        }
+      ]
     }
   ]
 }

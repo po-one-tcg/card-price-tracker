@@ -188,3 +188,52 @@ test('コレクト: 価格変更の区分は「更新」として読み、状態
     ['30th CELEBRATION FUTURISTIC', null, 60000],
   ]);
 });
+
+// ---- にこにこ買取（見出し(✅)が無いXポスト。「・商品名 BOX ¥xxx／NS ¥xxx」形式）----
+const nikonikoSections = config.stores.find((s) => s.id === 'nikoniko').sections;
+// 管理画面の「見出しを選ぶ」で区分を選んだ状態を再現する（headingMap → 選んだ区分の headings に "(見出しなし)" が加わる）
+const nikonikoPick = (id) => nikonikoSections.map((s) => (s.id === id ? { ...s, headings: ['(見出しなし)'] } : s));
+
+test('にこにこ買取: 見出しが無いので「(見出しなし)」の仮の区分にまとまり、区分未指定だと unknown になる', () => {
+  const r = P.parse(read('nikoniko-2026-09-24.txt'), []);
+  assert.equal(r.blocks.length, 1);
+  assert.equal(r.blocks[0].heading, '(見出しなし)');
+  assert.equal(r.blocks[0].unknown, true);
+});
+
+test('にこにこ買取: 空の文章では、仮の区分ごと出てこない（からのブロックにならない）', () => {
+  const r = P.parse('', nikonikoSections);
+  assert.equal(r.blocks.length, 0);
+});
+
+test('にこにこ買取: 1行に状態が2つ（BOX/NS）、無ければBOXだけの1行', () => {
+  const r = P.parse(read('nikoniko-2026-09-24.txt'), nikonikoPick('nikoniko-pokemon'));
+  const items = r.blocks[0].items;
+  // 「MEGA拡張パック」プレフィックス・「（ブースターBOX）」のような注記は今は読み取ったまま残る（表記ゆれはエイリアスで対応）。
+  // nfkc正規化で全角カッコは半角になる
+  const box = items.find((i) => /30th CELEBRATION\(ブースターBOX\)/.test(i.name) && i.cond === 'shrink');
+  const ns = items.find((i) => /30th CELEBRATION\(ブースターBOX\)/.test(i.name) && i.cond === 'noshrink');
+  assert.deepEqual([box.price, ns.price], [23200, 16700]);
+  assert.equal(items.find((i) => /FUTURISTIC BOX/.test(i.name) && i.cond === 'shrink').price, 72000);
+  assert.equal(items.filter((i) => /FUTURISTIC BOX/.test(i.name)).length, 1); // NS が無い商品は1行だけ
+});
+
+test('にこにこ買取: 【】の小見出しは取り込まず、無視した行として扱う', () => {
+  const r = P.parse(read('nikoniko-2026-09-24.txt'), nikonikoPick('nikoniko-pokemon'));
+  assert.equal(r.blocks[0].items.some((i) => /エクストラブースター|スカーレット・バイオレット/.test(i.name)), false);
+  assert.ok(r.blocks[0].ignored.some((l) => l.includes('【スカーレット・バイオレット】')));
+});
+
+test('にこにこ買取: ハッシュタグ・LINEの案内は商品にならない', () => {
+  const r = P.parse(read('nikoniko-2026-09-24.txt'), nikonikoPick('nikoniko-pokemon'));
+  assert.equal(r.blocks[0].items.some((i) => /公式LINE|査定受付中/.test(i.name)), false);
+});
+
+test('にこにこ買取: ワンピースは BOX/CTN（カートン）', () => {
+  const r = P.parse(read('nikoniko-onepiece-2026-09-24.txt'), nikonikoPick('nikoniko-onepiece'));
+  const items = r.blocks[0].items;
+  const tape = items.find((i) => /OP-17/.test(i.name) && i.cond === 'tape');
+  const carton = items.find((i) => /OP-17/.test(i.name) && i.cond === 'carton');
+  assert.deepEqual([tape.price, carton.price], [10000, 142000]);
+  assert.equal(items.filter((i) => /OP-16/.test(i.name)).length, 1); // カートンが無い商品は1行だけ
+});
