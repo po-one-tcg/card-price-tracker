@@ -56,7 +56,7 @@ function build() {
       totals.active += s.active;
       for (const [cap, count] of Object.entries(s.byCapacity)) totals.byCapacity[cap] = (totals.byCapacity[cap] || 0) + count;
     }
-    const prizes = round.prizes.map((p) => ({ ...p, estimate: estimate(totals.byCapacity, p.rules) }));
+    const prizes = round.prizes.map((p) => ({ ...p, estimate: estimate(totals.byCapacity, p.rules), image: findImage(round.id, p.key) }));
     return { id: round.id, label: round.label, period: round.period, series, totals, prizes };
   });
   rounds.sort((a, b) => b.id.localeCompare(a.id, undefined, { numeric: true })); // 新しい回が先

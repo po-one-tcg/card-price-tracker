@@ -45,10 +45,12 @@
 
   function prizeCard(p) {
     const rules = Object.entries(p.rules).sort((a, b) => a[0] - b[0]).map(([cap, n]) => `${cap}人開催 → ${n}枚`).join('　/　');
-    return h('div', { class: 'card' },
-      h('div', { class: 't' }, `${p.label}記念品「${p.cardName}」${p.cardCode ? `（${p.cardCode}）` : ''}`),
-      h('div', { style: 'font-size:28px; font-weight:700; margin:6px 0' }, `推定 ${num(p.estimate)} 枚`),
-      h('div', { class: 's' }, `配布条件: ${rules}`));
+    return h('div', { class: 'card', style: 'display:flex; gap:12px; align-items:flex-start' },
+      p.image ? h('img', { src: p.image, alt: p.cardName, style: 'width:100px; height:auto; border-radius:6px; flex:none' }) : null,
+      h('div', null,
+        h('div', { class: 't' }, `${p.label}記念品「${p.cardName}」${p.cardCode ? `（${p.cardCode}）` : ''}`),
+        h('div', { style: 'font-size:28px; font-weight:700; margin:6px 0' }, `推定 ${num(p.estimate)} 枚`),
+        h('div', { class: 's' }, `配布条件: ${rules}`)));
   }
 
   function roundView(round) {
