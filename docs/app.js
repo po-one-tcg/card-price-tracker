@@ -194,9 +194,6 @@
     return h('div', null,
       h('h1', null, 'ゲーム別の価格表'),
       h('div', { class: 'grid' },
-        h('a', { class: 'card', href: '#/feed' },
-          h('div', { class: 't' }, '🆕✕ 取扱の出現・消滅'),
-          h('div', { class: 's' }, `直近${DATA.eventDays}日で${DATA.feed.length}件`)),
         DATA.games.map((g) => {
           const n = counts[g.id] || 0;
           const st = Object.entries(DATA.storeGame).filter(([k]) => k.endsWith('|' + g.id)).map(([, v]) => v);
@@ -204,7 +201,12 @@
           return n
             ? h('a', { class: 'card', href: '#/g/' + g.id }, h('div', { class: 't' }, g.label), h('div', { class: 's' }, `${n}商品・最終更新 ${last ? md(last) + ' ' + hm(last) : '—'}`))
             : h('div', { class: 'card off' }, h('div', { class: 't' }, g.label), h('div', { class: 's' }, '準備中'));
-        })));
+        })),
+      h('h2', null, '取扱の出現・消滅'),
+      h('div', { class: 'grid' },
+        h('a', { class: 'card', href: '#/feed' },
+          h('div', { class: 't' }, '🆕✕ 取扱の出現・消滅'),
+          h('div', { class: 's' }, `直近${DATA.eventDays}日で${DATA.feed.length}件`))));
   }
 
   // ---------- 画面: 取扱の出現・消滅 ----------
