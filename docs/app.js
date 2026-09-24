@@ -103,7 +103,7 @@
   function setCondFilter(gameId, condId) {
     filters = { ...filters, cond: { ...(filters.cond || {}), [gameId]: condId } };
     saveFilters();
-    render();
+    render(true); // フィルタの切り替えでは、スクロール位置を保つ（一覧を下の方まで見ていることが多いため）
   }
   function toggleStore(storeId, visibleCount) {
     const hidden = new Set(filters.hiddenStores || []);
@@ -114,7 +114,7 @@
     }
     filters = { ...filters, hiddenStores: [...hidden] };
     saveFilters();
-    render();
+    render(true);
   }
 
   // 状態・店舗のフィルタ欄（商品が複数状態を持つゲーム／店舗が2つ以上あるときだけ出す）
@@ -131,7 +131,7 @@
       rows.push(h('div', { class: 'filter-row' },
         h('span', { class: 'small muted' }, '店舗:'),
         allStores.map((s) => h('button', { class: 'chip' + (hidden.has(s.id) ? ' off' : ''), type: 'button', 'aria-pressed': hidden.has(s.id) ? 'false' : 'true', onclick: () => toggleStore(s.id, visibleCount) }, s.name)),
-        hidden.size ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: [] }; saveFilters(); render(); } }, 'すべて表示') : null));
+        hidden.size ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: [] }; saveFilters(); render(true); } }, 'すべて表示') : null));
     }
     return rows.length ? h('div', { class: 'filters' }, rows) : null;
   }
@@ -328,7 +328,7 @@
     }
     rows.sort((a, b) => Math.abs(b.r.pct) - Math.abs(a.r.pct));
     const chip = (label, active, fn) => h('button', { class: 'chip', type: 'button', 'aria-pressed': active ? 'true' : 'false', onclick: fn }, label);
-    const rerender = () => render();
+    const rerender = () => render(true);
     const games = [...new Set(DATA.products.map((p) => p.game))];
     return h('div', null,
       h('h1', null, '値動きランキング'),
@@ -349,8 +349,12 @@
   }
 
   // ---------- ルーター ----------
-  function render() {
+  // preserveScroll: フィルタの切り替えなど、画面は同じままの再描画で使う（ページ移動のときは常に先頭へ）
+  function render(preserveScroll) {
     if (!DATA) return;
+    const y = window.scrollY;
+    // 価格表（.tablewrap）は中で縦スクロールする作りなので、ページとは別にこちらの位置も保つ
+    const tableScroll = preserveScroll ? app.querySelector('.tablewrap')?.scrollTop : 0;
     const parts = location.hash.replace(/^#\/?/, '').split('/');
     let view;
     if (parts[0] === 'g' && parts[1]) view = viewGame(decodeURIComponent(parts[1]));
@@ -360,7 +364,11 @@
     app.replaceChildren(view);
     document.title = 'トレカBOX価格トラッカー';
     if (parts[0] === 'p' && byId[parts[1]]) document.title = byId[parts[1]].name + ' | トレカBOX価格トラッカー';
-    window.scrollTo(0, 0);
+    window.scrollTo(0, preserveScroll ? y : 0);
+    if (tableScroll) {
+      const wrap = app.querySelector('.tablewrap');
+      if (wrap) wrap.scrollTop = tableScroll;
+    }
   }
 
   async function init() {
