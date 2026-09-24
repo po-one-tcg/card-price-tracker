@@ -69,6 +69,17 @@ test('(カートン) は状態 carton、付いていなければ tape（ワン�
   assert.equal(item('onepiece', 'OP-03', 'tape').closed, false);
 });
 
+test('テープカット は状態 tapecut（ワンピース・ドラゴンボール等、付いていなければテープ付き）', () => {
+  const collectSections = config.stores.find((s) => s.id === 'collect').sections;
+  const text = '✅コレクト ワンピース BOX・カートン\nOP-17 世界最強の戦士 15200円\nOP-17 世界最強の戦士テープカット 9000円\n';
+  const parsed = P.parse(text, collectSections);
+  const items = parsed.blocks[0].items;
+  const tape = items.find((i) => i.cond === 'tape');
+  const cut = items.find((i) => i.cond === 'tapecut');
+  assert.deepEqual([tape.name, tape.price], ['OP-17 世界最強の戦士', 15200]);
+  assert.deepEqual([cut.name, cut.price], ['OP-17 世界最強の戦士', 9000]);
+});
+
 test('二重スペースがあっても同じ商品として扱える', () => {
   assert.equal(item('onepiece', 'OP-08', 'carton').name, 'OP-08 二つの伝説');
   assert.equal(P.canon('PRB-01 The best  box'), P.canon('PRB-01 The best'));

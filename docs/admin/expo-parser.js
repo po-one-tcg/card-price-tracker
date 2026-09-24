@@ -6,6 +6,7 @@
 //   30th CELEBRATIONシュリ無 21000円      ← シュリンク無し（付いていなければシュリンク付き）
 //   ブラックボルト 〆切                    ← 買取停止
 //   (カートン)OP-01 Romance Dawn 450000円 ← カートン
+//   OP-17 世界最強の戦士テープカット 9000円 ← テープカット（ワンピース・ドラゴンボール等。付いていなければテープ付き）
 //   下記商品の買取価格を只今より変更…      ← 価格変更のお知らせ（商品名の行 → 「22,000円」の行、の繰り返し）
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) module.exports = factory();
@@ -46,6 +47,11 @@
       cond = 'noshrink';
       if (m[1]) variant = ' ペリペリ付';
       t = t.replace(m[0], '');
+    }
+    const mt = t.match(/\s*テープカット/);
+    if (mt) {
+      cond = 'tapecut';
+      t = t.replace(mt[0], '');
     }
     if (/\s+カートン$/.test(t)) {
       cond = cond || 'carton'; // 「… カートン」（遊戯王など、名前の末尾に付く形）
