@@ -161,3 +161,22 @@
 {"t":"2026-09-24T14:26:56+09:00","type":"appear","from":"none","to":14600,"k":"collect|onepiece_554ab9c7|tape","store":"collect","game":"onepiece","pid":"onepiece_554ab9c7","name":"OP-12 師弟の絆"}
 {"t":"2026-09-24T14:26:56+09:00","type":"appear","to":9000,"k":"collect|onepiece_5541d89b|tapecut","store":"collect","game":"onepiece","pid":"onepiece_5541d89b","name":"OP-17 世界最強の戦士"}
 {"t":"2026-09-24T14:26:56+09:00","type":"appear","from":"none","to":12000,"k":"collect|onepiece_76282172|tape","store":"collect","game":"onepiece","pid":"onepiece_76282172","name":"EB-04 EGGHEAD CRISIS"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","to":15000,"k":"somurie|pokemon_7bc3bb7b|shrink","store":"somurie","game":"pokemon","pid":"pokemon_7bc3bb7b","name":"シャイニートレジャーex"}
+{"t":"2026-09-24T14:28:31+09:00","type":"disappear","from":11500,"k":"somurie|pokemon_9f04ef88|shrink","store":"somurie","game":"pokemon","pid":"pokemon_9f04ef88","name":"ステラミラクル"}
+{"t":"2026-09-24T14:28:31+09:00","type":"disappear","from":7500,"k":"somurie|pokemon_a4df8684|shrink","store":"somurie","game":"pokemon","pid":"pokemon_a4df8684","name":"メガブレイブ"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","from":"none","to":4500,"k":"expo|unionarena_82d8ee49|tape","store":"expo","game":"unionarena","pid":"unionarena_82d8ee49","name":"魔法少女まどか☆マギカ"}
+{"t":"2026-09-24T14:28:31+09:00","type":"disappear","from":7000,"k":"expo|dragonball_7878ba42|tape","store":"expo","game":"dragonball","pid":"dragonball_7878ba42","name":"FB04 限界を超えし者"}
+{"t":"2026-09-24T14:28:31+09:00","type":"disappear","from":16000,"k":"expo|onepiece_0db75840|tape","store":"expo","game":"onepiece","pid":"onepiece_0db75840","name":"OP-09 新たなる皇帝"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","from":"none","to":12400,"k":"expo|onepiece_6636cacb|tape","store":"expo","game":"onepiece","pid":"onepiece_6636cacb","name":"OP-13 受け継がれる意志"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","from":"none","to":9700,"k":"expo|onepiece_52c0d6a0|tape","store":"expo","game":"onepiece","pid":"onepiece_52c0d6a0","name":"PRB-02 ONE PIECE CARD THE BEST vol.2"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","from":"none","to":16500,"k":"expo|onepiece_56ed4c82|tape","store":"expo","game":"onepiece","pid":"onepiece_56ed4c82","name":"EB-03 Heroines Edition"}
+{"t":"2026-09-24T14:28:31+09:00","type":"disappear","from":60000,"k":"expo|pokemon_8f4f6d84|box","store":"expo","game":"pokemon","pid":"pokemon_8f4f6d84","name":"30th CELEBRATION FUTURISTIC BOX"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","from":"none","to":600,"k":"expo|pokemon_dd7c7925|box","store":"expo","game":"pokemon","pid":"pokemon_dd7c7925","name":"スタートデッキ100 バトルコレクション"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","from":"none","to":37000,"k":"expo|pokemon_fe7f632f|box","store":"expo","game":"pokemon","pid":"pokemon_fe7f632f","name":"スタートデッキ100 バトルコレクション白箱"}
+{"t":"2026-09-24T14:28:31+09:00","type":"disappear","from":1800,"k":"expo|pokemon_2ce1a068|box","store":"expo","game":"pokemon","pid":"pokemon_2ce1a068","name":"スターターセットex マリィのモルペコ&オーロンゲex"}
+{"t":"2026-09-24T14:28:31+09:00","type":"disappear","from":2700,"k":"expo|pokemon_7ce56d61|box","store":"expo","game":"pokemon","pid":"pokemon_7ce56d61","name":"コレクションファイルセットリーリエ"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","from":"none","to":6500,"k":"expo|pokemon_a508ed82|box","store":"expo","game":"pokemon","pid":"pokemon_a508ed82","name":"ジャンボカードコレクションラティアス"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","from":"none","to":1700,"k":"expo|pokemon_4fd52a9b|box","store":"expo","game":"pokemon","pid":"pokemon_4fd52a9b","name":"ジャンボカード オーガポン"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","from":"none","to":5300,"k":"expo|pokemon_77e3b01c|box","store":"expo","game":"pokemon","pid":"pokemon_77e3b01c","name":"プレミアムトレーナーボックスex"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","from":"none","to":14000,"k":"expo|pokemon_f64bdf9a|shrink","store":"expo","game":"pokemon","pid":"pokemon_f64bdf9a","name":"テラスタルフェス"}
+{"t":"2026-09-24T14:28:31+09:00","type":"appear","from":"none","to":10000,"k":"expo|pokemon_89111e6f|shrink","store":"expo","game":"pokemon","pid":"pokemon_89111e6f","name":"バトルリージョン"}
