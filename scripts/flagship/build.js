@@ -7,7 +7,14 @@ const path = require('path');
 
 const CONFIG = path.join(__dirname, '..', '..', 'config', 'flagship.json');
 const DATA_DIR = path.join(__dirname, '..', '..', 'data', 'flagship');
+const IMG_DIR = path.join(__dirname, '..', '..', 'docs', 'img', 'flagship');
 const OUT = path.join(__dirname, '..', '..', 'docs', 'data', 'flagship.json');
+
+// docs/img/flagship/round<id>-winner.* / round<id>-best8.* があれば、そのファイル名（拡張子込み）を返す
+function findImage(id, key) {
+  const hit = fs.readdirSync(IMG_DIR).find((f) => f.startsWith(`round${id}-${key}.`));
+  return hit ? `img/flagship/${hit}` : null;
+}
 
 function loadSeries(seriesId) {
   return JSON.parse(fs.readFileSync(path.join(DATA_DIR, `${seriesId}.json`), 'utf8'));
@@ -53,9 +60,18 @@ function build() {
     return { id: round.id, label: round.label, period: round.period, series, totals, prizes };
   });
   rounds.sort((a, b) => b.id.localeCompare(a.id, undefined, { numeric: true })); // 新しい回が先
+
+  // 歴代の記念品カード一覧（画像つき）。rounds に同じ id の推定データがあれば、そこから枚数を拾って添える
+  const estimateByCode = new Map();
+  for (const r of rounds) for (const p of r.prizes) estimateByCode.set(p.cardCode, p.estimate);
+  const history = (config.history || []).map((h) => {
+    const fill = (key, side) => ({ ...side, image: findImage(h.id, key), estimate: estimateByCode.has(side.cardCode) ? estimateByCode.get(side.cardCode) : null });
+    return { id: h.id, period: h.period, winner: fill('winner', h.winner), best8: fill('best8', h.best8) };
+  });
+
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
-  fs.writeFileSync(OUT, JSON.stringify({ generatedAt: new Date().toISOString(), rounds }));
-  console.log(`docs/data/flagship.json を作成しました（${rounds.length}回ぶん）`);
+  fs.writeFileSync(OUT, JSON.stringify({ generatedAt: new Date().toISOString(), rounds, history }));
+  console.log(`docs/data/flagship.json を作成しました（推定 ${rounds.length}回ぶん、歴代一覧 ${history.length}回ぶん）`);
   for (const r of rounds) {
     console.log(`  ${r.label}: 開催 ${r.totals.active}件（キャンセル ${r.totals.canceled}件除く） / 定員内訳 ${JSON.stringify(r.totals.byCapacity)}`);
     for (const p of r.prizes) console.log(`    ${p.label}「${p.cardName}」推定 ${p.estimate.toLocaleString('ja-JP')}枚`);
