@@ -1814,19 +1814,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-24"
  },
- "pokemon_3328ea7a": {
-  "id": "pokemon_3328ea7a",
-  "game": "pokemon",
-  "name": "メガドリーム",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/pkbox_3_fx_1786911717429.webp",
-  "image": "img/box/pokemon_3328ea7a.webp",
-  "firstSeen": "2026-09-23",
-  "lastSeen": "2026-09-24"
- },
  "pokemon_34a6f8fe": {
   "id": "pokemon_34a6f8fe",
   "game": "pokemon",
@@ -4225,19 +4212,6 @@
   "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/pkbox_22_1786909207950.webp",
   "image": "img/box/pokemon_f9e1d58b.jpg",
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-24"
- },
- "pokemon_fa527511": {
-  "id": "pokemon_fa527511",
-  "game": "pokemon",
-  "name": "メガドリームex",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-23",
   "lastSeen": "2026-09-24"
  },
  "pokemon_fe7f632f": {
