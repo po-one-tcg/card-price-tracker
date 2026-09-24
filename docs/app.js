@@ -191,18 +191,12 @@
   function viewHome() {
     const counts = {};
     for (const p of DATA.products) counts[p.game] = (counts[p.game] || 0) + 1;
-    const feedRows = DATA.feed.map((f) =>
-      h('div', { class: 'row' },
-        h('span', { class: 'when' }, `${md(f.t)} ${hm(f.t)}`),
-        h('span', { class: 'badge ' + (f.type === 'appear' ? 'new' : 'gone') }, f.type === 'appear' ? '🆕 出現' : '✕ 消滅'),
-        byId[f.pid] ? h('a', { href: '#/p/' + f.pid }, f.name) : h('span', null, f.name),
-        h('span', { class: 'muted' }, `${storeName(f.store)}・${gameLabel(f.game)}${f.price ? '・' + yen(f.price) : ''}`)));
     return h('div', null,
-      h('h1', null, '取扱の出現・消滅'),
-      h('p', { class: 'muted' }, '店が買取を始めた／やめたBOXを、直近30日ぶん新しい順に表示します。'),
-      feedRows.length ? h('div', { class: 'feed' }, feedRows) : h('p', { class: 'empty' }, '直近30日の出現・消滅はありません。'),
-      h('h2', null, 'ゲーム別の価格表'),
+      h('h1', null, 'ゲーム別の価格表'),
       h('div', { class: 'grid' },
+        h('a', { class: 'card', href: '#/feed' },
+          h('div', { class: 't' }, '🆕✕ 取扱の出現・消滅'),
+          h('div', { class: 's' }, `直近${DATA.eventDays}日で${DATA.feed.length}件`)),
         DATA.games.map((g) => {
           const n = counts[g.id] || 0;
           const st = Object.entries(DATA.storeGame).filter(([k]) => k.endsWith('|' + g.id)).map(([, v]) => v);
@@ -211,6 +205,21 @@
             ? h('a', { class: 'card', href: '#/g/' + g.id }, h('div', { class: 't' }, g.label), h('div', { class: 's' }, `${n}商品・最終更新 ${last ? md(last) + ' ' + hm(last) : '—'}`))
             : h('div', { class: 'card off' }, h('div', { class: 't' }, g.label), h('div', { class: 's' }, '準備中'));
         })));
+  }
+
+  // ---------- 画面: 取扱の出現・消滅 ----------
+  function viewFeed() {
+    const feedRows = DATA.feed.map((f) =>
+      h('div', { class: 'row' },
+        h('span', { class: 'when' }, `${md(f.t)} ${hm(f.t)}`),
+        h('span', { class: 'badge ' + (f.type === 'appear' ? 'new' : 'gone') }, f.type === 'appear' ? '🆕 出現' : '✕ 消滅'),
+        byId[f.pid] ? h('a', { href: '#/p/' + f.pid }, f.name) : h('span', null, f.name),
+        h('span', { class: 'muted' }, `${storeName(f.store)}・${gameLabel(f.game)}${f.price ? '・' + yen(f.price) : ''}`)));
+    return h('div', null,
+      h('div', { class: 'crumb' }, h('a', { href: '#/' }, 'ホーム'), ' › 取扱の出現・消滅'),
+      h('h1', null, '取扱の出現・消滅'),
+      h('p', { class: 'muted' }, '店が買取を始めた／やめたBOXを、直近30日ぶん新しい順に表示します。'),
+      feedRows.length ? h('div', { class: 'feed' }, feedRows) : h('p', { class: 'empty' }, '直近30日の出現・消滅はありません。'));
   }
 
   // ---------- 画面: ゲームの価格表 ----------
@@ -369,6 +378,7 @@
     if (parts[0] === 'g' && parts[1]) view = viewGame(decodeURIComponent(parts[1]));
     else if (parts[0] === 'p' && parts[1]) view = viewProduct(decodeURIComponent(parts[1]));
     else if (parts[0] === 'ranking') view = viewRanking();
+    else if (parts[0] === 'feed') view = viewFeed();
     else view = viewHome();
     app.replaceChildren(view);
     document.title = 'トレカBOX価格トラッカー';
