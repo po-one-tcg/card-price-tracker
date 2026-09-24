@@ -266,7 +266,9 @@
     const goneCount = list.filter((p) => p.cells.some((c) => c.event && c.event.type === 'disappear')).length;
     return h('div', null,
       h('div', { class: 'crumb' }, h('a', { href: '#/' }, 'ホーム'), ' › ', gameLabel(gameId)),
-      h('h1', null, gameLabel(gameId) + ' 買取価格'),
+      h('div', { style: 'display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px' },
+        h('h1', { style: 'margin:0' }, gameLabel(gameId) + ' 買取価格'),
+        gameId === 'onepiece' ? h('a', { class: 'tag-link', href: 'flagship.html' }, '🎴 配布カード枚数データ') : null),
       h('div', { class: 'legend' },
         h('span', null, h('span', { class: 'badge new' }, '🆕 出現'), ` 直近${DATA.eventDays}日に買取開始（${newCount}件）`),
         h('span', null, h('span', { class: 'badge gone' }, '✕ 取扱終了'), ` 直近${DATA.eventDays}日に買取停止（${goneCount}件）`),

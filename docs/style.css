@@ -94,6 +94,8 @@ thead th {
 thead th small { display: block; font-weight: 400; font-size: 11px; color: var(--muted); }
 thead th .badge { font-size: 10px; white-space: normal; word-break: keep-all; overflow-wrap: normal; }
 .badge.notice { background: var(--notice-bg); color: var(--notice-fg); }
+.tag-link { display: inline-block; background: var(--accent); color: #fff; font-size: 14px; font-weight: 700; padding: 7px 14px; border-radius: 999px; white-space: nowrap; }
+.tag-link:hover { opacity: .88; text-decoration: none; }
 th.name, td.name { position: sticky; left: 0; z-index: 2; text-align: left; background: var(--card); min-width: 128px; max-width: 46vw; white-space: normal; }
 thead th.name { z-index: 4; background: var(--head); }
 tr.group td { position: sticky; left: 0; background: var(--group); font-weight: 600; font-size: 13px; text-align: left; }
