@@ -107,8 +107,11 @@ td.unk { color: var(--muted); font-style: italic; }
 td small { display: block; font-size: 11px; color: var(--muted); font-style: normal; }
 .legend { font-size: 12px; color: var(--muted); margin: 8px 0; display: flex; gap: 12px; flex-wrap: wrap; }
 
-.hero { display: flex; gap: 14px; align-items: flex-start; margin-bottom: 8px; }
+.hero { display: flex; gap: 14px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 8px; }
 .hero img { width: 84px; height: auto; max-height: 120px; object-fit: contain; border-radius: 6px; background: var(--head); }
+.hero .info { flex: 1 1 auto; min-width: 160px; }
+.hero .restock { flex: none; margin-left: auto; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 12px; }
+.hero .restock .t { color: var(--muted); margin-bottom: 2px; }
 .chips { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 12px; }
 .chip { border: 1px solid var(--line); background: var(--card); color: var(--text); padding: 4px 12px; border-radius: 999px; font-size: 13px; cursor: pointer; }
 .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }

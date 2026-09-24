@@ -303,15 +303,16 @@
           h('tbody', null, rows))));
     });
     const restockBlock = p.restocks.length
-      ? h('div', { class: 'panel', style: 'margin:10px 0' },
-          h('h2', { style: 'margin-top:0' }, '再販情報'),
-          h('p', { style: 'margin:0' }, p.restocks.map((d) => d.replace(/-/g, '/')).join('、')))
+      ? h('div', { class: 'restock' },
+          h('div', { class: 't' }, '再販日（若干の前後あり）'),
+          h('div', null, p.restocks.map((d) => d.replace(/-/g, '/')).join('、')))
       : null;
     return h('div', null,
       h('div', { class: 'crumb' }, h('a', { href: '#/' }, 'ホーム'), ' › ', h('a', { href: '#/g/' + p.game }, gameLabel(p.game)), ' › ', p.name),
       h('div', { class: 'hero' }, p.image ? h('img', { src: p.image, alt: '' }) : null,
-        h('div', null, h('h1', null, p.name), h('div', { class: 'muted' }, p.group + (p.release ? '　発売 ' + p.release.replace(/-/g, '/') : '')))),
-      table, restockBlock, blocks);
+        h('div', { class: 'info' }, h('h1', null, p.name), h('div', { class: 'muted' }, p.group + (p.release ? '　発売 ' + p.release.replace(/-/g, '/') : ''))),
+        restockBlock),
+      table, blocks);
   }
 
   // ---------- 画面: 値動きランキング ----------
