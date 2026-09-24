@@ -1,0 +1,19 @@
+{
+  "_readme": "フラッグシップバトルの記念品カード、配布枚数の推定。3ヶ月に1回、新しい回のデータが出たら rounds に追記する（過去の回は残す）。series はOPTCG Portのシリーズ（開催月ごと）、prizes は記念品カードと、定員(人数)ごとの配布枚数のルール。データ本体は data/flagship/<seriesId>.json（scripts/flagship/import.js で作る）。",
+  "rounds": [
+    {
+      "id": "15",
+      "label": "第15回フラッグシップバトル",
+      "period": "2026年7月〜9月開催",
+      "series": [
+        { "label": "7月開催", "seriesId": "7395", "url": "https://optcg-port.com/series/7395" },
+        { "label": "8月開催", "seriesId": "7664", "url": "https://optcg-port.com/series/7664" },
+        { "label": "9月開催", "seriesId": "7839", "url": "https://optcg-port.com/series/7839" }
+      ],
+      "prizes": [
+        { "key": "winner", "label": "優勝", "cardName": "ボア・ハンコック", "cardCode": "OP16-032", "rules": { "32": 1, "64": 2 } },
+        { "key": "best8", "label": "ベスト8", "cardName": "ロロノア・ゾロ", "cardCode": "OP15-113", "rules": { "32": 8, "64": 16 } }
+      ]
+    }
+  ]
+}

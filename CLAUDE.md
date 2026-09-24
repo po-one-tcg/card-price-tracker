@@ -84,6 +84,28 @@ git branch --show-current
    ```
 5. 保存は3章と同じ手順（`main` に反映されたか確認するところまで）
 
+## 3ヶ月に1回の作業: フラッグシップバトルの配布枚数
+
+ワンピースカードゲーム「フラッグシップバトル」の記念品カード配布枚数（推定）ページ（公開ページの「フラッグシップ配布枚数」リンク）。
+新しい回になったら、ユーザーから次の3つを聞く: ①その回の3つのシリーズURL（`https://optcg-port.com/series/xxxx`）、②記念品カード名・型番（優勝／ベスト8）、③配布条件（定員→枚数。通常は32人開催の枚数がわかれば、64人はその2倍）。
+
+1. `C:\optcg` でデータ取得（Playwrightがすでにセットアップ済み。別リポジトリなので `cd` して実行）:
+   ```
+   cd C:/optcg && node scrape.js <ID1> <ID2> <ID3>
+   ```
+2. card-price-tracker 側に取り込む（店舗名・住所など不要な項目を落として軽くする）:
+   ```
+   cd C:/card-price-tracker
+   node scripts/flagship/import.js <ID1> <ID2> <ID3>
+   ```
+3. `config/flagship.json` に新しい回を追記する（`rounds` 配列の先頭に追加。過去の回は消さない）。`series`・`prizes`（カード名・型番・`rules`＝定員ごとの配布枚数）をユーザーから聞いた内容で埋める。
+4. 集計してページ用データを作る:
+   ```
+   node scripts/flagship/build.js
+   ```
+   出力される推定枚数をユーザーに見せて確認してもらう。
+5. 保存は3章と同じ手順（`main` に反映されたか確認するところまで）。
+
 ## 守ること
 - **トークン（`github_pat_…` など）は、受け取らない・入力しない・コミットしない。** ユーザーがチャットに貼ってきたら、使わずに、削除して作り直すよう伝える。
 - `data/`・`docs/`・`backups/` は、自動更新（GitHub Actions）も書き込む。**必ず `git pull --rebase` してから push** する。
@@ -93,4 +115,5 @@ git branch --show-current
 ## 参考
 - 店舗は5つ: BASE / 買取EXPO / コレクト / RUNTO / ソムリエ。BASE・RUNTO・ソムリエは自動取得、買取EXPOは管理画面にポストを貼る、コレクトはこの手順。
 - 同じ商品の別表記は `config/product-aliases.json`（対応表）で1組ずつ統合する。
-- テスト: `npm test`（100件）。
+- テスト: `npm test`（107件）。
+- フラッグシップバトルのページは、価格トラッカーとは別データ（`config/flagship.json`・`data/flagship/`・`docs/flagship.html`）。自動更新（GitHub Actions）の対象外で、3ヶ月に1回、上の手順で手動更新する。
