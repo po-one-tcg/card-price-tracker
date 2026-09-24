@@ -175,6 +175,7 @@ table.mini td { padding: 3px 6px; text-align: left; white-space: normal; border-
   thead th small { font-size: 9.5px; }
   th.name, td.name { min-width: 92px; max-width: 30vw; padding-left: 8px; }
   tr.group td { font-size: 12px; }
+  .hero .restock { margin-left: 0; } /* 画像・名前の下で折り返したとき、右に寄らず左に詰める */
 }
 
 /* ---- ゲーム価格表のフィルタ（状態・店舗）---- */
