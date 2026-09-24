@@ -15,8 +15,8 @@
   --warn-bg: #fff4d6;
   --warn-fg: #8a5a00;
   --max-bg: #dbeafe;
-  --notice-bg: #dbeafe;
-  --notice-fg: #2456d6;
+  --notice-bg: #fde2e1;
+  --notice-fg: #b3261e;
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -36,8 +36,8 @@
     --warn-bg: #3a2f10;
     --warn-fg: #f0c060;
     --max-bg: #1c3252;
-    --notice-bg: #1c3252;
-    --notice-fg: #7ea6ff;
+    --notice-bg: #3a1f1f;
+    --notice-fg: #ff8a80;
   }
 }
 * { box-sizing: border-box; }
