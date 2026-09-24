@@ -1,3 +1,12 @@
 {
- "restocks": []
+ "restocks": [
+  {
+   "id": "tqcbwm",
+   "pid": "pokemon_b6ca6a70",
+   "name": "ストームエメラルダ",
+   "game": "pokemon",
+   "date": "2026-09-25",
+   "createdAt": "2026-09-24T14:28:50+09:00"
+  }
+ ]
 }
