@@ -187,3 +187,5 @@
 {"t":"2026-09-24T15:18:55+09:00","type":"appear","to":100,"k":"macho|pokemon_b87614a2|pack","store":"macho","game":"pokemon","pid":"pokemon_b87614a2","name":"メガシンフォニア"}
 {"t":"2026-09-24T15:18:55+09:00","type":"appear","to":10000,"k":"macho|onepiece_6636cacb|tapecut","store":"macho","game":"onepiece","pid":"onepiece_6636cacb","name":"OP-13 受け継がれる意志"}
 {"t":"2026-09-24T18:02:05+09:00","type":"disappear","from":7000,"k":"runto|dragonball_1ab2c151|tape","store":"runto","game":"dragonball","pid":"dragonball_1ab2c151","name":"FB11 BRIGHTNESS OF HOPE"}
+{"t":"2026-09-25T02:35:45+09:00","type":"appear","from":"none","to":10000,"k":"runto|dragonball_57db379c|tape","store":"runto","game":"dragonball","pid":"dragonball_57db379c","name":"ST01 STORY BOOSTER 01"}
+{"t":"2026-09-25T02:35:45+09:00","type":"disappear","from":100000,"k":"runto|dragonball_1ab2c151|carton","store":"runto","game":"dragonball","pid":"dragonball_1ab2c151","name":"FB11 BRIGHTNESS OF HOPE"}
