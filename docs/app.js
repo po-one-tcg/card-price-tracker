@@ -239,9 +239,10 @@
         // （放置すると、買取店は機会損失、見る人は毎回手動で確認する手間になるため）
         const isToday = st && st.lastOkAt && st.lastOkAt.slice(0, 10) === DATA.today;
         const timeText = st && st.lastOkAt ? md(st.lastOkAt) + ' ' + hm(st.lastOkAt) : '未取得';
+        // 折り返すときに変な位置で割れないよう、切れてよい場所にだけ <wbr> を入れる
         const badge = !st || !st.lastOkAt ? null
-          : !st.fresh ? h('span', { class: 'badge warn' }, '⚠ 取得できていません')
-          : !isToday ? h('span', { class: 'badge notice' }, '本日未更新')
+          : !st.fresh ? h('span', { class: 'badge warn' }, '⚠', h('wbr', null), ' 取得できていません')
+          : !isToday ? h('span', { class: 'badge notice' }, '本日', h('wbr', null), '未更新')
           : null;
         return h('th', null, s.name,
           badge ? h('div', { style: 'margin-top:3px' }, badge) : null,
