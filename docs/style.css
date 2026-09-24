@@ -15,6 +15,7 @@
   --warn-bg: #fff4d6;
   --warn-fg: #8a5a00;
   --max-bg: #dbeafe;
+  --notice-bg: #dbeafe;
   --notice-fg: #2456d6;
 }
 @media (prefers-color-scheme: dark) {
@@ -35,6 +36,7 @@
     --warn-bg: #3a2f10;
     --warn-fg: #f0c060;
     --max-bg: #1c3252;
+    --notice-bg: #1c3252;
     --notice-fg: #7ea6ff;
   }
 }
@@ -90,8 +92,8 @@ thead th {
   position: sticky; top: 0; z-index: 3; background: var(--head); font-size: 13px; font-weight: 600; vertical-align: bottom;
 }
 thead th small { display: block; font-weight: 400; font-size: 11px; color: var(--muted); }
-thead th small.bad { color: var(--warn-fg); }
-thead th small.notice { color: var(--notice-fg); }
+thead th .badge { font-size: 10px; white-space: normal; }
+.badge.notice { background: var(--notice-bg); color: var(--notice-fg); }
 th.name, td.name { position: sticky; left: 0; z-index: 2; text-align: left; background: var(--card); min-width: 128px; max-width: 46vw; white-space: normal; }
 thead th.name { z-index: 4; background: var(--head); }
 tr.group td { position: sticky; left: 0; background: var(--group); font-weight: 600; font-size: 13px; text-align: left; }

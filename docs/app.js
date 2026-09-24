@@ -235,12 +235,17 @@
       h('th', { class: 'name' }, '商品'),
       stores.map((s) => {
         const st = DATA.storeGame[`${s.id}|${gameId}`];
-        // 壊れている（⚠）のとは別に、まだ「今日」の更新が来ていないだけの店を一目で分かるようにする（🕗）
+        // 壊れている（未確認）のとは別に、まだ「今日」の更新が来ていないだけの店を、見落とさないようバッジで強調する
+        // （放置すると、買取店は機会損失、見る人は毎回手動で確認する手間になるため）
         const isToday = st && st.lastOkAt && st.lastOkAt.slice(0, 10) === DATA.today;
-        const cls = !st || !st.lastOkAt ? '' : !st.fresh ? 'bad' : isToday ? '' : 'notice';
-        const prefix = st && st.lastOkAt ? (!st.fresh ? '⚠ ' : isToday ? '' : '🕗 ') : '';
+        const timeText = st && st.lastOkAt ? md(st.lastOkAt) + ' ' + hm(st.lastOkAt) : '未取得';
+        const badge = !st || !st.lastOkAt ? null
+          : !st.fresh ? h('span', { class: 'badge warn' }, '⚠ 取得できていません')
+          : !isToday ? h('span', { class: 'badge notice' }, '本日未更新')
+          : null;
         return h('th', null, s.name,
-          h('small', { class: cls }, st && st.lastOkAt ? prefix + md(st.lastOkAt) + ' ' + hm(st.lastOkAt) : '未取得'));
+          badge ? h('div', { style: 'margin-top:3px' }, badge) : null,
+          h('small', { class: 'muted' }, timeText));
       })));
     const body = h('tbody');
     for (const g of groups) {
