@@ -209,3 +209,6 @@
 {"t":"2026-09-25T13:11:39+09:00","type":"disappear","from":8300,"k":"expo|pokemon_3c980e2a|shrink","store":"expo","game":"pokemon","pid":"pokemon_3c980e2a","name":"古代の咆哮"}
 {"t":"2026-09-25T13:11:39+09:00","type":"disappear","from":7800,"k":"expo|pokemon_133fd658|shrink","store":"expo","game":"pokemon","pid":"pokemon_133fd658","name":"未来の一閃"}
 {"t":"2026-09-25T13:11:39+09:00","type":"disappear","from":9500,"k":"expo|pokemon_2ed85a53|shrink","store":"expo","game":"pokemon","pid":"pokemon_2ed85a53","name":"ワイルドフォース"}
+{"t":"2026-09-25T15:18:55+09:00","type":"appear","from":"none","to":6500,"k":"runto|onepiece_f32a1126|tape","store":"runto","game":"onepiece","pid":"onepiece_f32a1126","name":"OP-15 神の島の冒険"}
+{"t":"2026-09-25T15:18:55+09:00","type":"appear","to":1000,"k":"macho|pokemon_3f34516e|box","store":"macho","game":"pokemon","pid":"pokemon_3f34516e","name":"スターターセットex イーブイ"}
+{"t":"2026-09-25T15:18:55+09:00","type":"appear","to":6500,"k":"macho|onepiece_583367ee|tapecut","store":"macho","game":"onepiece","pid":"onepiece_583367ee","name":"OP-16 決戦の刻"}

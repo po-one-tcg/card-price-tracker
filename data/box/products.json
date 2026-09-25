@@ -1896,6 +1896,19 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-25"
  },
+ "pokemon_3f34516e": {
+  "id": "pokemon_3f34516e",
+  "game": "pokemon",
+  "name": "スターターセットex イーブイ",
+  "group": "その他（セット・プロモ等）",
+  "groups": [
+   "その他（セット・プロモ等）"
+  ],
+  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Starter_Set_ex_Eevee_1789244176174.webp",
+  "image": "img/box/pokemon_3f34516e.webp",
+  "firstSeen": "2026-09-25",
+  "lastSeen": "2026-09-25"
+ },
  "pokemon_3f3685b9": {
   "id": "pokemon_3f3685b9",
   "game": "pokemon",
