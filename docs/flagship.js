@@ -64,24 +64,31 @@
       seriesTable(round));
   }
 
-  function historyCard(round, key, label) {
-    const p = round[key];
+  // 歴代の回: 回ごとに枠を分け、数字のカード＋カード画像を並べる（実績データのある回と同じ見た目）
+  function historyStat(p, label) {
+    const value = p.estimate == null
+      ? h('div', { class: 'muted', style: 'font-size:16px; margin:6px 0' }, '推定枚数 未算出')
+      : h('div', { style: 'font-size:28px; font-weight:700; margin:6px 0' }, p.known ? `配布数 ${num(p.estimate)} 枚` : p.derivedMax ? `MAX ${num(p.estimate)} 枚` : `推定 ${num(p.estimate)} 枚`);
     return h('div', { class: 'card' },
-      p.image ? h('img', { src: p.image, alt: p.cardName, style: 'width:100%; height:auto; border-radius:6px; margin-bottom:6px' }) : null,
-      h('div', { class: 's' }, `第${round.id}回・${label}`, round.period ? h('div', null, round.period) : null),
-      h('div', { class: 't' }, p.cardName, p.cardCode ? h('span', { class: 'muted' }, `（${p.cardCode}）`) : null),
-      p.note ? h('div', { class: 'muted small' }, p.note) : null,
-      h('div', { class: 'small', style: 'margin-top:4px' },
-        p.estimate != null
-          ? (p.known ? `配布数 ${num(p.estimate)} 枚（確定）` : p.derivedMax ? `MAX ${num(p.estimate)} 枚（推定）` : `推定 ${num(p.estimate)} 枚`)
-          : h('span', { class: 'muted' }, '推定枚数 未算出')));
+      h('div', { class: 't' }, `${label}記念品「${p.cardName}」${p.cardCode ? `（${p.cardCode}）` : ''}`),
+      value,
+      p.estimate != null ? h('div', { class: 's' }, p.known ? '確定（シリアルナンバーの上限）' : p.derivedMax ? '推定（優勝の配布数からの逆算）' : '推定') : null,
+      p.note ? h('div', { class: 'muted small', style: 'margin-top:4px' }, p.note) : null);
   }
 
-  function historyView(history) {
-    return h('div', { class: 'box' },
-      h('h2', { style: 'margin-top:0' }, '歴代の記念品カード'),
-      h('p', { class: 'muted small' }, '出典: ', h('a', { href: 'https://tier-one-onepiece.jp/blog/flagship-battle-promo-card-list/', target: '_blank', rel: 'noopener' }, 'ティアワンメディア「フラッグシップバトル記念品（プロモ）一覧まとめ」'), '。推定枚数は、開催実績データがある回のみ表示します。'),
-      h('div', { class: 'grid' }, history.flatMap((r) => [historyCard(r, 'winner', '優勝'), historyCard(r, 'best8', 'ベスト8')])));
+  function historyRound(r) {
+    return h('div', { class: 'box', style: 'margin-bottom:16px' },
+      h('h2', { style: 'margin-top:0' }, `第${r.id}回フラッグシップバトル`),
+      r.period ? h('p', { class: 'muted small' }, r.period) : null,
+      h('div', { class: 'grid' }, historyStat(r.winner, '優勝'), historyStat(r.best8, 'ベスト8'), prizeImage(r.winner), prizeImage(r.best8)));
+  }
+
+  function historyView(history, skipIds) {
+    const rows = history.filter((r) => !skipIds.has(r.id));
+    return h('div', null,
+      h('h2', null, '過去の回'),
+      h('p', { class: 'muted small' }, '出典: ', h('a', { href: 'https://tier-one-onepiece.jp/blog/flagship-battle-promo-card-list/', target: '_blank', rel: 'noopener' }, 'ティアワンメディア「フラッグシップバトル記念品（プロモ）一覧まとめ」'), '。配布数は、シリアルナンバー入りの優勝記念品など、分かる回のみ表示します（空欄は情報が見つかっていません）。'),
+      rows.map(historyRound));
   }
 
   function notes() {
@@ -100,7 +107,7 @@
       h('div', { class: 'crumb' }, h('a', { href: 'index.html#/' }, 'ホーム'), ' › フラッグシップバトル 記念品カード配布枚数（推定）'),
       h('h1', null, 'フラッグシップバトル 記念品カード配布枚数（推定）'),
       data.rounds.map(roundView),
-      data.history && data.history.length ? historyView(data.history) : null,
+      data.history && data.history.length ? historyView(data.history, new Set(data.rounds.map((r) => r.id))) : null,
       notes()));
   }
 
