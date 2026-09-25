@@ -74,7 +74,7 @@ function build() {
       return {
         ...side,
         image: findImage(h.id, key),
-        estimate: side.knownCount ?? max ?? (estimateByCode.has(side.cardCode) ? estimateByCode.get(side.cardCode) : null),
+        estimate: side.knownCount ?? max ?? side.sourceEstimate ?? (estimateByCode.has(side.cardCode) ? estimateByCode.get(side.cardCode) : null),
         known: side.knownCount != null,
         derivedMax: max != null && side.knownCount == null,
       };
