@@ -68,7 +68,7 @@
     const p = round[key];
     return h('div', { class: 'card' },
       p.image ? h('img', { src: p.image, alt: p.cardName, style: 'width:100%; height:auto; border-radius:6px; margin-bottom:6px' }) : null,
-      h('div', { class: 's' }, `第${round.id}回・${label}`),
+      h('div', { class: 's' }, `第${round.id}回・${label}`, round.period ? h('div', null, round.period) : null),
       h('div', { class: 't' }, p.cardName, p.cardCode ? h('span', { class: 'muted' }, `（${p.cardCode}）`) : null),
       p.note ? h('div', { class: 'muted small' }, p.note) : null,
       h('div', { class: 'small', style: 'margin-top:4px' },
