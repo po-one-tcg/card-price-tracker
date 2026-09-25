@@ -68,8 +68,9 @@ function build() {
     // knownCount（シリアルナンバー等で分かっている固定の配布数）があれば、大会実績からの推定より優先する
     // maxFromWinnerMultiplier: 大会実績が無いとき、優勝の確定枚数×倍率で逆算した上限（「MAX ○枚（推定）」）
     const derivedMax = (side) => (side.maxFromWinnerMultiplier && h.winner.knownCount ? h.winner.knownCount * side.maxFromWinnerMultiplier : null);
+    // roughEstimate: 公式の店舗一覧PDFなどから手計算した、ざっくりの枚数（basis に根拠を書く）
     const fill = (key, side) => {
-      const max = derivedMax(side);
+      const max = derivedMax(side) ?? side.roughEstimate ?? null;
       return {
         ...side,
         image: findImage(h.id, key),

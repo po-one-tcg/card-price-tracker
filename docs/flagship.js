@@ -74,7 +74,7 @@
     return h('div', { class: 'card' },
       h('div', { class: 't' }, `${label}記念品「${p.cardName}」${p.cardCode ? `（${p.cardCode}）` : ''}`),
       value,
-      p.estimate != null ? h('div', { class: 's' }, p.known ? 'シリアルナンバーの上限' : p.derivedMax ? '優勝の配布数×8からの逆算' : '開催実績からの計算') : null,
+      p.estimate != null ? h('div', { class: 's' }, p.known ? 'シリアルナンバーの上限' : p.derivedMax ? (p.basis || '優勝の配布数×8からの逆算') : '開催実績からの計算') : null,
       p.note ? h('div', { class: 'muted small', style: 'margin-top:4px' }, p.note) : null);
   }
 
