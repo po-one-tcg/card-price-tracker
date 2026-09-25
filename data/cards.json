@@ -948,6 +948,25 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-25"
  },
+ "pricebase_OP06-101_fe2412cc": {
+  "id": "pricebase_OP06-101_fe2412cc",
+  "site": "pricebase",
+  "game": "onepiece",
+  "name": "おナミ(パラレル)",
+  "meta": "SP OP06-101",
+  "cardNo": "OP06-101",
+  "characters": [
+   "nami"
+  ],
+  "packs": [
+   "高額カード",
+   "500年後の未来"
+  ],
+  "imageUrl": "https://price-base.com/useful/wp-content/uploads/2024/03/3379-215x300.jpeg",
+  "image": "images/pricebase_OP06-101_fe2412cc.jpg",
+  "firstSeen": "2026-09-25",
+  "lastSeen": "2026-09-25"
+ },
  "pricebase_OP06-118_054267d5": {
   "id": "pricebase_OP06-118_054267d5",
   "site": "pricebase",
