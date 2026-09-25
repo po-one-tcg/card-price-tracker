@@ -69,12 +69,12 @@
     const value = p.estimate == null
       ? h('div', { class: 'muted', style: 'font-size:16px; margin:6px 0' }, '推定枚数 未算出')
       : p.derivedMax
-        ? h('div', { style: 'font-size:20px; font-weight:600; margin:6px 0' }, `ざっくり推定 MAX ${num(p.estimate)} 枚`)
-        : h('div', { style: 'font-size:28px; font-weight:700; margin:6px 0' }, p.known ? `配布数 ${num(p.estimate)} 枚` : `推定 ${num(p.estimate)} 枚`);
+        ? h('div', { style: 'font-size:20px; font-weight:600; margin:6px 0' }, `ざっくり推定 ${num(p.estimate)} 枚`)
+        : h('div', { style: 'font-size:28px; font-weight:700; margin:6px 0' }, p.known ? `MAX ${num(p.estimate)} 枚` : `推定 ${num(p.estimate)} 枚`);
     return h('div', { class: 'card' },
       h('div', { class: 't' }, `${label}記念品「${p.cardName}」${p.cardCode ? `（${p.cardCode}）` : ''}`),
       value,
-      p.estimate != null ? h('div', { class: 's' }, p.known ? '確定（シリアルナンバーの上限）' : p.derivedMax ? '優勝の配布数×8からの逆算' : '開催実績からの計算') : null,
+      p.estimate != null ? h('div', { class: 's' }, p.known ? 'シリアルナンバーの上限' : p.derivedMax ? '優勝の配布数×8からの逆算' : '開催実績からの計算') : null,
       p.note ? h('div', { class: 'muted small', style: 'margin-top:4px' }, p.note) : null);
   }
 

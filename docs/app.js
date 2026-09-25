@@ -343,7 +343,7 @@
       for (const c of Object.keys(p.stats)) {
         const st = p.stats[c];
         const r = st.periods[rankState.period];
-        if (r && r.diff !== 0 && st.now != null) rows.push({ p, c, now: st.now, n: st.nowN, r });
+        if (r && r.diff !== 0 && st.current) rows.push({ p, c, now: r.now, n: r.baseN, r });
       }
     }
     rows.sort((a, b) => Math.abs(b.r.pct) - Math.abs(a.r.pct));
@@ -352,7 +352,7 @@
     const games = [...new Set(DATA.products.map((p) => p.game))];
     return h('div', null,
       h('h1', null, '値動きランキング'),
-      h('p', { class: 'muted' }, '全商品のうち、期間内で価格が大きく動いたものを表示します（金額のついた店舗の平均で計算）。'),
+      h('p', { class: 'muted' }, '全商品のうち、期間内で価格が大きく動いたものを表示します（比較元と現在の両方に金額がある店舗どうしで、同じ顔ぶれの平均を比べています）。'),
       h('div', { class: 'chips' }, DATA.periods.map((d) => chip(PERIOD_LABEL[d], rankState.period === d, () => { rankState.period = d; rerender(); }))),
       h('div', { class: 'chips' }, [chip('全ゲーム', rankState.game === 'all', () => { rankState.game = 'all'; rerender(); }),
         games.map((g) => chip(gameLabel(g), rankState.game === g, () => { rankState.game = g; rerender(); }))]),

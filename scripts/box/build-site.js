@@ -137,7 +137,11 @@ function build() {
       }
       series[cond] = { dates, avg, n, stores: perStore };
 
-      // 期間別の差額・変化率
+      // 期間別の差額・変化率。
+      // 「その日に金額のついた店舗の平均」同士を比べると、店舗が増減しただけ（例: 比較元は1店舗、今は5店舗）で
+      // 値動きに見えてしまう。そのため、比較元と最新の両方に金額がある店舗だけを、同じ顔ぶれで比べる
+      const valsByKey = keys.map(([k]) => dates.map((d) => { const c = dailyByKey[k]?.[d]; return c && c.st === 'value' ? c.v : null; }));
+      const meanAt = (js, i) => Math.round(js.reduce((a, j) => a + valsByKey[j][i], 0) / js.length);
       let li = -1;
       for (let i = avg.length - 1; i >= 0; i--) if (avg[i] !== null) { li = i; break; }
       const periods = {};
@@ -145,19 +149,26 @@ function build() {
         const latestNum = dayNum(dates[li]);
         for (const days of PERIODS) {
           const target = latestNum - days;
-          let best = -1;
+          const cands = [];
           for (let i = 0; i < dates.length; i++) {
-            if (avg[i] === null) continue;
             const dist = Math.abs(dayNum(dates[i]) - target);
-            if (dist <= 1 && (best < 0 || dist < Math.abs(dayNum(dates[best]) - target))) best = i;
+            if (i !== li && dist <= 1) cands.push({ i, dist });
           }
-          periods[days] =
-            best >= 0 && best !== li
-              ? { base: avg[best], baseDate: dates[best], baseN: n[best], diff: avg[li] - avg[best], pct: ((avg[li] - avg[best]) / avg[best]) * 100 }
-              : null;
+          cands.sort((a, b) => a.dist - b.dist);
+          periods[days] = null;
+          for (const { i } of cands) {
+            const common = valsByKey.map((_, j) => j).filter((j) => valsByKey[j][li] !== null && valsByKey[j][i] !== null);
+            if (!common.length) continue;
+            const base = meanAt(common, i);
+            const cur = meanAt(common, li);
+            periods[days] = { base, baseDate: dates[i], baseN: common.length, now: cur, diff: cur - base, pct: ((cur - base) / base) * 100 };
+            break;
+          }
         }
       }
-      stats[cond] = { now: li >= 0 ? avg[li] : null, nowN: li >= 0 ? n[li] : 0, nowDate: li >= 0 ? dates[li] : null, periods };
+      // 最新の金額が数日以上前のままの商品（今は取り扱われていない）は、ランキングに出さない
+      const current = li >= 0 && todayNum - dayNum(dates[li]) <= 2;
+      stats[cond] = { now: li >= 0 ? avg[li] : null, nowN: li >= 0 ? n[li] : 0, nowDate: li >= 0 ? dates[li] : null, current, periods };
     }
 
     outProducts.push({ id: pid, game: p.game, name: p.name, group: p.group, release: R.releaseFor(releaseLookup, p.game, p.name), image: p.image, cells, series, stats, restocks: restocksByPid[pid] || [] });
