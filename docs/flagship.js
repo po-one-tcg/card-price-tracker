@@ -47,7 +47,7 @@
     const rules = Object.entries(p.rules).sort((a, b) => a[0] - b[0]).map(([cap, n]) => `${cap}人開催 → ${n}枚`).join('　/　');
     return h('div', { class: 'card' },
       h('div', { class: 't' }, `${p.label}記念品「${p.cardName}」${p.cardCode ? `（${p.cardCode}）` : ''}`),
-      h('div', { style: 'font-size:28px; font-weight:700; margin:6px 0' }, `推定 ${num(p.estimate)} 枚`),
+      h('div', { style: 'font-size:20px; font-weight:600; margin:6px 0' }, `ざっくり推定 ${num(p.estimate)} 枚`),
       h('div', { class: 's' }, `配布条件: ${rules}`));
   }
 
@@ -68,11 +68,13 @@
   function historyStat(p, label) {
     const value = p.estimate == null
       ? h('div', { class: 'muted', style: 'font-size:16px; margin:6px 0' }, '推定枚数 未算出')
-      : h('div', { style: 'font-size:28px; font-weight:700; margin:6px 0' }, p.known ? `配布数 ${num(p.estimate)} 枚` : p.derivedMax ? `MAX ${num(p.estimate)} 枚` : `推定 ${num(p.estimate)} 枚`);
+      : p.known
+        ? h('div', { style: 'font-size:28px; font-weight:700; margin:6px 0' }, `配布数 ${num(p.estimate)} 枚`)
+        : h('div', { style: 'font-size:20px; font-weight:600; margin:6px 0' }, p.derivedMax ? `ざっくり推定 MAX ${num(p.estimate)} 枚` : `ざっくり推定 ${num(p.estimate)} 枚`);
     return h('div', { class: 'card' },
       h('div', { class: 't' }, `${label}記念品「${p.cardName}」${p.cardCode ? `（${p.cardCode}）` : ''}`),
       value,
-      p.estimate != null ? h('div', { class: 's' }, p.known ? '確定（シリアルナンバーの上限）' : p.derivedMax ? '推定（優勝の配布数からの逆算）' : '推定') : null,
+      p.estimate != null ? h('div', { class: 's' }, p.known ? '確定（シリアルナンバーの上限）' : p.derivedMax ? '優勝の配布数×8からの逆算' : '開催実績からの計算') : null,
       p.note ? h('div', { class: 'muted small', style: 'margin-top:4px' }, p.note) : null);
   }
 
