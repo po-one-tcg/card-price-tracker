@@ -73,7 +73,7 @@
       p.note ? h('div', { class: 'muted small' }, p.note) : null,
       h('div', { class: 'small', style: 'margin-top:4px' },
         p.estimate != null
-          ? (p.known ? `配布数 ${num(p.estimate)} 枚（確定）` : `推定 ${num(p.estimate)} 枚`)
+          ? (p.known ? `配布数 ${num(p.estimate)} 枚（確定）` : p.derivedMax ? `MAX ${num(p.estimate)} 枚（推定）` : `推定 ${num(p.estimate)} 枚`)
           : h('span', { class: 'muted' }, '推定枚数 未算出')));
   }
 

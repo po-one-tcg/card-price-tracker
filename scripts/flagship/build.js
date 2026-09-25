@@ -66,12 +66,18 @@ function build() {
   for (const r of rounds) for (const p of r.prizes) estimateByCode.set(p.cardCode, p.estimate);
   const history = (config.history || []).map((h) => {
     // knownCount（シリアルナンバー等で分かっている固定の配布数）があれば、大会実績からの推定より優先する
-    const fill = (key, side) => ({
-      ...side,
-      image: findImage(h.id, key),
-      estimate: side.knownCount ?? (estimateByCode.has(side.cardCode) ? estimateByCode.get(side.cardCode) : null),
-      known: side.knownCount != null,
-    });
+    // maxFromWinnerMultiplier: 大会実績が無いとき、優勝の確定枚数×倍率で逆算した上限（「MAX ○枚（推定）」）
+    const derivedMax = (side) => (side.maxFromWinnerMultiplier && h.winner.knownCount ? h.winner.knownCount * side.maxFromWinnerMultiplier : null);
+    const fill = (key, side) => {
+      const max = derivedMax(side);
+      return {
+        ...side,
+        image: findImage(h.id, key),
+        estimate: side.knownCount ?? max ?? (estimateByCode.has(side.cardCode) ? estimateByCode.get(side.cardCode) : null),
+        known: side.knownCount != null,
+        derivedMax: max != null && side.knownCount == null,
+      };
+    };
     return { id: h.id, period: h.period, winner: fill('winner', h.winner), best8: fill('best8', h.best8) };
   });
 

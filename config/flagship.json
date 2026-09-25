@@ -28,11 +28,11 @@
       ]
     }
   ],
-  "_history_readme": "歴代の記念品カード一覧（出典: https://tier-one-onepiece.jp/blog/flagship-battle-promo-card-list/）。配布枚数の推定が無い回は空欄でよい（rounds に同じ id があれば、build.js が自動でそこから推定枚数を埋める）。シリアルナンバー入りの記念品は、大会実績から計算するのではなく knownCount（相場サイト等でわかっている固定の配布数）を書く。画像は docs/img/flagship/round<id>-winner.webp / round<id>-best8.webp。",
+  "_history_readme": "歴代の記念品カード一覧（出典: https://tier-one-onepiece.jp/blog/flagship-battle-promo-card-list/）。配布枚数の推定が無い回は空欄でよい（rounds に同じ id があれば、build.js が自動でそこから推定枚数を埋める）。シリアルナンバー入りの記念品は、大会実績から計算するのではなく knownCount（相場サイト等でわかっている固定の配布数）を書く。大会実績が無い回のベスト8は、優勝の knownCount×倍率（32人→1:8 なので通常8）で逆算した上限を maxFromWinnerMultiplier で指定する（「MAX ○枚（推定）」と表示）。画像は docs/img/flagship/round<id>-winner.webp / round<id>-best8.webp。",
   "history": [
     { "id": "16", "period": null, "winner": { "cardName": "ジュラキュール・ミホーク", "cardCode": "ST32-003" }, "best8": { "cardName": "ベン・ベックマン", "cardCode": "OP17-027" } },
     { "id": "15", "period": "2026年7月〜9月開催", "winner": { "cardName": "ボア・ハンコック", "cardCode": "OP16-032" }, "best8": { "cardName": "ロロノア・ゾロ", "cardCode": "OP15-113" } },
-    { "id": "14", "period": "2026年4月〜6月開催（推定。OPTCG Portは6月開催分しか記録が無い）", "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "EB04-061", "note": "シリアルナンバー入り", "knownCount": 2500 }, "best8": { "cardName": "エネル", "cardCode": "OP15-060" } },
+    { "id": "14", "period": "2026年4月〜6月開催", "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "EB04-061", "note": "シリアルナンバー入り", "knownCount": 2500 }, "best8": { "cardName": "エネル", "cardCode": "OP15-060", "note": "OPTCG Portに4〜5月の記録が無いため、優勝の配布数×8からの逆算", "maxFromWinnerMultiplier": 8 } },
     { "id": "13", "period": null, "winner": { "cardName": "ロロノア・ゾロ", "cardCode": "OP12-020", "note": "シリアルナンバー入り", "knownCount": 2700 }, "best8": { "cardName": "ジュエリー・ボニー", "cardCode": "OP13-108" } },
     { "id": "12", "period": null, "winner": { "cardName": "サンジ", "cardCode": "OP10-005" }, "best8": { "cardName": "たしぎ", "cardCode": "OP12-031" } },
     { "id": "11", "period": null, "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "ST21-014" }, "best8": { "cardName": "ロロノア・ゾロ", "cardCode": "ST21-015" } },
