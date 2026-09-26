@@ -1884,19 +1884,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_3f34516e": {
-  "id": "pokemon_3f34516e",
-  "game": "pokemon",
-  "name": "スターターセットex イーブイ",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Starter_Set_ex_Eevee_1789244176174.webp",
-  "image": "img/box/pokemon_3f34516e.webp",
-  "firstSeen": "2026-09-25",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_3f3685b9": {
   "id": "pokemon_3f3685b9",
   "game": "pokemon",
@@ -2241,7 +2228,7 @@
  "pokemon_5a0690f5": {
   "id": "pokemon_5a0690f5",
   "game": "pokemon",
-  "name": "ブレイブポケモン セット",
+  "name": "ポケモンセンターセット メガブレイブ",
   "group": "その他（セット・プロモ等）",
   "groups": [
    "その他（セット・プロモ等）"
@@ -3006,7 +2993,7 @@
   "groups": [
    "その他（セット・プロモ等）"
   ],
-  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Starter_Set_ex_Eevee_ex_1787290917630.webp",
+  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Starter_Set_ex_Eevee_1789244176174.webp",
   "image": "img/box/pokemon_a0351009.webp",
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
@@ -3409,7 +3396,7 @@
  "pokemon_c292a70b": {
   "id": "pokemon_c292a70b",
   "game": "pokemon",
-  "name": "メガシンフォニアポケモン セット",
+  "name": "ポケモンセンターセット メガシンフォニア",
   "group": "その他（セット・プロモ等）",
   "groups": [
    "その他（セット・プロモ等）"
@@ -3642,7 +3629,7 @@
  "pokemon_dd7c7925": {
   "id": "pokemon_dd7c7925",
   "game": "pokemon",
-  "name": "MEGA スタートデッキ100",
+  "name": "スタートデッキ100 バトルコレクション",
   "group": "MEGA・最新弾",
   "groups": [
    "MEGA・最新弾",
@@ -3672,7 +3659,7 @@
  "pokemon_e0815b17": {
   "id": "pokemon_e0815b17",
   "game": "pokemon",
-  "name": "スターメガディアンシーEXデッキ",
+  "name": "スターターセットMEGA メガディアンシーex",
   "group": "その他（セット・プロモ等）",
   "groups": [
    "その他（セット・プロモ等）"

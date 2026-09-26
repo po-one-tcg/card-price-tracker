@@ -111,7 +111,7 @@ async function runSource(store, src, ctx) {
     products[pid] = {
       id: pid,
       game: src.game,
-      name: row.name,
+      name: ex?.name || row.name, // 登録済みの商品は名前を変えない（店ごとに書き方が違っても、統合した名前が巡回のたびに入れ替わらないように）
       group: ex?.group || groups[0] || '',
       groups: [...new Set([...(ex?.groups || []), ...groups])],
       imageUrl: row.imageUrl || ex?.imageUrl || null,
