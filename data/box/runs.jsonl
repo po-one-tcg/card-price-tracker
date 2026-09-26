@@ -636,3 +636,9 @@
 {"t":"2026-09-26T15:17:51+09:00","store":"macho","game":"onepiece","ok":true,"count":59}
 {"t":"2026-09-26T15:17:51+09:00","store":"macho","game":"yugioh","ok":true,"count":0}
 {"t":"2026-09-26T15:17:51+09:00","store":"macho","game":"dragonball","ok":true,"count":0}
+{"t":"2026-09-26T16:34:00+09:00","store":"collect","src":"collect-pokemon-box","ok":true,"count":114}
+{"t":"2026-09-26T16:34:00+09:00","store":"collect","src":"collect-pokemon-other","ok":true,"count":31}
+{"t":"2026-09-26T16:34:00+09:00","store":"collect","src":"collect-onepiece","ok":true,"count":47}
+{"t":"2026-09-26T16:34:00+09:00","store":"collect","src":"collect-onepiece-other","ok":true,"count":36}
+{"t":"2026-09-26T16:34:00+09:00","store":"collect","src":"collect-dragonball","ok":true,"count":5}
+{"t":"2026-09-26T16:34:00+09:00","store":"collect","src":"collect-yugioh","ok":true,"count":4}
