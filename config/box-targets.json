@@ -57,7 +57,7 @@
   "conditions": [
     {
       "id": "box",
-      "label": "BOX（状態の区別なし）"
+      "label": "BOX"
     },
     {
       "id": "carton",

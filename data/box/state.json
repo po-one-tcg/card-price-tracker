@@ -146,15 +146,15 @@
    "lastCount": 0
   },
   "nikoniko|nikoniko-pokemon": {
-   "lastOkAt": "2026-09-26T19:10:48+09:00",
+   "lastOkAt": "2026-09-26T19:15:06+09:00",
    "lastCount": 90
   },
   "nikoniko|nikoniko-onepiece": {
-   "lastOkAt": "2026-09-26T19:10:48+09:00",
+   "lastOkAt": "2026-09-26T19:15:06+09:00",
    "lastCount": 42
   },
   "nikoniko|nikoniko-dragonball": {
-   "lastOkAt": "2026-09-26T19:10:48+09:00",
+   "lastOkAt": "2026-09-26T19:15:06+09:00",
    "lastCount": 12
   }
  },
@@ -22870,7 +22870,7 @@
     "src": "nikoniko-pokemon"
    }
   },
-  "nikoniko|pokemon_dd7c7925|shrink": {
+  "nikoniko|pokemon_dd7c7925|box": {
    "confirmed": {
     "state": "value",
     "price": 800,
@@ -22888,7 +22888,7 @@
     "store": "nikoniko",
     "game": "pokemon",
     "pid": "pokemon_dd7c7925",
-    "cond": "shrink",
+    "cond": "box",
     "src": "nikoniko-pokemon"
    }
   },

@@ -44,6 +44,9 @@
     if (/未開封カートン/.test(name)) return 'carton';
     return null;
   }
+  // 手入力の店舗だけ: スタートデッキ100のデッキ本体は「BOX」（シュリンクの有無は無い。Runtoの「BOX / 白箱 / カートン」に合わせる）。
+  // 自動取得の店舗は cleanName の結果をそのまま状態として使うので、こちらは cleanName には入れない
+  const manualCondFromName = (name) => condFromName(name) || (/スタートデッキ100/.test(name) ? 'box' : null);
 
   // 商品名の行から「名前」と「状態」を取り出す
   function cleanName(raw, section) {
@@ -207,7 +210,7 @@
           const name = (code ? code + ' ' : '') + words.join(' ');
           const cells = m[2].match(/¥\s*[0-9][0-9,]*|準備中/g);
           cells.forEach((cell, i) => {
-            const cond = (i === 0 && condFromName(name)) || sec.pageCols[i];
+            const cond = (i === 0 && manualCondFromName(name)) || sec.pageCols[i];
             if (!cond || cell === '準備中') return;
             push({ name, cond, price: Number(cell.replace(/[^0-9]/g, '')), closed: false, game: sec.game, raw: m[1] });
           });
@@ -226,7 +229,7 @@
           const pairs = [[m[2], m[3]]];
           if (m[4]) pairs.push([m[4], m[5]]);
           for (const [label, priceStr] of pairs) {
-            const cond = (pairs[0][0] === label && condFromName(name)) || sec.condLabels[label.toUpperCase()];
+            const cond = (pairs[0][0] === label && manualCondFromName(name)) || sec.condLabels[label.toUpperCase()];
             if (!cond) { b.warnings.push(`未知の状態の略号「${label}」: ${line}`); continue; }
             push({ name, cond, price: Number(priceStr.replace(/,/g, '')), closed: false, game: sec.game, raw: m[1] });
           }
@@ -242,6 +245,7 @@
           }
           const c = cleanName(m[1], sec);
           if (!c.name) continue;
+          if (c.cond === sec.baseCondition) c.cond = manualCondFromName(c.name) || c.cond; // 印が無いとき、名前から決められる状態（スタートデッキ100のデッキ本体など）
           if (exclude.some((word) => c.name.includes(word))) {
             b.ignored.push(line + '（取り込み対象外の設定）');
             continue;
