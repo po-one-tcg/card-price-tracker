@@ -1591,11 +1591,13 @@
   "name": "シールドV",
   "group": "ボックス",
   "groups": [
-   "ボックス"
+   "ボックス",
+   "ソード&シールド(S)",
+   "その他BOX（旧弾）"
   ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-23",
+  "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20191205_06537a-269x300.jpg",
+  "image": "img/box/pokemon_4b2cb4ae.jpg",
+  "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
  "pokemon_1daaa6ee": {
@@ -2084,20 +2086,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_4b2cb4ae": {
-  "id": "pokemon_4b2cb4ae",
-  "game": "pokemon",
-  "name": "シールド",
-  "group": "ソード&シールド(S)",
-  "groups": [
-   "ソード&シールド(S)",
-   "その他BOX（旧弾）"
-  ],
-  "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20191205_06537a-269x300.jpg",
-  "image": "img/box/pokemon_4b2cb4ae.jpg",
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_4b83531b": {
   "id": "pokemon_4b83531b",
   "game": "pokemon",
@@ -2271,8 +2259,8 @@
   "groups": [
    "その他（セット・プロモ等）"
   ],
-  "imageUrl": null,
-  "image": null,
+  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Pokemon_Center_set_Mega_Brave_1771903433963.webp",
+  "image": "img/box/pokemon_a6a0c14c.webp",
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
@@ -2901,19 +2889,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_959db822": {
-  "id": "pokemon_959db822",
-  "game": "pokemon",
-  "name": "メガシンフォニアポケモン セット",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Pokemon_Center_set_Mega_Symphonia_1772005503845.webp",
-  "image": "img/box/pokemon_959db822.webp",
-  "firstSeen": "2026-09-23",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_95bacb14": {
   "id": "pokemon_95bacb14",
   "game": "pokemon",
@@ -3116,19 +3091,6 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-26"
- },
- "pokemon_a6a0c14c": {
-  "id": "pokemon_a6a0c14c",
-  "game": "pokemon",
-  "name": "ブレイブポケモン セット",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Pokemon_Center_set_Mega_Brave_1771903433963.webp",
-  "image": "img/box/pokemon_a6a0c14c.webp",
-  "firstSeen": "2026-09-23",
   "lastSeen": "2026-09-26"
  },
  "pokemon_a712dbb2": {
@@ -3417,19 +3379,6 @@
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-26"
  },
- "pokemon_bc1dda73": {
-  "id": "pokemon_bc1dda73",
-  "game": "pokemon",
-  "name": "ロストアビス ペリペリ付",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_bcfb33be": {
   "id": "pokemon_bcfb33be",
   "game": "pokemon",
@@ -3478,8 +3427,8 @@
   "groups": [
    "その他（セット・プロモ等）"
   ],
-  "imageUrl": null,
-  "image": null,
+  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Pokemon_Center_set_Mega_Symphonia_1772005503845.webp",
+  "image": "img/box/pokemon_959db822.webp",
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
@@ -3539,20 +3488,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_c6539470": {
-  "id": "pokemon_c6539470",
-  "game": "pokemon",
-  "name": "ソード",
-  "group": "ソード&シールド(S)",
-  "groups": [
-   "ソード&シールド(S)",
-   "その他BOX（旧弾）"
-  ],
-  "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20191205_a5ce59-264x300.jpg",
-  "image": "img/box/pokemon_c6539470.jpg",
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_c79781d3": {
   "id": "pokemon_c79781d3",
   "game": "pokemon",
@@ -3565,19 +3500,6 @@
   ],
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2025-02-11T002953.440-300x300.jpg",
   "image": "img/box/pokemon_c79781d3.jpg",
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-26"
- },
- "pokemon_ca8768ca": {
-  "id": "pokemon_ca8768ca",
-  "game": "pokemon",
-  "name": "Vstarユニバース ペリペリ付",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
@@ -3652,11 +3574,13 @@
   "name": "ソードV",
   "group": "ボックス",
   "groups": [
-   "ボックス"
+   "ボックス",
+   "ソード&シールド(S)",
+   "その他BOX（旧弾）"
   ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-23",
+  "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20191205_a5ce59-264x300.jpg",
+  "image": "img/box/pokemon_c6539470.jpg",
+  "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
  "pokemon_d2ffe6aa": {
