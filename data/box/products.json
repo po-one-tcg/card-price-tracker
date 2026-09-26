@@ -3921,8 +3921,9 @@
   "id": "pokemon_f3db024f",
   "game": "pokemon",
   "name": "Classic デッキのみ",
-  "group": "その他（セット・プロモ等）",
+  "group": "その他ボックス",
   "groups": [
+   "その他ボックス",
    "その他（セット・プロモ等）"
   ],
   "imageUrl": null,
