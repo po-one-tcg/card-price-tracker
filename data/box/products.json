@@ -1628,19 +1628,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_24a7704d": {
-  "id": "pokemon_24a7704d",
-  "game": "pokemon",
-  "name": "ポケモンクラシック(外箱未開封)",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_2511d88d": {
   "id": "pokemon_2511d88d",
   "game": "pokemon",
@@ -1877,7 +1864,8 @@
   "group": "その他ボックス",
   "groups": [
    "その他ボックス",
-   "ボックス"
+   "ボックス",
+   "その他（セット・プロモ等）"
   ],
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-13-300x300.jpeg",
   "image": "img/box/pokemon_3ee6b2e5.webp",
@@ -3930,7 +3918,7 @@
  "pokemon_f3db024f": {
   "id": "pokemon_f3db024f",
   "game": "pokemon",
-  "name": "ポケモンClassic デッキのみ",
+  "name": "Classic デッキのみ",
   "group": "その他（セット・プロモ等）",
   "groups": [
    "その他（セット・プロモ等）"
