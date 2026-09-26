@@ -33,18 +33,18 @@
     { "id": "16", "period": "2026年10月〜", "winner": { "cardName": "ジュラキュール・ミホーク", "cardCode": "ST32-003" }, "best8": { "cardName": "ベン・ベックマン", "cardCode": "OP17-027" } },
     { "id": "15", "period": "2026年7月〜9月", "winner": { "cardName": "ボア・ハンコック", "cardCode": "OP16-032" }, "best8": { "cardName": "ロロノア・ゾロ", "cardCode": "OP15-113" } },
     { "id": "14", "period": "2026年4月〜6月", "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "EB04-061", "note": "シリアルナンバー入り", "knownCount": 2500 }, "best8": { "cardName": "エネル", "cardCode": "OP15-060", "note": "OPTCG Portに4〜5月の記録が無いため、優勝の配布数×8からの逆算", "maxFromWinnerMultiplier": 8 } },
-    { "id": "13", "period": "2026年1月〜3月", "winner": { "cardName": "ロロノア・ゾロ", "cardCode": "OP12-020", "note": "シリアルナンバー入り", "knownCount": 2700 }, "best8": { "cardName": "ジュエリー・ボニー", "cardCode": "OP13-108" } },
+    { "id": "13", "period": "2026年1月〜3月", "winner": { "cardName": "ロロノア・ゾロ", "cardCode": "OP12-020", "note": "シリアルナンバー入り", "knownCount": 2700 }, "best8": { "cardName": "ジュエリー・ボニー", "cardCode": "OP13-108", "maxFromWinnerMultiplier": 8 } },
     { "id": "12", "period": "2025年10月〜12月", "winner": { "cardName": "サンジ", "cardCode": "OP10-005" }, "best8": { "cardName": "たしぎ", "cardCode": "OP12-031" } },
     { "id": "11", "period": "2025年7月〜9月（推測）", "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "ST21-014" }, "best8": { "cardName": "ロロノア・ゾロ", "cardCode": "ST21-015" } },
     { "id": "10", "period": "2025年4月〜6月", "winner": { "cardName": "コビー", "cardCode": "OP11-119" }, "best8": { "cardName": "ひばり", "cardCode": "OP11-010" } },
     { "id": "9", "period": "2025年1月〜3月", "winner": { "cardName": "トラファルガー・ロー", "cardCode": "OP09-069" }, "best8": { "cardName": "シャーロット・プリン", "cardCode": "OP08-067" } },
     { "id": "8", "period": "2024年10月〜12月", "winner": { "cardName": "ウタ", "cardCode": "OP09-002" }, "best8": { "cardName": "ジャック", "cardCode": "OP08-084" } },
-    { "id": "7", "period": "2024年7月〜9月", "winner": { "cardName": "ポートガス・D・エース", "cardCode": "OP07-119", "note": "シリアルナンバー入り", "knownCount": 2500 }, "best8": { "cardName": "ヤマト", "cardCode": "OP04-112" } },
+    { "id": "7", "period": "2024年7月〜9月", "winner": { "cardName": "ポートガス・D・エース", "cardCode": "OP07-119", "note": "シリアルナンバー入り", "knownCount": 2500 }, "best8": { "cardName": "ヤマト", "cardCode": "OP04-112", "maxFromWinnerMultiplier": 8 } },
     { "id": "6", "period": "2024年4月〜6月（推測）", "winner": { "cardName": "ヴィンスモーク・レイジュ", "cardCode": "OP06-069" }, "best8": { "cardName": "キャベンディッシュ", "cardCode": "EB01-012" } },
     { "id": "5", "period": "2024年1月〜3月（推測）", "winner": { "cardName": "ジュラキュール・ミホーク", "cardCode": "OP01-070" }, "best8": { "cardName": "ペローナ", "cardCode": "OP06-093" } },
     { "id": "4", "period": "2023年10月〜12月", "winner": { "cardName": "カイドウ", "cardCode": "OP01-094" }, "best8": { "cardName": "シャーロット・リンリン", "cardCode": "ST07-010" } },
-    { "id": "3", "period": "2023年7月〜8月", "winner": { "cardName": "シャンクス", "cardCode": "OP01-120", "note": "シリアルナンバー入り", "knownCount": 1600 }, "best8": { "cardName": "コビー", "cardCode": "OP02-098", "roughEstimate": 4600, "basis": "公式の7月店舗一覧（239会場: 32人190・64人49）から計算した2,304枚の2か月分" } },
+    { "id": "3", "period": "2023年7月〜8月", "winner": { "cardName": "シャンクス", "cardCode": "OP01-120", "note": "シリアルナンバー入り", "knownCount": 1600 }, "best8": { "cardName": "コビー", "cardCode": "OP02-098", "maxFromWinnerMultiplier": 8 } },
     { "id": "2", "period": "2023年4月〜6月", "winner": { "cardName": "ロロノア・ゾロ", "cardCode": "OP01-025", "sourceEstimate": 860, "basis": "公式の4〜6月の店舗一覧（730会場: 32人600・64人130）から計算。配布ルールは現行と同じと仮定" }, "best8": { "cardName": "クイーン", "cardCode": "ST04-005", "sourceEstimate": 6880, "basis": "公式の4〜6月の店舗一覧（730会場: 32人600・64人130）から計算。配布ルールは現行と同じと仮定" } },
-    { "id": "1", "period": "2022年8月〜（開始月のみ）", "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "ST01-001", "note": "シリアルナンバー入り", "knownCount": 500 }, "best8": { "cardName": "トニートニー・チョッパー", "cardCode": "ST01-006" } }
+    { "id": "1", "period": "2022年8月〜（開始月のみ）", "winner": { "cardName": "モンキー・D・ルフィ", "cardCode": "ST01-001", "note": "シリアルナンバー入り", "knownCount": 500 }, "best8": { "cardName": "トニートニー・チョッパー", "cardCode": "ST01-006", "maxFromWinnerMultiplier": 8 } }
   ]
 }

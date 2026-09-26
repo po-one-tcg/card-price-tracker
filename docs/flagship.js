@@ -91,24 +91,12 @@
       rows.map(historyRound));
   }
 
-  function notes() {
-    return h('div', { class: 'box' },
-      h('h2', { style: 'margin-top:0' }, 'この数字について'),
-      h('p', { class: 'muted small' }, 'OPTCG Port（ファンサイト）に掲載されている、フラッグシップバトル各回・各店舗の開催実績（募集定員）から、配布枚数を逆算した推定値です。以下の点にご注意ください。'),
-      h('ul', { class: 'small' },
-        h('li', null, h('b', null, '募集定員ベースの計算です。'), ' 実際には抽選倍率や当日欠席などにより、予定どおりのフルの人数で開催されなかったケースが一定数含まれている可能性があります（大会中止（キャンセル）分は集計から除いています）。'),
-        h('li', null, h('b', null, '海外配布分は含みません。'), ' 過去のカードには海外向けに別途配布されるケースがありました。'),
-        h('li', null, h('b', null, 'フラッグシップバトルEX（特別大型大会）の配布分は含みません。'), ' 通常の店舗開催のみが集計対象です。'),
-        h('li', null, h('b', null, '集計時点のスナップショットです。'), ' 開催実績は今後変わる可能性があります。')));
-  }
-
   function render(data) {
     app.replaceChildren(h('div', null,
       h('div', { class: 'crumb' }, h('a', { href: 'index.html#/' }, 'ホーム'), ' › フラッグシップバトル 記念品カード配布枚数（推定）'),
       h('h1', null, 'フラッグシップバトル 記念品カード配布枚数（推定）'),
       data.rounds.map(roundView),
-      data.history && data.history.length ? historyView(data.history, new Set(data.rounds.map((r) => r.id))) : null,
-      notes()));
+      data.history && data.history.length ? historyView(data.history, new Set(data.rounds.map((r) => r.id))) : null));
   }
 
   async function init() {
