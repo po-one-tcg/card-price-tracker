@@ -23,7 +23,8 @@ function buildLookup(cfg = loadConfig()) {
   for (const [game, block] of Object.entries(cfg)) {
     if (!block || !block.dates) continue;
     const map = (byGame[game] = new Map());
-    for (const [name, date] of Object.entries(block.dates)) {
+    // manualDates: 手で書いた発売日（自動更新の update-release-dates.js では消えない。同じ名前があればこちらを優先）
+    for (const [name, date] of Object.entries({ ...block.dates, ...(block.manualDates || {}) })) {
       const noParen = name.replace(/[（(][^）)]*[）)]/g, '');
       for (const v of [name, noParen]) {
         const k = key(v);

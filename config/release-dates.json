@@ -1,5 +1,5 @@
 {
- "_readme": "商品の発売日。BOXの並び順（区分の中で新しい順）に使う。pokemon.dates は scripts/box/update-release-dates.js が自動で更新する。他のゲームは手で書く（キーは商品名。ワンピースは型番でも一致する）。aliases は「店ごとの表記の違い」を発売日の名前に対応させる表。",
+ "_readme": "商品の発売日。BOXの並び順（区分の中で新しい順）に使う。pokemon.dates は scripts/box/update-release-dates.js が自動で更新する。他のゲームは手で書く（キーは商品名。ワンピースは型番でも一致する）。aliases は「店ごとの表記の違い」を発売日の名前に対応させる表。 pokemon.manualDates は、手で書いた発売日（自動更新では消えない）。",
  "onepiece": {
   "source": "https://cardrush.media/onepiece/packs（ほか onepicard.online で OP-01〜08 を照合）",
   "fetchedAt": "2026-09-21",
@@ -234,6 +234,9 @@
    "アビスアイ": "2026-05-22",
    "ストームエメラルダ": "2026-07-31",
    "30th CELEBRATION": "2026-09-16"
+  },
+  "manualDates": {
+   "スタートデッキ100 バトルコレクション": "2025-12-19"
   }
  }
 }
