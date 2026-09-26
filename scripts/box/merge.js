@@ -21,11 +21,12 @@ function planMerges(state, products, aliases, autoStoreIds = new Set()) {
   const entriesOf = (pid) => Object.entries(state.entries).filter(([, e]) => e.ref.pid === pid);
   const plans = [];
   const skipped = [];
-  for (const list of Object.values(groups)) {
+  for (const [gkey, list] of Object.entries(groups)) {
     if (list.length < 2) continue;
-    // 残す商品: 自動取得の店舗（PRICE BASE など）に載っている商品を優先、次に先に見つかった商品
+    // 残す商品: 対応表で「正とする表記」になっている名前の商品を最優先、次に自動取得の店舗（PRICE BASE など）に載っている商品、次に先に見つかった商品
+    const isCanonical = (p) => (Expo.canon(p.name) === gkey.slice(gkey.indexOf('|') + 1) ? 0 : 1);
     const score = (p) => (entriesOf(p.id).some(([, e]) => autoStoreIds.has(e.ref.store)) ? 0 : 1);
-    list.sort((a, b) => score(a) - score(b) || (a.firstSeen || '').localeCompare(b.firstSeen || '') || a.id.localeCompare(b.id));
+    list.sort((a, b) => isCanonical(a) - isCanonical(b) || score(a) - score(b) || (a.firstSeen || '').localeCompare(b.firstSeen || '') || a.id.localeCompare(b.id));
     const [keep, ...drop] = list;
     // 衝突の確認: 残す側と同じ「店舗|状態」が、統合される側にもあるか
     const taken = new Set(entriesOf(keep.id).map(([, e]) => `${e.ref.store}|${e.ref.cond}`));
@@ -123,7 +124,7 @@ function reconcile(config, state, products, { dryRun = false } = {}) {
   return result;
 }
 
-module.exports = { planMerges, applyPlans, reconcile };
+module.exports = { planMerges, applyPlans, rewriteFiles, reconcile };
 
 if (require.main === module) {
   const config = S.readJson(P.CONFIG, null);

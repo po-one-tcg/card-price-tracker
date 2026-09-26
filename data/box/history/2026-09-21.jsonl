@@ -282,7 +282,7 @@
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_920325d0|box","st":"value","v":1500}
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_ab99206a|box","st":"value","v":1200}
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_dd7c7925|box","st":"none","v":null}
-{"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_fe7f632f|box","st":"none","v":null}
+{"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_dd7c7925|whitebox","st":"none","v":null}
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_e0815b17|box","st":"value","v":1000}
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_4c145b6b|box","st":"value","v":1300}
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_7cfbf471|box","st":"value","v":8000}

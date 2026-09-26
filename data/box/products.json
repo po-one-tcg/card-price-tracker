@@ -1786,19 +1786,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_3210dd0e": {
-  "id": "pokemon_3210dd0e",
-  "game": "pokemon",
-  "name": "スタートデッキ100 未開封カートン",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_3230521d": {
   "id": "pokemon_3230521d",
   "game": "pokemon",
@@ -2400,19 +2387,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_68c23c69": {
-  "id": "pokemon_68c23c69",
-  "game": "pokemon",
-  "name": "スタートデッキ100 未開封白箱",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_68dc9b77": {
   "id": "pokemon_68dc9b77",
   "game": "pokemon",
@@ -2785,19 +2759,6 @@
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/61eXVsu7hzL.__AC_SX300_SY300_QL70_ML2_.jpg",
   "image": "img/box/pokemon_89111e6f.jpg",
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-26"
- },
- "pokemon_8977aacd": {
-  "id": "pokemon_8977aacd",
-  "game": "pokemon",
-  "name": "MEGA スタートデッキ100",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/MEGA_Starter_Deck_100_1786903793809.webp",
-  "image": "img/box/pokemon_8977aacd.webp",
-  "firstSeen": "2026-09-23",
   "lastSeen": "2026-09-26"
  },
  "pokemon_8af6cb72": {
@@ -4239,20 +4200,6 @@
   ],
   "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/pkbox_22_1786909207950.webp",
   "image": "img/box/pokemon_f9e1d58b.jpg",
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-26"
- },
- "pokemon_fe7f632f": {
-  "id": "pokemon_fe7f632f",
-  "game": "pokemon",
-  "name": "スタートデッキ100 バトルコレクション白箱",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）",
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },

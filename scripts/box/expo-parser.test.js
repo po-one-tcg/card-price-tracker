@@ -251,9 +251,9 @@ test('にこにこ買取ページ: ポケモンはシュリンクあり/なし�
   assert.deepEqual([at(/ストームエメラルダ/, 'shrink').price, at(/ストームエメラルダ/, 'noshrink').price], [11000, 7900]);
   assert.equal(at(/古代の咆哮/, 'shrink').price, 10000);
   assert.equal(at(/古代の咆哮/, 'noshrink'), undefined); // 準備中
-  assert.equal(items.filter((i) => i.cond === 'shrink').length, 64); // ページの「64商品」と同じ
+  assert.equal(items.filter((i) => i.cond === 'shrink' || i.cond === 'whitebox').length, 64); // ページの「64商品」と同じ
   assert.equal(items.filter((i) => i.cond === 'noshrink').length, 26);
-  assert.equal(at(/バトルコレクション\(白箱\)/, 'shrink').price, 38200); // 名前の（白箱）はそのまま
+  assert.equal(at(/バトルコレクション\(白箱\)/, 'whitebox').price, 38200); // 名前が白箱の商品は、状態も白箱
 });
 
 test('にこにこ買取ページ: ワンピースは「型式 商品名」にそろえ、箱=テープ付き・カートン', () => {
@@ -276,4 +276,13 @@ test('にこにこ買取ページ: 今までのXポストの形も、変わら�
   const r = P.parse(read('nikoniko-2026-09-24.txt'), nikonikoPick('nikoniko-pokemon'));
   assert.ok(r.blocks[0].items.length > 60);
   assert.equal(r.blocks[0].page, undefined);
+});
+
+test('名前が「白箱」「未開封カートン」の商品は、印が無くても状態をそこから決める（スタートデッキ100）', () => {
+  assert.equal(P.cleanName('スタートデッキ100 バトルコレクション白箱 37000円', { baseCondition: 'shrink' }).cond, 'whitebox');
+  assert.equal(P.cleanName('スタートデッキ100 未開封カートン', { baseCondition: 'shrink' }).cond, 'carton');
+  assert.equal(P.cleanName('ストームエメラルダ', { baseCondition: 'shrink' }).cond, 'shrink'); // 普通の商品は変わらない
+  const items = P.parse(read('nikoniko-page-2026-09-26.txt'), nikonikoSections).blocks[0].items;
+  assert.equal(items.find((i) => /バトルコレクション\(白箱\)/.test(i.name)).cond, 'whitebox');
+  assert.equal(items.find((i) => /バトルコレクション\(デッキ\)/.test(i.name)).cond, 'shrink');
 });

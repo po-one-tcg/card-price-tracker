@@ -146,15 +146,15 @@
    "lastCount": 0
   },
   "nikoniko|nikoniko-pokemon": {
-   "lastOkAt": "2026-09-26T18:40:17+09:00",
+   "lastOkAt": "2026-09-26T19:10:48+09:00",
    "lastCount": 90
   },
   "nikoniko|nikoniko-onepiece": {
-   "lastOkAt": "2026-09-26T18:40:17+09:00",
+   "lastOkAt": "2026-09-26T19:10:48+09:00",
    "lastCount": 42
   },
   "nikoniko|nikoniko-dragonball": {
-   "lastOkAt": "2026-09-26T18:40:17+09:00",
+   "lastOkAt": "2026-09-26T19:10:48+09:00",
    "lastCount": 12
   }
  },
@@ -2719,28 +2719,6 @@
     "src": "collect-pokemon-box"
    }
   },
-  "collect|pokemon_3210dd0e|box": {
-   "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-22T00:25:08+09:00"
-   },
-   "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-22T00:25:08+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "collect",
-    "game": "pokemon",
-    "pid": "pokemon_3210dd0e",
-    "cond": "box",
-    "src": "collect-pokemon-other"
-   }
-  },
   "collect|pokemon_3c980e2a|noshrink": {
    "confirmed": {
     "state": "value",
@@ -3377,28 +3355,6 @@
     "pid": "pokemon_64dc356a",
     "cond": "shrink",
     "src": "collect-pokemon-box"
-   }
-  },
-  "collect|pokemon_68c23c69|box": {
-   "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-22T00:25:08+09:00"
-   },
-   "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-22T00:25:08+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "collect",
-    "game": "pokemon",
-    "pid": "pokemon_68c23c69",
-    "cond": "box",
-    "src": "collect-pokemon-other"
    }
   },
   "collect|pokemon_69dde59e|box": {
@@ -4939,6 +4895,50 @@
     "pid": "pokemon_c639d8f4",
     "cond": "shrink",
     "src": "collect-pokemon-box"
+   }
+  },
+  "collect|pokemon_dd7c7925|carton": {
+   "confirmed": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-22T00:25:08+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-22T00:25:08+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "collect",
+    "game": "pokemon",
+    "pid": "pokemon_dd7c7925",
+    "cond": "carton",
+    "src": "collect-pokemon-other"
+   }
+  },
+  "collect|pokemon_dd7c7925|whitebox": {
+   "confirmed": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-22T00:25:08+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-22T00:25:08+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "collect",
+    "game": "pokemon",
+    "pid": "pokemon_dd7c7925",
+    "cond": "whitebox",
+    "src": "collect-pokemon-other"
    }
   },
   "collect|pokemon_e5a21d16|noshrink": {
@@ -10804,6 +10804,31 @@
     "src": "pokemon-other"
    }
   },
+  "expo|pokemon_dd7c7925|whitebox": {
+   "confirmed": {
+    "state": "value",
+    "price": 37000,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 37000,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-24T14:28:31+09:00"
+   },
+   "ref": {
+    "store": "expo",
+    "game": "pokemon",
+    "pid": "pokemon_dd7c7925",
+    "cond": "whitebox",
+    "src": "pokemon-other"
+   }
+  },
   "expo|pokemon_e0815b17|box": {
    "confirmed": {
     "state": "value",
@@ -11226,31 +11251,6 @@
     "pid": "pokemon_f9e1d58b",
     "cond": "shrink",
     "src": "pokemon-box"
-   }
-  },
-  "expo|pokemon_fe7f632f|box": {
-   "confirmed": {
-    "state": "value",
-    "price": 37000,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "shown": {
-    "state": "value",
-    "price": 37000,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": {
-    "type": "appear",
-    "at": "2026-09-24T14:28:31+09:00"
-   },
-   "ref": {
-    "store": "expo",
-    "game": "pokemon",
-    "pid": "pokemon_fe7f632f",
-    "cond": "box",
-    "src": "pokemon-other"
    }
   },
   "expo|unionarena_039a4a51|tape": {
@@ -18915,48 +18915,6 @@
     "cond": "box"
    }
   },
-  "macho|pokemon_8977aacd|box": {
-   "confirmed": {
-    "state": "value",
-    "price": 600,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "shown": {
-    "state": "value",
-    "price": 600,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "macho",
-    "game": "pokemon",
-    "pid": "pokemon_8977aacd",
-    "cond": "box"
-   }
-  },
-  "macho|pokemon_8977aacd|carton": {
-   "confirmed": {
-    "state": "value",
-    "price": 40000,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "shown": {
-    "state": "value",
-    "price": 40000,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "macho",
-    "game": "pokemon",
-    "pid": "pokemon_8977aacd",
-    "cond": "carton"
-   }
-  },
   "macho|pokemon_8af6cb72|box": {
    "confirmed": {
     "state": "value",
@@ -19777,6 +19735,48 @@
     "game": "pokemon",
     "pid": "pokemon_c639d8f4",
     "cond": "shrink"
+   }
+  },
+  "macho|pokemon_dd7c7925|box": {
+   "confirmed": {
+    "state": "value",
+    "price": 600,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 600,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "macho",
+    "game": "pokemon",
+    "pid": "pokemon_dd7c7925",
+    "cond": "box"
+   }
+  },
+  "macho|pokemon_dd7c7925|carton": {
+   "confirmed": {
+    "state": "value",
+    "price": 40000,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 40000,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "macho",
+    "game": "pokemon",
+    "pid": "pokemon_dd7c7925",
+    "cond": "carton"
    }
   },
   "macho|pokemon_e5a21d16|noshrink": {
@@ -22892,6 +22892,28 @@
     "src": "nikoniko-pokemon"
    }
   },
+  "nikoniko|pokemon_dd7c7925|whitebox": {
+   "confirmed": {
+    "state": "value",
+    "price": 38200,
+    "since": "2026-09-26T18:40:17+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 38200,
+    "since": "2026-09-26T18:40:17+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "nikoniko",
+    "game": "pokemon",
+    "pid": "pokemon_dd7c7925",
+    "cond": "whitebox",
+    "src": "nikoniko-pokemon"
+   }
+  },
   "nikoniko|pokemon_e5a21d16|noshrink": {
    "confirmed": {
     "state": "value",
@@ -23152,28 +23174,6 @@
     "store": "nikoniko",
     "game": "pokemon",
     "pid": "pokemon_f9e1d58b",
-    "cond": "shrink",
-    "src": "nikoniko-pokemon"
-   }
-  },
-  "nikoniko|pokemon_fe7f632f|shrink": {
-   "confirmed": {
-    "state": "value",
-    "price": 38200,
-    "since": "2026-09-26T18:40:17+09:00"
-   },
-   "shown": {
-    "state": "value",
-    "price": 38200,
-    "since": "2026-09-26T18:40:17+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "nikoniko",
-    "game": "pokemon",
-    "pid": "pokemon_fe7f632f",
     "cond": "shrink",
     "src": "nikoniko-pokemon"
    }

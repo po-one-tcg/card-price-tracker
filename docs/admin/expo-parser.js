@@ -37,6 +37,14 @@
       .replace(/[\s・･、,.．。:：!！?？'’"“”()[\]【】〈〉<>「」『』～~\-－―−_/＆&]/g, '');
   }
 
+  // 商品名そのものが「白箱」「未開封カートン」を表している商品（スタートデッキ100など）は、印が無くても状態をそこから決める。
+  // 名前は変えない（別の店の「MEGA スタートデッキ100」などと同じ商品としてまとめるのは、対応表 product-aliases.json の役目）
+  function condFromName(name) {
+    if (/白箱/.test(name)) return 'whitebox';
+    if (/未開封カートン/.test(name)) return 'carton';
+    return null;
+  }
+
   // 商品名の行から「名前」と「状態」を取り出す
   function cleanName(raw, section) {
     let t = stripMarks(nfkc(raw)).trim();
@@ -63,7 +71,7 @@
     }
     t = t.replace(/\s+(box|ボックス)$/i, '').replace(/\s+/g, ' ').trim() + variant;
     // 印が無いとき: 区分があればその基本の状態、区分が無ければ null（価格変更ポストでは取り込み時に既存商品から決める）
-    return { name: t, cond: cond || (section ? section.baseCondition || 'box' : null) };
+    return { name: t, cond: cond || condFromName(t) || (section ? section.baseCondition || 'box' : null) };
   }
 
   const ITEM_LINE = /^(.*?)\s*(?:([0-9][0-9,]*)円|(〆切))\s*$/;
@@ -199,7 +207,7 @@
           const name = (code ? code + ' ' : '') + words.join(' ');
           const cells = m[2].match(/¥\s*[0-9][0-9,]*|準備中/g);
           cells.forEach((cell, i) => {
-            const cond = sec.pageCols[i];
+            const cond = (i === 0 && condFromName(name)) || sec.pageCols[i];
             if (!cond || cell === '準備中') return;
             push({ name, cond, price: Number(cell.replace(/[^0-9]/g, '')), closed: false, game: sec.game, raw: m[1] });
           });
@@ -218,7 +226,7 @@
           const pairs = [[m[2], m[3]]];
           if (m[4]) pairs.push([m[4], m[5]]);
           for (const [label, priceStr] of pairs) {
-            const cond = sec.condLabels[label.toUpperCase()];
+            const cond = (pairs[0][0] === label && condFromName(name)) || sec.condLabels[label.toUpperCase()];
             if (!cond) { b.warnings.push(`未知の状態の略号「${label}」: ${line}`); continue; }
             push({ name, cond, price: Number(priceStr.replace(/,/g, '')), closed: false, game: sec.game, raw: m[1] });
           }

@@ -113,8 +113,8 @@
 {"t":"2026-08-26T13:00:00+09:00","k":"collect|pokemon_a0351009|box","st":"value","v":2500}
 {"t":"2026-08-26T13:00:00+09:00","k":"collect|pokemon_276a9c27|box","st":"value","v":1400}
 {"t":"2026-08-26T13:00:00+09:00","k":"collect|pokemon_920325d0|box","st":"value","v":1600}
-{"t":"2026-08-26T13:00:00+09:00","k":"collect|pokemon_68c23c69|box","st":"value","v":42000}
-{"t":"2026-08-26T13:00:00+09:00","k":"collect|pokemon_3210dd0e|box","st":"value","v":315000}
+{"t":"2026-08-26T13:00:00+09:00","k":"collect|pokemon_dd7c7925|whitebox","st":"value","v":42000}
+{"t":"2026-08-26T13:00:00+09:00","k":"collect|pokemon_dd7c7925|carton","st":"value","v":315000}
 {"t":"2026-08-26T13:00:00+09:00","k":"collect|pokemon_5a0690f5|box","st":"none","v":null}
 {"t":"2026-08-26T13:00:00+09:00","k":"collect|pokemon_c292a70b|box","st":"none","v":null}
 {"t":"2026-08-26T13:00:00+09:00","k":"collect|pokemon_7cfbf471|box","st":"value","v":9200}
