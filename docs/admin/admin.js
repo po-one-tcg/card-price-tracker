@@ -265,7 +265,7 @@
 
   let sendAfter = true; // 「本日休止」など、貼り付け欄と関係ない操作で使う共通の設定
 
-  // 貼り付け→読み取り→確定、の一連の処理。EXPO・コレクト用とにこにこ買取用で、区分の範囲（getSections）だけ変えて2つ使う
+  // 貼り付け→読み取り→確定、の一連の処理。EXPO・コレクト用とにこにこ用で、区分の範囲（getSections）だけ変えて2つ使う
   // （分けている理由: 同じ画面に区分の選択肢が全部混ざっていると、店を間違えて選んでしまう操作ミスが起きるため）
   function createManualSession(getSections) {
     const s = { text: '', plan: null, headingMap: {}, sendAfter: true };
@@ -509,17 +509,17 @@
         manualStores().filter((st) => st.id !== 'nikoniko').map((st) => h('button', { class: 'btn', type: 'button', disabled: busy || !canWrite, onclick: () => pauseStore(st.id) }, `${st.name} 本日休止`))));
   }
 
-  // にこにこ買取だけの入力欄（EXPO・コレクトとは別。区分の選択肢も、にこにこ買取のものしか出さない）
+  // にこにこだけの入力欄（EXPO・コレクトとは別。区分の選択肢も、にこにこのものしか出さない）
   function nikonikoCard() {
     const st = storeOf('nikoniko');
     if (!st) return null;
     const session = nikonikoSession;
-    const ta = h('textarea', { class: 'field area', rows: '7', placeholder: 'ここに、にこにこ買取の「買取価格表」ページを、全体コピーしてそのまま貼り付け（Xのポストも可）', 'aria-label': 'にこにこ買取の取り込む内容', spellcheck: 'false' });
+    const ta = h('textarea', { class: 'field area', rows: '7', placeholder: 'ここに、にこにこの「買取価格表」ページを、全体コピーしてそのまま貼り付け（Xのポストも可）', 'aria-label': 'にこにこの取り込む内容', spellcheck: 'false' });
     ta.value = session.s.text;
     ta.addEventListener('input', () => { session.s.text = ta.value; });
     const canWrite = Boolean(token && decisions);
     return h('section', { class: 'box' },
-      h('h2', { style: 'margin-top:0' }, '③ にこにこ買取の入力'),
+      h('h2', { style: 'margin-top:0' }, '③ にこにこの入力'),
       h('p', { class: 'muted small' }, 'EXPO・コレクトとは別の入力欄です。買取価格表のページは、ポケモン・ワンピース・ドラゴンボールの区分が自動で決まります。Xのポストは見出しが無いので、読み取ったあとに区分を手動で選んでください。'),
       inputChecklist((id) => id === 'nikoniko'),
       ta,
