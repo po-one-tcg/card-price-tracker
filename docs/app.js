@@ -255,7 +255,7 @@
           : !st.fresh ? h('span', { class: 'badge warn' }, '⚠', h('wbr', null), ' 未取得')
           : !isToday ? h('span', { class: 'badge notice' }, '本日', h('wbr', null), '未更新')
           : null;
-        return h('th', null, s.name,
+        return h('th', { class: 'store' }, s.name,
           badge ? h('div', { style: 'margin-top:3px; text-align:center' }, badge) : null,
           h('small', { class: 'muted' }, timeText));
       })));
@@ -304,7 +304,7 @@
           ['all', ...allConds].map((c) => h('button', { class: 'chip', type: 'button', 'aria-pressed': sel === c ? 'true' : 'false', onclick: () => { prodCond[pid] = c; render(true); } }, c === 'all' ? 'すべて' : condLabel(c))))
       : null;
     const table = h('div', { class: 'tablewrap', style: 'max-height:none' }, h('table', null,
-      h('thead', null, h('tr', null, h('th', { class: 'name' }, '状態'), stores.map((s) => h('th', null, s.name)))),
+      h('thead', null, h('tr', null, h('th', { class: 'name' }, '状態'), stores.map((s) => h('th', { class: 'store' }, s.name)))),
       h('tbody', null, conds.map((c) => {
         const rowCells = stores.map((s) => p.cells.find((x) => x.store === s.id && x.cond === c));
         const isMax = markMax(rowCells);
