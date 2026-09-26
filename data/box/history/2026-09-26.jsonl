@@ -161,3 +161,10 @@
 {"t":"2026-09-26T16:34:00+09:00","k":"collect|onepiece_0db75840|tape","st":"value","v":18000}
 {"t":"2026-09-26T16:34:00+09:00","k":"collect|onepiece_554ab9c7|tape","st":"value","v":15000}
 {"t":"2026-09-26T16:34:00+09:00","k":"collect|onepiece_56ed4c82|tape","st":"value","v":17000}
+{"t":"2026-09-26T18:01:13+09:00","k":"runto|pokemon_13fcc149|noshrink","st":"value","v":22000}
+{"t":"2026-09-26T18:01:13+09:00","k":"runto|pokemon_8af6cb72|box","st":"value","v":14000}
+{"t":"2026-09-26T18:01:13+09:00","k":"runto|onepiece_5541d89b|tape","st":"value","v":10000}
+{"t":"2026-09-26T18:01:13+09:00","k":"runto|yugioh_84dc772b|shrink","st":"value","v":6800}
+{"t":"2026-09-26T18:01:13+09:00","k":"runto|yugioh_f8033775|shrink","st":"value","v":3000}
+{"t":"2026-09-26T18:01:13+09:00","k":"homura|pokemon_ebea83a5|box","st":"value","v":17200}
+{"t":"2026-09-26T18:01:13+09:00","k":"somurie|pokemon_adbf6375|box","st":"value","v":11500}
