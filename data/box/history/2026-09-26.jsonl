@@ -167,7 +167,7 @@
 {"t":"2026-09-26T18:01:13+09:00","k":"runto|yugioh_84dc772b|shrink","st":"value","v":6800}
 {"t":"2026-09-26T18:01:13+09:00","k":"runto|yugioh_f8033775|shrink","st":"value","v":3000}
 {"t":"2026-09-26T18:01:13+09:00","k":"homura|pokemon_ebea83a5|box","st":"value","v":17200}
-{"t":"2026-09-26T18:01:13+09:00","k":"somurie|pokemon_adbf6375|box","st":"value","v":11500}
+{"t":"2026-09-26T18:01:13+09:00","k":"somurie|pokemon_7feba245|box","st":"value","v":11500}
 {"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_13fcc149|shrink","st":"value","v":24200}
 {"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_13fcc149|noshrink","st":"value","v":19200}
 {"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_b6ca6a70|shrink","st":"value","v":11000}
@@ -252,9 +252,9 @@
 {"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_64dc356a|shrink","st":"value","v":40000}
 {"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_866d74f0|shrink","st":"value","v":17400}
 {"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_8f4f6d84|shrink","st":"value","v":55200}
-{"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_cbf14719|shrink","st":"value","v":10700}
-{"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_caec1628|shrink","st":"value","v":13400}
-{"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_d97069d7|shrink","st":"value","v":11700}
+{"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_7feba245|shrink","st":"value","v":10700}
+{"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_8af6cb72|shrink","st":"value","v":13400}
+{"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_b05e9cbe|shrink","st":"value","v":11700}
 {"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_ebea83a5|shrink","st":"value","v":17200}
 {"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_dd7c7925|box","st":"value","v":800}
 {"t":"2026-09-26T18:40:17+09:00","k":"nikoniko|pokemon_dd7c7925|whitebox","st":"value","v":38200}

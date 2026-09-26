@@ -146,8 +146,8 @@
 {"t":"2026-09-24T13:15:15+09:00","type":"disappear","from":22000,"k":"homura|dragonball_a1f72f61|tape","store":"homura","game":"dragonball","pid":"dragonball_a1f72f61","name":"FB-07 神龍への願い"}
 {"t":"2026-09-24T13:15:15+09:00","type":"disappear","from":50000,"k":"homura|dragonball_e1e45c04|tape","store":"homura","game":"dragonball","pid":"dragonball_e1e45c04","name":"SB-02 フュージョンワールド MANGA BOOSTER 02"}
 {"t":"2026-09-24T13:15:15+09:00","type":"appear","from":"none","to":19500,"k":"somurie|pokemon_13fcc149|noshrink","store":"somurie","game":"pokemon","pid":"pokemon_13fcc149","name":"30th CELEBRATION"}
-{"t":"2026-09-24T13:15:15+09:00","type":"appear","to":11000,"k":"somurie|pokemon_adbf6375|box","store":"somurie","game":"pokemon","pid":"pokemon_adbf6375","name":"スペシャルBOX ポケモンセンタートウホク"}
-{"t":"2026-09-24T13:15:15+09:00","type":"appear","to":13000,"k":"somurie|pokemon_6cfac577|box","store":"somurie","game":"pokemon","pid":"pokemon_6cfac577","name":"スペシャルBOX ポケモンセンターヒロシマ"}
+{"t":"2026-09-24T13:15:15+09:00","type":"appear","to":11000,"k":"somurie|pokemon_7feba245|box","store":"somurie","game":"pokemon","pid":"pokemon_7feba245","name":"スペシャルBOX ポケモンセンタートウホク"}
+{"t":"2026-09-24T13:15:15+09:00","type":"appear","to":13000,"k":"somurie|pokemon_8af6cb72|box","store":"somurie","game":"pokemon","pid":"pokemon_8af6cb72","name":"スペシャルBOX ポケモンセンターヒロシマ"}
 {"t":"2026-09-24T13:15:15+09:00","type":"disappear","from":10000,"k":"somurie|pokemon_2b1faaeb|shrink","store":"somurie","game":"pokemon","pid":"pokemon_2b1faaeb","name":"バトルパートナーズ"}
 {"t":"2026-09-24T13:15:15+09:00","type":"disappear","from":12200,"k":"somurie|pokemon_50d5baac|shrink","store":"somurie","game":"pokemon","pid":"pokemon_50d5baac","name":"MEGAドリームex"}
 {"t":"2026-09-24T13:15:15+09:00","type":"disappear","from":65000,"k":"somurie|pokemon_8f4f6d84|box","store":"somurie","game":"pokemon","pid":"pokemon_8f4f6d84","name":"30th CELEBRATION FUTURISTIC"}

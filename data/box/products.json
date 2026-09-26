@@ -2430,19 +2430,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_6b2d3dfa": {
-  "id": "pokemon_6b2d3dfa",
-  "game": "pokemon",
-  "name": "スターメガディアンシーEXデッキ",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Starter_Set_MEGA_Diancie_Ex_1772005367200.webp",
-  "image": "img/box/pokemon_6b2d3dfa.webp",
-  "firstSeen": "2026-09-23",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_6b6a9293": {
   "id": "pokemon_6b6a9293",
   "game": "pokemon",
@@ -2470,19 +2457,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_6cfac577": {
-  "id": "pokemon_6cfac577",
-  "game": "pokemon",
-  "name": "スペシャルBOX ポケモンセンターヒロシマ",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": "https://cdn.somurie-kaitori.com/products/1772008956179.jpg",
-  "image": "img/box/pokemon_6cfac577.jpg",
-  "firstSeen": "2026-09-24",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_6ef687fc": {
   "id": "pokemon_6ef687fc",
   "game": "pokemon",
@@ -2494,19 +2468,6 @@
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/20221012_f5c458-280x300.jpg",
   "image": "img/box/pokemon_6ef687fc.jpg",
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-26"
- },
- "pokemon_6f14f644": {
-  "id": "pokemon_6f14f644",
-  "game": "pokemon",
-  "name": "MEGA プレミアムトレーナーBOX",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-23",
   "lastSeen": "2026-09-26"
  },
  "pokemon_7040f78a": {
@@ -3278,19 +3239,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_adbf6375": {
-  "id": "pokemon_adbf6375",
-  "game": "pokemon",
-  "name": "スペシャルBOX ポケモンセンタートウホク",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": "https://cdn.somurie-kaitori.com/products/1772157662826.jpg",
-  "image": "img/box/pokemon_adbf6375.jpg",
-  "firstSeen": "2026-09-24",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_ae0715f9": {
   "id": "pokemon_ae0715f9",
   "game": "pokemon",
@@ -3633,20 +3581,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_caec1628": {
-  "id": "pokemon_caec1628",
-  "game": "pokemon",
-  "name": "スペシャルBOX ヒロシマ",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）",
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-23",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_cb1ff708": {
   "id": "pokemon_cb1ff708",
   "game": "pokemon",
@@ -3658,20 +3592,6 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-26"
- },
- "pokemon_cbf14719": {
-  "id": "pokemon_cbf14719",
-  "game": "pokemon",
-  "name": "スペシャルBOX トウホク",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）",
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-23",
   "lastSeen": "2026-09-26"
  },
  "pokemon_ccc94b0f": {
@@ -3795,20 +3715,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
- "pokemon_d97069d7": {
-  "id": "pokemon_d97069d7",
-  "game": "pokemon",
-  "name": "スペシャルBOX フクオカ",
-  "group": "その他（セット・プロモ等）",
-  "groups": [
-   "その他（セット・プロモ等）",
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-23",
-  "lastSeen": "2026-09-26"
- },
  "pokemon_dd527af6": {
   "id": "pokemon_dd527af6",
   "game": "pokemon",
@@ -3860,8 +3766,8 @@
   "groups": [
    "その他（セット・プロモ等）"
   ],
-  "imageUrl": null,
-  "image": null,
+  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Starter_Set_MEGA_Diancie_Ex_1772005367200.webp",
+  "image": "img/box/pokemon_6b2d3dfa.webp",
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-26"
  },
