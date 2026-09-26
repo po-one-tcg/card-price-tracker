@@ -72,6 +72,10 @@
       "label": "シュリンク無し"
     },
     {
+      "id": "nopeel",
+      "label": "ぺりぺり無し"
+    },
+    {
       "id": "tapecut",
       "label": "テープカット"
     },
