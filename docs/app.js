@@ -289,11 +289,20 @@
   }
 
   // ---------- 画面: 商品 ----------
+  const prodCond = {}; // 商品ごとの、状態フィルタの選択（ページを開いている間だけ覚える）
   function viewProduct(pid) {
     const p = byId[pid];
     if (!p) return h('p', { class: 'empty' }, '商品が見つかりません。');
-    const conds = COND_ORDER.filter((c) => p.cells.some((x) => x.cond === c));
-    const stores = DATA.stores.filter((s) => p.cells.some((c) => c.store === s.id));
+    const allConds = COND_ORDER.filter((c) => p.cells.some((x) => x.cond === c));
+    // 状態のフィルタ（状態が2つ以上ある商品だけ）。選んだ状態の行・推移だけを出す。既定は「すべて」
+    const sel = allConds.length > 1 && allConds.includes(prodCond[pid]) ? prodCond[pid] : 'all';
+    const conds = sel === 'all' ? allConds : [sel];
+    const stores = DATA.stores.filter((s) => p.cells.some((c) => c.store === s.id && conds.includes(c.cond)));
+    const condBar = allConds.length > 1
+      ? h('div', { class: 'filter-row', style: 'margin:12px 0' },
+          h('span', { class: 'small muted' }, '状態:'),
+          ['all', ...allConds].map((c) => h('button', { class: 'chip', type: 'button', 'aria-pressed': sel === c ? 'true' : 'false', onclick: () => { prodCond[pid] = c; render(true); } }, c === 'all' ? 'すべて' : condLabel(c))))
+      : null;
     const table = h('div', { class: 'tablewrap', style: 'max-height:none' }, h('table', null,
       h('thead', null, h('tr', null, h('th', { class: 'name' }, '状態'), stores.map((s) => h('th', null, s.name)))),
       h('tbody', null, conds.map((c) => {
@@ -331,7 +340,7 @@
       h('div', { class: 'hero' }, p.image ? h('img', { src: p.image, alt: '' }) : null,
         h('div', { class: 'info' }, h('h1', null, p.name), h('div', { class: 'muted' }, p.group + (p.release ? '　発売 ' + p.release.replace(/-/g, '/') : ''))),
         restockBlock),
-      table, blocks);
+      condBar, table, blocks);
   }
 
   // ---------- 画面: 値動きランキング ----------
