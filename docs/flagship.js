@@ -88,8 +88,6 @@
   function historyView(history, skipIds) {
     const rows = history.filter((r) => !skipIds.has(r.id));
     return h('div', null,
-      h('h2', null, '過去の回'),
-      h('p', { class: 'muted small' }, '出典: ', h('a', { href: 'https://tier-one-onepiece.jp/blog/flagship-battle-promo-card-list/', target: '_blank', rel: 'noopener' }, 'ティアワンメディア「フラッグシップバトル記念品（プロモ）一覧まとめ」'), '。配布数は、シリアルナンバー入りの優勝記念品など、分かる回のみ表示します（空欄は情報が見つかっていません）。'),
       rows.map(historyRound));
   }
 
