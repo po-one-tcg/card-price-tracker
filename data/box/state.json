@@ -130,7 +130,7 @@
    "lastCount": 0
   },
   "macho|pokemon": {
-   "lastOkAt": "2026-09-26T18:01:13+09:00",
+   "lastOkAt": "2026-09-26T19:44:59+09:00",
    "lastCount": 102
   },
   "macho|onepiece": {
@@ -8700,7 +8700,7 @@
     "src": "pokemon-box"
    }
   },
-  "expo|pokemon_4ae9852d|box": {
+  "expo|pokemon_4ae9852d|set": {
    "confirmed": {
     "state": "value",
     "price": 1500,
@@ -8718,7 +8718,7 @@
     "store": "expo",
     "game": "pokemon",
     "pid": "pokemon_4ae9852d",
-    "cond": "box",
+    "cond": "set",
     "src": "pokemon-other"
    }
   },
@@ -18048,27 +18048,6 @@
     "cond": "shrink"
    }
   },
-  "macho|pokemon_0612e887|box": {
-   "confirmed": {
-    "state": "value",
-    "price": 1700,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "shown": {
-    "state": "value",
-    "price": 1700,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "macho",
-    "game": "pokemon",
-    "pid": "pokemon_0612e887",
-    "cond": "box"
-   }
-  },
   "macho|pokemon_133fd658|noshrink": {
    "confirmed": {
     "state": "value",
@@ -18619,6 +18598,27 @@
     "game": "pokemon",
     "pid": "pokemon_4a972bc3",
     "cond": "shrink"
+   }
+  },
+  "macho|pokemon_4ae9852d|red": {
+   "confirmed": {
+    "state": "value",
+    "price": 1700,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 1700,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "macho",
+    "game": "pokemon",
+    "pid": "pokemon_4ae9852d",
+    "cond": "red"
    }
   },
   "macho|pokemon_4be49f8c|shrink": {

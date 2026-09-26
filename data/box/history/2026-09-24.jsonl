@@ -311,7 +311,7 @@
 {"t":"2026-09-24T14:28:31+09:00","k":"macho|pokemon_40c47c80|shrink","st":"value","v":9200}
 {"t":"2026-09-24T14:28:31+09:00","k":"macho|pokemon_5d253bf8|shrink","st":"value","v":40000}
 {"t":"2026-09-24T14:28:31+09:00","k":"macho|pokemon_7040f78a|shrink","st":"value","v":50000}
-{"t":"2026-09-24T14:28:31+09:00","k":"macho|pokemon_0612e887|box","st":"value","v":1700}
+{"t":"2026-09-24T14:28:31+09:00","k":"macho|pokemon_4ae9852d|red","st":"value","v":1700}
 {"t":"2026-09-24T14:28:31+09:00","k":"macho|onepiece_9ca95851|box","st":"value","v":200}
 {"t":"2026-09-24T14:28:31+09:00","k":"macho|onepiece_5541d89b|tape","st":"value","v":11300}
 {"t":"2026-09-24T14:28:31+09:00","k":"macho|onepiece_5541d89b|tapecut","st":"value","v":9000}
@@ -590,7 +590,7 @@
 {"t":"2026-09-24T18:02:05+09:00","k":"macho|pokemon_40c47c80|shrink","st":"unknown","v":null}
 {"t":"2026-09-24T18:02:05+09:00","k":"macho|pokemon_5d253bf8|shrink","st":"unknown","v":null}
 {"t":"2026-09-24T18:02:05+09:00","k":"macho|pokemon_7040f78a|shrink","st":"unknown","v":null}
-{"t":"2026-09-24T18:02:05+09:00","k":"macho|pokemon_0612e887|box","st":"unknown","v":null}
+{"t":"2026-09-24T18:02:05+09:00","k":"macho|pokemon_4ae9852d|red","st":"unknown","v":null}
 {"t":"2026-09-24T18:02:05+09:00","k":"macho|onepiece_9ca95851|box","st":"unknown","v":null}
 {"t":"2026-09-24T18:02:05+09:00","k":"macho|onepiece_5541d89b|tape","st":"unknown","v":null}
 {"t":"2026-09-24T18:02:05+09:00","k":"macho|onepiece_5541d89b|tapecut","st":"unknown","v":null}

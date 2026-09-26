@@ -9,6 +9,7 @@
 //
 // ゲームは URL の ?game=pokemon / ?game=onepiece などで切り替える。ページ送りは ?page=N（「次へ」リンクの有無で判定）。
 const cheerio = require('cheerio');
+const Expo = require('../../docs/admin/expo-parser.js');
 
 const BASE = 'https://kaitori.alc-japan.co.jp/buyback-prices';
 const MAX_PAGES = 15;
@@ -78,10 +79,12 @@ function hasNextPage(html) {
 function toRow(item, game) {
   const group = GROUP[game]?.[item.product_type];
   if (!group) return null; // single/bulk など、BOXではないもの
-  const cond = COND[game]?.[item.condition] || 'box';
   const price = Number(item.kaitori_price);
+  const name = item.name.normalize('NFKC').replace(/\s+/g, ' ').trim();
+  const vv = Expo.variantOf(name); // ポケモンババ抜き（赤・青・セット）は名前を1つにまとめ、種類を状態にする
+  const cond = vv ? vv.cond : COND[game]?.[item.condition] || 'box';
   return {
-    name: item.name.normalize('NFKC').replace(/\s+/g, ' ').trim(),
+    name: vv ? vv.name : name,
     cond,
     price: price > 0 ? price : null,
     status: price > 0 ? 'price' : 'unknown', // 「調整中」等は未確認（前日の価格を引き継がない）

@@ -286,3 +286,14 @@ test('名前が「白箱」「未開封カートン」の商品は、印が無�
   assert.equal(items.find((i) => /バトルコレクション\(白箱\)/.test(i.name)).cond, 'whitebox');
   assert.equal(items.find((i) => /バトルコレクション\(デッキ\)/.test(i.name)).cond, 'box'); // デッキ本体は「BOX」（シュリンクの有無は無い）
 });
+
+test('ポケモンババ抜き: 赤・青・セットを1つの商品にまとめ、種類を状態にする', () => {
+  assert.deepEqual(P.variantOf('ババ抜き 赤'), { name: 'ポケモンババ抜き', cond: 'red' });
+  assert.deepEqual(P.variantOf('ポケモンババ抜き 青'), { name: 'ポケモンババ抜き', cond: 'blue' });
+  assert.deepEqual(P.variantOf('ポケモンババ抜き(赤と青で1セット)'), { name: 'ポケモンババ抜き', cond: 'set' });
+  assert.equal(P.variantOf('ストームエメラルダ'), null);
+  // EXPOの価格表の行
+  const r = P.parse('✅ポケカ その他\n🔥ポケモンババ抜き(赤と青で1セット) 1500円\n🔥ババ抜き 赤 800円', [{ id: 'pokemon-other', headings: ['ポケカ その他'], game: 'pokemon', storeId: 'expo' }]);
+  const items = r.blocks[0].items.map((i) => [i.name, i.cond, i.price]);
+  assert.deepEqual(items, [['ポケモンババ抜き', 'set', 1500], ['ポケモンババ抜き', 'red', 800]]);
+});

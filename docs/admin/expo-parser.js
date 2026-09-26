@@ -48,6 +48,15 @@
   // 自動取得の店舗は cleanName の結果をそのまま状態として使うので、こちらは cleanName には入れない
   const manualCondFromName = (name) => condFromName(name) || (/スタートデッキ100/.test(name) ? 'box' : null);
 
+  // 1つの商品に「赤・青・セット」のような種類があるもの（ポケモンババ抜き）。店ごとに書き方が違うので、名前を1つにまとめ、種類を状態にする。
+  // 赤と青を別々にしか買わない店も、セットでしか買わない店もある。戻り値: { name, cond } | null（対象外）
+  function variantOf(name) {
+    const n = nfkc(name);
+    if (!/ババ抜き/.test(n)) return null;
+    const cond = /セット/.test(n) || (/赤/.test(n) && /青/.test(n)) ? 'set' : /赤/.test(n) ? 'red' : /青/.test(n) ? 'blue' : null;
+    return cond ? { name: 'ポケモンババ抜き', cond } : null;
+  }
+
   // 商品名の行から「名前」と「状態」を取り出す
   function cleanName(raw, section) {
     let t = stripMarks(nfkc(raw)).trim();
@@ -207,10 +216,11 @@
           }
           const words = m[1].trim().split(/\s+/);
           const code = words.length > 1 && PAGE_CODE.test(words[words.length - 1]) ? words.pop().toUpperCase().replace(/^([A-Z]+)-?(\d+)$/, '$1-$2') : null;
-          const name = (code ? code + ' ' : '') + words.join(' ');
+          const vv = variantOf(words.join(' '));
+          const name = vv ? vv.name : (code ? code + ' ' : '') + words.join(' ');
           const cells = m[2].match(/¥\s*[0-9][0-9,]*|準備中/g);
           cells.forEach((cell, i) => {
-            const cond = (i === 0 && manualCondFromName(name)) || sec.pageCols[i];
+            const cond = (i === 0 && (vv ? vv.cond : manualCondFromName(name))) || sec.pageCols[i];
             if (!cond || cell === '準備中') return;
             push({ name, cond, price: Number(cell.replace(/[^0-9]/g, '')), closed: false, game: sec.game, raw: m[1] });
           });
@@ -224,12 +234,13 @@
             if (!/^#/.test(line)) b.ignored.push(line);
             continue;
           }
-          const name = nfkc(m[1]).replace(/\s+/g, ' ').trim();
+          const vv = variantOf(m[1]);
+          const name = vv ? vv.name : nfkc(m[1]).replace(/\s+/g, ' ').trim();
           if (!name) continue;
           const pairs = [[m[2], m[3]]];
           if (m[4]) pairs.push([m[4], m[5]]);
           for (const [label, priceStr] of pairs) {
-            const cond = (pairs[0][0] === label && manualCondFromName(name)) || sec.condLabels[label.toUpperCase()];
+            const cond = (pairs[0][0] === label && (vv ? vv.cond : manualCondFromName(name))) || sec.condLabels[label.toUpperCase()];
             if (!cond) { b.warnings.push(`未知の状態の略号「${label}」: ${line}`); continue; }
             push({ name, cond, price: Number(priceStr.replace(/,/g, '')), closed: false, game: sec.game, raw: m[1] });
           }
@@ -246,6 +257,8 @@
           const c = cleanName(m[1], sec);
           if (!c.name) continue;
           if (c.cond === sec.baseCondition) c.cond = manualCondFromName(c.name) || c.cond; // 印が無いとき、名前から決められる状態（スタートデッキ100のデッキ本体など）
+          const vv = variantOf(c.name);
+          if (vv) { c.name = vv.name; c.cond = vv.cond; }
           if (exclude.some((word) => c.name.includes(word))) {
             b.ignored.push(line + '（取り込み対象外の設定）');
             continue;
@@ -283,5 +296,5 @@
     return products.find((p) => p.game === game && r(game, p.name) === c) || null;
   }
 
-  return { parse, canon, cleanName, matchProduct, findSection, makeResolver };
+  return { parse, canon, cleanName, variantOf, matchProduct, findSection, makeResolver };
 });

@@ -316,7 +316,7 @@
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_68dc9b77|box","st":"value","v":8500}
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_1187b94d|box","st":"none","v":null}
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_cb1ff708|box","st":"value","v":4200}
-{"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_4ae9852d|box","st":"value","v":1500}
+{"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_4ae9852d|set","st":"value","v":1500}
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_6b6a9293|box","st":"none","v":null}
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_9bf63535|box","st":"none","v":null}
 {"t":"2026-09-21T22:19:14+09:00","k":"expo|pokemon_249170ee|box","st":"value","v":34000}

@@ -29,7 +29,7 @@
   const md = (stamp) => `${+stamp.slice(5, 7)}/${+stamp.slice(8, 10)}`;
   const hm = (stamp) => stamp.slice(11, 16);
   const PERIOD_LABEL = { 1: '前日', 7: '1週間', 14: '2週間', 30: '1ヶ月', 90: '3ヶ月', 180: '半年' };
-  const COND_ORDER = ['shrink', 'tape', 'noshrink', 'nopeel', 'tapecut', 'pack', 'carton', 'whitebox', 'box'];
+  const COND_ORDER = ['shrink', 'tape', 'noshrink', 'nopeel', 'tapecut', 'pack', 'carton', 'whitebox', 'red', 'blue', 'set', 'box'];
   const condLabel = (id) => (DATA.conditions.find((c) => c.id === id) || { label: id }).label;
   const gameLabel = (id) => (DATA.games.find((g) => g.id === id) || { label: id }).label;
   const storeName = (id) => (DATA.stores.find((s) => s.id === id) || { name: id }).name;
@@ -70,7 +70,7 @@
 
   // 一覧で使う「代表の状態」: シュリンク付き → BOX(区別なし) → カートン → シュリンク無し の順で最初にあるもの。
   // 状態のフィルタが無いゲーム（例: MTG）で使う。状態が分かれているゲームでは、状態のフィルタ（exactCond）を常に指定する。
-  const SUMMARY_ORDER = ['shrink', 'box', 'carton', 'noshrink', 'nopeel', 'tape', 'tapecut', 'whitebox', 'pack'];
+  const SUMMARY_ORDER = ['shrink', 'box', 'carton', 'noshrink', 'nopeel', 'tape', 'tapecut', 'whitebox', 'red', 'blue', 'set', 'pack'];
   // BOX（状態の区別なし）は、シュリンク付き／テープ付きと同じ扱いにする（別の状態としては出さない）
   function summaryCell(p, storeId, exactCond) {
     if (exactCond) {

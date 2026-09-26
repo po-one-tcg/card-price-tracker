@@ -76,6 +76,18 @@
       "label": "ぺりぺり無し"
     },
     {
+      "id": "red",
+      "label": "赤"
+    },
+    {
+      "id": "blue",
+      "label": "青"
+    },
+    {
+      "id": "set",
+      "label": "セット"
+    },
+    {
       "id": "tapecut",
       "label": "テープカット"
     },
