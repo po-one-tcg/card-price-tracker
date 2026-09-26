@@ -662,3 +662,6 @@
 {"t":"2026-09-26T18:01:13+09:00","store":"macho","game":"onepiece","ok":true,"count":59}
 {"t":"2026-09-26T18:01:13+09:00","store":"macho","game":"yugioh","ok":true,"count":0}
 {"t":"2026-09-26T18:01:13+09:00","store":"macho","game":"dragonball","ok":true,"count":0}
+{"t":"2026-09-26T18:40:17+09:00","store":"nikoniko","src":"nikoniko-pokemon","ok":true,"count":90}
+{"t":"2026-09-26T18:40:17+09:00","store":"nikoniko","src":"nikoniko-onepiece","ok":true,"count":42}
+{"t":"2026-09-26T18:40:17+09:00","store":"nikoniko","src":"nikoniko-dragonball","ok":true,"count":12}
