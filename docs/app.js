@@ -39,7 +39,13 @@
 
   // ---------- セル（店舗×商品×状態）----------
   // isMax: その行（同じ商品・同じ状態）の中で一番高い価格なら目立たせる（安い方は目立たせなくてよい）
+  // 価格のセル（表示は中央寄せ。CSS の td.cell）
   function cellNode(cell, isMax) {
+    const td = cellNodeInner(cell, isMax);
+    td.classList.add('cell');
+    return td;
+  }
+  function cellNodeInner(cell, isMax) {
     if (!cell) return h('td', { class: 'dash' }, '—');
     switch (cell.state) {
       case 'value': {

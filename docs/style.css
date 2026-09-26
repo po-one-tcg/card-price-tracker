@@ -103,6 +103,7 @@ tr.group td { position: sticky; left: 0; background: var(--group); font-weight: 
 .pname { display: flex; align-items: center; gap: 8px; }
 .pname img, .thumb { width: 30px; height: 42px; object-fit: contain; flex: none; background: var(--head); border-radius: 3px; }
 .pname a { color: var(--text); }
+td.cell { text-align: center; } /* 価格のセルは中央寄せ */
 td.is-new { background: var(--new-bg); }
 td.is-max { background: var(--max-bg); }
 td.gone { color: var(--gone-fg); }
