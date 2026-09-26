@@ -237,3 +237,43 @@ test('にこにこ買取: ワンピースは BOX/CTN（カートン）', () => {
   assert.deepEqual([tape.price, carton.price], [10000, 142000]);
   assert.equal(items.filter((i) => /OP-16/.test(i.name)).length, 1); // カートンが無い商品は1行だけ
 });
+
+// ---- にこにこ買取の「買取価格表」ページを、そのままコピーして貼り付けた形 ----
+test('にこにこ買取ページ: ゲームごとの区分が自動で決まる（見出しを選ぶ必要なし）', () => {
+  const r = P.parse(read('nikoniko-page-2026-09-26.txt'), nikonikoSections);
+  assert.deepEqual(r.blocks.map((b) => [b.sectionId, b.unknown]), [['nikoniko-pokemon', false], ['nikoniko-onepiece', false], ['nikoniko-dragonball', false]]);
+  assert.deepEqual(r.blocks.map((b) => b.ignored.length), [0, 0, 0]);
+});
+
+test('にこにこ買取ページ: ポケモンはシュリンクあり/なし。「準備中」は載せない', () => {
+  const items = P.parse(read('nikoniko-page-2026-09-26.txt'), nikonikoSections).blocks[0].items;
+  const at = (re, cond) => items.find((i) => re.test(i.name) && i.cond === cond);
+  assert.deepEqual([at(/ストームエメラルダ/, 'shrink').price, at(/ストームエメラルダ/, 'noshrink').price], [11000, 7900]);
+  assert.equal(at(/古代の咆哮/, 'shrink').price, 10000);
+  assert.equal(at(/古代の咆哮/, 'noshrink'), undefined); // 準備中
+  assert.equal(items.filter((i) => i.cond === 'shrink').length, 64); // ページの「64商品」と同じ
+  assert.equal(items.filter((i) => i.cond === 'noshrink').length, 26);
+  assert.equal(at(/バトルコレクション\(白箱\)/, 'shrink').price, 38200); // 名前の（白箱）はそのまま
+});
+
+test('にこにこ買取ページ: ワンピースは「型式 商品名」にそろえ、箱=テープ付き・カートン', () => {
+  const items = P.parse(read('nikoniko-page-2026-09-26.txt'), nikonikoSections).blocks[1].items;
+  const at = (re, cond) => items.find((i) => re.test(i.name) && i.cond === cond);
+  assert.deepEqual([at(/^OP-17 世界最強の戦士$/, 'tape').price, at(/^OP-17 世界最強の戦士$/, 'carton').price], [11400, 145000]);
+  assert.equal(at(/^OP-16 /, 'carton'), undefined);
+  assert.ok(at(/^PRB-02 THE BEST vol\.2$/, 'tape'));
+  assert.ok(at(/^EB-04 EGGHEAD CRISIS$/, 'carton'));
+  assert.equal(items.filter((i) => i.cond === 'tape').length, 23);
+});
+
+test('にこにこ買取ページ: ドラゴンボールも読み取る', () => {
+  const items = P.parse(read('nikoniko-page-2026-09-26.txt'), nikonikoSections).blocks[2].items;
+  assert.equal(items.length, 12);
+  assert.equal(items.find((i) => /^SB-01 /.test(i.name)).price, 100200);
+});
+
+test('にこにこ買取ページ: 今までのXポストの形も、変わらず読める（ページ形式の設定に邪魔されない）', () => {
+  const r = P.parse(read('nikoniko-2026-09-24.txt'), nikonikoPick('nikoniko-pokemon'));
+  assert.ok(r.blocks[0].items.length > 60);
+  assert.equal(r.blocks[0].page, undefined);
+});

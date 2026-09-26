@@ -514,13 +514,13 @@
     const st = storeOf('nikoniko');
     if (!st) return null;
     const session = nikonikoSession;
-    const ta = h('textarea', { class: 'field area', rows: '7', placeholder: 'ここに、にこにこ買取のポストをそのまま貼り付け。見出しが無いので、読み取ったあとに区分を選びます', 'aria-label': 'にこにこ買取の取り込む内容', spellcheck: 'false' });
+    const ta = h('textarea', { class: 'field area', rows: '7', placeholder: 'ここに、にこにこ買取の「買取価格表」ページを、全体コピーしてそのまま貼り付け（Xのポストも可）', 'aria-label': 'にこにこ買取の取り込む内容', spellcheck: 'false' });
     ta.value = session.s.text;
     ta.addEventListener('input', () => { session.s.text = ta.value; });
     const canWrite = Boolean(token && decisions);
     return h('section', { class: 'box' },
       h('h2', { style: 'margin-top:0' }, '③ にこにこ買取の入力'),
-      h('p', { class: 'muted small' }, 'EXPO・コレクトとは別の入力欄です。見出しが無いポストなので、読み取ったあとに区分（ポケモン／ワンピース）を手動で選んでください。'),
+      h('p', { class: 'muted small' }, 'EXPO・コレクトとは別の入力欄です。買取価格表のページは、ポケモン・ワンピース・ドラゴンボールの区分が自動で決まります。Xのポストは見出しが無いので、読み取ったあとに区分を手動で選んでください。'),
       inputChecklist((id) => id === 'nikoniko'),
       ta,
       h('div', { class: 'row-gap' },

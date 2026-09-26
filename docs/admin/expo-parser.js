@@ -72,6 +72,11 @@
   // にこにこ買取の書式（見出しなし、"・商品名 BOX ¥12,000／NS ¥9,000" のように1行に状態が2つ入る）
   const BULLET_LINE = /^[・･]\s*(.+?)\s+([A-Za-z]+)\s*¥\s*([0-9][0-9,]*)(?:\s*[／/]\s*([A-Za-z]+)\s*¥\s*([0-9][0-9,]*))?\s*$/;
 
+  // にこにこ買取のページ貼り付け形式: 「商品名 [型式] ¥金額 ¥金額」（金額の代わりに「準備中」）。列の意味は区分の pageCols
+  const PAGE_CATEGORIES = ['ポケモンカード', 'ワンピースカード', 'ドラゴンボール', '遊戯王', 'ユニオンアリーナ', 'ヴァイスシュヴァルツ', 'ガンダムカードゲーム', 'ディズニー ロルカナ', 'その他(トレカ)', 'サプライ'];
+  const PAGE_ROW = /^(.+?)\s+((?:(?:¥\s*[0-9][0-9,]*|準備中)\s*)+)$/;
+  const PAGE_CODE = /^(op|eb|prb|fb|sb|st)-?(\d{2})$/i;
+
   const normHeading = (s) => nfkc(s).toLowerCase().replace(/\s+/g, '');
   function findSection(heading, sections) {
     const h = normHeading(heading);
@@ -94,6 +99,25 @@
     const preLines = [];
     let dateGuess = null;
     const ignoredAll = [];
+
+    // にこにこ買取の「買取価格表」ページを、そのままコピーして貼り付けた形。「ポケモンカード」「64商品」のように、
+    // ゲーム名の行のすぐ次に「N商品」の行が来る。ゲームごとに区分を自動で決める（見出しを選ぶ必要なし）
+    const nl = lines.map((l) => nfkc(l).trim());
+    const pageStarts = [];
+    for (let i = 0; i < nl.length; i++) {
+      if (!nl[i] || /[¥]/.test(nl[i])) continue;
+      let j = i + 1;
+      while (j < nl.length && !nl[j]) j++;
+      if (j < nl.length && /^\d+\s*商品$/.test(nl[j]) && (PAGE_CATEGORIES.includes(nl[i]) || findSection(nl[i], sections))) pageStarts.push({ i, heading: nl[i] });
+    }
+    if (pageStarts.length) {
+      pageStarts.forEach((st, k) => {
+        const section = findSection(st.heading, sections);
+        const seg = nl.slice(st.i + 1, k + 1 < pageStarts.length ? pageStarts[k + 1].i : nl.length).filter(Boolean);
+        blocks.push({ kind: 'full', page: true, heading: st.heading, section, sectionId: section ? section.id : null, unknown: !section, skipped: !!(section && section.kind === 'skip'), lines: seg });
+      });
+      lines.length = 0; // 見出しごとの読み取りは、上でやったので不要
+    }
 
     for (const rawLine of lines) {
       const line = nfkc(rawLine).trim();
@@ -160,6 +184,25 @@
           } else if (!pm && !/^(#|お世話になっております|沢山の)/.test(line)) {
             lastName = line;
           }
+        }
+      } else if (b.page && b.section && b.section.pageCols) {
+        // にこにこ買取のページ貼り付け: 列の順に状態が並ぶ。「準備中」は買取なし（載せない）
+        const sec = b.section;
+        for (const line of b.lines) {
+          const m = line.match(PAGE_ROW);
+          if (!m) {
+            if (/¥/.test(line)) b.ignored.push(line);
+            continue;
+          }
+          const words = m[1].trim().split(/\s+/);
+          const code = words.length > 1 && PAGE_CODE.test(words[words.length - 1]) ? words.pop().toUpperCase().replace(/^([A-Z]+)-?(\d+)$/, '$1-$2') : null;
+          const name = (code ? code + ' ' : '') + words.join(' ');
+          const cells = m[2].match(/¥\s*[0-9][0-9,]*|準備中/g);
+          cells.forEach((cell, i) => {
+            const cond = sec.pageCols[i];
+            if (!cond || cell === '準備中') return;
+            push({ name, cond, price: Number(cell.replace(/[^0-9]/g, '')), closed: false, game: sec.game, raw: m[1] });
+          });
         }
       } else if (b.section && b.section.condLabels) {
         // にこにこ買取など: 見出しが無く、1行に「BOX ¥12,000／NS ¥9,000」のように状態が2つ入る書式

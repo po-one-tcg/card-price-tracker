@@ -597,29 +597,59 @@
       "name": "にこにこ買取",
       "type": "manual",
       "freshHours": 168,
-      "_note": "Xのポストを管理画面に貼り付けて取り込む。見出し(✅)が無いので、毎回「見出しを選ぶ」で区分を手動で選ぶ。1行に状態が2つ入る書式（BOX/NSなど）は condLabels で対応づける。",
+      "_note": "Xのポスト、または買取価格表ページのコピーを管理画面に貼り付けて取り込む。Xのポストは見出し(✅)が無いので「見出しを選ぶ」で区分を手動で選ぶ（1行に状態が2つ入る書式は condLabels で対応づけ）。ページのコピーは「ポケモンカード」「64商品」の行から区分を自動で決める（headings と、列の順に状態を並べた pageCols を使う。「準備中」は買取なしとして載せない）。",
       "sections": [
         {
           "id": "nikoniko-pokemon",
           "label": "ポケモン BOX",
-          "headings": [],
+          "headings": [
+            "ポケモンカード"
+          ],
           "game": "pokemon",
           "group": "ボックス",
           "condLabels": {
             "BOX": "shrink",
             "NS": "noshrink"
-          }
+          },
+          "pageCols": [
+            "shrink",
+            "noshrink"
+          ]
         },
         {
           "id": "nikoniko-onepiece",
           "label": "ワンピース BOX・カートン",
-          "headings": [],
+          "headings": [
+            "ワンピースカード"
+          ],
           "game": "onepiece",
           "group": "BOX・カートン",
           "condLabels": {
             "BOX": "tape",
             "CTN": "carton"
-          }
+          },
+          "pageCols": [
+            "tape",
+            "carton"
+          ]
+        },
+        {
+          "id": "nikoniko-dragonball",
+          "label": "ドラゴンボール BOX・カートン",
+          "headings": [
+            "ドラゴンボール"
+          ],
+          "game": "dragonball",
+          "group": "BOX・カートン",
+          "baseCondition": "tape",
+          "condLabels": {
+            "BOX": "tape",
+            "CTN": "carton"
+          },
+          "pageCols": [
+            "tape",
+            "carton"
+          ]
         }
       ]
     }
