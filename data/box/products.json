@@ -2601,7 +2601,7 @@
  "pokemon_7feba245": {
   "id": "pokemon_7feba245",
   "game": "pokemon",
-  "name": "ポケモンセンタートウホク",
+  "name": "スペシャルBOX トウホク",
   "group": "その他ボックス",
   "groups": [
    "その他ボックス",
@@ -2687,7 +2687,7 @@
  "pokemon_8af6cb72": {
   "id": "pokemon_8af6cb72",
   "game": "pokemon",
-  "name": "ポケモンセンターヒロシマ",
+  "name": "スペシャルBOX ヒロシマ",
   "group": "その他ボックス",
   "groups": [
    "その他ボックス",
@@ -3260,7 +3260,7 @@
  "pokemon_b05e9cbe": {
   "id": "pokemon_b05e9cbe",
   "game": "pokemon",
-  "name": "ポケモンセンターフクオカ",
+  "name": "スペシャルBOX フクオカ",
   "group": "その他ボックス",
   "groups": [
    "その他ボックス",
