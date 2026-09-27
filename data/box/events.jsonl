@@ -259,3 +259,4 @@
 {"t":"2026-09-27T14:35:29+09:00","type":"appear","to":3800,"k":"nikoniko|onepiece_e13d0e35|tape","store":"nikoniko","game":"onepiece","pid":"onepiece_e13d0e35","name":"プレミアムカードコレクション ウタ"}
 {"t":"2026-09-27T14:44:02+09:00","type":"disappear","from":33000,"k":"collect|pokemon_249170ee|box","store":"collect","game":"pokemon","pid":"pokemon_249170ee","name":"VMAXスペシャルセット イーブイヒーローズ"}
 {"t":"2026-09-27T14:44:02+09:00","type":"appear","to":6100,"k":"collect|yugioh_84dc772b|shrink","store":"collect","game":"yugioh","pid":"yugioh_84dc772b","name":"遊戯王 ORIGINAL ARTWORK COLLECTION"}
+{"t":"2026-09-27T15:18:35+09:00","type":"appear","to":6800,"k":"somurie|yugioh_84dc772b|box","store":"somurie","game":"yugioh","pid":"yugioh_84dc772b","name":"遊戯王 ORIGINAL ARTWORK COLLECTION"}
