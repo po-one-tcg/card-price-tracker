@@ -254,6 +254,10 @@ test('にこにこ買取ページ: ポケモンはシュリンクあり/なし�
   assert.equal(items.filter((i) => i.cond !== 'noshrink').length, 64); // ページの「64商品」と同じ
   assert.equal(items.filter((i) => i.cond === 'noshrink').length, 26);
   assert.equal(at(/バトルコレクション\(白箱\)/, 'whitebox').price, 38200); // 名前が白箱の商品は、状態も白箱
+  // 「スペシャルセット」「構築済みデッキ」はシュリンクの区別が無いので、列に関わらずBOX1本にする
+  assert.equal(at(/FUTURISTIC BOX\(特別セット\)/, 'box').price, 55200);
+  assert.equal(at(/プレミアムデッキセット エーフィ・ブラッキー/, 'box').price, 17200);
+  assert.equal(items.filter((i) => /FUTURISTIC BOX\(特別セット\)|プレミアムデッキセット|スペシャルBOX (トウホク|ヒロシマ|フクオカ)/.test(i.name) && i.cond === 'noshrink').length, 0);
 });
 
 test('にこにこ買取ページ: ワンピースは「型式 商品名」にそろえ、箱=テープ付き・カートン', () => {

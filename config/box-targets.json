@@ -630,6 +630,10 @@
           "pageCols": [
             "shrink",
             "noshrink"
+          ],
+          "pageBoxOnlyCategories": [
+            "スペシャルセット",
+            "構築済みデッキ"
           ]
         },
         {

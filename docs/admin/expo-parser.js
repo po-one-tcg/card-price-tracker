@@ -206,9 +206,18 @@
           }
         }
       } else if (b.page && b.section && b.section.pageCols) {
-        // にこにこ買取のページ貼り付け: 列の順に状態が並ぶ。「準備中」は買取なし（載せない）
+        // にこにこ買取のページ貼り付け: 列の順に状態が並ぶ。「準備中」は買取なし（載せない）。
+        // ページ内の小分類の見出し（「スペシャルセット」「N商品」の2行）は、シュリンクの区別が無いカテゴリなら
+        // 列の位置に関わらず「BOX」1本にする（pageBoxOnlyCategories で指定）
         const sec = b.section;
-        for (const line of b.lines) {
+        const boxOnlyCats = new Set(sec.pageBoxOnlyCategories || []);
+        let boxOnly = false;
+        for (let li = 0; li < b.lines.length; li++) {
+          const line = b.lines[li];
+          if (!/¥/.test(line) && /^\d+\s*商品$/.test(b.lines[li + 1] || '')) {
+            boxOnly = boxOnlyCats.has(line);
+            continue;
+          }
           const m = line.match(PAGE_ROW);
           if (!m) {
             if (/¥/.test(line)) b.ignored.push(line);
@@ -220,7 +229,7 @@
           const name = vv ? vv.name : (code ? code + ' ' : '') + words.join(' ');
           const cells = m[2].match(/¥\s*[0-9][0-9,]*|準備中/g);
           cells.forEach((cell, i) => {
-            const cond = (i === 0 && (vv ? vv.cond : manualCondFromName(name))) || sec.pageCols[i];
+            const cond = (i === 0 && (vv ? vv.cond : manualCondFromName(name))) || (boxOnly ? 'box' : sec.pageCols[i]);
             if (!cond || cell === '準備中') return;
             push({ name, cond, price: Number(cell.replace(/[^0-9]/g, '')), closed: false, game: sec.game, raw: m[1] });
           });
