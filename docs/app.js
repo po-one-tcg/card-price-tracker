@@ -4,6 +4,9 @@
   const app = document.getElementById('app');
   let DATA = null;
   let byId = {};
+  // スマホの「戻る」で前のページに戻ったとき、そのページで見ていた高さまでスクロールを戻すための記録
+  // （ページ内のフィルタ切り替えとは別。ハッシュ（#/…）ごとに、離れる直前のスクロール位置を覚えておく）
+  const scrollMemory = new Map();
 
   // ---------- 部品 ----------
   function h(tag, attrs, ...kids) {
@@ -403,10 +406,18 @@
     app.replaceChildren(view);
     document.title = 'トレカBOX価格トラッカー';
     if (parts[0] === 'p' && byId[parts[1]]) document.title = byId[parts[1]].name + ' | トレカBOX価格トラッカー';
-    window.scrollTo(0, preserveScroll ? y : 0);
-    if (tableScroll) {
-      const wrap = app.querySelector('.tablewrap');
-      if (wrap) wrap.scrollTop = tableScroll;
+    if (preserveScroll) {
+      window.scrollTo(0, y);
+      if (tableScroll) {
+        const wrap = app.querySelector('.tablewrap');
+        if (wrap) wrap.scrollTop = tableScroll;
+      }
+    } else {
+      // ページの移動: 以前そのページを見ていた（＝「戻る」で帰ってきた）ならその高さへ、初めて見るページなら先頭へ
+      const mem = scrollMemory.get(location.hash);
+      window.scrollTo(0, mem ? mem.y : 0);
+      const wrap = mem && mem.table ? app.querySelector('.tablewrap') : null;
+      if (wrap) wrap.scrollTop = mem.table;
     }
   }
 
@@ -421,7 +432,14 @@
     }
     byId = Object.fromEntries(DATA.products.map((p) => [p.id, p]));
     document.getElementById('updated').textContent = `データ生成: ${DATA.generatedAt.slice(0, 16).replace('T', ' ')}（日本時間）`;
-    window.addEventListener('hashchange', render);
+    window.addEventListener('hashchange', (e) => {
+      // 離れるページのスクロール位置を、そのページのハッシュに結びつけて覚えておく（「戻る」で使う）
+      try {
+        const oldHash = new URL(e.oldURL).hash || '#/';
+        scrollMemory.set(oldHash, { y: window.scrollY, table: app.querySelector('.tablewrap')?.scrollTop || 0 });
+      } catch {}
+      render();
+    });
     render();
   }
   init();
