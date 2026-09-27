@@ -212,7 +212,10 @@
       h('div', { class: 'grid' },
         h('a', { class: 'card', href: '#/feed' },
           h('div', { class: 't' }, '🆕✕ 取扱の出現・消滅'),
-          h('div', { class: 's' }, `直近${DATA.eventDays}日で${DATA.feed.length}件`))));
+          h('div', { class: 's' }, `直近${DATA.eventDays}日で${DATA.feed.length}件`)),
+        h('a', { class: 'card', href: 'guide.html' },
+          h('div', { class: 't' }, '📮 郵送買取のながれと注意点'),
+          h('div', { class: 's' }, '初めての人向けの説明ページ'))));
   }
 
   // ---------- 画面: 取扱の出現・消滅 ----------
