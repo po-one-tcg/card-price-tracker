@@ -2,7 +2,7 @@
  "version": 1,
  "meta": {
   "pricebase|pokemon": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 116
   },
   "expo|yugioh": {
@@ -70,91 +70,91 @@
    "lastCount": 4
   },
   "runto|pokemon": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 118
   },
   "runto|onepiece": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 28
   },
   "runto|yugioh": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 57
   },
   "runto|dragonball": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 8
   },
   "somurie|pokemon": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 13
   },
   "somurie|yugioh": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 1
   },
   "somurie|onepiece": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 0
   },
   "somurie|dragonball": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 0
   },
   "somurie|weiss": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 0
   },
   "somurie|unionarena": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 0
   },
   "homura|pokemon": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 135
   },
   "homura|onepiece": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 42
   },
   "homura|yugioh": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 1
   },
   "homura|dragonball": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 3
   },
   "homura|lorcana": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 0
   },
   "macho|pokemon": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 101
   },
   "macho|onepiece": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 59
   },
   "macho|yugioh": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 0
   },
   "macho|dragonball": {
-   "lastOkAt": "2026-09-27T13:14:55+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 0
   },
   "nikoniko|nikoniko-pokemon": {
-   "lastOkAt": "2026-09-26T19:15:06+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 90
   },
   "nikoniko|nikoniko-onepiece": {
-   "lastOkAt": "2026-09-26T19:15:06+09:00",
-   "lastCount": 42
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
+   "lastCount": 54
   },
   "nikoniko|nikoniko-dragonball": {
-   "lastOkAt": "2026-09-26T19:15:06+09:00",
+   "lastOkAt": "2026-09-27T14:35:29+09:00",
    "lastCount": 12
   }
  },
@@ -20028,13 +20028,13 @@
   "nikoniko|dragonball_0445cec3|tape": {
    "confirmed": {
     "state": "value",
-    "price": 9300,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 10600,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 9300,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 10600,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -20138,13 +20138,13 @@
   "nikoniko|dragonball_6c9918eb|tape": {
    "confirmed": {
     "state": "value",
-    "price": 8800,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 10100,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 8800,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 10100,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -20314,13 +20314,13 @@
   "nikoniko|onepiece_03671daa|tape": {
    "confirmed": {
     "state": "value",
-    "price": 17300,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 16200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 17300,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 16200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -20329,6 +20329,31 @@
     "store": "nikoniko",
     "game": "onepiece",
     "pid": "onepiece_03671daa",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_0b76a14b|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 4500,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 4500,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_0b76a14b",
     "cond": "tape",
     "src": "nikoniko-onepiece"
    }
@@ -20373,6 +20398,131 @@
     "store": "nikoniko",
     "game": "onepiece",
     "pid": "onepiece_0db75840",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_163444a1|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 4500,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 4500,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_163444a1",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_1ebcd51a|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 2600,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 2600,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_1ebcd51a",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_2443b85c|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 3500,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 3500,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_2443b85c",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_2b05ef15|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 1800,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 1800,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_2b05ef15",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_332361cd|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 4000,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 4000,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_332361cd",
     "cond": "tape",
     "src": "nikoniko-onepiece"
    }
@@ -20446,13 +20596,13 @@
   "nikoniko|onepiece_385f13a8|tape": {
    "confirmed": {
     "state": "value",
-    "price": 18200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 17700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 18200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 17700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -20505,6 +20655,31 @@
     "store": "nikoniko",
     "game": "onepiece",
     "pid": "onepiece_3888f36b",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_3cf7d55a|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 15000,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 15000,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_3cf7d55a",
     "cond": "tape",
     "src": "nikoniko-onepiece"
    }
@@ -20710,13 +20885,13 @@
   "nikoniko|onepiece_5541d89b|tape": {
    "confirmed": {
     "state": "value",
-    "price": 11400,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 10400,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 11400,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 10400,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -20754,13 +20929,13 @@
   "nikoniko|onepiece_554ab9c7|tape": {
    "confirmed": {
     "state": "value",
-    "price": 14800,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 14700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 14800,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 14700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -20776,13 +20951,13 @@
   "nikoniko|onepiece_56ed4c82|carton": {
    "confirmed": {
     "state": "value",
-    "price": 200000,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 190000,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 200000,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 190000,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -20798,13 +20973,13 @@
   "nikoniko|onepiece_56ed4c82|tape": {
    "confirmed": {
     "state": "value",
-    "price": 17300,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 14400,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 17300,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 14400,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -20820,13 +20995,13 @@
   "nikoniko|onepiece_583367ee|tape": {
    "confirmed": {
     "state": "value",
-    "price": 9500,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 7400,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 9500,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 7400,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -20864,13 +21039,13 @@
   "nikoniko|onepiece_5c38aa36|tape": {
    "confirmed": {
     "state": "value",
-    "price": 56200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 54200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 56200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 54200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -20930,13 +21105,13 @@
   "nikoniko|onepiece_76282172|tape": {
    "confirmed": {
     "state": "value",
-    "price": 12000,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 11700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 12000,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 11700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -20989,6 +21164,56 @@
     "store": "nikoniko",
     "game": "onepiece",
     "pid": "onepiece_783c1401",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_7e2c6893|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 5000,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 5000,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_7e2c6893",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_81d4bd02|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 31000,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 31000,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_81d4bd02",
     "cond": "tape",
     "src": "nikoniko-onepiece"
    }
@@ -21062,13 +21287,13 @@
   "nikoniko|onepiece_958f315f|tape": {
    "confirmed": {
     "state": "value",
-    "price": 14700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 14600,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 14700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 14600,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -21077,6 +21302,31 @@
     "store": "nikoniko",
     "game": "onepiece",
     "pid": "onepiece_958f315f",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_a596dd63|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 3500,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 3500,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_a596dd63",
     "cond": "tape",
     "src": "nikoniko-onepiece"
    }
@@ -21128,13 +21378,13 @@
   "nikoniko|onepiece_cee669ca|tape": {
    "confirmed": {
     "state": "value",
-    "price": 8700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 6200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 8700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 6200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -21143,6 +21393,56 @@
     "store": "nikoniko",
     "game": "onepiece",
     "pid": "onepiece_cee669ca",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_dc98026b|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 2300,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 2300,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_dc98026b",
+    "cond": "tape",
+    "src": "nikoniko-onepiece"
+   }
+  },
+  "nikoniko|onepiece_e13d0e35|tape": {
+   "confirmed": {
+    "state": "value",
+    "price": 3800,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 3800,
+    "since": "2026-09-27T14:35:29+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-27T14:35:29+09:00"
+   },
+   "ref": {
+    "store": "nikoniko",
+    "game": "onepiece",
+    "pid": "onepiece_e13d0e35",
     "cond": "tape",
     "src": "nikoniko-onepiece"
    }
@@ -21194,13 +21494,13 @@
   "nikoniko|onepiece_f32a1126|tape": {
    "confirmed": {
     "state": "value",
-    "price": 8000,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 6600,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 8000,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 6600,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -21304,13 +21604,13 @@
   "nikoniko|pokemon_03395521|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 14000,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 13700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 14000,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 13700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -21370,13 +21670,13 @@
   "nikoniko|pokemon_133fd658|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 8500,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 8200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 8500,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 8200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -21392,13 +21692,13 @@
   "nikoniko|pokemon_13fcc149|noshrink": {
    "confirmed": {
     "state": "value",
-    "price": 19200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 21200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 19200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 21200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -21414,13 +21714,13 @@
   "nikoniko|pokemon_13fcc149|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 24200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 24800,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 24200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 24800,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -21986,13 +22286,13 @@
   "nikoniko|pokemon_71d4061e|noshrink": {
    "confirmed": {
     "state": "value",
-    "price": 15700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 15200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 15700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 15200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -22008,13 +22308,13 @@
   "nikoniko|pokemon_71d4061e|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 16700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 16200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 16700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 16200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -22140,13 +22440,13 @@
   "nikoniko|pokemon_866d74f0|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 17400,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 17300,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 17400,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 17300,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -22206,13 +22506,13 @@
   "nikoniko|pokemon_8b963d81|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 24700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 24200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 24700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 24200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -22250,13 +22550,13 @@
   "nikoniko|pokemon_8c46d70f|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 15200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 15000,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 15200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 15000,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -22382,13 +22682,13 @@
   "nikoniko|pokemon_9d34240b|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 8200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 8100,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 8200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 8100,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -22448,13 +22748,13 @@
   "nikoniko|pokemon_a0e9a94c|noshrink": {
    "confirmed": {
     "state": "value",
-    "price": 16700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 16200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 16700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 16200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -22470,13 +22770,13 @@
   "nikoniko|pokemon_a0e9a94c|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 17700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 17200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 17700,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 17200,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -22756,13 +23056,13 @@
   "nikoniko|pokemon_b6ca6a70|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 11000,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 10700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 11000,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 10700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -22998,13 +23298,13 @@
   "nikoniko|pokemon_ebea83a5|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 17200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 17700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 17200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 17700,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23130,13 +23430,13 @@
   "nikoniko|pokemon_f64bdf9a|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 15200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 15000,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 15200,
-    "since": "2026-09-26T18:40:17+09:00"
+    "price": 15000,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -27963,13 +28263,13 @@
   "runto|pokemon_8f4f6d84|box": {
    "confirmed": {
     "state": "value",
-    "price": 60000,
-    "since": "2026-09-27T13:14:55+09:00"
+    "price": 62000,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 60000,
-    "since": "2026-09-27T13:14:55+09:00"
+    "price": 62000,
+    "since": "2026-09-27T14:35:29+09:00"
    },
    "pending": null,
    "ignored": null,

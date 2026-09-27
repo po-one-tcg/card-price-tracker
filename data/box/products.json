@@ -342,12 +342,13 @@
   "name": "プレミアムカードコレクション ベストセレクション vol.5",
   "group": "その他（プロモ・セット等）",
   "groups": [
-   "その他（プロモ・セット等）"
+   "その他（プロモ・セット等）",
+   "BOX・カートン"
   ],
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-26"
+  "lastSeen": "2026-09-27"
  },
  "onepiece_0db75840": {
   "id": "onepiece_0db75840",
@@ -388,13 +389,40 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-27"
  },
+ "onepiece_163444a1": {
+  "id": "onepiece_163444a1",
+  "game": "onepiece",
+  "name": "ONE PIECE DAY 2024 OPD",
+  "group": "BOX・カートン",
+  "groups": [
+   "BOX・カートン"
+  ],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
+ "onepiece_1ebcd51a": {
+  "id": "onepiece_1ebcd51a",
+  "game": "onepiece",
+  "name": "BASE SHOP リミテッド Vol.1 BASE",
+  "group": "BOX・カートン",
+  "groups": [
+   "BOX・カートン"
+  ],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
  "onepiece_2443b85c": {
   "id": "onepiece_2443b85c",
   "game": "onepiece",
   "name": "プレミアムカードコレクション ベストセレクション vol.1",
   "group": "その他（プロモ・セット等）",
   "groups": [
-   "その他（プロモ・セット等）"
+   "その他（プロモ・セット等）",
+   "BOX・カートン"
   ],
   "imageUrl": null,
   "image": null,
@@ -420,12 +448,13 @@
   "name": "プレミアムカードコレクション ベストセレクション vol.6",
   "group": "その他（プロモ・セット等）",
   "groups": [
-   "その他（プロモ・セット等）"
+   "その他（プロモ・セット等）",
+   "BOX・カートン"
   ],
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-26"
+  "lastSeen": "2026-09-27"
  },
  "onepiece_3232db19": {
   "id": "onepiece_3232db19",
@@ -446,7 +475,8 @@
   "name": "プレミアムカードコレクション ベストセレクション vol.3",
   "group": "その他（プロモ・セット等）",
   "groups": [
-   "その他（プロモ・セット等）"
+   "その他（プロモ・セット等）",
+   "BOX・カートン"
   ],
   "imageUrl": null,
   "image": null,
@@ -530,6 +560,19 @@
   "image": null,
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-26"
+ },
+ "onepiece_3cf7d55a": {
+  "id": "onepiece_3cf7d55a",
+  "game": "onepiece",
+  "name": "プレミアムカードコレクション リーダーコレクション",
+  "group": "BOX・カートン",
+  "groups": [
+   "BOX・カートン"
+  ],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
  },
  "onepiece_479a9c42": {
   "id": "onepiece_479a9c42",
@@ -862,7 +905,8 @@
   "name": "プレミアムカードコレクション ベストセレクション vol.4",
   "group": "その他（プロモ・セット等）",
   "groups": [
-   "その他（プロモ・セット等）"
+   "その他（プロモ・セット等）",
+   "BOX・カートン"
   ],
   "imageUrl": null,
   "image": null,
@@ -888,7 +932,8 @@
   "name": "プレミアムカードコレクション 熊本県スペシャル",
   "group": "その他（プロモ・セット等）",
   "groups": [
-   "その他（プロモ・セット等）"
+   "その他（プロモ・セット等）",
+   "BOX・カートン"
   ],
   "imageUrl": null,
   "image": null,
@@ -966,7 +1011,8 @@
   "name": "プレミアムカードコレクション ベストセレクション vol.2",
   "group": "その他（プロモ・セット等）",
   "groups": [
-   "その他（プロモ・セット等）"
+   "その他（プロモ・セット等）",
+   "BOX・カートン"
   ],
   "imageUrl": null,
   "image": null,
@@ -1213,7 +1259,8 @@
   "name": "プレミアムカードコレクション -6 assort vol.1-",
   "group": "その他（プロモ・セット等）",
   "groups": [
-   "その他（プロモ・セット等）"
+   "その他（プロモ・セット等）",
+   "BOX・カートン"
   ],
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-10-2-300x300.jpg",
   "image": "img/box/onepiece_dc98026b.jpg",
@@ -1226,7 +1273,8 @@
   "name": "プレミアムカードコレクション ウタ",
   "group": "その他（プロモ・セット等）",
   "groups": [
-   "その他（プロモ・セット等）"
+   "その他（プロモ・セット等）",
+   "BOX・カートン"
   ],
   "imageUrl": null,
   "image": null,
