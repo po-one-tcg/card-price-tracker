@@ -17,7 +17,9 @@ function parsePrice(text) {
   const t = (text || '').replace(/\s+/g, '').trim();
   if (/^[0-9,]+$/.test(t) && t) return { price: Number(t.replace(/,/g, '')), status: 'price' };
   if (t.includes('停止')) return { price: null, status: 'closed' }; // 買取停止
-  return { price: null, status: 'unknown' }; // 要問合せ・未掲載など、金額が確認できないもの
+  // 「要問合せ」など、金額が公開されていないもの。他の店の「〆切」と同じ「取扱なし」（—）に揃える
+  // （「未確認」は、サイトの取得に失敗した時など「本当は確認できるはずが今回だけ見れなかった」場合の表示のため）
+  return { price: null, status: 'closed' };
 }
 
 // <table> 1つ（1ゲームぶん）→ 行。1列目=商品名、3列目=買取価格（2列目の「定価」、4列目の「備考」は使わない）

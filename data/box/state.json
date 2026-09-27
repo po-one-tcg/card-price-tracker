@@ -154,19 +154,19 @@
    "lastCount": 12
   },
   "pricebase|dragonball": {
-   "lastOkAt": "2026-09-27T16:15:41+09:00",
+   "lastOkAt": "2026-09-27T16:27:46+09:00",
    "lastCount": 14
   },
   "pricebase|yugioh": {
-   "lastOkAt": "2026-09-27T16:15:42+09:00",
+   "lastOkAt": "2026-09-27T16:27:47+09:00",
    "lastCount": 37
   },
   "pricebase|pokemon": {
-   "lastOkAt": "2026-09-27T16:15:43+09:00",
+   "lastOkAt": "2026-09-27T16:27:48+09:00",
    "lastCount": 104
   },
   "pricebase|onepiece": {
-   "lastOkAt": "2026-09-27T16:17:06+09:00",
+   "lastOkAt": "2026-09-27T16:27:45+09:00",
    "lastCount": 23
   }
  },
@@ -23555,11 +23555,15 @@
    }
   },
   "pricebase|dragonball_07bf0c4d|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:41+09:00"
+    "since": "2026-09-27T16:27:46+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:46+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23572,11 +23576,15 @@
    }
   },
   "pricebase|dragonball_1ab2c151|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:41+09:00"
+    "since": "2026-09-27T16:27:46+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:46+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23631,11 +23639,15 @@
    }
   },
   "pricebase|dragonball_414deeec|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:41+09:00"
+    "since": "2026-09-27T16:27:46+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:46+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23648,11 +23660,15 @@
    }
   },
   "pricebase|dragonball_57db379c|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:41+09:00"
+    "since": "2026-09-27T16:27:46+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:46+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23665,11 +23681,15 @@
    }
   },
   "pricebase|dragonball_6c9918eb|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:41+09:00"
+    "since": "2026-09-27T16:27:46+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:46+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23745,11 +23765,15 @@
    }
   },
   "pricebase|dragonball_a1f72f61|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:41+09:00"
+    "since": "2026-09-27T16:27:46+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:46+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23762,11 +23786,15 @@
    }
   },
   "pricebase|dragonball_df0bfb06|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:41+09:00"
+    "since": "2026-09-27T16:27:46+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:46+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23779,11 +23807,15 @@
    }
   },
   "pricebase|dragonball_e1e45c04|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:41+09:00"
+    "since": "2026-09-27T16:27:46+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:46+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23796,11 +23828,15 @@
    }
   },
   "pricebase|onepiece_03671daa|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23813,11 +23849,15 @@
    }
   },
   "pricebase|onepiece_0db75840|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23830,11 +23870,15 @@
    }
   },
   "pricebase|onepiece_36c70714|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23847,11 +23891,15 @@
    }
   },
   "pricebase|onepiece_385f13a8|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23864,11 +23912,15 @@
    }
   },
   "pricebase|onepiece_3888f36b|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23881,11 +23933,15 @@
    }
   },
   "pricebase|onepiece_479a9c42|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23898,11 +23954,15 @@
    }
   },
   "pricebase|onepiece_4f567bf0|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23915,11 +23975,15 @@
    }
   },
   "pricebase|onepiece_52c0d6a0|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23932,11 +23996,15 @@
    }
   },
   "pricebase|onepiece_5312478f|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -23970,11 +24038,15 @@
    }
   },
   "pricebase|onepiece_554ab9c7|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24029,11 +24101,15 @@
    }
   },
   "pricebase|onepiece_5c38aa36|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24067,11 +24143,15 @@
    }
   },
   "pricebase|onepiece_76282172|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24084,11 +24164,15 @@
    }
   },
   "pricebase|onepiece_783c1401|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24101,11 +24185,15 @@
    }
   },
   "pricebase|onepiece_88dfe58e|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24118,11 +24206,15 @@
    }
   },
   "pricebase|onepiece_958f315f|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24135,11 +24227,15 @@
    }
   },
   "pricebase|onepiece_a7d6506f|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24152,11 +24248,15 @@
    }
   },
   "pricebase|onepiece_cee669ca|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24169,11 +24269,15 @@
    }
   },
   "pricebase|onepiece_e7ef202a|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:17:06+09:00"
+    "since": "2026-09-27T16:27:45+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:45+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24228,11 +24332,15 @@
    }
   },
   "pricebase|pokemon_01af3035|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24308,11 +24416,15 @@
    }
   },
   "pricebase|pokemon_079bbd72|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24348,13 +24460,13 @@
   "pricebase|pokemon_13fcc149|box": {
    "confirmed": {
     "state": "value",
-    "price": 25000,
-    "since": "2026-09-27T16:15:43+09:00"
+    "price": 24500,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 25000,
-    "since": "2026-09-27T16:15:43+09:00"
+    "price": 24500,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24367,11 +24479,15 @@
    }
   },
   "pricebase|pokemon_14b076f2|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24468,11 +24584,15 @@
    }
   },
   "pricebase|pokemon_25e5b3b2|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24506,11 +24626,15 @@
    }
   },
   "pricebase|pokemon_2c07d47f|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24544,11 +24668,15 @@
    }
   },
   "pricebase|pokemon_34a6f8fe|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24624,11 +24752,15 @@
    }
   },
   "pricebase|pokemon_41533e67|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24662,11 +24794,15 @@
    }
   },
   "pricebase|pokemon_45530ff6|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24679,11 +24815,15 @@
    }
   },
   "pricebase|pokemon_46e71f14|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24696,11 +24836,15 @@
    }
   },
   "pricebase|pokemon_4a5f4568|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24734,11 +24878,15 @@
    }
   },
   "pricebase|pokemon_4b83531b|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24814,11 +24962,15 @@
    }
   },
   "pricebase|pokemon_4cf920df|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24852,11 +25004,15 @@
    }
   },
   "pricebase|pokemon_5123c3ba|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24890,11 +25046,15 @@
    }
   },
   "pricebase|pokemon_5a509c84|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -24928,11 +25088,15 @@
    }
   },
   "pricebase|pokemon_5ceb22ec|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25008,11 +25172,15 @@
    }
   },
   "pricebase|pokemon_6ef687fc|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25109,11 +25277,15 @@
    }
   },
   "pricebase|pokemon_7f29e59d|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25168,11 +25340,15 @@
    }
   },
   "pricebase|pokemon_873cf213|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25185,11 +25361,15 @@
    }
   },
   "pricebase|pokemon_87e56da1|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25223,11 +25403,15 @@
    }
   },
   "pricebase|pokemon_8b2b8734|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25345,11 +25529,15 @@
    }
   },
   "pricebase|pokemon_958fd86b|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25383,11 +25571,15 @@
    }
   },
   "pricebase|pokemon_9dc94f30|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25400,11 +25592,15 @@
    }
   },
   "pricebase|pokemon_9dec423a|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25522,11 +25718,15 @@
    }
   },
   "pricebase|pokemon_a7a5a7dd|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25623,11 +25823,15 @@
    }
   },
   "pricebase|pokemon_afea279e|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25766,11 +25970,15 @@
    }
   },
   "pricebase|pokemon_c79781d3|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25783,11 +25991,15 @@
    }
   },
   "pricebase|pokemon_ccc94b0f|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25842,11 +26054,15 @@
    }
   },
   "pricebase|pokemon_d2ffe6aa|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25859,11 +26075,15 @@
    }
   },
   "pricebase|pokemon_d646d81f|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25876,11 +26096,15 @@
    }
   },
   "pricebase|pokemon_d7c41836|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25893,11 +26117,15 @@
    }
   },
   "pricebase|pokemon_d92520a0|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25910,11 +26138,15 @@
    }
   },
   "pricebase|pokemon_dd527af6|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -25969,11 +26201,15 @@
    }
   },
   "pricebase|pokemon_e4c1e160|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -26007,11 +26243,15 @@
    }
   },
   "pricebase|pokemon_e66966a9|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -26024,11 +26264,15 @@
    }
   },
   "pricebase|pokemon_ebd6fe37|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -26083,11 +26327,15 @@
    }
   },
   "pricebase|pokemon_eec7b497|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -26100,11 +26348,15 @@
    }
   },
   "pricebase|pokemon_f1637200|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -26138,11 +26390,15 @@
    }
   },
   "pricebase|pokemon_f337e1f5|box": {
-   "confirmed": null,
-   "shown": {
-    "state": "unknown",
+   "confirmed": {
+    "state": "none",
     "price": null,
-    "since": "2026-09-27T16:15:43+09:00"
+    "since": "2026-09-27T16:27:48+09:00"
+   },
+   "shown": {
+    "state": "none",
+    "price": null,
+    "since": "2026-09-27T16:27:48+09:00"
    },
    "pending": null,
    "ignored": null,

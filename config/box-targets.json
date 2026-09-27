@@ -558,82 +558,6 @@
       ]
     },
     {
-      "id": "pricebase",
-      "name": "BASE",
-      "_note": "price-base.com（無関係の別会社。実際の買取価格ではなく「取引相場の目安」記事）から、kaitori-base.com（X: @KaitoriBase3「買取BASE@トレカ」の実際の買取価格表）に切り替え済み。storeId は互換のため pricebase のまま。",
-      "type": "auto",
-      "sources": [
-        {
-          "game": "onepiece",
-          "url": "https://kaitori-base.com/?p=9534",
-          "parser": "kaitoribase",
-          "condition": "box",
-          "minRows": 15,
-          "enabled": true
-        },
-        {
-          "game": "dragonball",
-          "url": "https://kaitori-base.com/?p=9534",
-          "parser": "kaitoribase",
-          "condition": "box",
-          "minRows": 10,
-          "enabled": true
-        },
-        {
-          "game": "yugioh",
-          "url": "https://kaitori-base.com/?p=9534",
-          "parser": "kaitoribase",
-          "condition": "box",
-          "minRows": 25,
-          "enabled": true
-        },
-        {
-          "game": "pokemon",
-          "url": "https://kaitori-base.com/?p=9534",
-          "parser": "kaitoribase",
-          "condition": "box",
-          "minRows": 80,
-          "enabled": true
-        }
-      ]
-    },
-    {
-      "id": "macho",
-      "name": "マッチョ",
-      "type": "auto",
-      "_note": "商品ごとに page.html の中にJSONが直接埋め込まれている（scripts/sites/macho.js 参照）。夜間は全商品が「調整中」（未確認）になる。現在は pokemon/onepiece のみ商品あり。yugioh/dragonball は0件だが、今後の出現を見張る。",
-      "sources": [
-        {
-          "game": "pokemon",
-          "parser": "macho",
-          "minRows": 100,
-          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=pokemon",
-          "enabled": true
-        },
-        {
-          "game": "onepiece",
-          "parser": "macho",
-          "minRows": 30,
-          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=onepiece",
-          "enabled": true
-        },
-        {
-          "game": "yugioh",
-          "parser": "macho",
-          "minRows": 0,
-          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=yugioh",
-          "enabled": true
-        },
-        {
-          "game": "dragonball",
-          "parser": "macho",
-          "minRows": 0,
-          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=dragonball",
-          "enabled": true
-        }
-      ]
-    },
-    {
       "id": "nikoniko",
       "name": "にこにこ",
       "type": "manual",
@@ -695,6 +619,82 @@
             "tape",
             "carton"
           ]
+        }
+      ]
+    },
+    {
+      "id": "macho",
+      "name": "マッチョ",
+      "type": "auto",
+      "_note": "商品ごとに page.html の中にJSONが直接埋め込まれている（scripts/sites/macho.js 参照）。夜間は全商品が「調整中」（未確認）になる。現在は pokemon/onepiece のみ商品あり。yugioh/dragonball は0件だが、今後の出現を見張る。",
+      "sources": [
+        {
+          "game": "pokemon",
+          "parser": "macho",
+          "minRows": 100,
+          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=pokemon",
+          "enabled": true
+        },
+        {
+          "game": "onepiece",
+          "parser": "macho",
+          "minRows": 30,
+          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=onepiece",
+          "enabled": true
+        },
+        {
+          "game": "yugioh",
+          "parser": "macho",
+          "minRows": 0,
+          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=yugioh",
+          "enabled": true
+        },
+        {
+          "game": "dragonball",
+          "parser": "macho",
+          "minRows": 0,
+          "url": "https://kaitori.alc-japan.co.jp/buyback-prices?game=dragonball",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "id": "pricebase",
+      "name": "BASE",
+      "_note": "price-base.com（無関係の別会社。実際の買取価格ではなく「取引相場の目安」記事）から、kaitori-base.com（X: @KaitoriBase3「買取BASE@トレカ」の実際の買取価格表）に切り替え済み。storeId は互換のため pricebase のまま。",
+      "type": "auto",
+      "sources": [
+        {
+          "game": "onepiece",
+          "url": "https://kaitori-base.com/?p=9534",
+          "parser": "kaitoribase",
+          "condition": "box",
+          "minRows": 15,
+          "enabled": true
+        },
+        {
+          "game": "dragonball",
+          "url": "https://kaitori-base.com/?p=9534",
+          "parser": "kaitoribase",
+          "condition": "box",
+          "minRows": 10,
+          "enabled": true
+        },
+        {
+          "game": "yugioh",
+          "url": "https://kaitori-base.com/?p=9534",
+          "parser": "kaitoribase",
+          "condition": "box",
+          "minRows": 25,
+          "enabled": true
+        },
+        {
+          "game": "pokemon",
+          "url": "https://kaitori-base.com/?p=9534",
+          "parser": "kaitoribase",
+          "condition": "box",
+          "minRows": 80,
+          "enabled": true
         }
       ]
     }
