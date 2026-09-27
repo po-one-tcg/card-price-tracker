@@ -559,15 +559,40 @@
     },
     {
       "id": "pricebase",
-      "name": "BASE",
+      "name": "買取BASE",
+      "_note": "price-base.com（無関係の別会社。実際の買取価格ではなく「取引相場の目安」記事）から、kaitori-base.com（X: @KaitoriBase3「買取BASE@トレカ」の実際の買取価格表）に切り替え済み。storeId は互換のため pricebase のまま。",
       "type": "auto",
       "sources": [
         {
-          "game": "pokemon",
-          "url": "https://price-base.com/useful/pokacabox-kaitorilist",
-          "parser": "pricebase",
+          "game": "onepiece",
+          "url": "https://kaitori-base.com/?p=9534",
+          "parser": "kaitoribase",
           "condition": "box",
-          "minRows": 30,
+          "minRows": 15,
+          "enabled": true
+        },
+        {
+          "game": "dragonball",
+          "url": "https://kaitori-base.com/?p=9534",
+          "parser": "kaitoribase",
+          "condition": "box",
+          "minRows": 10,
+          "enabled": true
+        },
+        {
+          "game": "yugioh",
+          "url": "https://kaitori-base.com/?p=9534",
+          "parser": "kaitoribase",
+          "condition": "box",
+          "minRows": 25,
+          "enabled": true
+        },
+        {
+          "game": "pokemon",
+          "url": "https://kaitori-base.com/?p=9534",
+          "parser": "kaitoribase",
+          "condition": "box",
+          "minRows": 80,
           "enabled": true
         }
       ]

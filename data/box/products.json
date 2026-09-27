@@ -2207,6 +2207,17 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-27"
  },
+ "pokemon_5123c3ba": {
+  "id": "pokemon_5123c3ba",
+  "game": "pokemon",
+  "name": "20th Anniversary",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
  "pokemon_518f2df5": {
   "id": "pokemon_518f2df5",
   "game": "pokemon",
@@ -2690,6 +2701,17 @@
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2025/07/614f59w1E4L.__AC_SX300_SY300_QL70_ML2_.jpg",
   "image": "img/box/pokemon_866d74f0.jpg",
   "firstSeen": "2026-09-21",
+  "lastSeen": "2026-09-27"
+ },
+ "pokemon_873cf213": {
+  "id": "pokemon_873cf213",
+  "game": "pokemon",
+  "name": "ウルトラシャイニー",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
   "lastSeen": "2026-09-27"
  },
  "pokemon_87e56da1": {
@@ -4514,6 +4536,17 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-27"
  },
+ "yugioh_00479e97": {
+  "id": "yugioh_00479e97",
+  "game": "yugioh",
+  "name": "デッキビルドパックタクティカル・マスターズ",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
  "yugioh_00a05912": {
   "id": "yugioh_00a05912",
   "game": "yugioh",
@@ -4538,6 +4571,17 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/新建项目-2-3-300x300.jpg",
   "image": "img/box/yugioh_041dc467.jpg",
   "firstSeen": "2026-09-22",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_14c6de8a": {
+  "id": "yugioh_14c6de8a",
+  "game": "yugioh",
+  "name": "CHAOS IMPACT",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
   "lastSeen": "2026-09-27"
  },
  "yugioh_14ce087a": {
@@ -4566,6 +4610,17 @@
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-27"
  },
+ "yugioh_1aa0f895": {
+  "id": "yugioh_1aa0f895",
+  "game": "yugioh",
+  "name": "RARITY COLLECTION -QUARTER CENTURY EDITION",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
  "yugioh_1eb2a931": {
   "id": "yugioh_1eb2a931",
   "game": "yugioh",
@@ -4577,6 +4632,17 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-16-4-300x300.jpeg",
   "image": "img/box/yugioh_1eb2a931.jpg",
   "firstSeen": "2026-09-22",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_2abec84e": {
+  "id": "yugioh_2abec84e",
+  "game": "yugioh",
+  "name": "DARKWING BLAST",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
   "lastSeen": "2026-09-27"
  },
  "yugioh_2b4af59e": {
@@ -4605,6 +4671,17 @@
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-27"
  },
+ "yugioh_30206da2": {
+  "id": "yugioh_30206da2",
+  "game": "yugioh",
+  "name": "PREMIUM PACK -決闘者伝説 QUARTER CENTURY EDITION",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
  "yugioh_312da100": {
   "id": "yugioh_312da100",
   "game": "yugioh",
@@ -4616,6 +4693,17 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/3f55f30dec37a5f9726de1073ac6b93-300x300.jpg",
   "image": "img/box/yugioh_312da100.jpg",
   "firstSeen": "2026-09-22",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_3a3460e9": {
+  "id": "yugioh_3a3460e9",
+  "game": "yugioh",
+  "name": "ETERNITY CODE",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
   "lastSeen": "2026-09-27"
  },
  "yugioh_3b5665cf": {
@@ -4709,6 +4797,39 @@
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-27"
  },
+ "yugioh_59904ac1": {
+  "id": "yugioh_59904ac1",
+  "game": "yugioh",
+  "name": "クロスオーバー・ブレイカーズ",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_61685e4c": {
+  "id": "yugioh_61685e4c",
+  "game": "yugioh",
+  "name": "PREMIUM PACK 2023",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_62026874": {
+  "id": "yugioh_62026874",
+  "game": "yugioh",
+  "name": "POWER OF THE ELEMENTS",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
  "yugioh_62b578c6": {
   "id": "yugioh_62b578c6",
   "game": "yugioh",
@@ -4720,6 +4841,28 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2026-01-03T232245.096-300x300.jpg",
   "image": "img/box/yugioh_62b578c6.jpg",
   "firstSeen": "2026-09-22",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_671df96d": {
+  "id": "yugioh_671df96d",
+  "game": "yugioh",
+  "name": "遊戯王ラッシュデュエル オーバーラッシュパック1",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_6a2d5b77": {
+  "id": "yugioh_6a2d5b77",
+  "game": "yugioh",
+  "name": "PRISMATIC ART COLLECTION",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
   "lastSeen": "2026-09-27"
  },
  "yugioh_75417d74": {
@@ -4746,6 +4889,17 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-5-2-300x300.jpeg",
   "image": "img/box/yugioh_76716771.jpg",
   "firstSeen": "2026-09-22",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_7cf2fc42": {
+  "id": "yugioh_7cf2fc42",
+  "game": "yugioh",
+  "name": "ファントム・リベンジャーズ",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
   "lastSeen": "2026-09-27"
  },
  "yugioh_832d16ca": {
@@ -4800,6 +4954,17 @@
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-27"
  },
+ "yugioh_9ff91be6": {
+  "id": "yugioh_9ff91be6",
+  "game": "yugioh",
+  "name": "RAGE OF THE ABYSS レイジ・オブ・ジ・アビス",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
  "yugioh_a0dcf67b": {
   "id": "yugioh_a0dcf67b",
   "game": "yugioh",
@@ -4852,6 +5017,28 @@
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-27"
  },
+ "yugioh_b56ec116": {
+  "id": "yugioh_b56ec116",
+  "game": "yugioh",
+  "name": "AGE OF OVERLORD",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_b81e4e8a": {
+  "id": "yugioh_b81e4e8a",
+  "game": "yugioh",
+  "name": "INFINITE FORBIDDEN",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
  "yugioh_b956504f": {
   "id": "yugioh_b956504f",
   "game": "yugioh",
@@ -4876,6 +5063,17 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2026-01-03T222827.161-300x300.jpg",
   "image": "img/box/yugioh_b9e15140.jpg",
   "firstSeen": "2026-09-22",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_cb817fce": {
+  "id": "yugioh_cb817fce",
+  "game": "yugioh",
+  "name": "LEGACY OF DESTRUCTION",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
   "lastSeen": "2026-09-27"
  },
  "yugioh_cef2641c": {
@@ -4904,6 +5102,17 @@
   "firstSeen": "2026-09-22",
   "lastSeen": "2026-09-27"
  },
+ "yugioh_d647a734": {
+  "id": "yugioh_d647a734",
+  "game": "yugioh",
+  "name": "SELECTION5",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
  "yugioh_d72acb85": {
   "id": "yugioh_d72acb85",
   "game": "yugioh",
@@ -4915,6 +5124,17 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-8-300x300.jpeg",
   "image": "img/box/yugioh_d72acb85.jpg",
   "firstSeen": "2026-09-22",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_da56e85e": {
+  "id": "yugioh_da56e85e",
+  "game": "yugioh",
+  "name": "PHANTOM NIGHTMARE",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
   "lastSeen": "2026-09-27"
  },
  "yugioh_de6fee57": {
@@ -5032,6 +5252,28 @@
   "imageUrl": "https://cdn.somurie-kaitori.com/products/1788772959065.png",
   "image": "img/box/yugioh_f8033775.jpg",
   "firstSeen": "2026-09-22",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_f8a2a5d3": {
+  "id": "yugioh_f8a2a5d3",
+  "game": "yugioh",
+  "name": "ジャスティス・ハンターズ",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
+  "lastSeen": "2026-09-27"
+ },
+ "yugioh_ff075a1c": {
+  "id": "yugioh_ff075a1c",
+  "game": "yugioh",
+  "name": "DOOM OF DIMENSIONS",
+  "group": "",
+  "groups": [],
+  "imageUrl": null,
+  "image": null,
+  "firstSeen": "2026-09-27",
   "lastSeen": "2026-09-27"
  },
  "yugioh_ff20883f": {

@@ -760,3 +760,8 @@
 {"t":"2026-09-27T15:18:35+09:00","store":"macho","game":"onepiece","ok":true,"count":59}
 {"t":"2026-09-27T15:18:35+09:00","store":"macho","game":"yugioh","ok":true,"count":0}
 {"t":"2026-09-27T15:18:35+09:00","store":"macho","game":"dragonball","ok":true,"count":0}
+{"t":"2026-09-27T16:14:49+09:00","store":"pricebase","game":"onepiece","ok":true,"count":23}
+{"t":"2026-09-27T16:15:41+09:00","store":"pricebase","game":"dragonball","ok":true,"count":14}
+{"t":"2026-09-27T16:15:42+09:00","store":"pricebase","game":"yugioh","ok":true,"count":37}
+{"t":"2026-09-27T16:15:43+09:00","store":"pricebase","game":"pokemon","ok":true,"count":104}
+{"t":"2026-09-27T16:17:06+09:00","store":"pricebase","game":"onepiece","ok":true,"count":23}
