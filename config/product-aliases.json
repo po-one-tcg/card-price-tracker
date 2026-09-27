@@ -68,10 +68,14 @@
   "ポケモンクラシック(外箱未開封)": "Classic",
   "ポケモンカードゲーム Classic": "Classic",
   "ポケモンClassic": "Classic",
-  "ポケモンClassic デッキのみ": "Classic デッキのみ"
+  "ポケモンClassic デッキのみ": "Classic デッキのみ",
+  "切手ボックス": "切手BOX"
  },
  "onepiece": {
   "BASE SHOP リミテッドカードコレクション": "BASE SHOPリミテッドカードコレクションvol.1",
   "ナツコミ ルフィ": "ナツコミ ルフィ メタキラカード"
+ },
+ "yugioh": {
+  "ORIGINAL ARTWORK COLLECTION": "遊戯王 ORIGINAL ARTWORK COLLECTION"
  }
 }
