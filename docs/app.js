@@ -53,9 +53,11 @@
     switch (cell.state) {
       case 'value': {
         const isNew = cell.event && cell.event.type === 'appear';
+        // 前日比（このセル＝この店だけの動き）。無くなった／初めて付いた場合は前日比を出さない
+        const diff = cell.dayDiff ? h('small', { class: cls(cell.dayDiff) }, arrow(cell.dayDiff) + yen(Math.abs(cell.dayDiff))) : null;
         return h('td', { class: (isNew ? 'is-new ' : '') + (isMax ? 'is-max' : '') },
           h('span', { class: 'price' }, yen(cell.price)),
-          isNew ? h('small', null, h('span', { class: 'badge new' }, '🆕 出現 ' + agoText(cell.event.at))) : null);
+          isNew ? h('small', null, h('span', { class: 'badge new' }, '🆕 出現 ' + agoText(cell.event.at))) : diff);
       }
       case 'none':
         if (cell.event && cell.event.type === 'disappear') {

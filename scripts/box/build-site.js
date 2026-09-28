@@ -106,10 +106,19 @@ function build() {
       const fresh = status?.fresh ?? false;
       const ev = entry.lastEvent && dayNum(entry.lastEvent.at) >= eventCutoff ? entry.lastEvent : null;
       const sh = entry.shown || { state: 'unknown', price: null };
+      // 前日比（このセル＝この店だけの、昨日の巡回時点の価格との差）。表の中で値動きを一目で分かるようにする
+      const dObs = dailyByKey[key] || {};
+      const dDates = Object.keys(dObs).sort();
+      let dayDiff = null;
+      if (dDates.length >= 2) {
+        const cur = dObs[dDates[dDates.length - 1]];
+        const prev = dObs[dDates[dDates.length - 2]];
+        if (cur.st === 'value' && prev.st === 'value') dayDiff = cur.v - prev.v;
+      }
       // 最新の巡回に成功していなければ「未確認」。価格は出さない
       cells.push(
         fresh
-          ? { store, cond, state: sh.state, price: sh.price, since: sh.since, event: ev }
+          ? { store, cond, state: sh.state, price: sh.price, since: sh.since, event: ev, dayDiff }
           : { store, cond, state: 'stale', price: null, since: sh.since, event: null, staleDays: status?.staleDays ?? null }
       );
     }
