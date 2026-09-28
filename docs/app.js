@@ -168,8 +168,16 @@
       return e;
     };
     const svg = s('svg', { viewBox: `0 0 ${W} ${H}`, class: 'chart', role: 'img', 'aria-label': '価格推移グラフ' });
-    for (let i = 0; i <= 3; i++) {
-      const v = min + ((max - min) * i) / 3;
+    // 縦軸の目盛りは、1円単位のような半端な数字にならないよう、きりのいい間隔（最低でも100円単位）に丸める
+    const rough = (max - min) / 3;
+    const mag = Math.pow(10, Math.floor(Math.log10(Math.max(rough, 1))));
+    const norm = rough / mag;
+    const step = Math.max((norm < 1.5 ? 1 : norm < 3.5 ? 2 : norm < 7.5 ? 5 : 10) * mag, 100);
+    const firstTick = Math.ceil(min / step) * step;
+    const ticks = [];
+    for (let v = firstTick; v <= max + 1e-6; v += step) ticks.push(v);
+    if (!ticks.length) ticks.push(Math.round((min + max) / 2 / step) * step);
+    for (const v of ticks) {
       svg.append(s('line', { class: 'grid', x1: L, x2: W - R, y1: Y(v), y2: Y(v) }));
       svg.append(s('text', { class: 'ax', x: L - 6, y: Y(v) + 4, 'text-anchor': 'end' }, yen(v)));
     }
