@@ -108,9 +108,15 @@ function rowsFromProduct(p, varById, game) {
   const { name, nameCond } = nameAndCond(p.name, game);
   const image = (p.images && p.images[0] && (p.images[0].thumbnail || p.images[0].src)) || null;
   const pack = game === 'onepiece' ? (/^(?:OP|EB|PRB)-?\d/i.test(name) ? 'BOX・カートン' : 'その他（プロモ・セット等）') : { pokemon: 'ボックス', dragonball: 'ドラゴンボール', yugioh: '遊戯王' }[game] || '';
+  // ごく一部の古い/激レアな商品は、実際の買取額ではなく「ものすごく高い」ことを示すだけの、
+  // きりのいい見せかけの数字（2,000,000円・20,000,000円など）が入っていることがある。
+  // 実在する一番高い価格（カートンで60万円台）から離れているので、100万円以上は価格なし扱いにする
+  const MAX_PLAUSIBLE_PRICE = 1000000;
   const mk = (cond, priceStr, inStock) => {
-    const price = Number(priceStr);
-    return { name, cond, price: price > 0 ? price : null, status: !inStock ? 'closed' : price > 0 ? 'price' : 'unknown', siteDate: null, imageUrl: image, pack, meta: '' };
+    const raw = Number(priceStr);
+    const price = raw > 0 && raw < MAX_PLAUSIBLE_PRICE ? raw : null;
+    const status = !inStock ? 'closed' : raw >= MAX_PLAUSIBLE_PRICE ? 'closed' : price ? 'price' : 'unknown';
+    return { name, cond, price, status, siteDate: null, imageUrl: image, pack, meta: '' };
   };
   if (p.type !== 'variable') return [mk(nameCond, p.prices && p.prices.price, p.is_in_stock)];
 

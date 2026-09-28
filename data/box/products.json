@@ -2259,17 +2259,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-28"
  },
- "pokemon_5123c3ba": {
-  "id": "pokemon_5123c3ba",
-  "game": "pokemon",
-  "name": "20th Anniversary",
-  "group": "",
-  "groups": [],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-27",
-  "lastSeen": "2026-09-28"
- },
  "pokemon_518f2df5": {
   "id": "pokemon_518f2df5",
   "game": "pokemon",
@@ -2712,20 +2701,6 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-28"
  },
- "pokemon_820ec735": {
-  "id": "pokemon_820ec735",
-  "game": "pokemon",
-  "name": "GX ウルトラシャイニー",
-  "group": "サン&ムーン(S&M)",
-  "groups": [
-   "サン&ムーン(S&M)",
-   "ボックス"
-  ],
-  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2023-08-23T191026.168-300x300.jpg",
-  "image": "img/box/pokemon_820ec735.jpg",
-  "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
- },
  "pokemon_85d20b60": {
   "id": "pokemon_85d20b60",
   "game": "pokemon",
@@ -2760,10 +2735,13 @@
   "game": "pokemon",
   "name": "ウルトラシャイニー",
   "group": "",
-  "groups": [],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-27",
+  "groups": [
+   "サン&ムーン(S&M)",
+   "ボックス"
+  ],
+  "imageUrl": "https://runto666.com/wp-content/uploads/新規プロジェクト-2023-08-23T191026.168-300x300.jpg",
+  "image": "img/box/pokemon_820ec735.jpg",
+  "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-28"
  },
  "pokemon_87e56da1": {
@@ -3617,7 +3595,7 @@
  "pokemon_cd50f7f6": {
   "id": "pokemon_cd50f7f6",
   "game": "pokemon",
-  "name": "ポケットモンスターカードゲーム 拡張パック 20th Anniversary",
+  "name": "20th Anniversary",
   "group": "ボックス",
   "groups": [
    "ボックス"
@@ -4064,19 +4042,6 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-22",
-  "lastSeen": "2026-09-28"
- },
- "pokemon_f5f53bea": {
-  "id": "pokemon_f5f53bea",
-  "game": "pokemon",
-  "name": "25thアニバーサリー",
-  "group": "ボックス",
-  "groups": [
-   "ボックス"
-  ],
-  "imageUrl": null,
-  "image": null,
-  "firstSeen": "2026-09-23",
   "lastSeen": "2026-09-28"
  },
  "pokemon_f64bdf9a": {

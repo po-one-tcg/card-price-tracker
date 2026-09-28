@@ -76,3 +76,15 @@ test('別の属性（デッキ: BOX/カートン/白箱）も状態に対応づ�
   assert.ok(rows.length >= 1);
   for (const r of rows) assert.ok(['box', 'carton', 'whitebox'].includes(r.cond), r.cond);
 });
+
+test('100万円以上の価格は、見せかけの数字とみなして価格なし扱いにする（実在の最高値はカートンで60万円台）', () => {
+  const R = require('../sites/runto.js');
+  const varById = new Map();
+  const row = R.rowsFromProduct({ name: 'ポケモンカードe 基本拡張パック 神秘なる山', type: 'simple', is_in_stock: true, prices: { price: '18000000' }, images: [] }, varById, 'pokemon')[0];
+  assert.equal(row.price, null);
+  assert.equal(row.status, 'closed');
+  // 実在する高額帯（60万円台など）はそのまま
+  const real = R.rowsFromProduct({ name: 'OP-05 新時代の主役', type: 'simple', is_in_stock: true, prices: { price: '650000' }, images: [] }, varById, 'onepiece')[0];
+  assert.equal(real.price, 650000);
+  assert.equal(real.status, 'price');
+});
