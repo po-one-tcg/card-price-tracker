@@ -279,3 +279,21 @@
 {"t":"2026-09-28T12:55:39+09:00","type":"appear","to":35000,"k":"nikoniko|onepiece_3f2360a6|tape","store":"nikoniko","game":"onepiece","pid":"onepiece_3f2360a6","name":"2nd ANNIVERSARY 2NDANNIV"}
 {"t":"2026-09-28T12:55:39+09:00","type":"appear","to":48000,"k":"nikoniko|onepiece_4206b39e|tape","store":"nikoniko","game":"onepiece","pid":"onepiece_4206b39e","name":"3rd ANNIVERSARY SET 3RDANNIV"}
 {"t":"2026-09-28T12:55:39+09:00","type":"disappear","from":10100,"k":"nikoniko|dragonball_6c9918eb|tape","store":"nikoniko","game":"dragonball","pid":"dragonball_6c9918eb","name":"FB09 DUAL EVOLUTION"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":4500,"k":"expo|unionarena_82d8ee49|tape","store":"expo","game":"unionarena","pid":"unionarena_82d8ee49","name":"魔法少女まどか☆マギカ"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":6000,"k":"expo|unionarena_087b693a|tape","store":"expo","game":"unionarena","pid":"unionarena_087b693a","name":"チェンソーマン"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":6500,"k":"expo|weiss_268ca756|tape","store":"expo","game":"weiss","pid":"weiss_268ca756","name":"Pixar ピクサー"}
+{"t":"2026-09-28T13:20:12+09:00","type":"appear","from":"none","to":1000,"k":"expo|onepiece_069f48cf|box","store":"expo","game":"onepiece","pid":"onepiece_069f48cf","name":"ナツコミ ルフィ"}
+{"t":"2026-09-28T13:20:12+09:00","type":"appear","from":"none","to":8000,"k":"expo|onepiece_721917c9|box","store":"expo","game":"onepiece","pid":"onepiece_721917c9","name":"プレミアムカードコレクション25周年エディション"}
+{"t":"2026-09-28T13:20:12+09:00","type":"appear","from":"none","to":5000,"k":"expo|onepiece_e13d0e35|box","store":"expo","game":"onepiece","pid":"onepiece_e13d0e35","name":"プレミアムカードコレクション ウタ"}
+{"t":"2026-09-28T13:20:12+09:00","type":"appear","from":"none","to":1900,"k":"expo|onepiece_fe32c034|box","store":"expo","game":"onepiece","pid":"onepiece_fe32c034","name":"一番くじ ルフィ プロモ OP13-001"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":16200,"k":"expo|pokemon_ebea83a5|box","store":"expo","game":"pokemon","pid":"pokemon_ebea83a5","name":"30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":700,"k":"expo|pokemon_dd7c7925|box","store":"expo","game":"pokemon","pid":"pokemon_dd7c7925","name":"スタートデッキ100 バトルコレクション"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":5000,"k":"expo|pokemon_01a22c93|box","store":"expo","game":"pokemon","pid":"pokemon_01a22c93","name":"ブラックボルトホワイトフレアカードファイルセット"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":2500,"k":"expo|pokemon_e58d982a|box","store":"expo","game":"pokemon","pid":"pokemon_e58d982a","name":"コレクションファイルセットN"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":11500,"k":"expo|pokemon_ac0c2bc9|box","store":"expo","game":"pokemon","pid":"pokemon_ac0c2bc9","name":"151カードファイルセット 御三家"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":11000,"k":"expo|pokemon_b0cfe27d|box","store":"expo","game":"pokemon","pid":"pokemon_b0cfe27d","name":"151カードファイルセット モンスターボール"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":52000,"k":"expo|pokemon_7040f78a|box","store":"expo","game":"pokemon","pid":"pokemon_7040f78a","name":"25thアニバーサリーコレクション"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":8500,"k":"expo|pokemon_68dc9b77|box","store":"expo","game":"pokemon","pid":"pokemon_68dc9b77","name":"コンゴウ団スペシャルセット"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":4100,"k":"expo|pokemon_1187b94d|box","store":"expo","game":"pokemon","pid":"pokemon_1187b94d","name":"黒炎の支配者デッキビルド"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":8500,"k":"expo|pokemon_44bf3846|shrink","store":"expo","game":"pokemon","pid":"pokemon_44bf3846","name":"スノーハザード"}
+{"t":"2026-09-28T13:20:12+09:00","type":"disappear","from":12500,"k":"expo|pokemon_8fd15973|shrink","store":"expo","game":"pokemon","pid":"pokemon_8fd15973","name":"白銀のランス"}
