@@ -14082,13 +14082,13 @@
   },
   "homura|pokemon_04cf41b8|carton": {
    "confirmed": {
-    "state": "value",
-    "price": 1,
+    "state": "none",
+    "price": null,
     "since": "2026-09-23T23:18:53+09:00"
    },
    "shown": {
-    "state": "value",
-    "price": 1,
+    "state": "none",
+    "price": null,
     "since": "2026-09-23T23:18:53+09:00"
    },
    "pending": null,

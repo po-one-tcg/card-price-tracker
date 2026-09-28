@@ -68,3 +68,19 @@ test('load(): テストデータに無いサブカテゴリは取得しない（
   const rows = await H.load(src, { data: { 159: [page(0, [])] } });
   assert.deepEqual(rows, []);
 });
+
+test('dropBogusCartonPrices: カートンが、同じ商品・同じ店のBOXより安いのは価格なし扱いにする（サイトの未設定プレースホルダー対策）', () => {
+  const H = require('../sites/homura.js');
+  const rows = [
+    { name: 'ニンジャスピナー', cond: 'shrink', price: 7500, status: 'price' },
+    { name: 'ニンジャスピナー', cond: 'carton', price: 1, status: 'price' },
+    { name: '30th CELEBRATION', cond: 'shrink', price: 25000, status: 'price' },
+    { name: '30th CELEBRATION', cond: 'carton', price: 300000, status: 'price' }, // 正常な高額カートンは残す
+  ];
+  H.dropBogusCartonPrices(rows);
+  const ninja = rows.find((r) => r.name === 'ニンジャスピナー' && r.cond === 'carton');
+  assert.equal(ninja.price, null);
+  assert.equal(ninja.status, 'closed');
+  const cele = rows.find((r) => r.name === '30th CELEBRATION' && r.cond === 'carton');
+  assert.equal(cele.price, 300000); // BOXより高いので、そのまま
+});

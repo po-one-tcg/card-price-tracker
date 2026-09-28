@@ -101,7 +101,27 @@ async function load(src, ctx = {}) {
     rows.push(...(await fetchSubcategory(sub, src.game, sub.group || src.group, { fetcher: ctx.fetcher, pages })));
     if (!pages) await sleep(300);
   }
+  dropBogusCartonPrices(rows);
   return rows;
 }
 
-module.exports = { load, parseName, parseCards, readTotal, pageUrl, tagCond };
+// カートン（複数箱まとめ）が、同じ商品・同じ店のBOX1個ぶんの価格より安いのは、値段が入っていない/未設定の
+// プレースホルダー（サイトが「¥1」のように出す）とみなし、価格なし（〆切と同じ扱い）にする
+function dropBogusCartonPrices(rows) {
+  const BOX_LIKE = new Set(['shrink', 'noshrink', 'box', 'tape', 'tapecut', 'whitebox']);
+  const maxBoxPrice = new Map();
+  for (const r of rows) {
+    if (!BOX_LIKE.has(r.cond) || !r.price) continue;
+    maxBoxPrice.set(r.name, Math.max(maxBoxPrice.get(r.name) || 0, r.price));
+  }
+  for (const r of rows) {
+    if (r.cond !== 'carton' || !r.price) continue;
+    const boxPrice = maxBoxPrice.get(r.name);
+    if (boxPrice && r.price < boxPrice) {
+      r.price = null;
+      r.status = 'closed';
+    }
+  }
+}
+
+module.exports = { load, parseName, parseCards, readTotal, pageUrl, tagCond, dropBogusCartonPrices };
