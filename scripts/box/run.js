@@ -24,6 +24,7 @@ const option = (n) => {
 const DRY_RUN = flag('dry-run');
 const NO_IMAGES = flag('no-images');
 const MIN_KEEP_RATIO = 0.6; // 前回の6割未満しか取れなかったら「消滅」ではなく取得不良とみなして無効にする
+const MIN_GUARD_COUNT = 10; // これ未満の小さな区分（例: 1〜2商品しかない店）では、1個の増減で6割を割るため、このガードをかけない
 
 const yen = (n) => (n == null ? '-' : `¥${n.toLocaleString('ja-JP')}`);
 const EVENT_LABEL = { appear: '🆕 出現', disappear: '✕ 消滅', anomaly: '⚠ 要確認(保留)', approved: '✔ 承認', corrected: '✎ 修正', dismissed: '✔ 据え置き' };
@@ -85,7 +86,7 @@ async function runSource(store, src, ctx) {
   }
 
   const prevCount = state.meta[metaKey]?.lastCount;
-  if (prevCount && rowsByKey.size < prevCount * MIN_KEEP_RATIO) {
+  if (prevCount && prevCount >= MIN_GUARD_COUNT && rowsByKey.size < prevCount * MIN_KEEP_RATIO) {
     throw new Error(`商品数が前回 ${prevCount} → 今回 ${rowsByKey.size} に急減しました。誤って「消滅」と判定しないよう、この回は無効にします`);
   }
 
