@@ -304,3 +304,10 @@
 {"t":"2026-09-28T18:03:10+09:00","type":"disappear","from":6500,"k":"runto|yugioh_84dc772b|shrink","store":"runto","game":"yugioh","pid":"yugioh_84dc772b","name":"遊戯王 ORIGINAL ARTWORK COLLECTION"}
 {"t":"2026-09-28T18:03:10+09:00","type":"appear","from":"none","to":9000,"k":"runto|dragonball_df0bfb06|tape","store":"runto","game":"dragonball","pid":"dragonball_df0bfb06","name":"FB10 CROSS FORCE"}
 {"t":"2026-09-28T18:03:10+09:00","type":"appear","from":"none","to":8000,"k":"runto|dragonball_6c9918eb|tape","store":"runto","game":"dragonball","pid":"dragonball_6c9918eb","name":"FB09 DUAL EVOLUTION"}
+{"t":"2026-09-28T23:49:52+09:00","type":"appear","to":15500,"k":"runto|pokemon_a712dbb2|box","store":"runto","game":"pokemon","pid":"pokemon_a712dbb2","name":"タイムゲイザー"}
+{"t":"2026-09-28T23:49:52+09:00","type":"appear","to":6000,"k":"runto|pokemon_2511d88d|nopeel","store":"runto","game":"pokemon","pid":"pokemon_2511d88d","name":"ムニキスゼロ"}
+{"t":"2026-09-28T23:49:52+09:00","type":"appear","to":9000,"k":"runto|pokemon_1daaa6ee|nopeel","store":"runto","game":"pokemon","pid":"pokemon_1daaa6ee","name":"インフェルノX"}
+{"t":"2026-09-28T23:49:52+09:00","type":"appear","from":"none","to":23000,"k":"runto|pokemon_e5a21d16|shrink","store":"runto","game":"pokemon","pid":"pokemon_e5a21d16","name":"超電ブレイカー"}
+{"t":"2026-09-28T23:49:52+09:00","type":"appear","from":"none","to":39000,"k":"runto|pokemon_69dde59e|box","store":"runto","game":"pokemon","pid":"pokemon_69dde59e","name":"横浜記念デッキ「ピカチュウ」"}
+{"t":"2026-09-28T23:49:52+09:00","type":"appear","from":"none","to":18500,"k":"runto|pokemon_6a1c99cf|box","store":"runto","game":"pokemon","pid":"pokemon_6a1c99cf","name":"スターバース"}
+{"t":"2026-09-28T23:49:52+09:00","type":"appear","from":"none","to":22500,"k":"runto|pokemon_8b963d81|box","store":"runto","game":"pokemon","pid":"pokemon_8b963d81","name":"ダークファンタズマ"}
