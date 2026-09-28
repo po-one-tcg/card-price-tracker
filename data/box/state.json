@@ -66,79 +66,79 @@
    "lastCount": 5
   },
   "runto|pokemon": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 118
   },
   "runto|onepiece": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
-   "lastCount": 28
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
+   "lastCount": 29
   },
   "runto|yugioh": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 57
   },
   "runto|dragonball": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 8
   },
   "somurie|pokemon": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 12
   },
   "somurie|yugioh": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 3
   },
   "somurie|onepiece": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 0
   },
   "somurie|dragonball": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 0
   },
   "somurie|weiss": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 0
   },
   "somurie|unionarena": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 0
   },
   "homura|pokemon": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 135
   },
   "homura|onepiece": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 45
   },
   "homura|yugioh": {
-   "lastOkAt": "2026-09-27T15:18:35+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 1
   },
   "homura|dragonball": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 3
   },
   "homura|lorcana": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 0
   },
   "macho|pokemon": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 101
   },
   "macho|onepiece": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 59
   },
   "macho|yugioh": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 0
   },
   "macho|dragonball": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 0
   },
   "nikoniko|nikoniko-pokemon": {
@@ -154,19 +154,19 @@
    "lastCount": 11
   },
   "pricebase|dragonball": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 14
   },
   "pricebase|yugioh": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 37
   },
   "pricebase|pokemon": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 104
   },
   "pricebase|onepiece": {
-   "lastOkAt": "2026-09-28T15:21:38+09:00",
+   "lastOkAt": "2026-09-28T18:03:10+09:00",
    "lastCount": 23
   }
  },
@@ -14230,13 +14230,13 @@
   "homura|pokemon_13fcc149|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 25000,
-    "since": "2026-09-27T18:01:05+09:00"
+    "price": 25300,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 25000,
-    "since": "2026-09-27T18:01:05+09:00"
+    "price": 25300,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -27709,13 +27709,13 @@
   "runto|dragonball_57db379c|tape": {
    "confirmed": {
     "state": "value",
-    "price": 11000,
-    "since": "2026-09-28T12:55:39+09:00"
+    "price": 11500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 11000,
-    "since": "2026-09-28T12:55:39+09:00"
+    "price": 11500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -27732,20 +27732,20 @@
   },
   "runto|dragonball_6c9918eb|tape": {
    "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-25T13:11:39+09:00"
+    "state": "value",
+    "price": 8000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-25T13:11:39+09:00"
+    "state": "value",
+    "price": 8000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "disappear",
-    "at": "2026-09-25T13:11:39+09:00"
+    "type": "appear",
+    "at": "2026-09-28T18:03:10+09:00"
    },
    "ref": {
     "store": "runto",
@@ -27756,18 +27756,21 @@
   },
   "runto|dragonball_df0bfb06|tape": {
    "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-22T00:39:03+09:00"
+    "state": "value",
+    "price": 9000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-22T00:39:03+09:00"
+    "state": "value",
+    "price": 9000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
-   "lastEvent": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-28T18:03:10+09:00"
+   },
    "ref": {
     "store": "runto",
     "game": "dragonball",
@@ -28084,6 +28087,30 @@
     "cond": "tape"
    }
   },
+  "runto|onepiece_53013ac6|box": {
+   "confirmed": {
+    "state": "value",
+    "price": 2000,
+    "since": "2026-09-28T18:03:10+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 2000,
+    "since": "2026-09-28T18:03:10+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-09-28T18:03:10+09:00"
+   },
+   "ref": {
+    "store": "runto",
+    "game": "onepiece",
+    "pid": "onepiece_53013ac6",
+    "cond": "box"
+   }
+  },
   "runto|onepiece_5312478f|tape": {
    "confirmed": {
     "state": "value",
@@ -28108,13 +28135,13 @@
   "runto|onepiece_5541d89b|tape": {
    "confirmed": {
     "state": "value",
-    "price": 10000,
-    "since": "2026-09-26T18:01:13+09:00"
+    "price": 10500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 10000,
-    "since": "2026-09-26T18:01:13+09:00"
+    "price": 10500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -28201,13 +28228,13 @@
   "runto|onepiece_583367ee|tape": {
    "confirmed": {
     "state": "value",
-    "price": 7500,
-    "since": "2026-09-24T18:02:05+09:00"
+    "price": 8000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 7500,
-    "since": "2026-09-24T18:02:05+09:00"
+    "price": 8000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -28735,13 +28762,13 @@
   "runto|pokemon_13fcc149|nopeel": {
    "confirmed": {
     "state": "value",
-    "price": 22500,
-    "since": "2026-09-28T12:55:39+09:00"
+    "price": 23000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 22500,
-    "since": "2026-09-28T12:55:39+09:00"
+    "price": 23000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -28756,13 +28783,13 @@
   "runto|pokemon_13fcc149|noshrink": {
    "confirmed": {
     "state": "value",
-    "price": 23000,
-    "since": "2026-09-27T18:01:05+09:00"
+    "price": 23500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 23000,
-    "since": "2026-09-27T18:01:05+09:00"
+    "price": 23500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -28801,13 +28828,13 @@
   "runto|pokemon_13fcc149|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 25200,
-    "since": "2026-09-28T12:55:39+09:00"
+    "price": 25500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 25200,
-    "since": "2026-09-28T12:55:39+09:00"
+    "price": 25500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -29752,13 +29779,13 @@
   "runto|pokemon_7feba245|box": {
    "confirmed": {
     "state": "value",
-    "price": 11700,
-    "since": "2026-09-28T13:16:50+09:00"
+    "price": 11800,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 11700,
-    "since": "2026-09-28T13:16:50+09:00"
+    "price": 11800,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -29944,13 +29971,13 @@
   "runto|pokemon_8f4f6d84|box": {
    "confirmed": {
     "state": "value",
-    "price": 58000,
-    "since": "2026-09-28T15:21:38+09:00"
+    "price": 60000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 58000,
-    "since": "2026-09-28T15:21:38+09:00"
+    "price": 60000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -30199,13 +30226,13 @@
   "runto|pokemon_a4df8684|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 7000,
-    "since": "2026-09-24T13:15:15+09:00"
+    "price": 7200,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 7000,
-    "since": "2026-09-24T13:15:15+09:00"
+    "price": 7200,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -31018,13 +31045,13 @@
   "runto|pokemon_f35c61f3|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 18800,
-    "since": "2026-09-26T13:12:11+09:00"
+    "price": 19500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 18800,
-    "since": "2026-09-26T13:12:11+09:00"
+    "price": 19500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -31060,13 +31087,13 @@
   "runto|pokemon_f64bdf9a|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 14000,
-    "since": "2026-09-22T00:39:03+09:00"
+    "price": 15000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 14000,
-    "since": "2026-09-22T00:39:03+09:00"
+    "price": 15000,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -31941,20 +31968,20 @@
   },
   "runto|yugioh_84dc772b|shrink": {
    "confirmed": {
-    "state": "value",
-    "price": 6500,
-    "since": "2026-09-28T15:21:38+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
-    "state": "value",
-    "price": 6500,
-    "since": "2026-09-28T15:21:38+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "appear",
-    "at": "2026-09-28T15:21:38+09:00"
+    "type": "disappear",
+    "at": "2026-09-28T18:03:10+09:00"
    },
    "ref": {
     "store": "runto",
@@ -33247,13 +33274,13 @@
   "somurie|pokemon_ebea83a5|box": {
    "confirmed": {
     "state": "value",
-    "price": 17000,
-    "since": "2026-09-28T12:55:39+09:00"
+    "price": 17500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 17000,
-    "since": "2026-09-28T12:55:39+09:00"
+    "price": 17500,
+    "since": "2026-09-28T18:03:10+09:00"
    },
    "pending": null,
    "ignored": null,
