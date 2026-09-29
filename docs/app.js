@@ -57,7 +57,8 @@
         const diff = cell.dayDiff ? h('small', { class: cls(cell.dayDiff) }, arrow(cell.dayDiff) + yen(Math.abs(cell.dayDiff))) : null;
         return h('td', { class: (isNew ? 'is-new ' : '') + (isMax ? 'is-max' : '') },
           h('span', { class: 'price' }, yen(cell.price)),
-          isNew ? h('small', null, h('span', { class: 'badge new' }, '🆕 出現 ' + agoText(cell.event.at))) : diff);
+          isNew ? h('small', null, h('span', { class: 'badge new' }, '🆕 出現 ' + agoText(cell.event.at))) : null,
+          diff);
       }
       case 'none':
         if (cell.event && cell.event.type === 'disappear') {

@@ -106,6 +106,7 @@ tr.group td { position: sticky; left: 0; background: var(--group); font-weight: 
 td.cell { text-align: center; } /* 価格のセルは中央寄せ */
 td.is-new { background: var(--new-bg); }
 td.is-max { background: var(--max-bg); }
+td.is-new.is-max { background: var(--max-bg); } /* 出現かつ最高値のときは、最高値の背景色を優先する */
 td.is-max .price { font-weight: 700; color: var(--accent); } /* 一番高い価格は、背景だけでなく文字も強調 */
 td.cell:not(.is-max) .price { color: var(--muted); } /* 一番高い価格以外は少し控えめにして、最高値を目立たせる */
 td.gone { color: var(--gone-fg); }
