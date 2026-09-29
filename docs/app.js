@@ -186,21 +186,9 @@
       svg.append(s('line', { class: 'grid', x1: L, x2: W - R, y1: Y(v), y2: Y(v) }));
       svg.append(s('text', { class: 'ax', x: L - 6, y: Y(v) + 4, 'text-anchor': 'end' }, yen(v)));
     }
-    // 巡回できなかった日・取扱なしの日は線をつなげない（前日の値で埋めない）
-    let seg = [];
-    const flush = () => {
-      if (seg.length > 1) svg.append(s('polyline', { class: 'ln', points: seg.map((p) => `${X(p.n).toFixed(1)},${Y(p.v).toFixed(1)}`).join(' ') }));
-      seg = [];
-    };
-    let prev = null;
-    for (const p of pts) {
-      if (p.v === null || (prev && p.n - prev.n > 1)) flush();
-      if (p.v !== null) {
-        seg.push(p);
-        prev = p;
-      }
-    }
-    flush();
+    // 巡回できなかった日・取扱なしの日は、値を補わずスキップして、前後にある値どうしを直線でつなぐ
+    // （空白で途切れさせない。あとから間の日付が埋まれば、そのぶん自然に線が増える）
+    if (vals.length > 1) svg.append(s('polyline', { class: 'ln', points: vals.map((p) => `${X(p.n).toFixed(1)},${Y(p.v).toFixed(1)}`).join(' ') }));
     for (const p of vals) {
       const c = s('circle', { class: 'pt', cx: X(p.n), cy: Y(p.v), r: 3 });
       c.append(s('title', {}, `${p.d}  ${yen(p.v)}${fmtN ? fmtN(p) : ''}`));
