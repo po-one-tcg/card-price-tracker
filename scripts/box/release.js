@@ -64,8 +64,11 @@ function compareProducts(groupOrder = {}) {
   };
   return (a, b) => {
     if (a.game !== b.game) return a.game < b.game ? -1 : 1;
-    if (rank(a) !== rank(b)) return rank(a) - rank(b);
-    if (a.group !== b.group) return a.group.localeCompare(b.group, 'ja');
+    // groupOrder が設定されているゲームだけ、区分でまとめてから並べる（無いゲームは区分をまたいで発売日順）
+    if ((groupOrder[a.game] || []).length) {
+      if (rank(a) !== rank(b)) return rank(a) - rank(b);
+      if (a.group !== b.group) return a.group.localeCompare(b.group, 'ja');
+    }
     if (a.release && b.release) {
       if (a.release !== b.release) return a.release < b.release ? 1 : -1;
       return a.name.localeCompare(b.name, 'ja');
