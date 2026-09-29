@@ -3403,13 +3403,13 @@
   "pokemon_b1b59733": {
     "id": "pokemon_b1b59733",
     "game": "pokemon",
-    "name": "スペシャルデッキセット御三家",
+    "name": "スペシャルデッキセットex フシギバナ・リザードン・カメックス",
     "group": "その他（セット・プロモ等）",
     "groups": [
       "その他（セット・プロモ等）"
     ],
-    "imageUrl": null,
-    "image": null,
+    "imageUrl": "https://d26vgo7frmwa7l.cloudfront.net/master-decks/1783993633196-8f050821-SVG.webp",
+    "image": "img/box/pokemon_b1b59733.webp",
     "firstSeen": "2026-09-21",
     "lastSeen": "2026-09-29"
   },
