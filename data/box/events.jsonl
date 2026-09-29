@@ -331,3 +331,4 @@
 {"t":"2026-09-29T14:23:40+09:00","type":"appear","from":"none","to":1200,"k":"expo|pokemon_276a9c27|box","store":"expo","game":"pokemon","pid":"pokemon_276a9c27","name":"スターターセットex ゾロア&ゾロアークex"}
 {"t":"2026-09-29T14:23:40+09:00","type":"appear","from":"none","to":13200,"k":"expo|pokemon_7bc3bb7b|shrink","store":"expo","game":"pokemon","pid":"pokemon_7bc3bb7b","name":"シャイニートレジャーex"}
 {"t":"2026-09-29T14:23:40+09:00","type":"disappear","from":8700,"k":"expo|pokemon_40c47c80|shrink","store":"expo","game":"pokemon","pid":"pokemon_40c47c80","name":"白熱のアルカナ"}
+{"t":"2026-09-29T14:26:42+09:00","type":"disappear","from":4500,"k":"nikoniko|onepiece_163444a1|tape","store":"nikoniko","game":"onepiece","pid":"onepiece_163444a1","name":"ONE PIECE DAY 2024 OPD"}
