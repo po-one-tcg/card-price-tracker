@@ -149,7 +149,12 @@
 
   // ---------- グラフ（SVG）----------
   function chart(series, fmtN) {
-    const pts = series.dates.map((d, i) => ({ d, n: dayNum(d), v: series.avg[i] }));
+    // 発売前・取扱開始前など、値が無い期間が先頭や末尾に続くぶんは横軸から詰める（データがある範囲だけを描く）
+    let lo = 0, hi = series.dates.length - 1;
+    while (lo <= hi && series.avg[lo] === null) lo++;
+    while (hi >= lo && series.avg[hi] === null) hi--;
+    const dates = series.dates.slice(lo, hi + 1), avgTrimmed = series.avg.slice(lo, hi + 1);
+    const pts = dates.map((d, i) => ({ d, n: dayNum(d), v: avgTrimmed[i] }));
     const vals = pts.filter((p) => p.v !== null);
     if (vals.length < 2) return h('p', { class: 'empty' }, 'グラフはデータが2日分たまると表示されます。');
     // 画面幅に合わせて描くので、スマホでも文字が縮小されない
