@@ -7,6 +7,14 @@
    "game": "pokemon",
    "date": "2026-09-25",
    "createdAt": "2026-09-24T14:28:50+09:00"
+  },
+  {
+   "id": "xfblpv",
+   "pid": "pokemon_13fcc149",
+   "name": "30th CELEBRATION",
+   "game": "pokemon",
+   "date": "2026-10-08",
+   "createdAt": "2026-09-30T08:23:56+09:00"
   }
  ]
 }
