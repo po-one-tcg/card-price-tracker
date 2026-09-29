@@ -2054,6 +2054,19 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-29"
  },
+ "pokemon_437bd588": {
+  "id": "pokemon_437bd588",
+  "game": "pokemon",
+  "name": "メガトレーナーBOXEGAトレーナーBOX",
+  "group": "その他（セット・プロモ等）",
+  "groups": [
+   "その他（セット・プロモ等）"
+  ],
+  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Premium_Trainer_Box_MEGA_1771903403595.webp",
+  "image": "img/box/pokemon_437bd588.webp",
+  "firstSeen": "2026-09-29",
+  "lastSeen": "2026-09-29"
+ },
  "pokemon_44bf3846": {
   "id": "pokemon_44bf3846",
   "game": "pokemon",
@@ -3095,7 +3108,7 @@
   "groups": [
    "その他（セット・プロモ等）"
   ],
-  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Starter_Set_ex_Eevee_1789244176174.webp",
+  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Starter_Set_ex_Eevee_ex_1787290917630.webp",
   "image": "img/box/pokemon_a0351009.webp",
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-29"

@@ -332,3 +332,5 @@
 {"t":"2026-09-29T14:23:40+09:00","type":"appear","from":"none","to":13200,"k":"expo|pokemon_7bc3bb7b|shrink","store":"expo","game":"pokemon","pid":"pokemon_7bc3bb7b","name":"シャイニートレジャーex"}
 {"t":"2026-09-29T14:23:40+09:00","type":"disappear","from":8700,"k":"expo|pokemon_40c47c80|shrink","store":"expo","game":"pokemon","pid":"pokemon_40c47c80","name":"白熱のアルカナ"}
 {"t":"2026-09-29T14:26:42+09:00","type":"disappear","from":4500,"k":"nikoniko|onepiece_163444a1|tape","store":"nikoniko","game":"onepiece","pid":"onepiece_163444a1","name":"ONE PIECE DAY 2024 OPD"}
+{"t":"2026-09-29T15:19:16+09:00","type":"disappear","from":22000,"k":"runto|onepiece_e7ef202a|tape","store":"runto","game":"onepiece","pid":"onepiece_e7ef202a","name":"OP-06 双璧の覇者"}
+{"t":"2026-09-29T15:19:16+09:00","type":"disappear","from":6300,"k":"runto|yugioh_84dc772b|shrink","store":"runto","game":"yugioh","pid":"yugioh_84dc772b","name":"遊戯王 ORIGINAL ARTWORK COLLECTION"}
