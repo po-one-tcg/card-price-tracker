@@ -79,8 +79,8 @@
 {"t":"2026-09-28T12:55:39+09:00","k":"somurie|pokemon_7feba245|box","st":"value","v":12000}
 {"t":"2026-09-28T12:55:39+09:00","k":"somurie|pokemon_160b5b10|shrink","st":"none","v":null}
 {"t":"2026-09-28T12:55:39+09:00","k":"somurie|yugioh_84dc772b|box","st":"value","v":6500}
-{"t":"2026-09-28T12:55:39+09:00","k":"pricebase|pokemon_04cf41b8|box","st":"value","v":7500}
-{"t":"2026-09-28T12:55:39+09:00","k":"pricebase|pokemon_f64bdf9a|box","st":"value","v":16500}
+{"t":"2026-09-28T12:55:39+09:00","k":"pricebase|pokemon_04cf41b8|shrink","st":"value","v":7500}
+{"t":"2026-09-28T12:55:39+09:00","k":"pricebase|pokemon_f64bdf9a|shrink","st":"value","v":16500}
 {"t":"2026-09-28T12:55:39+09:00","k":"nikoniko|pokemon_13fcc149|shrink","st":"value","v":25200}
 {"t":"2026-09-28T12:55:39+09:00","k":"nikoniko|pokemon_13fcc149|noshrink","st":"value","v":21700}
 {"t":"2026-09-28T12:55:39+09:00","k":"nikoniko|pokemon_b6ca6a70|shrink","st":"value","v":10200}
@@ -158,7 +158,7 @@
 {"t":"2026-09-28T12:55:39+09:00","k":"nikoniko|dragonball_df0bfb06|tape","st":"value","v":9700}
 {"t":"2026-09-28T12:55:39+09:00","k":"nikoniko|dragonball_6c9918eb|tape","st":"none","v":null}
 {"t":"2026-09-28T13:16:50+09:00","k":"runto|pokemon_7feba245|box","st":"value","v":11700}
-{"t":"2026-09-28T13:16:50+09:00","k":"pricebase|pokemon_2b1faaeb|box","st":"value","v":9000}
+{"t":"2026-09-28T13:16:50+09:00","k":"pricebase|pokemon_2b1faaeb|shrink","st":"value","v":9000}
 {"t":"2026-09-28T13:20:12+09:00","k":"expo|mtg_c33849e0|box","st":"value","v":211000}
 {"t":"2026-09-28T13:20:12+09:00","k":"expo|mtg_ee6ef909|box","st":"value","v":19500}
 {"t":"2026-09-28T13:20:12+09:00","k":"expo|unionarena_e62e8dd0|tape","st":"value","v":7000}
@@ -236,11 +236,11 @@
 {"t":"2026-09-28T15:21:38+09:00","k":"runto|dragonball_1ab2c151|tape","st":"value","v":7000}
 {"t":"2026-09-28T15:21:38+09:00","k":"somurie|pokemon_b6ca6a70|shrink","st":"value","v":10500}
 {"t":"2026-09-28T15:21:38+09:00","k":"somurie|yugioh_84dc772b|carton","st":"value","v":175000}
-{"t":"2026-09-28T15:21:38+09:00","k":"pricebase|pokemon_13fcc149|box","st":"value","v":25000}
-{"t":"2026-09-28T15:21:38+09:00","k":"pricebase|pokemon_b6ca6a70|box","st":"value","v":9500}
-{"t":"2026-09-28T15:21:38+09:00","k":"pricebase|pokemon_a0e9a94c|box","st":"value","v":17000}
-{"t":"2026-09-28T15:21:38+09:00","k":"pricebase|pokemon_71d4061e|box","st":"value","v":16800}
-{"t":"2026-09-28T15:21:38+09:00","k":"pricebase|pokemon_5d253bf8|box","st":"value","v":39000}
+{"t":"2026-09-28T15:21:38+09:00","k":"pricebase|pokemon_13fcc149|shrink","st":"value","v":25000}
+{"t":"2026-09-28T15:21:38+09:00","k":"pricebase|pokemon_b6ca6a70|shrink","st":"value","v":9500}
+{"t":"2026-09-28T15:21:38+09:00","k":"pricebase|pokemon_a0e9a94c|shrink","st":"value","v":17000}
+{"t":"2026-09-28T15:21:38+09:00","k":"pricebase|pokemon_71d4061e|shrink","st":"value","v":16800}
+{"t":"2026-09-28T15:21:38+09:00","k":"pricebase|pokemon_5d253bf8|shrink","st":"value","v":39000}
 {"t":"2026-09-28T18:03:10+09:00","k":"runto|pokemon_13fcc149|shrink","st":"value","v":25500}
 {"t":"2026-09-28T18:03:10+09:00","k":"runto|pokemon_13fcc149|nopeel","st":"value","v":23000}
 {"t":"2026-09-28T18:03:10+09:00","k":"runto|pokemon_13fcc149|noshrink","st":"value","v":23500}

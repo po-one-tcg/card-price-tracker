@@ -13,7 +13,7 @@ test('parsePrice: 金額あり→price / 買取停止・要問合せ（未掲載
   assert.deepEqual(K.parsePrice(''), { price: null, status: 'closed' });
 });
 
-test('見出し行（商品名…）と空行は無視し、状態はすべてBOX', () => {
+test('見出し行（商品名…）と空行は無視し、状態はすべてBOX（ポケモン以外）', () => {
   const onepieceTable = [
     ['商品名（ONE PIECE）', '定価', '買取価格'],
     ['世界最強の戦士', '5,760', '10,300'],
@@ -28,6 +28,19 @@ test('見出し行（商品名…）と空行は無視し、状態はすべてBO
   assert.equal(out.length, 2);
   assert.deepEqual([out[0].name, out[0].cond, out[0].price], ['世界最強の戦士', 'box', 10300]);
   assert.deepEqual([out[1].name, out[1].status], ['決戦の刻', 'closed']);
+});
+
+test('ポケモンだけは cond が shrink（価格帯が他店のシュリンク付きと揃うため）', () => {
+  const cheerio = require('cheerio');
+  const table = [
+    ['商品名（ポケモン）', '定価', '買取価格'],
+    ['30th CELEBRATION', '9,000', '26,800'],
+  ];
+  const html = `<table><tbody>${table.map((r) => `<tr>${r.map((c) => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
+  const $ = cheerio.load(html);
+  const out = K.rowsFromTable($, $('table').get(0), 'pokemon');
+  assert.equal(out.length, 1);
+  assert.deepEqual([out[0].name, out[0].cond, out[0].price], ['30th CELEBRATION', 'shrink', 26800]);
 });
 
 test('ドラゴンボール: 商品ではない付属品（エナジーマーカー等）は除外する', () => {

@@ -2,7 +2,9 @@
 // 1つのページ（?p=9534）に、ONE PIECE→ドラゴンボール→遊戯王→ポケモンの順で<table>が並んでいる（表の並び順は固定）。
 // 商品コード（OP-17 等）は付かず、店の言い方の商品名のみ。同じ商品として結びつける対応は
 // config/product-aliases.json 側で行う（見出し行・空行はここで無視する）。
-// 状態（シュリンク有無・カートン等）の区別は無く、どの商品も「BOX」1本。
+// 状態（シュリンク有無・カートン等）の区別は無く、どの商品も1本の価格。
+// ポケモンだけ、価格帯が他店の「シュリンク付き」と揃う（シュリンク無しより高い）ため cond を shrink として扱う。
+// 他のゲーム（ワンピース・ドラゴンボール・遊戯王）はシュリンクの概念が無いため box のまま。
 //
 // 似た名前の「PRICE BASE (price-base.com)」は無関係の別会社で、そちらは「独自調査による取引相場の目安」
 // （実際の買取価格ではない）と明記されたページのため、このツールでは使わない。
@@ -34,7 +36,8 @@ function rowsFromTable($, table, game) {
       if (!name || /^商品名/.test(name)) return; // 見出し行
       if (exclude.some((re) => re.test(name))) return;
       const { price, status } = parsePrice(tds.eq(2).text());
-      rows.push({ name, cond: 'box', price, status, siteDate: null, imageUrl: null, pack: '', meta: '' });
+      const cond = game === 'pokemon' ? 'shrink' : 'box';
+      rows.push({ name, cond, price, status, siteDate: null, imageUrl: null, pack: '', meta: '' });
     });
   return rows;
 }
