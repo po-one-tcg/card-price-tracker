@@ -49,6 +49,31 @@
    "FB11": "2026-09-12"
   }
  },
+ "yugioh": {
+  "source": "https://cardstack.jp/yugioh-box/yugioh-basic/（基本パックのみ。キーは商品名の完全一致が必要なため、bareな型番ではなくproducts.jsonの商品名そのものを使う）",
+  "fetchedAt": "2026-09-30",
+  "dates": {
+   "遊戯王 IGNITION ASSAULT": "2019-10-12",
+   "CHAOS IMPACT": "2019-07-13",
+   "DARKWING BLAST": "2022-07-16",
+   "遊戯王 ALLIANCE INSIGHT アライアンス・インサイト": "2025-01-25",
+   "ETERNITY CODE": "2020-01-11",
+   "遊戯王 DUELIST ADVANCE BOX": "2025-04-26",
+   "遊戯王 BLAZING DOMINION": "2026-01-24",
+   "POWER OF THE ELEMENTS": "2022-04-23",
+   "遊戯王 BURST PROTOCOL": "2025-10-25",
+   "遊戯王 SUPREME DARKNESSスプリーム・ダークネス": "2024-10-26",
+   "RAGE OF THE ABYSS レイジ・オブ・ジ・アビス": "2024-07-27",
+   "遊戯王 BATTLE OF CHAOS": "2021-10-16",
+   "AGE OF OVERLORD": "2023-07-22",
+   "INFINITE FORBIDDEN": "2024-04-27",
+   "LEGACY OF DESTRUCTION": "2024-01-27",
+   "遊戯王 CHAOS ORIGINS": "2026-04-25",
+   "PHANTOM NIGHTMARE": "2023-10-28",
+   "遊戯王 BEYOND THE BRAVE": "2026-07-18",
+   "DOOM OF DIMENSIONS": "2025-07-26"
+  }
+ },
  "aliases": {
   "pokemon": {
    "151": "ポケモンカード151（イチゴーイチ）",
