@@ -33,6 +33,11 @@
   const hm = (stamp) => stamp.slice(11, 16);
   const PERIOD_LABEL = { 1: '前日', 7: '1週間', 14: '2週間', 30: '1ヶ月', 90: '3ヶ月', 180: '半年' };
   const COND_ORDER = ['shrink', 'tape', 'noshrink', 'nopeel', 'tapecut', 'pack', 'carton', 'whitebox', 'red', 'blue', 'set', 'box'];
+  // 個別ページだけ、既定と違う状態の並びにしたい商品（商品ID → 並び順）。「box」は他の多くの商品でも使う
+  // 共通の状態のため、ここで個別に上書きしない限りCOND_ORDER全体を動かせない
+  const PRODUCT_COND_ORDER = {
+    pokemon_dd7c7925: ['box', 'whitebox', 'carton'], // スタートデッキ100 バトルコレクション
+  };
   const condLabel = (id) => (DATA.conditions.find((c) => c.id === id) || { label: id }).label;
   const gameLabel = (id) => (DATA.games.find((g) => g.id === id) || { label: id }).label;
   const storeName = (id) => (DATA.stores.find((s) => s.id === id) || { name: id }).name;
@@ -317,7 +322,8 @@
   function viewProduct(pid) {
     const p = byId[pid];
     if (!p) return h('p', { class: 'empty' }, '商品が見つかりません。');
-    const allConds = COND_ORDER.filter((c) => p.cells.some((x) => x.cond === c));
+    const order = PRODUCT_COND_ORDER[pid] || COND_ORDER;
+    const allConds = order.filter((c) => p.cells.some((x) => x.cond === c));
     // 状態のフィルタ（状態が2つ以上ある商品だけ）。選んだ状態の行・推移だけを出す。既定は「すべて」
     const sel = allConds.length > 1 && allConds.includes(prodCond[pid]) ? prodCond[pid] : 'all';
     const conds = sel === 'all' ? allConds : [sel];
