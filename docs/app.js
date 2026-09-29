@@ -251,11 +251,19 @@
     const saved = (filters.cond || {})[gameId];
     const condSel = condsHere.length ? (condsHere.includes(saved) ? saved : condsHere[0]) : null;
     const exactCond = condSel;
+    // 区分（groupOrder）が設定されているゲームだけ、商品を区分ごとに見出しで分ける
+    // （設定が無いゲームは区分に意味が無いので、見出しを出さず1つのリストにする）
+    const gameCfg = DATA.games.find((x) => x.id === gameId);
     const groups = [];
-    for (const p of list) {
-      let g = groups.find((x) => x.name === p.group);
-      if (!g) groups.push((g = { name: p.group || 'その他', items: [] }));
-      g.items.push(p);
+    if (gameCfg && gameCfg.groupOrder) {
+      for (const p of list) {
+        const name = p.group || 'その他';
+        let g = groups.find((x) => x.name === name);
+        if (!g) groups.push((g = { name, items: [] }));
+        g.items.push(p);
+      }
+    } else {
+      groups.push({ name: null, items: list });
     }
     const thead = h('thead', null, h('tr', null,
       h('th', { class: 'name' }, '商品'),
@@ -276,7 +284,7 @@
       })));
     const body = h('tbody');
     for (const g of groups) {
-      body.append(h('tr', { class: 'group' }, h('td', { colspan: stores.length + 1 }, g.name)));
+      if (g.name) body.append(h('tr', { class: 'group' }, h('td', { colspan: stores.length + 1 }, g.name)));
       for (const p of g.items) {
         const rowCells = stores.map((s) => summaryCell(p, s.id, exactCond));
         const isMax = markMax(rowCells);
