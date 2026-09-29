@@ -321,3 +321,5 @@
 {"t":"2026-09-29T13:16:01+09:00","type":"disappear","from":80000,"k":"runto|yugioh_a0dcf67b|box","store":"runto","game":"yugioh","pid":"yugioh_a0dcf67b","name":"遊戯王 デュエルセット WCS2026"}
 {"t":"2026-09-29T13:16:01+09:00","type":"disappear","from":5200,"k":"runto|yugioh_ff20883f|shrink","store":"runto","game":"yugioh","pid":"yugioh_ff20883f","name":"遊戯王 QUARTER CENTURY ART COLLECTION"}
 {"t":"2026-09-29T13:16:01+09:00","type":"disappear","from":6500,"k":"somurie|yugioh_84dc772b|box","store":"somurie","game":"yugioh","pid":"yugioh_84dc772b","name":"遊戯王 ORIGINAL ARTWORK COLLECTION"}
+{"t":"2026-09-29T14:21:19+09:00","type":"appear","from":"none","to":6800,"k":"collect|pokemon_a4df8684|noshrink","store":"collect","game":"pokemon","pid":"pokemon_a4df8684","name":"メガブレイブ"}
+{"t":"2026-09-29T14:21:19+09:00","type":"appear","from":"none","to":6800,"k":"collect|pokemon_b87614a2|noshrink","store":"collect","game":"pokemon","pid":"pokemon_b87614a2","name":"メガシンフォニア"}
