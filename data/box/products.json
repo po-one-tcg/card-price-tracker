@@ -148,7 +148,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "dragonball_81ead9c0": {
   "id": "dragonball_81ead9c0",
@@ -217,7 +217,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "lorcana_8200fe32": {
   "id": "lorcana_8200fe32",
@@ -230,7 +230,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "mtg_35c7161b": {
   "id": "mtg_35c7161b",
@@ -243,7 +243,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "mtg_4f65548c": {
   "id": "mtg_4f65548c",
@@ -256,7 +256,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "mtg_6d8f4bdb": {
   "id": "mtg_6d8f4bdb",
@@ -269,7 +269,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "mtg_c33849e0": {
   "id": "mtg_c33849e0",
@@ -282,7 +282,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "mtg_ee6ef909": {
   "id": "mtg_ee6ef909",
@@ -295,7 +295,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_03671daa": {
   "id": "onepiece_03671daa",
@@ -334,7 +334,7 @@
   "imageUrl": "https://runto666.com/wp-content/uploads/af506cdf-98b9-4292-b1d2-b7127741312a-300x286.jpeg",
   "image": "img/box/onepiece_069f48cf.jpg",
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_0b76a14b": {
   "id": "onepiece_0b76a14b",
@@ -387,7 +387,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_163444a1": {
   "id": "onepiece_163444a1",
@@ -480,7 +480,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_332361cd": {
   "id": "onepiece_332361cd",
@@ -507,7 +507,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_36c70714": {
   "id": "onepiece_36c70714",
@@ -743,6 +743,19 @@
   "firstSeen": "2026-09-21",
   "lastSeen": "2026-09-29"
  },
+ "onepiece_55937d23": {
+  "id": "onepiece_55937d23",
+  "game": "onepiece",
+  "name": "ラウンドワン プロモーションパック",
+  "group": "その他（プロモ・セット等）",
+  "groups": [
+   "その他（プロモ・セット等）"
+  ],
+  "imageUrl": "https://xlbjnzjpvtufmxzjvrve.supabase.co/storage/v1/object/public/product-images/Round_One_Promotion_Pack_1786296527987_36.webp",
+  "image": "img/box/onepiece_55937d23.webp",
+  "firstSeen": "2026-09-29",
+  "lastSeen": "2026-09-29"
+ },
  "onepiece_56ed4c82": {
   "id": "onepiece_56ed4c82",
   "game": "onepiece",
@@ -793,7 +806,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_621ecc5e": {
   "id": "onepiece_621ecc5e",
@@ -819,7 +832,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_6636cacb": {
   "id": "onepiece_6636cacb",
@@ -845,7 +858,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_6b9b57f6": {
   "id": "onepiece_6b9b57f6",
@@ -884,7 +897,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_719b43be": {
   "id": "onepiece_719b43be",
@@ -897,7 +910,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_721917c9": {
   "id": "onepiece_721917c9",
@@ -1029,7 +1042,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_958f315f": {
   "id": "onepiece_958f315f",
@@ -1134,7 +1147,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_b09a5f17": {
   "id": "onepiece_b09a5f17",
@@ -1212,7 +1225,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_cbd10d06": {
   "id": "onepiece_cbd10d06",
@@ -1264,7 +1277,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_d2b88a26": {
   "id": "onepiece_d2b88a26",
@@ -1344,7 +1357,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_e42403f4": {
   "id": "onepiece_e42403f4",
@@ -1448,7 +1461,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "onepiece_fe32c034": {
   "id": "onepiece_fe32c034",
@@ -1461,7 +1474,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_0108a5fe": {
   "id": "pokemon_0108a5fe",
@@ -1501,7 +1514,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_01af3035": {
   "id": "pokemon_01af3035",
@@ -1586,7 +1599,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_1187b94d": {
   "id": "pokemon_1187b94d",
@@ -1599,7 +1612,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_133fd658": {
   "id": "pokemon_133fd658",
@@ -1753,7 +1766,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_25e5b3b2": {
   "id": "pokemon_25e5b3b2",
@@ -1820,7 +1833,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_2e36c0ba": {
   "id": "pokemon_2e36c0ba",
@@ -1860,7 +1873,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_3230521d": {
   "id": "pokemon_3230521d",
@@ -1887,7 +1900,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_34a6f8fe": {
   "id": "pokemon_34a6f8fe",
@@ -1915,7 +1928,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_38d3c98c": {
   "id": "pokemon_38d3c98c",
@@ -1928,7 +1941,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_3c980e2a": {
   "id": "pokemon_3c980e2a",
@@ -1955,7 +1968,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_3ee6b2e5": {
   "id": "pokemon_3ee6b2e5",
@@ -2039,7 +2052,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_44bf3846": {
   "id": "pokemon_44bf3846",
@@ -2188,7 +2201,7 @@
   "imageUrl": "https://price-base.com/useful/wp-content/uploads/2026/08/pb-gengar-official-300x169.jpg",
   "image": "img/box/pokemon_4c145b6b.jpg",
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_4ca4f866": {
   "id": "pokemon_4ca4f866",
@@ -2243,7 +2256,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_50d5baac": {
   "id": "pokemon_50d5baac",
@@ -2285,7 +2298,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_5292f68f": {
   "id": "pokemon_5292f68f",
@@ -2298,7 +2311,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_53d14b02": {
   "id": "pokemon_53d14b02",
@@ -2311,7 +2324,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_5a0690f5": {
   "id": "pokemon_5a0690f5",
@@ -2421,7 +2434,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_64dc356a": {
   "id": "pokemon_64dc356a",
@@ -2448,7 +2461,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_69dde59e": {
   "id": "pokemon_69dde59e",
@@ -2505,7 +2518,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_6ef687fc": {
   "id": "pokemon_6ef687fc",
@@ -2546,7 +2559,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_71d4061e": {
   "id": "pokemon_71d4061e",
@@ -2573,7 +2586,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_785bb707": {
   "id": "pokemon_785bb707",
@@ -2642,7 +2655,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_7cfbf471": {
   "id": "pokemon_7cfbf471",
@@ -2839,7 +2852,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_8f02c4b1": {
   "id": "pokemon_8f02c4b1",
@@ -2852,7 +2865,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_8f4f6d84": {
   "id": "pokemon_8f4f6d84",
@@ -2922,7 +2935,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_954f990d": {
   "id": "pokemon_954f990d",
@@ -2977,7 +2990,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_98449799": {
   "id": "pokemon_98449799",
@@ -3018,7 +3031,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_9d34240b": {
   "id": "pokemon_9d34240b",
@@ -3112,7 +3125,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_a2be71e1": {
   "id": "pokemon_a2be71e1",
@@ -3154,7 +3167,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_a712dbb2": {
   "id": "pokemon_a712dbb2",
@@ -3222,7 +3235,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_ab99206a": {
   "id": "pokemon_ab99206a",
@@ -3235,7 +3248,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_abb77d79": {
   "id": "pokemon_abb77d79",
@@ -3520,7 +3533,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_c622182a": {
   "id": "pokemon_c622182a",
@@ -3577,7 +3590,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_ccc94b0f": {
   "id": "pokemon_ccc94b0f",
@@ -3810,7 +3823,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_e5a21d16": {
   "id": "pokemon_e5a21d16",
@@ -3934,7 +3947,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_f1637200": {
   "id": "pokemon_f1637200",
@@ -3960,7 +3973,7 @@
   "imageUrl": null,
   "image": "img/box/pokemon_f189a042.webp",
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_f1ac60cc": {
   "id": "pokemon_f1ac60cc",
@@ -4029,7 +4042,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "pokemon_f3e8b9b4": {
   "id": "pokemon_f3e8b9b4",
@@ -4096,7 +4109,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_06d2899b": {
   "id": "unionarena_06d2899b",
@@ -4109,7 +4122,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_087b693a": {
   "id": "unionarena_087b693a",
@@ -4122,7 +4135,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_1f6d8c41": {
   "id": "unionarena_1f6d8c41",
@@ -4135,7 +4148,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_22b5ae02": {
   "id": "unionarena_22b5ae02",
@@ -4148,7 +4161,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_23a0e431": {
   "id": "unionarena_23a0e431",
@@ -4161,7 +4174,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_33b5be0e": {
   "id": "unionarena_33b5be0e",
@@ -4174,7 +4187,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_3447aa8e": {
   "id": "unionarena_3447aa8e",
@@ -4187,7 +4200,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_35d44da5": {
   "id": "unionarena_35d44da5",
@@ -4200,7 +4213,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_378535a8": {
   "id": "unionarena_378535a8",
@@ -4213,7 +4226,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_4201f106": {
   "id": "unionarena_4201f106",
@@ -4226,7 +4239,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_7878bb8d": {
   "id": "unionarena_7878bb8d",
@@ -4239,7 +4252,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_8152f704": {
   "id": "unionarena_8152f704",
@@ -4252,7 +4265,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_82d8ee49": {
   "id": "unionarena_82d8ee49",
@@ -4265,7 +4278,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_a0f1d832": {
   "id": "unionarena_a0f1d832",
@@ -4278,7 +4291,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_aef713ff": {
   "id": "unionarena_aef713ff",
@@ -4291,7 +4304,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_c828c62e": {
   "id": "unionarena_c828c62e",
@@ -4304,7 +4317,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_cccb8415": {
   "id": "unionarena_cccb8415",
@@ -4317,7 +4330,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_cd098f23": {
   "id": "unionarena_cd098f23",
@@ -4330,7 +4343,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_d3d5d1ae": {
   "id": "unionarena_d3d5d1ae",
@@ -4343,7 +4356,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_d74d2068": {
   "id": "unionarena_d74d2068",
@@ -4356,7 +4369,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_e1305b93": {
   "id": "unionarena_e1305b93",
@@ -4369,7 +4382,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_e62e8dd0": {
   "id": "unionarena_e62e8dd0",
@@ -4382,7 +4395,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_e7a3299a": {
   "id": "unionarena_e7a3299a",
@@ -4395,7 +4408,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_ea477f19": {
   "id": "unionarena_ea477f19",
@@ -4408,7 +4421,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_fa7c3c5c": {
   "id": "unionarena_fa7c3c5c",
@@ -4421,7 +4434,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_fbd6b85a": {
   "id": "unionarena_fbd6b85a",
@@ -4434,7 +4447,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "unionarena_fd377fbf": {
   "id": "unionarena_fd377fbf",
@@ -4447,7 +4460,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "weiss_268ca756": {
   "id": "weiss_268ca756",
@@ -4460,7 +4473,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "weiss_6b725e7e": {
   "id": "weiss_6b725e7e",
@@ -4473,7 +4486,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "weiss_70ab7dac": {
   "id": "weiss_70ab7dac",
@@ -4486,7 +4499,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "weiss_827649fe": {
   "id": "weiss_827649fe",
@@ -4499,7 +4512,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "weiss_a7a6284d": {
   "id": "weiss_a7a6284d",
@@ -4512,7 +4525,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "weiss_babf837b": {
   "id": "weiss_babf837b",
@@ -4525,7 +4538,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "weiss_ec6828db": {
   "id": "weiss_ec6828db",
@@ -4538,7 +4551,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "weiss_f2090ccc": {
   "id": "weiss_f2090ccc",
@@ -4551,7 +4564,7 @@
   "imageUrl": null,
   "image": null,
   "firstSeen": "2026-09-21",
-  "lastSeen": "2026-09-28"
+  "lastSeen": "2026-09-29"
  },
  "yugioh_00479e97": {
   "id": "yugioh_00479e97",
