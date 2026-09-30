@@ -15,6 +15,14 @@
    "game": "pokemon",
    "date": "2026-10-08",
    "createdAt": "2026-09-30T08:23:56+09:00"
+  },
+  {
+   "id": "d518ho",
+   "pid": "pokemon_b6ca6a70",
+   "name": "ストームエメラルダ",
+   "game": "pokemon",
+   "date": "2026-10-08",
+   "createdAt": "2026-10-01T00:46:10+09:00"
   }
  ]
 }
