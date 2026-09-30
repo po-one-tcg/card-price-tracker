@@ -335,3 +335,4 @@
 {"t":"2026-09-29T15:19:16+09:00","type":"disappear","from":22000,"k":"runto|onepiece_e7ef202a|tape","store":"runto","game":"onepiece","pid":"onepiece_e7ef202a","name":"OP-06 双璧の覇者"}
 {"t":"2026-09-29T15:19:16+09:00","type":"disappear","from":6300,"k":"runto|yugioh_84dc772b|shrink","store":"runto","game":"yugioh","pid":"yugioh_84dc772b","name":"遊戯王 ORIGINAL ARTWORK COLLECTION"}
 {"t":"2026-09-29T18:03:16+09:00","type":"appear","from":"none","to":6000,"k":"runto|yugioh_84dc772b|shrink","store":"runto","game":"yugioh","pid":"yugioh_84dc772b","name":"遊戯王 ORIGINAL ARTWORK COLLECTION"}
+{"t":"2026-09-30T13:39:17+09:00","type":"disappear","from":6800,"k":"collect|pokemon_9d34240b|shrink","store":"collect","game":"pokemon","pid":"pokemon_9d34240b","name":"アビスアイ"}
