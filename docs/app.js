@@ -279,10 +279,10 @@
         // （放置すると、買取店は機会損失、見る人は毎回手動で確認する手間になるため）
         const isToday = st && st.lastOkAt && st.lastOkAt.slice(0, 10) === DATA.today;
         const timeText = st && st.lastOkAt ? md(st.lastOkAt) + ' ' + hm(st.lastOkAt) : '未取得';
-        // 折り返すときに変な位置で割れないよう、切れてよい場所にだけ <wbr> を入れる
+        // 途中で折り返さない（幅が足りない列は、バッジぶん表がその列だけ少し広がり、横スクロールで見る）
         const badge = !st || !st.lastOkAt ? null
-          : !st.fresh ? h('span', { class: 'badge warn' }, '⚠', h('wbr', null), ' 未取得')
-          : !isToday ? h('span', { class: 'badge notice' }, '本日', h('wbr', null), '未更新')
+          : !st.fresh ? h('span', { class: 'badge warn' }, '⚠ 未取得')
+          : !isToday ? h('span', { class: 'badge notice' }, '本日未更新')
           : null;
         return h('th', { class: 'store' }, s.name,
           badge ? h('div', { style: 'margin-top:3px; text-align:center' }, badge) : null,
@@ -407,6 +407,16 @@
         : h('p', { class: 'empty' }, `${PERIOD_LABEL[rankState.period]}前と比べて価格が動いた商品はありません（比較できるデータがまだ少ない場合もあります）。`));
   }
 
+  // 表が横スクロールできるとき、続きがあることに気づけるよう端に影を出す（.tablewrap に scroll-l/scroll-r を付け外し）
+  function updateTableScrollShadow() {
+    app.querySelectorAll('.tablewrap').forEach((wrap) => {
+      const max = wrap.scrollWidth - wrap.clientWidth;
+      wrap.classList.toggle('scroll-l', wrap.scrollLeft > 1);
+      wrap.classList.toggle('scroll-r', wrap.scrollLeft < max - 1);
+    });
+  }
+  window.addEventListener('resize', updateTableScrollShadow);
+
   // ---------- ルーター ----------
   // preserveScroll: フィルタの切り替えなど、画面は同じままの再描画で使う（ページ移動のときは常に先頭へ）
   function render(preserveScroll) {
@@ -422,6 +432,8 @@
     else if (parts[0] === 'feed') view = viewFeed();
     else view = viewHome();
     app.replaceChildren(view);
+    app.querySelectorAll('.tablewrap').forEach((wrap) => wrap.addEventListener('scroll', updateTableScrollShadow, { passive: true }));
+    updateTableScrollShadow();
     document.title = 'トレカBOX価格トラッカー';
     if (parts[0] === 'p' && byId[parts[1]]) document.title = byId[parts[1]].name + ' | トレカBOX価格トラッカー';
     if (preserveScroll) {
