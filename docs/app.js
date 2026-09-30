@@ -381,7 +381,7 @@
           h('ul', { class: 'restock-list' }, p.restocks.map((d) => h('li', null, d.replace(/-/g, '/')))))
       : null;
     const restockNote = p.restocks.length
-      ? h('div', { class: 'muted', style: 'font-size:11px;margin:-10px 0 16px' }, '再販日はカードショップや家電量販店の納品日を示しています。コンビニ各社の納品日とは一致しません。')
+      ? h('div', { class: 'muted', style: 'font-size:11px;margin:0 0 16px' }, '再販日はカードショップや家電量販店の納品日を示しています。コンビニ各社の納品日とは一致しません。')
       : null;
     return h('div', null,
       h('div', { class: 'crumb' }, h('a', { href: '#/' }, 'ホーム'), ' › ', h('a', { href: '#/g/' + p.game }, gameLabel(p.game)), ' › ', p.name),
