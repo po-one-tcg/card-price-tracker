@@ -364,3 +364,4 @@
 {"t":"2026-09-30T13:52:39+09:00","type":"appear","from":"none","to":4100,"k":"expo|pokemon_1187b94d|box","store":"expo","game":"pokemon","pid":"pokemon_1187b94d","name":"黒炎の支配者デッキビルド"}
 {"t":"2026-09-30T13:52:39+09:00","type":"appear","from":"none","to":5100,"k":"expo|pokemon_77e3b01c|box","store":"expo","game":"pokemon","pid":"pokemon_77e3b01c","name":"プレミアムトレーナーボックスex"}
 {"t":"2026-09-30T13:52:39+09:00","type":"appear","from":"none","to":9000,"k":"expo|pokemon_c4d06382|shrink","store":"expo","game":"pokemon","pid":"pokemon_c4d06382","name":"バイオレットex"}
+{"t":"2026-09-30T13:54:49+09:00","type":"disappear","from":11000,"k":"nikoniko|onepiece_21626a36|tape","store":"nikoniko","game":"onepiece","pid":"onepiece_21626a36","name":"ONE PIECE DAY 2025 OPD"}
