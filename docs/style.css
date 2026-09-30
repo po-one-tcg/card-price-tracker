@@ -11,7 +11,7 @@
   --down: #1565c0;
   --new-bg: #e6f6ea;
   --new-fg: #16793a;
-  --gone-fg: #8a8f98;
+  --gone-fg: #5c6069;
   --warn-bg: #fff4d6;
   --warn-fg: #8a5a00;
   --max-bg: #dbeafe;
@@ -33,7 +33,7 @@
     --down: #6cb0ff;
     --new-bg: #17311f;
     --new-fg: #6fdc95;
-    --gone-fg: #7c828c;
+    --gone-fg: #969ca5;
     --warn-bg: #3a2f10;
     --warn-fg: #f0c060;
     --max-bg: #1c3252;
@@ -88,10 +88,11 @@ a.card:hover { text-decoration: none; border-color: var(--accent); }
   overflow: auto; max-height: calc(100vh - 170px); max-height: calc(100dvh - 170px);
   background: var(--card); border: 1px solid var(--line); border-radius: 12px;
 }
-/* スマホ等で表が横スクロールできるとき、続きがあることに気づけるよう端に影を出す（JS側でscroll-l/scroll-rを付け外しする） */
-.tablewrap.scroll-l { box-shadow: inset 14px 0 10px -10px var(--scroll-shadow); }
+/* スマホ等で表が横スクロールできるとき、続きがあることに気づけるよう端に影を出す（JS側でscroll-l/scroll-rを付け外しする）。
+   右端(scroll-r)は何も重ならないので.tablewrap自体に。左端(scroll-l)は商品名の固定列がそこを覆ってしまうため、
+   固定列そのものの右側に影を出す（固定列の裏に隠れず見えるように） */
 .tablewrap.scroll-r { box-shadow: inset -14px 0 10px -10px var(--scroll-shadow); }
-.tablewrap.scroll-l.scroll-r { box-shadow: inset 14px 0 10px -10px var(--scroll-shadow), inset -14px 0 10px -10px var(--scroll-shadow); }
+.tablewrap.scroll-l td.name, .tablewrap.scroll-l th.name { box-shadow: 6px 0 8px -6px var(--scroll-shadow); }
 table { border-collapse: separate; border-spacing: 0; width: 100%; }
 th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
 thead th {
