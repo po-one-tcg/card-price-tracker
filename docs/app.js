@@ -383,8 +383,8 @@
     return h('div', null,
       h('div', { class: 'crumb' }, h('a', { href: '#/' }, 'ホーム'), ' › ', h('a', { href: '#/g/' + p.game }, gameLabel(p.game)), ' › ', p.name),
       h('div', { class: 'hero' }, p.image ? h('img', { src: p.image, alt: '' }) : null,
-        h('div', { class: 'info' }, h('h1', null, p.name), h('div', { class: 'muted' }, p.group + (p.release ? '　発売 ' + p.release.replace(/-/g, '/') : ''))),
-        restockBlock),
+        h('div', { class: 'info' }, h('h1', null, p.name), h('div', { class: 'muted' }, p.group + (p.release ? '　発売 ' + p.release.replace(/-/g, '/') : '')))),
+      restockBlock,
       condBar, table, blocks);
   }
 
