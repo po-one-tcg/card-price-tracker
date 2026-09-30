@@ -196,7 +196,7 @@
     // （空白で途切れさせない。あとから間の日付が埋まれば、そのぶん自然に線が増える）
     if (vals.length > 1) svg.append(s('polyline', { class: 'ln', points: vals.map((p) => `${X(p.n).toFixed(1)},${Y(p.v).toFixed(1)}`).join(' ') }));
     for (const p of vals) {
-      const c = s('circle', { class: 'pt', cx: X(p.n), cy: Y(p.v), r: 3 });
+      const c = s('circle', { class: 'pt', cx: X(p.n), cy: Y(p.v), r: 4 });
       c.append(s('title', {}, `${p.d}  ${yen(p.v)}${fmtN ? fmtN(p) : ''}`));
       svg.append(c);
     }
