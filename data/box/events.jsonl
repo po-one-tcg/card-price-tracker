@@ -336,3 +336,13 @@
 {"t":"2026-09-29T15:19:16+09:00","type":"disappear","from":6300,"k":"runto|yugioh_84dc772b|shrink","store":"runto","game":"yugioh","pid":"yugioh_84dc772b","name":"遊戯王 ORIGINAL ARTWORK COLLECTION"}
 {"t":"2026-09-29T18:03:16+09:00","type":"appear","from":"none","to":6000,"k":"runto|yugioh_84dc772b|shrink","store":"runto","game":"yugioh","pid":"yugioh_84dc772b","name":"遊戯王 ORIGINAL ARTWORK COLLECTION"}
 {"t":"2026-09-30T13:39:17+09:00","type":"disappear","from":6800,"k":"collect|pokemon_9d34240b|shrink","store":"collect","game":"pokemon","pid":"pokemon_9d34240b","name":"アビスアイ"}
+{"t":"2026-09-30T13:41:03+09:00","type":"disappear","from":16000,"k":"runto|pokemon_1daaa6ee|shrink","store":"runto","game":"pokemon","pid":"pokemon_1daaa6ee","name":"インフェルノX"}
+{"t":"2026-09-30T13:41:03+09:00","type":"disappear","from":7000,"k":"runto|pokemon_b87614a2|shrink","store":"runto","game":"pokemon","pid":"pokemon_b87614a2","name":"メガシンフォニア"}
+{"t":"2026-09-30T13:41:03+09:00","type":"appear","to":132000,"k":"runto|onepiece_5541d89b|carton","store":"runto","game":"onepiece","pid":"onepiece_5541d89b","name":"OP-17 世界最強の戦士"}
+{"t":"2026-09-30T13:41:03+09:00","type":"appear","from":"none","to":20000,"k":"runto|onepiece_e7ef202a|tape","store":"runto","game":"onepiece","pid":"onepiece_e7ef202a","name":"OP-06 双璧の覇者"}
+{"t":"2026-09-30T13:41:03+09:00","type":"appear","to":142000,"k":"runto|dragonball_57db379c|carton","store":"runto","game":"dragonball","pid":"dragonball_57db379c","name":"ST01 STORY BOOSTER 01"}
+{"t":"2026-09-30T13:41:03+09:00","type":"disappear","from":9000,"k":"runto|dragonball_df0bfb06|tape","store":"runto","game":"dragonball","pid":"dragonball_df0bfb06","name":"FB10 CROSS FORCE"}
+{"t":"2026-09-30T13:41:03+09:00","type":"appear","to":7800,"k":"homura|onepiece_ad258c33|box","store":"homura","game":"onepiece","pid":"onepiece_ad258c33","name":"オフィシャルプレイマット&カードセット Whole Cake Island Arc"}
+{"t":"2026-09-30T13:41:03+09:00","type":"appear","to":12000,"k":"homura|onepiece_f4a09043|box","store":"homura","game":"onepiece","pid":"onepiece_f4a09043","name":"モンキー・D・ルフィ L [EB02-010]オフィシャルプレイマット リミテッドエディション vol.5"}
+{"t":"2026-09-30T13:41:03+09:00","type":"appear","from":"none","to":11700,"k":"pricebase|onepiece_76282172|box","store":"pricebase","game":"onepiece","pid":"onepiece_76282172","name":"EB-04 EGGHEAD CRISIS"}
+{"t":"2026-09-30T13:41:03+09:00","type":"appear","from":"none","to":17000,"k":"pricebase|onepiece_0db75840|box","store":"pricebase","game":"onepiece","pid":"onepiece_0db75840","name":"OP-09 新たなる皇帝"}
