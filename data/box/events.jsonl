@@ -370,3 +370,5 @@
 {"t":"2026-09-30T15:19:48+09:00","type":"appear","to":105000,"k":"runto|pokemon_9d34240b|carton","store":"runto","game":"pokemon","pid":"pokemon_9d34240b","name":"アビスアイ"}
 {"t":"2026-09-30T15:19:48+09:00","type":"appear","to":5500,"k":"runto|pokemon_9d34240b|nopeel","store":"runto","game":"pokemon","pid":"pokemon_9d34240b","name":"アビスアイ"}
 {"t":"2026-09-30T15:19:48+09:00","type":"disappear","from":11500,"k":"runto|dragonball_57db379c|tape","store":"runto","game":"dragonball","pid":"dragonball_57db379c","name":"ST01 STORY BOOSTER 01"}
+{"t":"2026-09-30T18:02:23+09:00","type":"appear","from":"none","to":900,"k":"runto|pokemon_dd7c7925|box","store":"runto","game":"pokemon","pid":"pokemon_dd7c7925","name":"スタートデッキ100 バトルコレクション"}
+{"t":"2026-09-30T18:02:23+09:00","type":"appear","from":"none","to":7000,"k":"runto|pokemon_b87614a2|shrink","store":"runto","game":"pokemon","pid":"pokemon_b87614a2","name":"メガシンフォニア"}
