@@ -133,7 +133,7 @@ data/cards.json               カードの一覧、data/images/ にカード画�
 
 ## 対象を増やす
 
-- **BOXの店舗・ゲーム**: `config/box-targets.json` の `stores` に書き足します（`scripts/sites/pricebase.js` が見本のパーサー）。同じ店舗に `sources` を足せばゲームを増やせます。
+- **BOXの店舗・ゲーム**: `config/box-targets.json` の `stores` に書き足します（`scripts/sites/kaitoribase.js` が見本のパーサー）。同じ店舗に `sources` を足せばゲームを増やせます。
 - **カードのキャラ**: `config/targets.json` の `characters` に1行足します。拾いすぎたカードは `exclude` に名前の一部を入れて除外します。
 
 ## パソコンで手動実行・テスト（任意）

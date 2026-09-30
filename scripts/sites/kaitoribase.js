@@ -13,6 +13,9 @@ const cheerio = require('cheerio');
 const TABLE_ORDER = ['onepiece', 'dragonball', 'yugioh', 'pokemon']; // ページ内の<table>の出現順
 // 商品名だけでは本物のBOXと分からない付属品・アクセサリ類（ゲームごとに除外する語）
 const EXCLUDE = { dragonball: [/エナジーマーカー/] };
+// 3ゲームの表には見出し行「商品名（ゲーム名）」が付く（ポケモンの表だけ見出しが無く、いきなり商品名から始まる）。
+// この見出しの文字で、表の並び順が想定どおりか確認する（サイトが表の順番を変えても、誤って別ゲームのデータを取り込まないため）
+const HEADER_HINT = { onepiece: 'ONE PIECE', dragonball: 'ドラゴンボール', yugioh: '遊戯王' };
 
 // 「買取価格」列の文字 → 価格・状態
 function parsePrice(text) {
@@ -59,7 +62,12 @@ async function load(src, ctx = {}) {
   const tables = $('table');
   const i = TABLE_ORDER.indexOf(src.game);
   if (i < 0 || i >= tables.length) return [];
+  const hint = HEADER_HINT[src.game];
+  if (hint && !$(tables.get(i)).find('tr').first().text().includes(hint)) {
+    // ページの表の並び順が想定と変わっている（誤って他のゲームのデータを取り込まないよう止める）
+    throw new Error(`kaitoribase: ${src.game}の表のはずが見出し「${hint}」が見つかりません（ページの並び順が変わった可能性）`);
+  }
   return rowsFromTable($, tables.get(i), src.game);
 }
 
-module.exports = { load, parsePrice, rowsFromTable, TABLE_ORDER };
+module.exports = { load, parsePrice, rowsFromTable, TABLE_ORDER, HEADER_HINT };

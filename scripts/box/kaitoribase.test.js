@@ -60,13 +60,25 @@ test('ドラゴンボール: 商品ではない付属品（エナジーマーカ
 test('load: ページ内の表の並び順（onepiece→dragonball→yugioh→pokemon）どおりに、指定ゲームの表を読む', async () => {
   const mk = (name, price) => [name, '5,000', String(price)];
   const html = page([
-    [mk('ワンピ商品', 1000)],
-    [mk('DB商品', 2000)],
-    [mk('遊戯王商品', 3000)],
-    [mk('ポケカ商品', 4000)],
+    [['商品名（ONE PIECE）', '定価', '買取価格'], mk('ワンピ商品', 1000)],
+    [['商品名（ドラゴンボール）', '定価', '買取価格'], mk('DB商品', 2000)],
+    [['商品名（遊戯王）', '定価', '買取価格'], mk('遊戯王商品', 3000)],
+    [mk('ポケカ商品', 4000)], // ポケモンの表だけ見出し行が無い（サイトの実際の作りと同じ）
   ]);
   const one = await K.load({ game: 'onepiece', url: 'https://kaitori-base.com/?p=9534' }, { data: html });
   const poke = await K.load({ game: 'pokemon', url: 'https://kaitori-base.com/?p=9534' }, { data: html });
   assert.equal(one[0].name, 'ワンピ商品');
   assert.equal(poke[0].price, 4000);
+});
+
+test('load: 表の並び順が想定と違うとき（見出しの文字が合わない）は、誤って別ゲームのデータを取り込まず止める', async () => {
+  const mk = (name, price) => [name, '5,000', String(price)];
+  // dragonball と yugioh の表を入れ替えてしまった状態を再現
+  const html = page([
+    [['商品名（ONE PIECE）', '定価', '買取価格'], mk('ワンピ商品', 1000)],
+    [['商品名（遊戯王）', '定価', '買取価格'], mk('遊戯王商品', 3000)], // 本来はドラゴンボールの位置
+    [['商品名（ドラゴンボール）', '定価', '買取価格'], mk('DB商品', 2000)],
+    [mk('ポケカ商品', 4000)],
+  ]);
+  await assert.rejects(() => K.load({ game: 'dragonball', url: 'https://kaitori-base.com/?p=9534' }, { data: html }), /並び順/);
 });
