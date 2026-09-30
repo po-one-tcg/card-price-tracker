@@ -148,7 +148,8 @@
       rows.push(h('div', { class: 'filter-row' },
         h('span', { class: 'small muted' }, '店舗:'),
         allStores.map((s) => h('button', { class: 'chip' + (hidden.has(s.id) ? ' off' : ''), type: 'button', 'aria-pressed': hidden.has(s.id) ? 'false' : 'true', onclick: () => toggleStore(s.id, visibleCount) }, s.name)),
-        hidden.size ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: [] }; saveFilters(); render(true); } }, 'すべて表示') : null));
+        hidden.size ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: [] }; saveFilters(); render(true); } }, 'すべて表示') : null,
+        hidden.size < allStores.length ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: allStores.map((s) => s.id) }; saveFilters(); render(true); } }, '全解除') : null));
     }
     return rows.length ? h('div', { class: 'filters' }, rows) : null;
   }
