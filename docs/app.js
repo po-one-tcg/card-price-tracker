@@ -154,6 +154,7 @@
   }
 
   // ---------- グラフ（SVG）----------
+  let chartSeq = 0; // ページ内で複数グラフを描くとき、塗りつぶしのグラデーションIDが被らないように
   function chart(series, fmtN) {
     // 発売前・取扱開始前など、値が無い期間が先頭や末尾に続くぶんは横軸から詰める（データがある範囲だけを描く）
     let lo = 0, hi = series.dates.length - 1;
@@ -191,6 +192,20 @@
     for (const v of ticks) {
       svg.append(s('line', { class: 'grid', x1: L, x2: W - R, y1: Y(v), y2: Y(v) }));
       svg.append(s('text', { class: 'ax', x: L - 6, y: Y(v) + 4, 'text-anchor': 'end' }, yen(v)));
+    }
+    // 線の下をうっすら塗りつぶす（値がある範囲だけ。線を目立たせるための薄い彩りで、データそのものではない）
+    if (vals.length > 1) {
+      const gid = 'cg' + (++chartSeq);
+      const defs = s('defs');
+      const grad = s('linearGradient', { id: gid, x1: 0, y1: 0, x2: 0, y2: 1 });
+      grad.append(s('stop', { offset: 0, style: 'stop-color:var(--accent); stop-opacity:.16' }));
+      grad.append(s('stop', { offset: 1, style: 'stop-color:var(--accent); stop-opacity:0' }));
+      defs.append(grad);
+      svg.append(defs);
+      const baseline = H - B;
+      const line = vals.map((p) => `${X(p.n).toFixed(1)},${Y(p.v).toFixed(1)}`).join(' L ');
+      const areaD = `M ${X(vals[0].n).toFixed(1)},${baseline} L ${line} L ${X(vals[vals.length - 1].n).toFixed(1)},${baseline} Z`;
+      svg.append(s('path', { class: 'area', d: areaD, fill: `url(#${gid})` }));
     }
     // 巡回できなかった日・取扱なしの日は、値を補わずスキップして、前後にある値どうしを直線でつなぐ
     // （空白で途切れさせない。あとから間の日付が埋まれば、そのぶん自然に線が増える）
