@@ -378,7 +378,8 @@
     const restockBlock = p.restocks.length
       ? h('div', { class: 'restock' },
           h('div', { class: 't' }, '再販日（若干の前後あり）'),
-          h('ul', { class: 'restock-list' }, p.restocks.map((d) => h('li', null, d.replace(/-/g, '/')))))
+          h('ul', { class: 'restock-list' }, p.restocks.map((d) => h('li', null, d.replace(/-/g, '/')))),
+          h('div', { class: 'muted', style: 'font-size:11px;margin-top:8px' }, '再販日はカードショップや家電量販店の納品日を示しています。コンビニ各社の納品日とは一致しません。'))
       : null;
     return h('div', null,
       h('div', { class: 'crumb' }, h('a', { href: '#/' }, 'ホーム'), ' › ', h('a', { href: '#/g/' + p.game }, gameLabel(p.game)), ' › ', p.name),
