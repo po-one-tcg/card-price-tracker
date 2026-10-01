@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const root = path.resolve(process.argv[2] || path.join(__dirname, '..', 'docs'));
 const port = Number(process.argv[3] || 8123);
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg', '.gif': 'image/gif' };
+const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg', '.gif': 'image/gif', '.svg': 'image/svg+xml; charset=utf-8' };
 http
   .createServer((req, res) => {
     let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
