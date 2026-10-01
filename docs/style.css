@@ -207,3 +207,5 @@ table.mini td { padding: 3px 6px; text-align: left; white-space: normal; border-
 .filter-row .chip { padding: 3px 11px; font-size: 12px; }
 .chip.off { opacity: .45; text-decoration: line-through; }
 .chip.ghost { border-style: dashed; color: var(--muted); }
+.filter-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: -2px; }
+.link-btn { border: none; background: none; color: var(--accent); font-size: 12px; font-weight: 600; cursor: pointer; padding: 4px 2px; text-decoration: underline; text-underline-offset: 2px; }

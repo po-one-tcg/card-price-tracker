@@ -179,10 +179,11 @@
       const ids = allStores.map((s) => s.id);
       rows.push(h('div', { class: 'filter-row' },
         h('span', { class: 'small muted' }, '店舗:'),
-        allStores.map((s) => h('button', { class: 'chip' + (hidden.has(s.id) ? ' off' : ''), type: 'button', 'aria-pressed': hidden.has(s.id) ? 'false' : 'true', onclick: () => toggleStore(s.id, visibleCount) }, s.name)),
-        hidden.size ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: [] }; saveFilters(); render(true); } }, 'すべて表示') : null,
-        hidden.size < allStores.length ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: allStores.map((s) => s.id) }; saveFilters(); render(true); } }, '全解除') : null,
-        h('button', { class: 'chip ghost', type: 'button', onclick: () => { storeOrderOpen = !storeOrderOpen; render(true); } }, storeOrderOpen ? '並び替えを閉じる' : '並び替え')));
+        allStores.map((s) => h('button', { class: 'chip' + (hidden.has(s.id) ? ' off' : ''), type: 'button', 'aria-pressed': hidden.has(s.id) ? 'false' : 'true', onclick: () => toggleStore(s.id, visibleCount) }, s.name))));
+      rows.push(h('div', { class: 'filter-actions' },
+        hidden.size ? h('button', { class: 'link-btn', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: [] }; saveFilters(); render(true); } }, 'すべて表示') : null,
+        hidden.size < allStores.length ? h('button', { class: 'link-btn', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: allStores.map((s) => s.id) }; saveFilters(); render(true); } }, '全解除') : null,
+        h('button', { class: 'link-btn', type: 'button', onclick: () => { storeOrderOpen = !storeOrderOpen; render(true); } }, storeOrderOpen ? '並び替えを閉じる' : '並び替え')));
       if (storeOrderOpen) {
         rows.push(h('div', { class: 'store-reorder' },
           allStores.map((s, i) => h('div', { class: 'store-reorder-row' },
