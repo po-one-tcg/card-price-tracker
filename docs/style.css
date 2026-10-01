@@ -203,6 +203,7 @@ table.mini td { padding: 3px 6px; text-align: left; white-space: normal; border-
 
 /* ---- ゲーム価格表のフィルタ（状態・店舗）---- */
 .filters { margin: 4px 0 12px; display: flex; flex-direction: column; gap: 6px; }
+.filter-label { font-size: 12px; font-weight: 700; color: var(--muted); margin: 6px 0 -2px; }
 .filter-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
 .filter-row .chip { padding: 3px 11px; font-size: 12px; }
 .chip.off { opacity: .45; text-decoration: line-through; }

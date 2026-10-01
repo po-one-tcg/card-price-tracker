@@ -170,15 +170,15 @@
     const hidden = new Set(filters.hiddenStores || []);
     const rows = [toggleRow];
     if (condsHere.length > 1) {
+      rows.push(h('div', { class: 'filter-label' }, '状態'));
       rows.push(h('div', { class: 'filter-row' },
-        h('span', { class: 'small muted' }, '状態:'),
         condsHere.map((c) => h('button', { class: 'chip', type: 'button', 'aria-pressed': condSel === c ? 'true' : 'false', onclick: () => setCondFilter(gameId, c) }, condLabel(c)))));
     }
     if (allStores.length > 1) {
       const visibleCount = allStores.filter((s) => !hidden.has(s.id)).length;
       const ids = allStores.map((s) => s.id);
+      rows.push(h('div', { class: 'filter-label' }, '店舗'));
       rows.push(h('div', { class: 'filter-row' },
-        h('span', { class: 'small muted' }, '店舗:'),
         allStores.map((s) => h('button', { class: 'chip' + (hidden.has(s.id) ? ' off' : ''), type: 'button', 'aria-pressed': hidden.has(s.id) ? 'false' : 'true', onclick: () => toggleStore(s.id, visibleCount) }, s.name))));
       rows.push(h('div', { class: 'filter-actions' },
         hidden.size ? h('button', { class: 'link-btn', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: [] }; saveFilters(); render(true); } }, 'すべて表示') : null,
