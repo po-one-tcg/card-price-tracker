@@ -133,10 +133,14 @@
     saveFilters();
     render(true);
   }
-  // 店舗の並び順（ブラウザだけに覚えさせる。既定はdata/box.jsonに並んでいる順）
+  // 店舗の並び順（ブラウザだけに覚えさせる。既定は五十音順）
+  const DEFAULT_STORE_ORDER = ['expo', 'collect', 'somurie', 'nikoniko', 'homura', 'pricebase', 'macho', 'runto'];
   function storeOrderArray() {
-    const saved = (filters.storeOrder || []).filter((id) => DATA.stores.some((s) => s.id === id));
-    return saved.length ? saved : DATA.stores.map((s) => s.id);
+    const known = new Set(DATA.stores.map((s) => s.id));
+    const saved = (filters.storeOrder || []).filter((id) => known.has(id));
+    if (saved.length) return saved;
+    const fallback = DEFAULT_STORE_ORDER.filter((id) => known.has(id));
+    return [...fallback, ...DATA.stores.map((s) => s.id).filter((id) => !fallback.includes(id))];
   }
   function orderedStores(list) {
     const pos = Object.fromEntries(storeOrderArray().map((id, i) => [id, i]));
@@ -154,6 +158,7 @@
     saveFilters();
     render(true);
   }
+  let storeOrderOpen = false; // 「並び替え」パネルの開閉。ページ遷移をまたいでは覚えない一時的な表示状態
 
   // 状態・店舗のフィルタ欄（商品が複数状態を持つゲーム／店舗が2つ以上あるときだけ出す）
   function filterBar(gameId, allStores, condsHere, condSel) {
@@ -169,12 +174,17 @@
       const ids = allStores.map((s) => s.id);
       rows.push(h('div', { class: 'filter-row' },
         h('span', { class: 'small muted' }, '店舗:'),
-        allStores.map((s, i) => h('span', { class: 'store-order' },
-          i > 0 ? h('button', { class: 'order-btn', type: 'button', 'aria-label': s.name + 'を左へ', onclick: () => moveStore(ids, s.id, -1) }, '◀') : null,
-          h('button', { class: 'chip' + (hidden.has(s.id) ? ' off' : ''), type: 'button', 'aria-pressed': hidden.has(s.id) ? 'false' : 'true', onclick: () => toggleStore(s.id, visibleCount) }, s.name),
-          i < allStores.length - 1 ? h('button', { class: 'order-btn', type: 'button', 'aria-label': s.name + 'を右へ', onclick: () => moveStore(ids, s.id, 1) }, '▶') : null)),
+        allStores.map((s) => h('button', { class: 'chip' + (hidden.has(s.id) ? ' off' : ''), type: 'button', 'aria-pressed': hidden.has(s.id) ? 'false' : 'true', onclick: () => toggleStore(s.id, visibleCount) }, s.name)),
         hidden.size ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: [] }; saveFilters(); render(true); } }, 'すべて表示') : null,
-        hidden.size < allStores.length ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: allStores.map((s) => s.id) }; saveFilters(); render(true); } }, '全解除') : null));
+        hidden.size < allStores.length ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: allStores.map((s) => s.id) }; saveFilters(); render(true); } }, '全解除') : null,
+        h('button', { class: 'chip ghost', type: 'button', onclick: () => { storeOrderOpen = !storeOrderOpen; render(true); } }, storeOrderOpen ? '並び替えを閉じる' : '並び替え')));
+      if (storeOrderOpen) {
+        rows.push(h('div', { class: 'store-reorder' },
+          allStores.map((s, i) => h('div', { class: 'store-reorder-row' },
+            h('span', { class: 'store-reorder-name' }, s.name),
+            h('button', { class: 'order-btn', type: 'button', 'aria-label': s.name + 'を上へ', disabled: i === 0 ? true : null, onclick: () => moveStore(ids, s.id, -1) }, '▲'),
+            h('button', { class: 'order-btn', type: 'button', 'aria-label': s.name + 'を下へ', disabled: i === allStores.length - 1 ? true : null, onclick: () => moveStore(ids, s.id, 1) }, '▼')))));
+      }
     }
     return rows.length ? h('div', { class: 'filters' }, rows) : null;
   }
