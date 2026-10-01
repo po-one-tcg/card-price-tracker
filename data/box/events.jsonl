@@ -396,3 +396,6 @@
 {"t":"2026-10-01T14:50:22+09:00","type":"appear","from":"none","to":25000,"k":"expo|pokemon_160b5b10|noshrink","store":"expo","game":"pokemon","pid":"pokemon_160b5b10","name":"ポケモンカード151"}
 {"t":"2026-10-01T14:50:22+09:00","type":"disappear","from":170000,"k":"expo|pokemon_958fd86b|shrink","store":"expo","game":"pokemon","pid":"pokemon_958fd86b","name":"TAG TEAM GX タッグオールスターズ"}
 {"t":"2026-10-01T14:50:22+09:00","type":"appear","from":"none","to":17000,"k":"expo|pokemon_6a1c99cf|shrink","store":"expo","game":"pokemon","pid":"pokemon_6a1c99cf","name":"スターバース"}
+{"t":"2026-10-01T14:54:14+09:00","type":"disappear","from":7000,"k":"collect|pokemon_04cf41b8|shrink","store":"collect","game":"pokemon","pid":"pokemon_04cf41b8","name":"ニンジャスピナー"}
+{"t":"2026-10-01T14:54:14+09:00","type":"appear","from":"none","to":7000,"k":"collect|pokemon_b87614a2|shrink","store":"collect","game":"pokemon","pid":"pokemon_b87614a2","name":"メガシンフォニア"}
+{"t":"2026-10-01T14:54:14+09:00","type":"appear","from":"none","to":128000,"k":"collect|onepiece_3888f36b|carton","store":"collect","game":"onepiece","pid":"onepiece_3888f36b","name":"OP-08 二つの伝説"}
