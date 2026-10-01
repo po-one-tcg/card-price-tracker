@@ -32,7 +32,7 @@
   const md = (stamp) => `${+stamp.slice(5, 7)}/${+stamp.slice(8, 10)}`;
   const hm = (stamp) => stamp.slice(11, 16);
   const PERIOD_LABEL = { 1: '前日', 7: '1週間', 14: '2週間', 30: '1ヶ月', 90: '3ヶ月', 180: '半年' };
-  const COND_ORDER = ['shrink', 'tape', 'noshrink', 'nopeel', 'tapecut', 'pack', 'carton', 'whitebox', 'red', 'blue', 'set', 'box'];
+  const COND_ORDER = ['shrink', 'tape', 'noshrink', 'nopeel', 'tapecut', 'unifiedpack', 'pack', 'carton', 'whitebox', 'red', 'blue', 'set', 'box'];
   // 個別ページだけ、既定と違う状態の並びにしたい商品（商品ID → 並び順）。「box」は他の多くの商品でも使う
   // 共通の状態のため、ここで個別に上書きしない限りCOND_ORDER全体を動かせない
   const PRODUCT_COND_ORDER = {

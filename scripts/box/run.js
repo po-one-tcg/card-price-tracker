@@ -36,6 +36,25 @@ function toObservation(row) {
   return { kind: 'unknown' };
 }
 
+// 「pack」区分には、店によって意味が違う2種類が混ざっている（バラの1パック／統一パック＝新品BOXから外装の箱だけ抜いた状態）。
+// 見出しの文言だけでは区別できないので、同じ商品のシュリンク付き(ワンピース等はテープ付き)平均と比べた割合で判定する。
+// 比率が低ければバラの1パック、箱の価格に近ければ統一パック。比率がかけ離れて高い場合は、カートン等の別の価格が紛れ込んでいる
+// 疑いがあるため、安全側に倒して既定の「パック」のまま変えない。
+const PACK_REF_COND = { onepiece: 'tape', dragonball: 'tape' }; // 既定は shrink
+const PACK_UNIFIED_MIN_RATIO = 0.2;
+const PACK_UNIFIED_MAX_RATIO = 1.5;
+function resolvePackCond(row, game, state) {
+  if (row.cond !== 'pack' || row.price == null) return row.cond;
+  const refCond = PACK_REF_COND[game] || 'shrink';
+  const vals = Object.values(state.entries)
+    .filter((e) => e.ref.game === game && e.ref.pid === row.pid && e.ref.cond === refCond && e.confirmed && e.confirmed.state === 'value')
+    .map((e) => e.confirmed.price);
+  if (!vals.length) return row.cond;
+  const avg = vals.reduce((a, b) => a + b, 0) / vals.length;
+  const ratio = row.price / avg;
+  return ratio >= PACK_UNIFIED_MIN_RATIO && ratio <= PACK_UNIFIED_MAX_RATIO ? 'unifiedpack' : row.cond;
+}
+
 async function runSource(store, src, ctx) {
   const { now, state, products, config } = ctx;
   const metaKey = `${store.id}|${src.game}`;
@@ -125,6 +144,7 @@ async function runSource(store, src, ctx) {
   // 今回ページにある商品
   const presentKeys = new Set();
   for (const row of rowsByKey.values()) {
+    row.cond = resolvePackCond(row, src.game, state);
     const key = `${store.id}|${row.pid}|${row.cond}`;
     presentKeys.add(key);
     const ref = { store: store.id, game: src.game, pid: row.pid, cond: row.cond };

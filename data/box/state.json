@@ -18434,27 +18434,6 @@
     "cond": "noshrink"
    }
   },
-  "macho|pokemon_13fcc149|pack": {
-   "confirmed": {
-    "state": "value",
-    "price": 17500,
-    "since": "2026-09-26T15:17:51+09:00"
-   },
-   "shown": {
-    "state": "value",
-    "price": 17500,
-    "since": "2026-09-26T15:17:51+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "macho",
-    "game": "pokemon",
-    "pid": "pokemon_13fcc149",
-    "cond": "pack"
-   }
-  },
   "macho|pokemon_13fcc149|shrink": {
    "confirmed": {
     "state": "value",
@@ -18474,6 +18453,27 @@
     "game": "pokemon",
     "pid": "pokemon_13fcc149",
     "cond": "shrink"
+   }
+  },
+  "macho|pokemon_13fcc149|unifiedpack": {
+   "confirmed": {
+    "state": "value",
+    "price": 17500,
+    "since": "2026-09-26T15:17:51+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 17500,
+    "since": "2026-09-26T15:17:51+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "macho",
+    "game": "pokemon",
+    "pid": "pokemon_13fcc149",
+    "cond": "unifiedpack"
    }
   },
   "macho|pokemon_160b5b10|carton": {
@@ -18958,27 +18958,6 @@
     "cond": "noshrink"
    }
   },
-  "macho|pokemon_50d5baac|pack": {
-   "confirmed": {
-    "state": "value",
-    "price": 6000,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "shown": {
-    "state": "value",
-    "price": 6000,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "macho",
-    "game": "pokemon",
-    "pid": "pokemon_50d5baac",
-    "cond": "pack"
-   }
-  },
   "macho|pokemon_50d5baac|shrink": {
    "confirmed": {
     "state": "value",
@@ -18998,6 +18977,27 @@
     "game": "pokemon",
     "pid": "pokemon_50d5baac",
     "cond": "shrink"
+   }
+  },
+  "macho|pokemon_50d5baac|unifiedpack": {
+   "confirmed": {
+    "state": "value",
+    "price": 6000,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 6000,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "macho",
+    "game": "pokemon",
+    "pid": "pokemon_50d5baac",
+    "cond": "unifiedpack"
    }
   },
   "macho|pokemon_5a0690f5|box": {
@@ -19357,27 +19357,6 @@
     "cond": "noshrink"
    }
   },
-  "macho|pokemon_9d34240b|pack": {
-   "confirmed": {
-    "state": "value",
-    "price": 4000,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "shown": {
-    "state": "value",
-    "price": 4000,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "macho",
-    "game": "pokemon",
-    "pid": "pokemon_9d34240b",
-    "cond": "pack"
-   }
-  },
   "macho|pokemon_9d34240b|shrink": {
    "confirmed": {
     "state": "value",
@@ -19397,6 +19376,27 @@
     "game": "pokemon",
     "pid": "pokemon_9d34240b",
     "cond": "shrink"
+   }
+  },
+  "macho|pokemon_9d34240b|unifiedpack": {
+   "confirmed": {
+    "state": "value",
+    "price": 4000,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 4000,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "macho",
+    "game": "pokemon",
+    "pid": "pokemon_9d34240b",
+    "cond": "unifiedpack"
    }
   },
   "macho|pokemon_9f04ef88|noshrink": {
@@ -20224,27 +20224,6 @@
     "cond": "noshrink"
    }
   },
-  "macho|pokemon_f64bdf9a|pack": {
-   "confirmed": {
-    "state": "value",
-    "price": 9000,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "shown": {
-    "state": "value",
-    "price": 9000,
-    "since": "2026-09-24T14:28:31+09:00"
-   },
-   "pending": null,
-   "ignored": null,
-   "lastEvent": null,
-   "ref": {
-    "store": "macho",
-    "game": "pokemon",
-    "pid": "pokemon_f64bdf9a",
-    "cond": "pack"
-   }
-  },
   "macho|pokemon_f64bdf9a|shrink": {
    "confirmed": {
     "state": "value",
@@ -20264,6 +20243,27 @@
     "game": "pokemon",
     "pid": "pokemon_f64bdf9a",
     "cond": "shrink"
+   }
+  },
+  "macho|pokemon_f64bdf9a|unifiedpack": {
+   "confirmed": {
+    "state": "value",
+    "price": 9000,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 9000,
+    "since": "2026-09-24T14:28:31+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": null,
+   "ref": {
+    "store": "macho",
+    "game": "pokemon",
+    "pid": "pokemon_f64bdf9a",
+    "cond": "unifiedpack"
    }
   },
   "macho|pokemon_f9e1d58b|noshrink": {

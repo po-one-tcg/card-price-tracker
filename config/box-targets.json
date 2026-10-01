@@ -93,6 +93,10 @@
     },
     {
       "id": "pack",
+      "label": "パック"
+    },
+    {
+      "id": "unifiedpack",
       "label": "統一パック"
     },
     {
