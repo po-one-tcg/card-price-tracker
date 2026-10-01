@@ -372,3 +372,11 @@
 {"t":"2026-09-30T15:19:48+09:00","type":"disappear","from":11500,"k":"runto|dragonball_57db379c|tape","store":"runto","game":"dragonball","pid":"dragonball_57db379c","name":"ST01 STORY BOOSTER 01"}
 {"t":"2026-09-30T18:02:23+09:00","type":"appear","from":"none","to":900,"k":"runto|pokemon_dd7c7925|box","store":"runto","game":"pokemon","pid":"pokemon_dd7c7925","name":"スタートデッキ100 バトルコレクション"}
 {"t":"2026-09-30T18:02:23+09:00","type":"appear","from":"none","to":7000,"k":"runto|pokemon_b87614a2|shrink","store":"runto","game":"pokemon","pid":"pokemon_b87614a2","name":"メガシンフォニア"}
+{"t":"2026-10-01T12:58:44+09:00","type":"disappear","from":900,"k":"runto|pokemon_dd7c7925|box","store":"runto","game":"pokemon","pid":"pokemon_dd7c7925","name":"スタートデッキ100 バトルコレクション"}
+{"t":"2026-10-01T12:58:44+09:00","type":"appear","from":"none","to":15000,"k":"runto|pokemon_1daaa6ee|shrink","store":"runto","game":"pokemon","pid":"pokemon_1daaa6ee","name":"インフェルノX"}
+{"t":"2026-10-01T12:58:44+09:00","type":"disappear","from":6500,"k":"runto|pokemon_b6ca6a70|nopeel","store":"runto","game":"pokemon","pid":"pokemon_b6ca6a70","name":"ストームエメラルダ"}
+{"t":"2026-10-01T12:58:44+09:00","type":"appear","from":"none","to":5200,"k":"runto|yugioh_ff20883f|shrink","store":"runto","game":"yugioh","pid":"yugioh_ff20883f","name":"遊戯王 QUARTER CENTURY ART COLLECTION"}
+{"t":"2026-10-01T12:58:44+09:00","type":"appear","from":"none","to":10000,"k":"runto|dragonball_57db379c|tape","store":"runto","game":"dragonball","pid":"dragonball_57db379c","name":"ST01 STORY BOOSTER 01"}
+{"t":"2026-10-01T12:58:44+09:00","type":"appear","from":"none","to":8500,"k":"runto|dragonball_df0bfb06|tape","store":"runto","game":"dragonball","pid":"dragonball_df0bfb06","name":"FB10 CROSS FORCE"}
+{"t":"2026-10-01T12:58:44+09:00","type":"disappear","from":20000,"k":"somurie|pokemon_71d4061e|shrink","store":"somurie","game":"pokemon","pid":"pokemon_71d4061e","name":"ホワイトフレア"}
+{"t":"2026-10-01T12:58:44+09:00","type":"appear","from":"none","to":7500,"k":"somurie|yugioh_84dc772b|box","store":"somurie","game":"yugioh","pid":"yugioh_84dc772b","name":"遊戯王 ORIGINAL ARTWORK COLLECTION"}
