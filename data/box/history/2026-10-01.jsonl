@@ -202,3 +202,6 @@
 {"t":"2026-10-01T14:54:14+09:00","k":"collect|pokemon_2b1faaeb|shrink","st":"value","v":9500}
 {"t":"2026-10-01T14:54:14+09:00","k":"collect|pokemon_2b1faaeb|noshrink","st":"value","v":8400}
 {"t":"2026-10-01T14:54:14+09:00","k":"collect|onepiece_3888f36b|carton","st":"value","v":128000}
+{"t":"2026-10-01T15:21:31+09:00","k":"somurie|yugioh_84dc772b|box","st":"value","v":8000}
+{"t":"2026-10-01T15:21:31+09:00","k":"somurie|yugioh_84dc772b|carton","st":"value","v":192000}
+{"t":"2026-10-01T15:21:31+09:00","k":"pricebase|pokemon_13fcc149|shrink","st":"value","v":27000}
