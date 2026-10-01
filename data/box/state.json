@@ -42,27 +42,27 @@
    "lastCount": 80
   },
   "collect|collect-pokemon-box": {
-   "lastOkAt": "2026-10-01T14:54:14+09:00",
+   "lastOkAt": "2026-10-02T08:15:15+09:00",
    "lastCount": 114
   },
   "collect|collect-pokemon-other": {
-   "lastOkAt": "2026-10-01T14:54:14+09:00",
-   "lastCount": 31
+   "lastOkAt": "2026-10-02T08:15:15+09:00",
+   "lastCount": 32
   },
   "collect|collect-onepiece": {
-   "lastOkAt": "2026-10-01T14:54:14+09:00",
+   "lastOkAt": "2026-10-02T08:15:15+09:00",
    "lastCount": 47
   },
   "collect|collect-onepiece-other": {
-   "lastOkAt": "2026-10-01T14:54:14+09:00",
+   "lastOkAt": "2026-10-02T08:15:15+09:00",
    "lastCount": 36
   },
   "collect|collect-dragonball": {
-   "lastOkAt": "2026-10-01T14:54:14+09:00",
+   "lastOkAt": "2026-10-02T08:15:15+09:00",
    "lastCount": 5
   },
   "collect|collect-yugioh": {
-   "lastOkAt": "2026-10-01T14:54:14+09:00",
+   "lastOkAt": "2026-10-02T08:15:15+09:00",
    "lastCount": 5
   },
   "runto|pokemon": {
@@ -4702,6 +4702,31 @@
     "pid": "pokemon_b6ca6a70",
     "cond": "shrink",
     "src": "collect-pokemon-box"
+   }
+  },
+  "collect|pokemon_b786ce1d|box": {
+   "confirmed": {
+    "state": "value",
+    "price": 7500,
+    "since": "2026-10-02T08:15:15+09:00"
+   },
+   "shown": {
+    "state": "value",
+    "price": 7500,
+    "since": "2026-10-02T08:15:15+09:00"
+   },
+   "pending": null,
+   "ignored": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-10-02T08:15:15+09:00"
+   },
+   "ref": {
+    "store": "collect",
+    "game": "pokemon",
+    "pid": "pokemon_b786ce1d",
+    "cond": "box",
+    "src": "collect-pokemon-other"
    }
   },
   "collect|pokemon_b87614a2|noshrink": {

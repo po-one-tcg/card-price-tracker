@@ -400,3 +400,4 @@
 {"t":"2026-10-01T14:54:14+09:00","type":"appear","from":"none","to":7000,"k":"collect|pokemon_b87614a2|shrink","store":"collect","game":"pokemon","pid":"pokemon_b87614a2","name":"メガシンフォニア"}
 {"t":"2026-10-01T14:54:14+09:00","type":"appear","from":"none","to":128000,"k":"collect|onepiece_3888f36b|carton","store":"collect","game":"onepiece","pid":"onepiece_3888f36b","name":"OP-08 二つの伝説"}
 {"t":"2026-10-01T18:03:22+09:00","type":"disappear","from":26000,"k":"somurie|pokemon_ae0715f9|shrink","store":"somurie","game":"pokemon","pid":"pokemon_ae0715f9","name":"VSTARユニバース"}
+{"t":"2026-10-02T08:15:15+09:00","type":"appear","to":7500,"k":"collect|pokemon_b786ce1d|box","store":"collect","game":"pokemon","pid":"pokemon_b786ce1d","name":"VSTARスペシャルセット ロストアビス"}
