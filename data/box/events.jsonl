@@ -380,3 +380,4 @@
 {"t":"2026-10-01T12:58:44+09:00","type":"appear","from":"none","to":8500,"k":"runto|dragonball_df0bfb06|tape","store":"runto","game":"dragonball","pid":"dragonball_df0bfb06","name":"FB10 CROSS FORCE"}
 {"t":"2026-10-01T12:58:44+09:00","type":"disappear","from":20000,"k":"somurie|pokemon_71d4061e|shrink","store":"somurie","game":"pokemon","pid":"pokemon_71d4061e","name":"ホワイトフレア"}
 {"t":"2026-10-01T12:58:44+09:00","type":"appear","from":"none","to":7500,"k":"somurie|yugioh_84dc772b|box","store":"somurie","game":"yugioh","pid":"yugioh_84dc772b","name":"遊戯王 ORIGINAL ARTWORK COLLECTION"}
+{"t":"2026-10-01T13:43:05+09:00","type":"disappear","from":9500,"k":"somurie|pokemon_b6ca6a70|shrink","store":"somurie","game":"pokemon","pid":"pokemon_b6ca6a70","name":"ストームエメラルダ"}
