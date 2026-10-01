@@ -384,19 +384,22 @@
     // 状態のフィルタ（状態が2つ以上ある商品だけ）。選んだ状態の行・推移だけを出す。既定は「すべて」
     const sel = allConds.length > 1 && allConds.includes(prodCond[pid]) ? prodCond[pid] : 'all';
     const conds = sel === 'all' ? allConds : [sel];
-    const stores = orderedStores(DATA.stores.filter((s) => p.cells.some((c) => c.store === s.id && conds.includes(c.cond))));
+    const hidden = new Set(filters.hiddenStores || []);
+    const stores = orderedStores(DATA.stores.filter((s) => !hidden.has(s.id) && p.cells.some((c) => c.store === s.id && conds.includes(c.cond))));
     const condBar = allConds.length > 1
       ? h('div', { class: 'filter-row', style: 'margin:12px 0' },
           h('span', { class: 'small muted' }, '状態:'),
           ['all', ...allConds].map((c) => h('button', { class: 'chip', type: 'button', 'aria-pressed': sel === c ? 'true' : 'false', onclick: () => { prodCond[pid] = c; render(true); } }, c === 'all' ? 'すべて' : condLabel(c))))
       : null;
-    const table = h('div', { class: 'tablewrap', style: 'max-height:none' }, h('table', null,
-      h('thead', null, h('tr', null, h('th', { class: 'name' }, '状態'), stores.map((s) => h('th', { class: 'store' }, s.name)))),
-      h('tbody', null, conds.map((c) => {
-        const rowCells = stores.map((s) => p.cells.find((x) => x.store === s.id && x.cond === c));
-        const isMax = markMax(rowCells);
-        return h('tr', null, h('th', { class: 'name', scope: 'row' }, condLabel(c)), rowCells.map((cell, i) => cellNode(cell, isMax[i])));
-      }))));
+    const table = stores.length
+      ? h('div', { class: 'tablewrap', style: 'max-height:none' }, h('table', null,
+          h('thead', null, h('tr', null, h('th', { class: 'name' }, '状態'), stores.map((s) => h('th', { class: 'store' }, s.name)))),
+          h('tbody', null, conds.map((c) => {
+            const rowCells = stores.map((s) => p.cells.find((x) => x.store === s.id && x.cond === c));
+            const isMax = markMax(rowCells);
+            return h('tr', null, h('th', { class: 'name', scope: 'row' }, condLabel(c)), rowCells.map((cell, i) => cellNode(cell, isMax[i])));
+          }))))
+      : h('p', { class: 'empty' }, '表示する店舗がありません。' + gameLabel(p.game) + 'の一覧ページで、店舗フィルタを見直してください。');
     const blocks = conds.map((c) => {
       const st = p.stats[c];
       const multi = st.nowN > 1;
