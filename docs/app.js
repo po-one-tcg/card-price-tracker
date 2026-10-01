@@ -162,8 +162,13 @@
 
   // 状態・店舗のフィルタ欄（商品が複数状態を持つゲーム／店舗が2つ以上あるときだけ出す）
   function filterBar(gameId, allStores, condsHere, condSel) {
+    if (condsHere.length <= 1 && allStores.length <= 1) return null;
+    const collapsed = !!filters.filtersHidden;
+    const toggleRow = h('div', { class: 'filter-row' },
+      h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, filtersHidden: !collapsed }; saveFilters(); render(true); } }, collapsed ? '絞り込み設定を表示' : '絞り込み設定を隠す'));
+    if (collapsed) return h('div', { class: 'filters' }, toggleRow);
     const hidden = new Set(filters.hiddenStores || []);
-    const rows = [];
+    const rows = [toggleRow];
     if (condsHere.length > 1) {
       rows.push(h('div', { class: 'filter-row' },
         h('span', { class: 'small muted' }, '状態:'),
@@ -186,7 +191,7 @@
             h('button', { class: 'order-btn', type: 'button', 'aria-label': s.name + 'を下へ', disabled: i === allStores.length - 1 ? true : null, onclick: () => moveStore(ids, s.id, 1) }, '▼')))));
       }
     }
-    return rows.length ? h('div', { class: 'filters' }, rows) : null;
+    return h('div', { class: 'filters' }, rows);
   }
 
   // ---------- グラフ（SVG）----------
