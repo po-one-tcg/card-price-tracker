@@ -133,6 +133,27 @@
     saveFilters();
     render(true);
   }
+  // 店舗の並び順（ブラウザだけに覚えさせる。既定はdata/box.jsonに並んでいる順）
+  function storeOrderArray() {
+    const saved = (filters.storeOrder || []).filter((id) => DATA.stores.some((s) => s.id === id));
+    return saved.length ? saved : DATA.stores.map((s) => s.id);
+  }
+  function orderedStores(list) {
+    const pos = Object.fromEntries(storeOrderArray().map((id, i) => [id, i]));
+    return [...list].sort((a, b) => (pos[a.id] ?? 999) - (pos[b.id] ?? 999));
+  }
+  function moveStore(visibleIds, storeId, dir) {
+    const idx = visibleIds.indexOf(storeId);
+    const otherId = visibleIds[idx + dir];
+    if (!otherId) return;
+    const full = storeOrderArray();
+    const ia = full.indexOf(storeId);
+    const ib = full.indexOf(otherId);
+    [full[ia], full[ib]] = [full[ib], full[ia]];
+    filters = { ...filters, storeOrder: full };
+    saveFilters();
+    render(true);
+  }
 
   // 状態・店舗のフィルタ欄（商品が複数状態を持つゲーム／店舗が2つ以上あるときだけ出す）
   function filterBar(gameId, allStores, condsHere, condSel) {
@@ -145,9 +166,13 @@
     }
     if (allStores.length > 1) {
       const visibleCount = allStores.filter((s) => !hidden.has(s.id)).length;
+      const ids = allStores.map((s) => s.id);
       rows.push(h('div', { class: 'filter-row' },
         h('span', { class: 'small muted' }, '店舗:'),
-        allStores.map((s) => h('button', { class: 'chip' + (hidden.has(s.id) ? ' off' : ''), type: 'button', 'aria-pressed': hidden.has(s.id) ? 'false' : 'true', onclick: () => toggleStore(s.id, visibleCount) }, s.name)),
+        allStores.map((s, i) => h('span', { class: 'store-order' },
+          i > 0 ? h('button', { class: 'order-btn', type: 'button', 'aria-label': s.name + 'を左へ', onclick: () => moveStore(ids, s.id, -1) }, '◀') : null,
+          h('button', { class: 'chip' + (hidden.has(s.id) ? ' off' : ''), type: 'button', 'aria-pressed': hidden.has(s.id) ? 'false' : 'true', onclick: () => toggleStore(s.id, visibleCount) }, s.name),
+          i < allStores.length - 1 ? h('button', { class: 'order-btn', type: 'button', 'aria-label': s.name + 'を右へ', onclick: () => moveStore(ids, s.id, 1) }, '▶') : null)),
         hidden.size ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: [] }; saveFilters(); render(true); } }, 'すべて表示') : null,
         hidden.size < allStores.length ? h('button', { class: 'chip ghost', type: 'button', onclick: () => { filters = { ...filters, hiddenStores: allStores.map((s) => s.id) }; saveFilters(); render(true); } }, '全解除') : null));
     }
@@ -265,7 +290,7 @@
   function viewGame(gameId) {
     const list = DATA.products.filter((p) => p.game === gameId);
     if (!list.length) return h('p', { class: 'empty' }, 'このゲームのデータはまだありません。');
-    const allStores = DATA.stores.filter((s) => list.some((p) => p.cells.some((c) => c.store === s.id)));
+    const allStores = orderedStores(DATA.stores.filter((s) => list.some((p) => p.cells.some((c) => c.store === s.id))));
     const hidden = new Set(filters.hiddenStores || []);
     const stores = allStores.filter((s) => !hidden.has(s.id));
     // BOX（状態の区別なし）はシュリンク付き／テープ付きと同じ扱いなので、状態フィルタには別枠で出さない
@@ -343,7 +368,7 @@
     // 状態のフィルタ（状態が2つ以上ある商品だけ）。選んだ状態の行・推移だけを出す。既定は「すべて」
     const sel = allConds.length > 1 && allConds.includes(prodCond[pid]) ? prodCond[pid] : 'all';
     const conds = sel === 'all' ? allConds : [sel];
-    const stores = DATA.stores.filter((s) => p.cells.some((c) => c.store === s.id && conds.includes(c.cond)));
+    const stores = orderedStores(DATA.stores.filter((s) => p.cells.some((c) => c.store === s.id && conds.includes(c.cond))));
     const condBar = allConds.length > 1
       ? h('div', { class: 'filter-row', style: 'margin:12px 0' },
           h('span', { class: 'small muted' }, '状態:'),

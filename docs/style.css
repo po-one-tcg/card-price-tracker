@@ -133,6 +133,9 @@ td small { display: block; font-size: 11px; color: var(--muted); font-style: nor
 .chips { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0 12px; }
 .chip { border: 1px solid var(--line); background: var(--card); color: var(--text); padding: 4px 12px; border-radius: 999px; font-size: 13px; cursor: pointer; }
 .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.store-order { display: inline-flex; align-items: center; gap: 2px; }
+.order-btn { border: 1px solid var(--line); background: var(--card); color: var(--muted); width: 28px; height: 28px; border-radius: 6px; font-size: 12px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; padding: 0; }
+.order-btn:active { background: var(--head); }
 .up { color: var(--up); font-weight: 600; }
 .down { color: var(--down); font-weight: 600; }
 .panel { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; overflow-x: auto; }
