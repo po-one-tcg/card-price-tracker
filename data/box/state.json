@@ -2,43 +2,43 @@
  "version": 1,
  "meta": {
   "expo|yugioh": {
-   "lastOkAt": "2026-10-02T14:07:03+09:00",
+   "lastOkAt": "2026-10-03T13:36:05+09:00",
    "lastCount": 3
   },
   "expo|mtg": {
-   "lastOkAt": "2026-10-02T14:07:03+09:00",
+   "lastOkAt": "2026-10-03T13:36:05+09:00",
    "lastCount": 5
   },
   "expo|unionarena": {
-   "lastOkAt": "2026-10-02T14:07:03+09:00",
+   "lastOkAt": "2026-10-03T13:36:05+09:00",
    "lastCount": 28
   },
   "expo|weiss-lorcana": {
-   "lastOkAt": "2026-10-02T14:07:03+09:00",
+   "lastOkAt": "2026-10-03T13:36:05+09:00",
    "lastCount": 10
   },
   "expo|dragonball": {
-   "lastOkAt": "2026-10-02T14:07:03+09:00",
+   "lastOkAt": "2026-10-03T13:36:05+09:00",
    "lastCount": 15
   },
   "expo|onepiece-other": {
-   "lastOkAt": "2026-10-02T14:07:03+09:00",
+   "lastOkAt": "2026-10-03T13:36:05+09:00",
    "lastCount": 34
   },
   "expo|onepiece": {
-   "lastOkAt": "2026-10-02T14:07:03+09:00",
+   "lastOkAt": "2026-10-03T13:36:05+09:00",
    "lastCount": 46
   },
   "expo|pokemon-old-box": {
-   "lastOkAt": "2026-10-02T14:07:03+09:00",
+   "lastOkAt": "2026-10-03T13:36:05+09:00",
    "lastCount": 16
   },
   "expo|pokemon-other": {
-   "lastOkAt": "2026-10-02T14:07:03+09:00",
+   "lastOkAt": "2026-10-03T13:36:05+09:00",
    "lastCount": 63
   },
   "expo|pokemon-box": {
-   "lastOkAt": "2026-10-02T14:07:03+09:00",
+   "lastOkAt": "2026-10-03T13:36:05+09:00",
    "lastCount": 80
   },
   "collect|collect-pokemon-box": {
@@ -5504,13 +5504,13 @@
   "expo|dragonball_0445cec3|tape": {
    "confirmed": {
     "state": "value",
-    "price": 8500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 9000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 8500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 9000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -5548,13 +5548,13 @@
   "expo|dragonball_1ab2c151|tape": {
    "confirmed": {
     "state": "value",
-    "price": 7200,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 7700,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 7200,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 7700,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -5570,13 +5570,13 @@
   "expo|dragonball_2dad31d0|tape": {
    "confirmed": {
     "state": "value",
-    "price": 5800,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 6000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 5800,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 6000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -5592,13 +5592,13 @@
   "expo|dragonball_32aacb2c|tape": {
    "confirmed": {
     "state": "value",
-    "price": 7200,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 7200,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -5683,13 +5683,13 @@
   "expo|dragonball_7878ba42|tape": {
    "confirmed": {
     "state": "value",
-    "price": 6500,
-    "since": "2026-09-26T13:12:11+09:00"
+    "price": 6700,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 6500,
-    "since": "2026-09-26T13:12:11+09:00"
+    "price": 6700,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -5707,18 +5707,21 @@
   },
   "expo|dragonball_7e1d626b|tape": {
    "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-21T22:19:14+09:00"
+    "state": "value",
+    "price": 7500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-21T22:19:14+09:00"
+    "state": "value",
+    "price": 7500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
-   "lastEvent": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-10-03T13:36:05+09:00"
+   },
    "ref": {
     "store": "expo",
     "game": "dragonball",
@@ -5752,13 +5755,13 @@
   "expo|dragonball_81ead9c0|tape": {
    "confirmed": {
     "state": "value",
-    "price": 5400,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 5500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 5400,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 5500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -5774,13 +5777,13 @@
   "expo|dragonball_a1f72f61|tape": {
    "confirmed": {
     "state": "value",
-    "price": 21000,
-    "since": "2026-09-27T13:22:51+09:00"
+    "price": 21500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 21000,
-    "since": "2026-09-27T13:22:51+09:00"
+    "price": 21500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6022,13 +6025,13 @@
   "expo|onepiece_03671daa|tape": {
    "confirmed": {
     "state": "value",
-    "price": 15000,
-    "since": "2026-09-26T13:12:11+09:00"
+    "price": 14000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 15000,
-    "since": "2026-09-26T13:12:11+09:00"
+    "price": 14000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6069,13 +6072,13 @@
   "expo|onepiece_0db75840|carton": {
    "confirmed": {
     "state": "value",
-    "price": 208000,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 210000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 208000,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 210000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6116,13 +6119,13 @@
   "expo|onepiece_1601f632|box": {
    "confirmed": {
     "state": "value",
-    "price": 190,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 180,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 190,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 180,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6141,13 +6144,13 @@
   "expo|onepiece_2443b85c|box": {
    "confirmed": {
     "state": "value",
-    "price": 7000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 7000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6185,13 +6188,13 @@
   "expo|onepiece_332361cd|box": {
    "confirmed": {
     "state": "value",
-    "price": 5500,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 5200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 5500,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 5200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6364,13 +6367,13 @@
   "expo|onepiece_479a9c42|carton": {
    "confirmed": {
     "state": "value",
-    "price": 196000,
-    "since": "2026-09-29T14:23:40+09:00"
+    "price": 200000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 196000,
-    "since": "2026-09-29T14:23:40+09:00"
+    "price": 200000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6474,13 +6477,13 @@
   "expo|onepiece_52c0d6a0|tape": {
    "confirmed": {
     "state": "value",
-    "price": 9900,
-    "since": "2026-09-29T14:23:40+09:00"
+    "price": 9500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 9900,
-    "since": "2026-09-29T14:23:40+09:00"
+    "price": 9500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6499,13 +6502,13 @@
   "expo|onepiece_5312478f|carton": {
    "confirmed": {
     "state": "value",
-    "price": 229000,
-    "since": "2026-09-27T13:22:51+09:00"
+    "price": 225000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 229000,
-    "since": "2026-09-27T13:22:51+09:00"
+    "price": 225000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6521,13 +6524,13 @@
   "expo|onepiece_5312478f|tape": {
    "confirmed": {
     "state": "value",
-    "price": 16500,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 16000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 16500,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 16000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6565,13 +6568,13 @@
   "expo|onepiece_5541d89b|carton": {
    "confirmed": {
     "state": "value",
-    "price": 140000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 145000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 140000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 145000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6587,13 +6590,13 @@
   "expo|onepiece_5541d89b|tape": {
    "confirmed": {
     "state": "value",
-    "price": 10500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 10800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 10500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 10800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6631,13 +6634,13 @@
   "expo|onepiece_554ab9c7|tape": {
    "confirmed": {
     "state": "value",
-    "price": 14000,
-    "since": "2026-09-22T13:54:28+09:00"
+    "price": 13000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 14000,
-    "since": "2026-09-22T13:54:28+09:00"
+    "price": 13000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6677,20 +6680,20 @@
   },
   "expo|onepiece_56ed4c82|tape": {
    "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-27T13:22:51+09:00"
+    "state": "value",
+    "price": 12000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-27T13:22:51+09:00"
+    "state": "value",
+    "price": 12000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "disappear",
-    "at": "2026-09-27T13:22:51+09:00"
+    "type": "appear",
+    "at": "2026-10-03T13:36:05+09:00"
    },
    "ref": {
     "store": "expo",
@@ -6791,13 +6794,13 @@
   "expo|onepiece_61516cd2|box": {
    "confirmed": {
     "state": "value",
-    "price": 7500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 7500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6835,13 +6838,13 @@
   "expo|onepiece_6636cacb|carton": {
    "confirmed": {
     "state": "value",
-    "price": 185000,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 187000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 185000,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 187000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6857,13 +6860,13 @@
   "expo|onepiece_6636cacb|tape": {
    "confirmed": {
     "state": "value",
-    "price": 15000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 15500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 15000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 15500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6973,13 +6976,13 @@
   "expo|onepiece_721917c9|box": {
    "confirmed": {
     "state": "value",
-    "price": 7700,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 7700,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -6998,13 +7001,13 @@
   "expo|onepiece_75705ce4|box": {
    "confirmed": {
     "state": "value",
-    "price": 3800,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 3400,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 3800,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 3400,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7042,13 +7045,13 @@
   "expo|onepiece_76282172|tape": {
    "confirmed": {
     "state": "value",
-    "price": 12500,
-    "since": "2026-09-26T13:12:11+09:00"
+    "price": 12000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 12500,
-    "since": "2026-09-26T13:12:11+09:00"
+    "price": 12000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7108,13 +7111,13 @@
   "expo|onepiece_7e2c6893|box": {
    "confirmed": {
     "state": "value",
-    "price": 6600,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 6600,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7130,13 +7133,13 @@
   "expo|onepiece_7fedfa20|box": {
    "confirmed": {
     "state": "value",
-    "price": 4000,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 4500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 4000,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 4500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7174,13 +7177,13 @@
   "expo|onepiece_88dfe58e|carton": {
    "confirmed": {
     "state": "value",
-    "price": 360000,
-    "since": "2026-09-25T13:11:39+09:00"
+    "price": 349000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 360000,
-    "since": "2026-09-25T13:11:39+09:00"
+    "price": 349000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7287,13 +7290,13 @@
   "expo|onepiece_a596dd63|box": {
    "confirmed": {
     "state": "value",
-    "price": 5500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 6000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 5500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 6000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7309,13 +7312,13 @@
   "expo|onepiece_a7d6506f|carton": {
    "confirmed": {
     "state": "value",
-    "price": 370000,
-    "since": "2026-09-21T22:19:14+09:00"
+    "price": 360000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 370000,
-    "since": "2026-09-21T22:19:14+09:00"
+    "price": 360000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7330,18 +7333,21 @@
   },
   "expo|onepiece_a7d6506f|tape": {
    "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-21T22:19:14+09:00"
+    "state": "value",
+    "price": 25000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-21T22:19:14+09:00"
+    "state": "value",
+    "price": 25000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
-   "lastEvent": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-10-03T13:36:05+09:00"
+   },
    "ref": {
     "store": "expo",
     "game": "onepiece",
@@ -7353,13 +7359,13 @@
   "expo|onepiece_af4ecafc|box": {
    "confirmed": {
     "state": "value",
-    "price": 93000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 95000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 93000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 95000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7375,13 +7381,13 @@
   "expo|onepiece_b1c95723|box": {
    "confirmed": {
     "state": "value",
-    "price": 4500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 3500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 4500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 3500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7422,13 +7428,13 @@
   "expo|onepiece_cbd10d06|box": {
    "confirmed": {
     "state": "value",
-    "price": 6200,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 5800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 6200,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 5800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7491,13 +7497,13 @@
   "expo|onepiece_cee8cc59|box": {
    "confirmed": {
     "state": "value",
-    "price": 4500,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 4000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 4500,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 4000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7513,13 +7519,13 @@
   "expo|onepiece_d2b88a26|box": {
    "confirmed": {
     "state": "value",
-    "price": 12500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 13000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 12500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 13000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7534,20 +7540,20 @@
   },
   "expo|onepiece_dc98026b|box": {
    "confirmed": {
-    "state": "value",
-    "price": 3100,
-    "since": "2026-10-02T14:07:03+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "value",
-    "price": 3100,
-    "since": "2026-10-02T14:07:03+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "appear",
-    "at": "2026-09-29T14:23:40+09:00"
+    "type": "disappear",
+    "at": "2026-10-03T13:36:05+09:00"
    },
    "ref": {
     "store": "expo",
@@ -7559,20 +7565,20 @@
   },
   "expo|onepiece_e13d0e35|box": {
    "confirmed": {
-    "state": "value",
-    "price": 4200,
-    "since": "2026-09-30T13:52:39+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "value",
-    "price": 4200,
-    "since": "2026-09-30T13:52:39+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "appear",
-    "at": "2026-09-28T13:20:12+09:00"
+    "type": "disappear",
+    "at": "2026-10-03T13:36:05+09:00"
    },
    "ref": {
     "store": "expo",
@@ -7629,13 +7635,13 @@
   "expo|onepiece_e7ef202a|tape": {
    "confirmed": {
     "state": "value",
-    "price": 20000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 18000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 20000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 18000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7651,13 +7657,13 @@
   "expo|onepiece_f20400d6|box": {
    "confirmed": {
     "state": "value",
-    "price": 1000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 1100,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 1000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 1100,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7676,13 +7682,13 @@
   "expo|onepiece_f32a1126|carton": {
    "confirmed": {
     "state": "value",
-    "price": 99000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 104000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 99000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 104000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7698,13 +7704,13 @@
   "expo|onepiece_f32a1126|tape": {
    "confirmed": {
     "state": "value",
-    "price": 8200,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 8300,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 8200,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 8300,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7742,13 +7748,13 @@
   "expo|onepiece_fc5242c0|box": {
    "confirmed": {
     "state": "value",
-    "price": 4000,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 4500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 4000,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 4500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7764,13 +7770,13 @@
   "expo|onepiece_fdde5de9|box": {
    "confirmed": {
     "state": "value",
-    "price": 10500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 10800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 10500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 10800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -7785,20 +7791,20 @@
   },
   "expo|onepiece_fe32c034|box": {
    "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-30T13:52:39+09:00"
+    "state": "value",
+    "price": 1200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-30T13:52:39+09:00"
+    "state": "value",
+    "price": 1200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "disappear",
-    "at": "2026-09-30T13:52:39+09:00"
+    "type": "appear",
+    "at": "2026-10-03T13:36:05+09:00"
    },
    "ref": {
     "store": "expo",
@@ -7811,13 +7817,13 @@
   "expo|pokemon_0108a5fe|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 10700,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 10500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 10700,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 10500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -8106,13 +8112,13 @@
   "expo|pokemon_13fcc149|noshrink": {
    "confirmed": {
     "state": "value",
-    "price": 25000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 25800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 25000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 25800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -8263,13 +8269,13 @@
   "expo|pokemon_1daaa6ee|noshrink": {
    "confirmed": {
     "state": "value",
-    "price": 11000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 11500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 11000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 11500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -8285,13 +8291,13 @@
   "expo|pokemon_1daaa6ee|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 14500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 14200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 14500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 14200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -8329,13 +8335,13 @@
   "expo|pokemon_2511d88d|noshrink": {
    "confirmed": {
     "state": "value",
-    "price": 7500,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 7600,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 7500,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 7600,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -8351,13 +8357,13 @@
   "expo|pokemon_2511d88d|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 8400,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 8000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 8400,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 8000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -8463,20 +8469,20 @@
   },
   "expo|pokemon_2ce1a068|box": {
    "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-10-01T14:50:22+09:00"
+    "state": "value",
+    "price": 1800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-10-01T14:50:22+09:00"
+    "state": "value",
+    "price": 1800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "disappear",
-    "at": "2026-10-01T14:50:22+09:00"
+    "type": "appear",
+    "at": "2026-10-03T13:36:05+09:00"
    },
    "ref": {
     "store": "expo",
@@ -8513,18 +8519,21 @@
   },
   "expo|pokemon_2f6b0875|box": {
    "confirmed": {
-    "state": "value",
-    "price": 5800,
-    "since": "2026-09-30T13:52:39+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "value",
-    "price": 5800,
-    "since": "2026-09-30T13:52:39+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
-   "lastEvent": null,
+   "lastEvent": {
+    "type": "disappear",
+    "at": "2026-10-03T13:36:05+09:00"
+   },
    "ref": {
     "store": "expo",
     "game": "pokemon",
@@ -8623,20 +8632,20 @@
   },
   "expo|pokemon_38d3c98c|box": {
    "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-27T13:22:51+09:00"
+    "state": "value",
+    "price": 4200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-27T13:22:51+09:00"
+    "state": "value",
+    "price": 4200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "disappear",
-    "at": "2026-09-27T13:22:51+09:00"
+    "type": "appear",
+    "at": "2026-10-03T13:36:05+09:00"
    },
    "ref": {
     "store": "expo",
@@ -8972,13 +8981,13 @@
   "expo|pokemon_50d5baac|noshrink": {
    "confirmed": {
     "state": "value",
-    "price": 11500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 11700,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 11500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 11700,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -8994,13 +9003,13 @@
   "expo|pokemon_50d5baac|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 12500,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 12300,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 12500,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 12300,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -9446,13 +9455,13 @@
   "expo|pokemon_77e3b01c|box": {
    "confirmed": {
     "state": "value",
-    "price": 5100,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 5300,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 5100,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 5300,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -9678,13 +9687,13 @@
   "expo|pokemon_866d74f0|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 16000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 16200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 16000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 16200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -9834,20 +9843,20 @@
   },
   "expo|pokemon_8f4f6d84|box": {
    "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-10-02T14:07:03+09:00"
+    "state": "value",
+    "price": 58000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-10-02T14:07:03+09:00"
+    "state": "value",
+    "price": 58000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "disappear",
-    "at": "2026-10-02T14:07:03+09:00"
+    "type": "appear",
+    "at": "2026-10-03T13:36:05+09:00"
    },
    "ref": {
     "store": "expo",
@@ -9907,13 +9916,13 @@
   "expo|pokemon_920325d0|box": {
    "confirmed": {
     "state": "value",
-    "price": 1300,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 1200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 1300,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 1200,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -10108,13 +10117,13 @@
   "expo|pokemon_a0351009|box": {
    "confirmed": {
     "state": "value",
-    "price": 1800,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 1600,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 1800,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 1600,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -10246,13 +10255,13 @@
   "expo|pokemon_a4df8684|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 7500,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 7400,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 7500,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 7400,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -10497,13 +10506,13 @@
   "expo|pokemon_afc75c89|noshrink": {
    "confirmed": {
     "state": "value",
-    "price": 19000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 19500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 19000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 19500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -10676,13 +10685,13 @@
   "expo|pokemon_b87614a2|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 6900,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 6800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 6900,
-    "since": "2026-10-01T14:50:22+09:00"
+    "price": 6800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -10942,20 +10951,20 @@
   },
   "expo|pokemon_dd7c7925|box": {
    "confirmed": {
-    "state": "value",
-    "price": 800,
-    "since": "2026-10-02T14:07:03+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "value",
-    "price": 800,
-    "since": "2026-10-02T14:07:03+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "appear",
-    "at": "2026-09-30T13:52:39+09:00"
+    "type": "disappear",
+    "at": "2026-10-03T13:36:05+09:00"
    },
    "ref": {
     "store": "expo",
@@ -11036,20 +11045,20 @@
   },
   "expo|pokemon_e58d982a|box": {
    "confirmed": {
-    "state": "value",
-    "price": 2400,
-    "since": "2026-10-02T14:07:03+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "value",
-    "price": 2400,
-    "since": "2026-10-02T14:07:03+09:00"
+    "state": "none",
+    "price": null,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "appear",
-    "at": "2026-09-30T13:52:39+09:00"
+    "type": "disappear",
+    "at": "2026-10-03T13:36:05+09:00"
    },
    "ref": {
     "store": "expo",
@@ -11153,13 +11162,13 @@
   "expo|pokemon_ebea83a5|box": {
    "confirmed": {
     "state": "value",
-    "price": 18000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 17500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 18000,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 17500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -11378,18 +11387,21 @@
   },
   "expo|pokemon_f8746beb|box": {
    "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-21T22:19:14+09:00"
+    "state": "value",
+    "price": 24000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-09-21T22:19:14+09:00"
+    "state": "value",
+    "price": 24000,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
-   "lastEvent": null,
+   "lastEvent": {
+    "type": "appear",
+    "at": "2026-10-03T13:36:05+09:00"
+   },
    "ref": {
     "store": "expo",
     "game": "pokemon",
@@ -11401,13 +11413,13 @@
   "expo|pokemon_f9e1d58b|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 8500,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 8800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 8500,
-    "since": "2026-09-30T13:52:39+09:00"
+    "price": 8800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -11558,13 +11570,13 @@
   "expo|unionarena_33b5be0e|tape": {
    "confirmed": {
     "state": "value",
-    "price": 8200,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7400,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 8200,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7400,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -11579,20 +11591,20 @@
   },
   "expo|unionarena_3447aa8e|tape": {
    "confirmed": {
-    "state": "none",
-    "price": null,
-    "since": "2026-10-02T14:07:03+09:00"
+    "state": "value",
+    "price": 5800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
-    "state": "none",
-    "price": null,
-    "since": "2026-10-02T14:07:03+09:00"
+    "state": "value",
+    "price": 5800,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
    "lastEvent": {
-    "type": "disappear",
-    "at": "2026-10-02T14:07:03+09:00"
+    "type": "appear",
+    "at": "2026-10-03T13:36:05+09:00"
    },
    "ref": {
     "store": "expo",
@@ -12211,13 +12223,13 @@
   "expo|weiss_f2090ccc|tape": {
    "confirmed": {
     "state": "value",
-    "price": 7100,
-    "since": "2026-09-27T13:22:51+09:00"
+    "price": 7500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 7100,
-    "since": "2026-09-27T13:22:51+09:00"
+    "price": 7500,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,
@@ -12233,13 +12245,13 @@
   "expo|yugioh_84dc772b|shrink": {
    "confirmed": {
     "state": "value",
-    "price": 7500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7100,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "shown": {
     "state": "value",
-    "price": 7500,
-    "since": "2026-10-02T14:07:03+09:00"
+    "price": 7100,
+    "since": "2026-10-03T13:36:05+09:00"
    },
    "pending": null,
    "ignored": null,

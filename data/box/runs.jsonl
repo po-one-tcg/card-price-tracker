@@ -2027,3 +2027,13 @@
 {"t":"2026-10-03T13:32:41+09:00","store":"collect","src":"collect-onepiece-other","ok":true,"count":36}
 {"t":"2026-10-03T13:32:41+09:00","store":"collect","src":"collect-dragonball","ok":true,"count":5}
 {"t":"2026-10-03T13:32:41+09:00","store":"collect","src":"collect-yugioh","ok":true,"count":5}
+{"t":"2026-10-03T13:36:05+09:00","store":"expo","src":"yugioh","ok":true,"count":3}
+{"t":"2026-10-03T13:36:05+09:00","store":"expo","src":"mtg","ok":true,"count":5}
+{"t":"2026-10-03T13:36:05+09:00","store":"expo","src":"unionarena","ok":true,"count":28}
+{"t":"2026-10-03T13:36:05+09:00","store":"expo","src":"weiss-lorcana","ok":true,"count":10}
+{"t":"2026-10-03T13:36:05+09:00","store":"expo","src":"dragonball","ok":true,"count":15}
+{"t":"2026-10-03T13:36:05+09:00","store":"expo","src":"onepiece-other","ok":true,"count":34}
+{"t":"2026-10-03T13:36:05+09:00","store":"expo","src":"onepiece","ok":true,"count":46}
+{"t":"2026-10-03T13:36:05+09:00","store":"expo","src":"pokemon-old-box","ok":true,"count":16}
+{"t":"2026-10-03T13:36:05+09:00","store":"expo","src":"pokemon-other","ok":true,"count":63}
+{"t":"2026-10-03T13:36:05+09:00","store":"expo","src":"pokemon-box","ok":true,"count":80}
