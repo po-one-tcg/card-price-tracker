@@ -460,3 +460,4 @@
 {"t":"2026-10-03T13:40:56+09:00","type":"disappear","from":64000,"k":"somurie|yugioh_f8033775|carton","store":"somurie","game":"yugioh","pid":"yugioh_f8033775","name":"遊戯王 デッキビルドパック グロリアス・ヴィクターズ"}
 {"t":"2026-10-03T13:40:56+09:00","type":"appear","from":"none","to":10000,"k":"pricebase|onepiece_52c0d6a0|box","store":"pricebase","game":"onepiece","pid":"onepiece_52c0d6a0","name":"PRB-02 THE BEST Vol.2"}
 {"t":"2026-10-03T13:40:56+09:00","type":"appear","from":"none","to":28000,"k":"pricebase|onepiece_a7d6506f|box","store":"pricebase","game":"onepiece","pid":"onepiece_a7d6506f","name":"EB-02 Anime25th collection"}
+{"t":"2026-10-03T13:44:01+09:00","type":"appear","from":"none","to":262000,"k":"nikoniko|onepiece_e7ef202a|carton","store":"nikoniko","game":"onepiece","pid":"onepiece_e7ef202a","name":"OP-06 双璧の覇者"}
