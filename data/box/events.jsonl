@@ -468,3 +468,6 @@
 {"t":"2026-10-03T15:22:34+09:00","type":"anomaly","from":100,"to":200,"k":"macho|onepiece_9ca95851|box","store":"macho","game":"onepiece","pid":"onepiece_9ca95851","name":"ワンピースカードゲーム プロモーションカード「4周年!四皇トレジャーゲットキャンペーンパック」パック"}
 {"t":"2026-10-03T15:22:34+09:00","type":"appear","to":1200,"k":"macho|onepiece_55937d23|box","store":"macho","game":"onepiece","pid":"onepiece_55937d23","name":"ラウンドワン プロモーションパック"}
 {"t":"2026-10-03T15:22:34+09:00","type":"appear","to":210000,"k":"macho|onepiece_385f13a8|carton","store":"macho","game":"onepiece","pid":"onepiece_385f13a8","name":"OP-02 頂上決戦"}
+{"t":"2026-10-03T18:04:06+09:00","type":"disappear","from":18000,"k":"runto|pokemon_ebea83a5|box","store":"runto","game":"pokemon","pid":"pokemon_ebea83a5","name":"30th CELEBRATION プレミアムデッキセット エーフィ・ブラッキー"}
+{"t":"2026-10-03T18:04:06+09:00","type":"appear","from":"none","to":145000,"k":"runto|pokemon_079bbd72|box","store":"runto","game":"pokemon","pid":"pokemon_079bbd72","name":"ドリームリーグ"}
+{"t":"2026-10-03T18:04:06+09:00","type":"appear","from":"none","to":170000,"k":"runto|pokemon_958fd86b|box","store":"runto","game":"pokemon","pid":"pokemon_958fd86b","name":"TAG TEAM GX タッグオールスターズ"}

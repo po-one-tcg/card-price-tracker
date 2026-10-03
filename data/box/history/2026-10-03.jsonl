@@ -332,3 +332,9 @@
 {"t":"2026-10-03T15:22:34+09:00","k":"macho|onepiece_36c70714|carton","st":"value","v":430000}
 {"t":"2026-10-03T15:22:34+09:00","k":"pricebase|onepiece_6636cacb|box","st":"value","v":15800}
 {"t":"2026-10-03T15:22:34+09:00","k":"pricebase|pokemon_b6ca6a70|shrink","st":"value","v":9000}
+{"t":"2026-10-03T18:04:06+09:00","k":"runto|pokemon_ebea83a5|box","st":"none","v":null}
+{"t":"2026-10-03T18:04:06+09:00","k":"runto|pokemon_079bbd72|box","st":"value","v":145000}
+{"t":"2026-10-03T18:04:06+09:00","k":"runto|pokemon_958fd86b|box","st":"value","v":170000}
+{"t":"2026-10-03T18:04:06+09:00","k":"runto|yugioh_84dc772b|shrink","st":"value","v":7200}
+{"t":"2026-10-03T18:04:06+09:00","k":"homura|pokemon_50d5baac|shrink","st":"value","v":12200}
+{"t":"2026-10-03T18:04:06+09:00","k":"homura|pokemon_50d5baac|noshrink","st":"value","v":11500}
