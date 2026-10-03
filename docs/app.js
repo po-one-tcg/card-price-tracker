@@ -135,7 +135,12 @@
   }
   // 店舗の並び順（ブラウザだけに覚えさせる。既定は五十音順）
   const DEFAULT_STORE_ORDER = ['expo', 'collect', 'somurie', 'nikoniko', 'homura', 'pricebase', 'macho', 'runto'];
-  function storeOrderArray() {
+  // 表の見出しの店名。買取ページ（またはXのアカウント）があればリンクにする（新しいタブで開く）
+function storeLabel(s) {
+  return s.url ? h('a', { class: 'store-link', href: s.url, target: '_blank', rel: 'noopener noreferrer' }, s.name) : s.name;
+}
+
+function storeOrderArray() {
     const known = new Set(DATA.stores.map((s) => s.id));
     const saved = (filters.storeOrder || []).filter((id) => known.has(id));
     if (saved.length) return saved;
@@ -341,7 +346,7 @@
           : !st.fresh ? h('span', { class: 'badge warn' }, '⚠ 未取得')
           : !isToday ? h('span', { class: 'badge notice' }, '本日未更新')
           : null;
-        return h('th', { class: 'store' }, s.name,
+        return h('th', { class: 'store' }, storeLabel(s),
           badge ? h('div', { style: 'margin-top:3px; text-align:center' }, badge) : null,
           h('small', { class: 'muted' }, timeText));
       })));
@@ -393,7 +398,7 @@
       : null;
     const table = stores.length
       ? h('div', { class: 'tablewrap', style: 'max-height:none' }, h('table', null,
-          h('thead', null, h('tr', null, h('th', { class: 'name' }, '状態'), stores.map((s) => h('th', { class: 'store' }, s.name)))),
+          h('thead', null, h('tr', null, h('th', { class: 'name' }, '状態'), stores.map((s) => h('th', { class: 'store' }, storeLabel(s))))),
           h('tbody', null, conds.map((c) => {
             const rowCells = stores.map((s) => p.cells.find((x) => x.store === s.id && x.cond === c));
             const isMax = markMax(rowCells);

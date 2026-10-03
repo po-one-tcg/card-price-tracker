@@ -113,6 +113,7 @@
       "id": "runto",
       "name": "Runto",
       "type": "auto",
+      "url": "https://runto666.com/",
       "_note": "WooCommerce の公開API(Store API)から取得。状態(シュリンク有/無・カートン等)ごとの価格と、在庫なし(=買取停止)を見る。",
       "sources": [
         {
@@ -157,6 +158,7 @@
       "id": "homura",
       "name": "ホムラ",
       "type": "auto",
+      "url": "https://kaitori-homura.com/",
       "_note": "Node の fetch だとボット判定される。scripts/lib/common.js の fetchWithCurl(curlをサブプロセス実行)で取得する。状態(シュリンク有/無・カートン・白箱)ごとに別URL。商品名の【…】の印を状態として優先し、無ければURLの状態を使う。",
       "sources": [
         {
@@ -270,6 +272,7 @@
       "id": "expo",
       "name": "EXPO",
       "type": "manual",
+      "url": "https://x.com/kaitoriexpo",
       "freshHours": 36,
       "_note": "Xのポストを管理画面に貼り付けて取り込む。sections は「✅見出し」ごとの取り込み設定。",
       "sections": [
@@ -395,6 +398,7 @@
       "id": "somurie",
       "name": "ソムリエ",
       "type": "auto",
+      "url": "https://somurie-kaitori.com/",
       "_note": "商品数が少ない店。空のカテゴリ(ワンピース等)も見張り、買取を始めたら出現として検知する。1000円未満(バラのレート)は対象外。",
       "sources": [
         {
@@ -482,6 +486,7 @@
       "id": "collect",
       "name": "コレクト",
       "type": "manual",
+      "url": "https://x.com/collect_tendo",
       "freshHours": 168,
       "_note": "価格表の画像/ポストを、決まった書式の文章にして管理画面に貼り付けて取り込む。更新が不定期なので、未確認になるまでの時間を長め(7日)にしている。",
       "sections": [
@@ -565,6 +570,7 @@
       "id": "nikoniko",
       "name": "にこにこ",
       "type": "manual",
+      "url": "https://x.com/niko_kaitori",
       "freshHours": 168,
       "_note": "Xのポスト、または買取価格表ページのコピーを管理画面に貼り付けて取り込む。Xのポストは見出し(✅)が無いので「見出しを選ぶ」で区分を手動で選ぶ（1行に状態が2つ入る書式は condLabels で対応づけ）。ページのコピーは「ポケモンカード」「64商品」の行から区分を自動で決める（headings と、列の順に状態を並べた pageCols を使う。「準備中」は買取なしとして載せない）。",
       "sections": [
@@ -630,6 +636,7 @@
       "id": "macho",
       "name": "マッチョ",
       "type": "auto",
+      "url": "https://kaitori.alc-japan.co.jp/",
       "_note": "商品ごとに page.html の中にJSONが直接埋め込まれている（scripts/sites/macho.js 参照）。夜間は全商品が「調整中」（未確認）になる。現在は pokemon/onepiece のみ商品あり。yugioh/dragonball は0件だが、今後の出現を見張る。",
       "sources": [
         {
@@ -667,6 +674,7 @@
       "name": "BASE",
       "_note": "price-base.com（無関係の別会社。実際の買取価格ではなく「取引相場の目安」記事）から、kaitori-base.com（X: @KaitoriBase3「買取BASE@トレカ」の実際の買取価格表）に切り替え済み。storeId は互換のため pricebase のまま。",
       "type": "auto",
+      "url": "https://kaitori-base.com/",
       "sources": [
         {
           "game": "onepiece",

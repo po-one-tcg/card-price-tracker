@@ -214,7 +214,7 @@ function build() {
     periods: PERIODS,
     games: config.games,
     conditions: config.conditions,
-    stores: config.stores.map((s) => ({ id: s.id, name: s.name, type: s.type })),
+    stores: config.stores.map((s) => ({ id: s.id, name: s.name, type: s.type, url: s.url || null })),
     sourceStatus,
     storeGame,
     products: outProducts,
