@@ -285,7 +285,8 @@
       const index = new Map();
       for (const p of manual.products) if (!index.has(`${p.game}|${resolve(p.game, p.name)}`)) index.set(`${p.game}|${resolve(p.game, p.name)}`, p.id);
       const threshold = manual.thresholdPct ?? 50;
-      const anomalous = (a, b) => !(b > 0) || (Math.abs(b - a) / a) * 100 > threshold;
+      const digitError = (a, b) => { const r = b / a; return a > 0 && b > 0 && [10, 100, 0.1, 0.01].some((f) => r >= f * 0.7 && r <= f * 1.3); }; // 桁間違いは保留にせず無視される（detect.js と同じ）
+      const anomalous = (a, b) => !(b > 0) || (!digitError(a, b) && (Math.abs(b - a) / a) * 100 > threshold);
 
       // 同じ貼り付けの中の「全商品リスト」は、価格変更より先に取り込まれる。価格変更の照合には、それも含めて見る
       const pastedEntries = parsed.blocks

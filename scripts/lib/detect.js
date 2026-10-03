@@ -26,6 +26,15 @@ function isAnomalous(prevPrice, nextPrice, thresholdPct = DEFAULT_THRESHOLD_PCT)
   return (Math.abs(nextPrice - prevPrice) / prevPrice) * 100 > thresholdPct;
 }
 
+// 前回の確定価格のほぼ10倍・100倍、または1/10・1/100は、桁の打ち間違い（28万円 → 2.8万円 など）とみなす。
+// 実際の値上げ・値下げでは起きない大きさなので、人の確認は求めず、その回の値を無視する（確定済みの価格のまま）。
+// 前回との差が少しあっても検出できるよう、10倍・100倍の±30%を許容する。
+function isDigitError(prevPrice, nextPrice) {
+  if (!(prevPrice > 0) || !(nextPrice > 0)) return false;
+  const r = nextPrice / prevPrice;
+  return [10, 100, 0.1, 0.01].some((f) => r >= f * 0.7 && r <= f * 1.3);
+}
+
 function newEntry() {
   return { confirmed: null, shown: null, pending: null, ignored: null, lastEvent: null };
 }
@@ -114,6 +123,12 @@ function step(prevEntry, obs, ctx) {
     setShown('value', c.price);
     return { entry: e, events, rows };
   }
+  if (isDigitError(c.price, p)) {
+    // 桁間違い: 保留にせず、この回の値は無視して確定済みの価格のまま出し続ける
+    e.pending = null;
+    setShown('value', c.price);
+    return { entry: e, events, rows };
+  }
   if (isAnomalous(c.price, p, threshold)) {
     if (!e.pending || e.pending.price !== p) {
       e.pending = { price: p, prevPrice: c.price, since: now };
@@ -170,4 +185,4 @@ function applyDecision(prevEntry, decision, now) {
   return { entry: e, events, rows };
 }
 
-module.exports = { DEFAULT_THRESHOLD_PCT, isAnomalous, newEntry, step, applyDecision };
+module.exports = { DEFAULT_THRESHOLD_PCT, isAnomalous, isDigitError, newEntry, step, applyDecision };

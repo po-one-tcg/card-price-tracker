@@ -1,7 +1,7 @@
 // 実行: node --test scripts/lib/
 const test = require('node:test');
 const assert = require('node:assert/strict');
-const { step, applyDecision, isAnomalous } = require('./detect');
+const { step, applyDecision, isAnomalous, isDigitError } = require('./detect');
 
 const T = (n) => `2026-09-${String(n).padStart(2, '0')}T11:00:00+09:00`;
 const value = (price) => ({ kind: 'value', price });
@@ -49,7 +49,7 @@ test('何日も続けて休止のときは、since が最新の休止日に更�
 
 test('休止のあとに大きく違う金額で再開したら、確定済みの金額と比べて異常検知する', () => {
   const e = run(run(null, value(5000), 1, false).entry, { kind: 'paused' }, 2).entry;
-  assert.deepEqual(run(e, value(50000), 3).events.map((x) => x.type), ['anomaly']);
+  assert.deepEqual(run(e, value(20000), 3).events.map((x) => x.type), ['anomaly']);
 });
 
 test('〆切（none）のあとの休止 → 再開は、通常どおり出現', () => {
@@ -84,9 +84,9 @@ test('数値あり → 数値あり: 小さな変動は通常反映（イベン�
 
 test('数値あり → 数値あり: 閾値超は保留し、公開は前の価格のまま', () => {
   const e = run(null, value(14000), 1, false).entry;
-  const r = run(e, value(140000), 2); // 桁間違い
+  const r = run(e, value(40000), 2); // 大きな変化（桁間違いではない）
   assert.deepEqual(r.events.map((x) => x.type), ['anomaly']);
-  assert.equal(r.entry.pending.price, 140000);
+  assert.equal(r.entry.pending.price, 40000);
   assert.equal(r.entry.shown.price, 14000);
   assert.equal(r.rows.length, 0);
 });
@@ -97,13 +97,13 @@ test('0円は保留', () => {
 });
 
 test('保留中に同じ値が続いても異常イベントは重複しない / 別の値なら更新', () => {
-  let e = run(run(null, value(14000), 1, false).entry, value(140000), 2).entry;
-  assert.equal(run(e, value(140000), 3).events.length, 0);
-  assert.deepEqual(run(e, value(150000), 3).events.map((x) => x.type), ['anomaly']);
+  let e = run(run(null, value(14000), 1, false).entry, value(40000), 2).entry;
+  assert.equal(run(e, value(40000), 3).events.length, 0);
+  assert.deepEqual(run(e, value(45000), 3).events.map((x) => x.type), ['anomaly']);
 });
 
 test('保留中に元の価格へ戻ったら保留は自動で消える', () => {
-  let e = run(run(null, value(14000), 1, false).entry, value(140000), 2).entry;
+  let e = run(run(null, value(14000), 1, false).entry, value(40000), 2).entry;
   const r = run(e, value(14000), 3);
   assert.equal(r.entry.pending, null);
 });
@@ -138,7 +138,7 @@ test('未確認: まだ一度も確認できていない商品（確定済みの
 test('未確認を挟んだ後の変化も、確定済みの価格と比較して異常検知する', () => {
   let e = run(null, value(14000), 1, false).entry;
   e = run(e, { kind: 'unknown' }, 2).entry;
-  assert.deepEqual(run(e, value(140000), 3).events.map((x) => x.type), ['anomaly']);
+  assert.deepEqual(run(e, value(40000), 3).events.map((x) => x.type), ['anomaly']);
 });
 
 test('判断: approve は保留の価格を反映', () => {
@@ -149,10 +149,10 @@ test('判断: approve は保留の価格を反映', () => {
 });
 
 test('判断: set は修正値を反映し、サイトが同じ誤値を出し続けても再保留しない', () => {
-  let e = run(run(null, value(14000), 1, false).entry, value(140000), 2).entry;
+  let e = run(run(null, value(14000), 1, false).entry, value(40000), 2).entry;
   e = applyDecision(e, { action: 'set', price: 14500 }, T(3)).entry;
   assert.equal(e.shown.price, 14500);
-  const r = run(e, value(140000), 4); // サイトは相変わらず140000
+  const r = run(e, value(40000), 4); // サイトは相変わらず40000
   assert.equal(r.events.length, 0);
   assert.equal(r.entry.pending, null);
   assert.equal(r.entry.shown.price, 14500);
@@ -161,10 +161,10 @@ test('判断: set は修正値を反映し、サイトが同じ誤値を出し�
 });
 
 test('判断: dismiss は据え置き、同じ値では再保留しない', () => {
-  let e = run(run(null, value(14000), 1, false).entry, value(140000), 2).entry;
+  let e = run(run(null, value(14000), 1, false).entry, value(40000), 2).entry;
   e = applyDecision(e, { action: 'dismiss' }, T(3)).entry;
   assert.equal(e.shown.price, 14000);
-  assert.equal(run(e, value(140000), 4).events.length, 0);
+  assert.equal(run(e, value(40000), 4).events.length, 0);
 });
 
 test('判断: 保留が無い項目への approve はエラー', () => {
@@ -177,4 +177,33 @@ test('step は元の entry を書き換えない', () => {
   const snapshot = JSON.stringify(e);
   run(e, { kind: 'absent' }, 2);
   assert.equal(JSON.stringify(e), snapshot);
+});
+
+test('桁間違い（約10倍・1/10など）は保留にせず、その回の値を無視して確定価格のまま', () => {
+  const e = run(null, value(280000), 1, false).entry;
+  for (const bad of [28000, 26000, 2800000, 2800]) {
+    const r = run(e, value(bad), 2);
+    assert.equal(r.events.length, 0, `${bad}`);
+    assert.equal(r.entry.pending, null, `${bad}`);
+    assert.equal(r.entry.confirmed.price, 280000, `${bad}`);
+    assert.equal(r.entry.shown.price, 280000, `${bad}`);
+    assert.equal(r.rows.length, 0, `${bad}`);
+  }
+});
+
+test('桁間違いの後に、正しい値（少し違う）が出たら通常どおり反映される', () => {
+  let e = run(null, value(280000), 1, false).entry;
+  e = run(e, value(28000), 2).entry;
+  const r = run(e, value(260000), 3);
+  assert.equal(r.entry.confirmed.price, 260000);
+  assert.equal(r.entry.pending, null);
+});
+
+test('isDigitError: 10倍・100倍・1/10・1/100の±30%だけ。2倍や3倍は桁間違いではない', () => {
+  assert.equal(isDigitError(14000, 140000), true);
+  assert.equal(isDigitError(14000, 1400), true);
+  assert.equal(isDigitError(280000, 26000), true);
+  assert.equal(isDigitError(14000, 28000), false);
+  assert.equal(isDigitError(14000, 42000), false);
+  assert.equal(isDigitError(14000, 0), false);
 });
